@@ -7,17 +7,17 @@ import ThemeProvider from './theme/Provider';
 import LocaleProvider from './locale/Provider';
 
 const Root = () => (
-	<LocaleProvider>
-		<ThemeProvider>
-			<Layout>
-				<Router>
-					<Switch>
-						<Route exact path="/" component={Landing} />
-					</Switch>
-				</Router>
-			</Layout>
-		</ThemeProvider>
-	</LocaleProvider>
+  <LocaleProvider>
+    <ThemeProvider>
+      <Layout>
+        <Router>
+          <Switch>
+            <Route exact path="/" component={Landing} />
+          </Switch>
+        </Router>
+      </Layout>
+    </ThemeProvider>
+  </LocaleProvider>
 );
 
 export default Root;

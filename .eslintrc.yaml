@@ -8,10 +8,10 @@ settings:
   import/resolver:
     alias:
       map:
-        - [i18n, ./web/src/i18n]
-        - [common, ./web/src/common]
-        - [themes, ./web/src/themes]
-        - [components, ./web/src/components]
+        - [i18n, ./src/i18n]
+        - [common, ./src/common]
+        - [themes, ./src/themes]
+        - [components, ./src/components]
       extensions:
         - .ts
         - .js
@@ -19,6 +19,11 @@ settings:
         - .json
 extends: airbnb
 rules:
+  react/jsx-filename-extension:
+    - warning
+    - extensions:
+        - .js
+        - .jsx
   react/jsx-no-bind:
     - error
     - allowArrowFunctions: true

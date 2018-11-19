@@ -6,15 +6,11 @@ const themeColors = {
   borderLight: ({ theme = {} } = {}) => theme.colors.borderLight,
   brand: ({ theme = {} } = {}) => theme.colors.brand,
   disabled: ({ theme = {} } = {}) => theme.colors.disabled,
-  foregroundOnBackground: ({ theme = {} } = {}) =>
-    theme.colors.foregroundOnBackground,
+  foregroundOnBackground: ({ theme = {} } = {}) => theme.colors.foregroundOnBackground,
   foregroundOnBrand: ({ theme = {} } = {}) => theme.colors.foregroundOnBrand,
-  foregroundOnDisabled: ({ theme = {} } = {}) =>
-    theme.colors.foregroundOnDisabled,
-  foregroundOnPrimary: ({ theme = {} } = {}) =>
-    theme.colors.foregroundOnPrimary,
-  foregroundOnSecondary: ({ theme = {} } = {}) =>
-    theme.colors.foregroundOnSecondary,
+  foregroundOnDisabled: ({ theme = {} } = {}) => theme.colors.foregroundOnDisabled,
+  foregroundOnPrimary: ({ theme = {} } = {}) => theme.colors.foregroundOnPrimary,
+  foregroundOnSecondary: ({ theme = {} } = {}) => theme.colors.foregroundOnSecondary,
   primary: ({ theme = {} } = {}) => theme.colors.primary,
   primaryDark: ({ theme = {} } = {}) => theme.colors.primaryDark,
   primaryLight: ({ theme = {} } = {}) => theme.colors.primaryLight,

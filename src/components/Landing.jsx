@@ -8,17 +8,17 @@ import Txt from 'common/Txt';
 import LocaleMenu from './locale/Menu';
 
 const Landing = () => (
-	<>
-		<AppBar position="static">
-			<StyledToolbar>
-				<EmptyBlock />
-				<LocaleMenu />
-			</StyledToolbar>
-		</AppBar>
-		<StyledTitle>
-			<Txt id="messages.selectGame" />
-		</StyledTitle>
-	</>
+  <>
+    <AppBar position="static">
+      <StyledToolbar>
+        <EmptyBlock />
+        <LocaleMenu />
+      </StyledToolbar>
+    </AppBar>
+    <StyledTitle>
+      <Txt id="messages.selectGame" />
+    </StyledTitle>
+  </>
 );
 
 export default Landing;

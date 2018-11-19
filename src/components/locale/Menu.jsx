@@ -7,14 +7,13 @@ import Icon from '@material-ui/core/Icon';
 
 const LocaleMenu = () => {
   const [el, setEl] = useState(null);
-  const [t, i18n] = useTranslation();
+  const [, i18n] = useTranslation();
   const [locale] = i18n.languages || [];
   const handleOpen = ({ currentTarget }) => setEl(currentTarget);
   const handleClose = () => setEl(null);
   const handleClick = value => () => {
     setEl(null);
     i18n.changeLanguage(value);
-    console.log('t', t('messages.selectGame'));
   };
   const items = [
     { id: 'es', label: 'Español' },

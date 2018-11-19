@@ -6,15 +6,15 @@ import Storage from 'common/Storage';
 import Spinner from 'common/Spinner';
 
 const LocaleProvider = ({ children }) => {
-	const storage = 'locale';
-	useTranslation();
+  const storage = 'locale';
+  useTranslation();
 
-	return (
-		<Suspense fallback={Spinner}>
-			<Storage index={storage} value={i18n.language} />
-			{children}
-		</Suspense>
-	);
+  return (
+    <Suspense fallback={Spinner}>
+      <Storage index={storage} value={i18n.language} />
+      {children}
+    </Suspense>
+  );
 };
 
 export default LocaleProvider;

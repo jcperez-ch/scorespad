@@ -7,17 +7,17 @@ const spinKeyframe = keyframes`
 `;
 
 const SpinnerElement = styled.span`
-	display: inline-block;
-	animation: ${spinKeyframe} 800ms ease-in-out infinite;
-	padding: 2rem 1rem;
-	font-size: 1.2rem;
+  display: inline-block;
+  animation: ${spinKeyframe} 800ms ease-in-out infinite;
+  padding: 2rem 1rem;
+  font-size: 1.2rem;
 `;
 
 const Spinner = () => (
-	// eslint-disable-next-line jsx-a11y/accessible-emoji
-	<SpinnerElement role="img" aria-label="Loading...">
-		⚙️
-	</SpinnerElement>
+  // eslint-disable-next-line jsx-a11y/accessible-emoji
+  <SpinnerElement role="img" aria-label="Loading...">
+    ⚙️
+  </SpinnerElement>
 );
 
 export default Spinner;
