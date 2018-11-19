@@ -1,0 +1,54 @@
+{
+    "title": {
+        "builder": "~(appTitle)~ :: Construye el Juego",
+        "game": "~(appTitle)~ :: Juego",
+        "round": "~(appTitle)~ :: Partida",
+        "root": "Libretita ~(version)~"
+    },
+    "button": {
+        "add": "Agregar",
+        "addTeam": "Agrega Equipo",
+        "back": "Regresar",
+        "cancel": "Cancerlar",
+        "createGame": "Crear Juego",
+        "endGame": "Terminar Juego",
+        "eraseTeams": "Borrar Equipos",
+        "ok": "Ok",
+        "resumeGame": "Retomar Juego",
+        "rename": "Renombrar",
+        "startGame": "Comenzar",
+        "sum": "Sumar"
+    },
+    "placeholder": {
+        "gameName": "Nombre del Juego",
+        "savedGame": "Juego respaldado",
+        "teamName": "Nombre del Equipo"
+    },
+    "messages": {
+        "buildQuickTeams": "Construye tus equipos",
+        "confirmEndGame": "Estás seguro de querer terminar este juego?",
+        "confirmRemoveAllTeams": "Estás seguro de querer borrar todos los equipos de este juego?",
+        "confirmRemoveGame": "Estás seguro de que quieres borrar este juego?",
+        "confirmRemoveTeam": "Estás seguro de que quieres borrar a \"~(teamName)~\" del juego?",
+        "selectGame": "Selecciona tu juego",
+        "startQuickGame": "Listo para comenzar?"
+    },
+    "errors": {
+        "digitsOnly": "Estás seguro de haber escrito sólo números?",
+        "requiredTeamName": "Olvidaste escribir el nombre del equipo?",
+        "requiredGameName": "Olvidaste escribir el nombre del juego?",
+        "teamAlreadyFound": "Ese equipo ya estaba registrado en el juego. O no?"
+    },
+    "text": {
+        "addNewTeam": "Escribe el nombre del equipo o persona que quieres agregar el juego, luego presiona el botón de \"Agregar\".",
+        "selectGame": "Dejaste algún juego ya empezado? Haz click en el nombre de tu juego o si quieres empezar un juego desde cero haz click en el botón de \"Crear Juego\"",
+        "selectNewGame": "Para comenzar un juego haz click en el botón de \"Crear Juego\"",
+        "startNewGame": "Para comenzar el juego necesitas nombrarlo, escribe el nombre abajo y haz click en \"Comenzar Juego\". Si, ya te arrepentiste podrías hacer click en \"Cancelar\""
+    },
+    "skins": {
+        "default": "Básico",
+        "inferno": "Infierno",
+        "mexican": "Patriota",
+        "silver": "Plata"
+    }
+}

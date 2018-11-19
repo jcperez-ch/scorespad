@@ -1,0 +1,28 @@
+env:
+  browser: true
+  jest: true
+parser: babel-eslint
+parserOptions:
+  ecmaVersion: 2018
+settings:
+  import/resolver:
+    alias:
+      map:
+        - [i18n, ./web/src/i18n]
+        - [common, ./web/src/common]
+        - [themes, ./web/src/themes]
+        - [components, ./web/src/components]
+      extensions:
+        - .ts
+        - .js
+        - .jsx
+        - .json
+extends: airbnb
+rules:
+  react/jsx-no-bind:
+    - error
+    - allowArrowFunctions: true
+  react/prefer-stateless-function:
+    - off
+  react/prop-types:
+    - off

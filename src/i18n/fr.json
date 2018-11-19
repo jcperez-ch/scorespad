@@ -1,0 +1,54 @@
+{
+  "title": {
+    "builder": "~(appTitle)~ :: Construit le Jeu",
+    "game": "~(appTitle)~ :: En Jeu",
+    "round": "~(appTitle)~ :: Résultats",
+    "root": "Le p'tit cahier ~(version)~"
+  },
+  "button": {
+    "add": "Ajouter",
+    "addTeam": "Ajoute un Équipe",
+    "back": "Returner",
+    "cancel": "Annuler",
+    "createGame": "Creer jeu",
+    "endGame": "Terminer le jeu",
+    "eraseTeams": "Éfacer les Équipes",
+    "ok": "Oki",
+    "resumeGame": "Reprendre le jeu",
+    "rename": "Enregistrer",
+    "startGame": "Commencer",
+    "sum": "Additionner"
+  },
+  "placeholder": {
+    "gameName": "Nom du Jeu",
+    "savedGame": "Jeu en cours",
+    "teamName": "Nom de l'Équipe"
+  },
+  "messages": {
+    "buildQuickTeams": "Construit tes équipes",
+    "confirmEndGame": "Veux-tu confirmer que le jeu est finni?",
+    "confirmRemoveAllTeams": "Veux-tu effacer toutes les équipes de ce jeu ci?",
+    "confirmRemoveGame": "Veux-tu vraiment tuer ce jou ci?",
+    "confirmRemoveTeam": "Veux-tu vraiment effacer \"~(teamName)~\" de ce jeu ci?",
+    "selectGame": "Selectionne ton jeu",
+    "startQuickGame": "Êtes vous prêts mes amis?"
+  },
+  "errors": {
+    "digitsOnly": "Est-tu sure que tu as écrit des chiffres?",
+    "requiredTeamName": "As-tu oublié d'écrire le nom de l'équipe?",
+    "requiredGameName": "As-tu oublié d'écrire le nom du jeu?",
+    "teamAlreadyFound": "Cet équipe là était déjà dans le jeu, non?"
+  },
+  "text": {
+    "addNewTeam": "Nomme l'équipe ou l'individu que tu desire abonner au jeu, et puis appuie sur \"Ajouter\".",
+    "selectGame": "As-tu laissé ton jeu déjà commencé? appuie sur le triangle pour le reprendre. Ou  si tu veux commencer un nouveau jeu, donc appuie sur \"Creer Jeu\"",
+    "selectNewGame": "Pour commencer un nouveau jeu, appuie sur \"Creer Jeu\"",
+    "startNewGame": "Pour commencer un nouveau jeu, tu dois le nommer, choisi-le et puis appuie sur \"Commencer\", sinon, tu peux toujours presser \"Annuler\""
+  },
+  "skins": {
+    "default": "Basique",
+    "inferno": "Enfer",
+    "mexican": "Patriotique",
+    "silver": "Argenté"
+  }
+}
