@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import Typography from '@material-ui/core/Typography';
 
-const StyledTitle = styled(Typography).attrs({
+const BarTitle = styled(Typography).attrs({
   component: 'h2',
   variant: 'h6',
   color: 'inherit',
@@ -10,4 +10,4 @@ const StyledTitle = styled(Typography).attrs({
   user-select: none;
 `;
 
-export default StyledTitle;
+export default BarTitle;

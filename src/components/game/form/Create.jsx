@@ -9,8 +9,8 @@ import DialogContent from '@material-ui/core/DialogContent';
 import TextField from '@material-ui/core/TextField';
 
 import SlideUp from 'common/SlideUp';
-import DialogTitle from 'common/Dialog/Title';
-import DialogHeadline from 'common/Dialog/Headline';
+import DialogTitle from 'common/dialog/Title';
+import DialogHeadline from 'common/dialog/Headline';
 import { handlers } from 'utils';
 
 import { createGame } from '../actionCreators';

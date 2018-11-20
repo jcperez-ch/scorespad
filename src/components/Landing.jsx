@@ -1,8 +1,7 @@
 import React from 'react';
-import AppBar from '@material-ui/core/AppBar';
-import StyledToolbar from 'common/StyledToolbar';
+import BarToolbar from 'common/bar/Toolbar';
 import EmptyBlock from 'common/EmptyBlock';
-import StyledTitle from 'common/StyledTitle';
+import BarTitle from 'common/bar/Title';
 import Txt from 'common/Txt';
 
 import LocaleMenu from './locale/Menu';
@@ -14,16 +13,14 @@ const Landing = ({ history }) => {
   const goToGame = id => history.push(`/games/${id}`);
   return (
     <>
-      <AppBar position="static">
-        <StyledToolbar>
-          <EmptyBlock />
-          <StyledTitle>
-            <Txt id="messages.selectGame" />
-          </StyledTitle>
-          <LocaleMenu />
-          <GameActionAdd onAdd={goToGame} />
-        </StyledToolbar>
-      </AppBar>
+      <BarToolbar>
+        <EmptyBlock />
+        <BarTitle>
+          <Txt id="messages.selectGame" />
+        </BarTitle>
+        <LocaleMenu />
+        <GameActionAdd onAdd={goToGame} />
+      </BarToolbar>
       <GameList onItemClick={goToGame} />
     </>
   );
