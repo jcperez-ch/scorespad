@@ -6,14 +6,14 @@ import StyledTitle from 'common/StyledTitle';
 import Txt from 'common/Txt';
 
 import LocaleMenu from './locale/Menu';
-import GameProvider from './game/Provider';
+
 import GameActionAdd from './game/action/Add';
 import GameList from './game/list/List';
 
 const Landing = ({ history }) => {
   const goToGame = id => history.push(`/games/${id}`);
   return (
-    <GameProvider>
+    <>
       <AppBar position="static">
         <StyledToolbar>
           <EmptyBlock />
@@ -25,7 +25,7 @@ const Landing = ({ history }) => {
         </StyledToolbar>
       </AppBar>
       <GameList onItemClick={goToGame} />
-    </GameProvider>
+    </>
   );
 };
 

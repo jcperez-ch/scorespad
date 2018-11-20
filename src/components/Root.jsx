@@ -6,16 +6,19 @@ import Landing from './Landing';
 import Game from './Game';
 import ThemeProvider from './theme/Provider';
 import LocaleProvider from './locale/Provider';
+import GameProvider from './game/Provider';
 
 const Root = () => (
   <LocaleProvider>
     <ThemeProvider>
       <Layout>
         <Router>
-          <Switch>
-            <Route exact path="/" component={Landing} />
-            <Route exact path="/games/:gameKey" component={Game} />
-          </Switch>
+          <GameProvider>
+            <Switch>
+              <Route exact path="/" component={Landing} />
+              <Route exact path="/games/:gameKey" component={Game} />
+            </Switch>
+          </GameProvider>
         </Router>
       </Layout>
     </ThemeProvider>

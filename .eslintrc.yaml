@@ -8,10 +8,11 @@ settings:
   import/resolver:
     alias:
       map:
-        - [i18n, ./src/i18n]
         - [common, ./src/common]
-        - [themes, ./src/themes]
         - [components, ./src/components]
+        - [i18n, ./src/i18n]
+        - [themes, ./src/themes]
+        - [utils, ./src/utils]
       extensions:
         - .ts
         - .js

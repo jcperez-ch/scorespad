@@ -5,7 +5,7 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import Icon from '@material-ui/core/Icon';
 
-const GameEmptyList = () => {
+const GameListEmpty = () => {
   const [t] = useTranslation();
   return (
     <ListItem>
@@ -17,4 +17,4 @@ const GameEmptyList = () => {
   );
 };
 
-export default GameEmptyList;
+export default GameListEmpty;
