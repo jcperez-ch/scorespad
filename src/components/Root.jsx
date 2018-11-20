@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Layout from 'common/Layout';
 
 import Landing from './Landing';
+import Game from './Game';
 import ThemeProvider from './theme/Provider';
 import LocaleProvider from './locale/Provider';
 
@@ -13,6 +14,7 @@ const Root = () => (
         <Router>
           <Switch>
             <Route exact path="/" component={Landing} />
+            <Route exact path="/games/:gameKey" component={Game} />
           </Switch>
         </Router>
       </Layout>

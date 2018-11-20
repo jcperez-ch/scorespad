@@ -6,19 +6,27 @@ import StyledTitle from 'common/StyledTitle';
 import Txt from 'common/Txt';
 
 import LocaleMenu from './locale/Menu';
+import GameProvider from './game/Provider';
+import GameActionAdd from './game/action/Add';
+import GameList from './game/list/List';
 
-const Landing = () => (
-  <>
-    <AppBar position="static">
-      <StyledToolbar>
-        <EmptyBlock />
-        <LocaleMenu />
-      </StyledToolbar>
-    </AppBar>
-    <StyledTitle>
-      <Txt id="messages.selectGame" />
-    </StyledTitle>
-  </>
-);
+const Landing = ({ history }) => {
+  const goToGame = id => history.push(`/games/${id}`);
+  return (
+    <GameProvider>
+      <AppBar position="static">
+        <StyledToolbar>
+          <EmptyBlock />
+          <StyledTitle>
+            <Txt id="messages.selectGame" />
+          </StyledTitle>
+          <LocaleMenu />
+          <GameActionAdd onAdd={goToGame} />
+        </StyledToolbar>
+      </AppBar>
+      <GameList onItemClick={goToGame} />
+    </GameProvider>
+  );
+};
 
 export default Landing;

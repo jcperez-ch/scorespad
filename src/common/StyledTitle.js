@@ -3,11 +3,11 @@ import Typography from '@material-ui/core/Typography';
 
 const StyledTitle = styled(Typography).attrs({
   component: 'h2',
-  variant: 'h5',
+  variant: 'h6',
+  color: 'inherit',
 })`
-  text-align: center;
-  text-transform: uppercase;
-  padding: 0.5rem 0;
+  flex: 1;
+  user-select: none;
 `;
 
 export default StyledTitle;

@@ -1,10 +1,12 @@
 import { createMuiTheme } from '@material-ui/core/styles';
 
+const mui = createMuiTheme();
+
 export default {
   colors: {
     background: '#FFFFFF',
     backgroundInverted: '#000000',
-    border: '#999999',
+    border: mui.palette.divider,
     borderDark: '#666666',
     borderLight: '#CCCCCC',
     brand: '#2A3C8F',

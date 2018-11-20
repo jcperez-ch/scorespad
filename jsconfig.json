@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "target": "es2018",
+    "allowSyntheticDefaultImports": false,
+    "baseUrl": "./",
+    "paths": {
+      "common/*": ["src/common/*"],
+      "components/*": ["src/components/*"],
+      "i18n/*": ["src/i18n/*"]
+    }
+  },
+  "exclude": ["node_modules", "dist"]
+}
