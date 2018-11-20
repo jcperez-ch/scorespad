@@ -4,23 +4,23 @@ self.__precacheManifest = [
     "url": "/scorespad/static/js/runtime~main.4324ed7f.js"
   },
   {
-    "revision": "d2dae9195bf1e225a200",
-    "url": "/scorespad/static/js/main.d2dae919.chunk.js"
+    "revision": "493a27a9a5de60ac6906",
+    "url": "/scorespad/static/js/main.493a27a9.chunk.js"
   },
   {
-    "revision": "24afd148890b46f910e7",
-    "url": "/scorespad/static/js/1.24afd148.chunk.js"
+    "revision": "3bbf3548ab44cc2ab03f",
+    "url": "/scorespad/static/js/1.3bbf3548.chunk.js"
   },
   {
-    "revision": "d2dae9195bf1e225a200",
+    "revision": "493a27a9a5de60ac6906",
     "url": "/scorespad/static/css/main.15331104.chunk.css"
   },
   {
-    "revision": "24afd148890b46f910e7",
+    "revision": "3bbf3548ab44cc2ab03f",
     "url": "/scorespad/static/css/1.019e697e.chunk.css"
   },
   {
-    "revision": "5f62f4b9fe46f397b9c5aeb245291b8e",
+    "revision": "4e99a24acab228a90eec2c69065cafab",
     "url": "/scorespad/index.html"
   }
 ];
