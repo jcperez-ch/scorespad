@@ -12,7 +12,7 @@ const GameList = ({ onItemClick }) => {
   return isEmpty(games) ? (
     <GameListEmpty />
   ) : (
-    <List>
+    <List component="div">
       {map(games, (game, key) => (
         <GameListItem key={key} id={key} onClick={onItemClick} {...game} />
       ))}

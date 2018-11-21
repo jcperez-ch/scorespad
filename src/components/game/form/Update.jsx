@@ -4,13 +4,14 @@ import { noop } from 'lodash';
 import IconButton from '@material-ui/core/IconButton';
 import Icon from '@material-ui/core/Icon';
 import ListItem from '@material-ui/core/ListItem';
-import TextField from '@material-ui/core/TextField';
-
-import { handlers } from 'utils';
+import { flexRow } from 'utils/flexStyles';
 
 import GameContext from '../Context';
 import GameActionRemove from '../action/Remove';
 import { renameGame } from '../actionCreators';
+
+import useGameValidation from './useValidation';
+import GameFormNameField from './NameField';
 
 const GameFormUpdate = ({
   id,
@@ -21,26 +22,31 @@ const GameFormUpdate = ({
 }) => {
   const [, dispatch] = useContext(GameContext);
   const [t] = useTranslation();
+  const validation = useGameValidation({ name });
+  const { touch, valid } = validation;
   const handleRename = () => {
-    dispatch(renameGame(id, name));
-    onSuccess();
+    touch();
+    if (valid) {
+      dispatch(renameGame(id, name));
+      onSuccess();
+    }
   };
 
   return (
-    <ListItem>
-      <div style={{ display: 'flex' }}>
+    <ListItem component="div">
+      <div style={flexRow}>
         <IconButton aria-label="Rename" onClick={handleRename}>
           <Icon>check</Icon>
         </IconButton>
       </div>
-      <TextField
-        fullWidth
+      <GameFormNameField
         label={t('placeholder.gameName')}
-        value={name}
         onChange={onChange}
-        onKeyDown={handlers.onEnter(handleRename)}
+        onEnter={handleRename}
+        validation={validation}
+        value={name}
       />
-      <div style={{ display: 'flex' }}>
+      <div style={flexRow}>
         <IconButton aria-label={t('button.cancel')} onClick={onClose}>
           <Icon>cancel</Icon>
         </IconButton>

@@ -1,13 +1,15 @@
 {
   "compilerOptions": {
     "target": "es2018",
+    "jsx": "react",
     "allowSyntheticDefaultImports": false,
     "baseUrl": "./",
     "paths": {
       "common/*": ["src/common/*"],
       "components/*": ["src/components/*"],
       "i18n/*": ["src/i18n/*"],
-      "utils": ["src/utils.js"]
+      "themes/*": ["src/themes/*"],
+      "utils/*": ["src/utils/*"]
     }
   },
   "exclude": ["node_modules", "dist"]

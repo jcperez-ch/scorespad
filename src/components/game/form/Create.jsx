@@ -6,26 +6,32 @@ import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 
-import TextField from '@material-ui/core/TextField';
-
 import SlideUp from 'common/SlideUp';
 import DialogTitle from 'common/dialog/Title';
 import DialogHeadline from 'common/dialog/Headline';
-import { handlers } from 'utils';
 
 import { createGame } from '../actionCreators';
 import GameContext from '../Context';
+
+import useGameValidation from './useValidation';
+import GameFormNameField from './NameField';
 
 const GameFormCreate = ({ open, onClose = noop, onSuccess = noop }) => {
   const [newName, setNewName] = useState('');
   const [t] = useTranslation();
   const [, dispatch] = useContext(GameContext);
+  const validation = useGameValidation({
+    name: newName,
+  });
+  const { touch, valid } = validation;
 
-  const handleNameChange = ({ target }) => setNewName(target.value);
   const handleAdd = () => {
-    const id = Date.now().toString(36);
-    dispatch(createGame(id, newName));
-    onSuccess(id);
+    touch();
+    if (valid) {
+      const id = Date.now().toString(36);
+      dispatch(createGame(id, newName));
+      onSuccess(id);
+    }
   };
 
   return (
@@ -42,12 +48,12 @@ const GameFormCreate = ({ open, onClose = noop, onSuccess = noop }) => {
       </DialogTitle>
       <DialogContent>
         <DialogHeadline>{t('text.selectNewGame')}</DialogHeadline>
-        <TextField
-          fullWidth
+        <GameFormNameField
           label={t('placeholder.gameName')}
+          onChange={setNewName}
+          onEnter={handleAdd}
+          validation={validation}
           value={newName}
-          onChange={handleNameChange}
-          onKeyDown={handlers.onEnter(handleAdd)}
         />
       </DialogContent>
       <DialogActions>
