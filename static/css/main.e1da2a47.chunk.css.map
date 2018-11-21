@@ -1,0 +1,1 @@
+{"version":3,"sources":["/Users/jcperezch/Public/scorespad2/src/index.css"],"names":[],"mappings":"AAAA,WAEE,aAAc,AACd,iBAAmB,CACpB","file":"main.e1da2a47.chunk.css","sourcesContent":["body,\n#root {\n  height: 100vh;\n  overflow-x: hidden;\n}\n"]}
