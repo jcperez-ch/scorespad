@@ -1,51 +1,29 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next/hooks';
 import ListItem from '@material-ui/core/ListItem';
+import Typography from '@material-ui/core/Typography';
 import ListItemText from '@material-ui/core/ListItemText';
-import Slide from '@material-ui/core/Slide';
-import LongRipple from 'common/LongRipple';
-import SlideItem from 'common/SlideItem';
+import SlideLongRippleSwitch from 'common/SlideLongRippleSwitch';
+import CommaList from 'common/CommaList';
 
 import GameFormUpdate from '../form/Update';
 
-const GameListItem = ({ onClick, id, name }) => {
+const GameListItem = ({
+  onClick, id, name, teams,
+}) => {
   const [newName, setNewName] = useState(null);
+  const [t] = useTranslation();
   const handleEditMode = () => setNewName(name);
   const handleViewMode = () => setNewName(null);
   const handleClick = () => onClick(id);
   const createdAt = new Date(parseInt(id, 36));
-  const transitionDuration = 250;
 
   return (
-    <SlideItem>
-      <Slide
-        in={newName === null}
-        direction="right"
-        timeout={transitionDuration}
-        style={{
-          transitionDelay: `${newName === null ? transitionDuration : 0}ms`,
-        }}
-        unmountOnExit
-      >
-        <LongRipple
-          component={ListItem}
-          onLongPress={handleEditMode}
-          onClick={handleClick}
-          button
-        >
-          <ListItemText secondary={`Created at ${createdAt.toDateString()}`}>
-            {name}
-          </ListItemText>
-        </LongRipple>
-      </Slide>
-      <Slide
-        in={newName !== null}
-        direction="left"
-        timeout={transitionDuration}
-        style={{
-          transitionDelay: `${newName !== null ? transitionDuration : 0}ms`,
-        }}
-        unmountOnExit
-      >
+    <SlideLongRippleSwitch
+      on={newName !== null}
+      setOn={handleEditMode}
+      onPress={handleClick}
+      render={(
         <GameFormUpdate
           id={id}
           name={newName || ''}
@@ -53,8 +31,28 @@ const GameListItem = ({ onClick, id, name }) => {
           onClose={handleViewMode}
           onSuccess={handleViewMode}
         />
-      </Slide>
-    </SlideItem>
+)}
+      rippleComponent={ListItem}
+      rippleProps={{ button: true }}
+    >
+      <ListItemText
+        disableTypography
+        secondary={
+          <>
+            <Typography variant="body2">
+              {t('messages.createdAt', { date: createdAt.toDateString() })}
+            </Typography>
+            {teams.length > 0 && (
+              <Typography variant="overline">
+                <CommaList items={teams} keyedBy="name" attribute="name" />
+              </Typography>
+            )}
+          </>
+        }
+      >
+        <Typography variant="body1">{name}</Typography>
+      </ListItemText>
+    </SlideLongRippleSwitch>
   );
 };
 

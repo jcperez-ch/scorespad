@@ -3,7 +3,7 @@ import TextField from '@material-ui/core/TextField';
 
 import { onChange, onEnter } from 'utils/handlers';
 
-const GameFormNameField = ({
+const NameField = ({
   label,
   onChange: handleChange,
   onEnter: handleEnter,
@@ -25,4 +25,4 @@ const GameFormNameField = ({
   );
 };
 
-export default GameFormNameField;
+export default NameField;

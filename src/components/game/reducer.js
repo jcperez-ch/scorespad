@@ -1,4 +1,4 @@
-import { reducer as teamsReducer } from './teams/reducer';
+import { reducer as teamsReducer } from './team/reducer';
 
 export const createGame = (state, { key, name }) => {
   const isNameUsed = Object.keys(state).some(

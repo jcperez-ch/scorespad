@@ -3,6 +3,10 @@ import styled from 'styled-components';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 
+const StyledAppBar = styled(AppBar)`
+  flex: 0 0 auto;
+`;
+
 const StyledToolbar = styled(Toolbar)`
   align-items: center;
   display: flex;
@@ -10,9 +14,9 @@ const StyledToolbar = styled(Toolbar)`
 `;
 
 const BarToolbar = ({ children }) => (
-  <AppBar position="static">
+  <StyledAppBar position="static">
     <StyledToolbar>{children}</StyledToolbar>
-  </AppBar>
+  </StyledAppBar>
 );
 
 export default BarToolbar;

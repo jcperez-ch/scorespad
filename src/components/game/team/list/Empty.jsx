@@ -2,9 +2,9 @@ import React from 'react';
 import { useTranslation } from 'react-i18next/hooks';
 import WarnPlaceholder from 'common/WarnPlaceholder';
 
-const GameListEmpty = () => {
+const TeamListEmpty = () => {
   const [t] = useTranslation();
-  return <WarnPlaceholder icon="games" message={t('text.noGames')} />;
+  return <WarnPlaceholder icon="people" message={t('text.noTeams')} />;
 };
 
-export default GameListEmpty;
+export default TeamListEmpty;

@@ -1,5 +1,3 @@
-export * from './teams/action.creators';
-
 export const createGame = (key, name) => ({
   type: 'G+',
   key,

@@ -8,19 +8,21 @@ import NameField from 'common/NameField';
 import { flexRow } from 'utils/flexStyles';
 
 import GameStoreContext from 'components/game/context/Store';
-import GameActionRemove from '../action/Remove';
-import { renameGame } from '../actionCreators';
+import GameUsedContext from 'components/game/context/Used';
+import TeamActionRemove from '../action/Remove';
+import { renameTeam } from '../actionCreators';
 
 import useGameValidation from './useValidation';
 
 const GameFormUpdate = ({
-  id,
+  index,
   name,
   onChange = noop,
   onSuccess = noop,
   onClose = noop,
 }) => {
   const [, dispatch] = useContext(GameStoreContext);
+  const [gameKey] = useContext(GameUsedContext);
   const [t] = useTranslation();
   const validation = useGameValidation({ name });
   const { touch, valid, reset } = validation;
@@ -28,7 +30,7 @@ const GameFormUpdate = ({
     touch();
     if (valid) {
       reset();
-      dispatch(renameGame(id, name));
+      dispatch(renameTeam(gameKey, index, name));
       onSuccess();
     }
   };
@@ -36,12 +38,12 @@ const GameFormUpdate = ({
   return (
     <ListItem component="div">
       <div style={flexRow}>
-        <IconButton aria-label="Rename" onClick={handleRename}>
+        <IconButton aria-label={t('button.rename')} onClick={handleRename}>
           <Icon>check</Icon>
         </IconButton>
       </div>
       <NameField
-        label={t('placeholder.gameName')}
+        label={t('placeholder.teamName')}
         onChange={onChange}
         onEnter={handleRename}
         validation={validation}
@@ -51,7 +53,7 @@ const GameFormUpdate = ({
         <IconButton aria-label={t('button.cancel')} onClick={onClose}>
           <Icon>cancel</Icon>
         </IconButton>
-        <GameActionRemove id={id} />
+        <TeamActionRemove index={index} />
       </div>
     </ListItem>
   );

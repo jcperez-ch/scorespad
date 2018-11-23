@@ -5,13 +5,15 @@ import IconButton from '@material-ui/core/IconButton';
 import Icon from '@material-ui/core/Icon';
 
 import GameStoreContext from 'components/game/context/Store';
-import { removeGame } from '../actionCreators';
+import GameUsedContext from 'components/game/context/Used';
+import { removeTeam } from '../actionCreators';
 
-const GameActionRemove = ({ id, onSuccess = noop }) => {
+const TeamActionRemove = ({ index, onSuccess = noop }) => {
   const [, dispatch] = useContext(GameStoreContext);
+  const [gameKey] = useContext(GameUsedContext);
   const [t] = useTranslation();
   const handleRemove = () => {
-    dispatch(removeGame(id));
+    dispatch(removeTeam(gameKey, index));
     onSuccess();
   };
   return (
@@ -21,4 +23,4 @@ const GameActionRemove = ({ id, onSuccess = noop }) => {
   );
 };
 
-export default GameActionRemove;
+export default TeamActionRemove;

@@ -1,31 +1,40 @@
 import { createMuiTheme } from '@material-ui/core/styles';
 
-const mui = createMuiTheme();
+const mui = createMuiTheme({
+  palette: {
+    primary: {
+      main: '#2b73bd',
+      light: '#2b73bd',
+      dark: '#2b73bd',
+      contrastText: '#FFFFFF',
+    },
+    secondary: {
+      main: '#02C8A4',
+      light: '#35FBD7',
+      dark: '#009571',
+      contrastText: '#CCCCCC',
+    },
+    background: {
+      default: '#f3f3f3',
+      paper: '#fff',
+    },
+    error: {
+      main: '#d9534f',
+    },
+  },
+  typography: {
+    fontFamily: ['Montserrat Alternates'],
+    fontSize: 16,
+    body1: {
+      fontSize: '1.2rem',
+    },
+    body2: {
+      fontWeight: 400,
+    },
+  },
+});
 
 export default {
-  colors: {
-    background: '#FFFFFF',
-    backgroundInverted: '#000000',
-    border: mui.palette.divider,
-    borderDark: '#666666',
-    borderLight: '#CCCCCC',
-    brand: '#2A3C8F',
-    disabled: '#A2A2A2',
-    foregroundOnBackground: '#FF8E00',
-    foregroundOnBrand: '#CCCCCC',
-    foregroundOnDisabled: '#414141',
-    foregroundOnPrimary: '#FFFFFF',
-    foregroundOnSecondary: '#CCCCCC',
-    primary: '#FF8E00',
-    primaryDark: '#CC5A00',
-    primaryLight: '#FFBF33',
-    secondary: '#02C8A4',
-    secondaryDark: '#009571',
-    secondaryLight: '#35FBD7',
-    error: '#d9534f',
-    success: '#8ec348',
-    warning: '#f7d117',
-  },
   fonts: ['Bree Serif', 'Candal'],
   screenSizes: {
     smallerScreenMin: '321px',
@@ -38,5 +47,5 @@ export default {
     largeScreenMax: '1440px',
     extraLargeScreenMin: '1441px',
   },
-  mui: createMuiTheme(),
+  mui,
 };

@@ -1,7 +1,6 @@
 import React, { useReducer } from 'react';
 import Storage from 'common/Storage';
-
-import GameContext from './Context';
+import GameStoreContext from 'components/game/context/Store';
 import reducer from './reducer';
 
 const GameProvider = ({ children }) => {
@@ -12,10 +11,10 @@ const GameProvider = ({ children }) => {
   );
   const [gameState] = gameStore;
   return (
-    <GameContext.Provider value={gameStore}>
+    <GameStoreContext.Provider value={gameStore}>
       <Storage index={storage} value={gameState} json />
       {children}
-    </GameContext.Provider>
+    </GameStoreContext.Provider>
   );
 };
 

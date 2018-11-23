@@ -19,9 +19,9 @@ const Landing = ({ history }) => {
           <Txt id="messages.selectGame" />
         </BarTitle>
         <LocaleMenu />
-        <GameActionAdd onAdd={goToGame} />
       </BarToolbar>
       <GameList onItemClick={goToGame} />
+      <GameActionAdd onAdd={goToGame} />
     </>
   );
 };

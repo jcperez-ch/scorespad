@@ -35,12 +35,15 @@ export const useValidation = (model, schema, messages, inputs = []) => {
       }),
     );
   }, map(model, identity).concat(inputs));
+
+  const valid = every(errors, isEmpty);
+
   return {
     errors,
     touch: () => setTouched(true),
     reset: () => setTouched(false),
     touched,
-    valid: every(errors, isEmpty),
+    valid,
   };
 };
 

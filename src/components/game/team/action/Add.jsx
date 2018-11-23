@@ -1,34 +1,35 @@
 import React, { useState } from 'react';
+import { noop } from 'lodash';
 import { useTranslation } from 'react-i18next/hooks';
 import Tooltip from '@material-ui/core/Tooltip';
 import StickyFabButton from 'common/StickyFabButton';
 
-import GameFormCreate from '../form/Create';
+import TeamFormCreate from '../form/Create';
 
-const GameActionAdd = ({ onAdd }) => {
+const TeamActionAdd = ({ onAdd = noop }) => {
   const [open, setOpen] = useState(false);
   const [t] = useTranslation();
 
   const toggleOpen = () => setOpen(!open);
-  const handleAdd = (id) => {
+  const handleAdd = () => {
     setOpen(false);
-    onAdd(id);
+    onAdd();
   };
 
   return (
     <>
-      <Tooltip title={t('button.createGame')}>
+      <Tooltip title={t('button.addTeam')}>
         <StickyFabButton
           color="primary"
-          aria-owns={open ? 'game-add-dialog' : undefined}
+          aria-owns={open ? 'team-add-dialog' : undefined}
           aria-haspopup="true"
           icon="add"
           onClick={toggleOpen}
         />
       </Tooltip>
-      <GameFormCreate open={open} onSuccess={handleAdd} onClose={toggleOpen} />
+      <TeamFormCreate open={open} onSuccess={handleAdd} onClose={toggleOpen} />
     </>
   );
 };
 
-export default GameActionAdd;
+export default TeamActionAdd;
