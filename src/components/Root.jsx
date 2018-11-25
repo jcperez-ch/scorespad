@@ -4,6 +4,7 @@ import Layout from 'common/Layout';
 
 import Game from './Game';
 import Landing from './Landing';
+import Round from './Round';
 import ThemeProvider from './theme/Provider';
 import LocaleProvider from './locale/Provider';
 import GameProvider from './game/Provider';
@@ -16,7 +17,12 @@ const Root = () => (
           <GameProvider>
             <Switch>
               <Route exact path="/" component={Landing} />
-              <Route path="/games/:gameKey" component={Game} />
+              <Route exact path="/games/:gameKey" component={Game} />
+              <Route
+                exact
+                path="/games/:gameKey/rounds/:round"
+                component={Round}
+              />
             </Switch>
           </GameProvider>
         </Router>

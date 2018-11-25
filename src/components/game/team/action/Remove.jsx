@@ -1,14 +1,13 @@
 import React, { useContext } from 'react';
 import { noop } from 'lodash';
 import { useTranslation } from 'react-i18next/hooks';
-import IconButton from '@material-ui/core/IconButton';
-import Icon from '@material-ui/core/Icon';
 
+import ModalConfirm from 'common/modal/Confirm';
 import GameStoreContext from 'components/game/context/Store';
 import GameUsedContext from 'components/game/context/Used';
 import { removeTeam } from '../actionCreators';
 
-const TeamActionRemove = ({ index, onSuccess = noop }) => {
+const TeamActionRemove = ({ index, name, onSuccess = noop }) => {
   const [, dispatch] = useContext(GameStoreContext);
   const [gameKey] = useContext(GameUsedContext);
   const [t] = useTranslation();
@@ -17,9 +16,13 @@ const TeamActionRemove = ({ index, onSuccess = noop }) => {
     onSuccess();
   };
   return (
-    <IconButton aria-label={t('button.remove')} onClick={handleRemove}>
-      <Icon>delete_outline</Icon>
-    </IconButton>
+    <ModalConfirm
+      cancelText={t('button.cancel')}
+      confirmText={t('button.remove')}
+      title={t('title.removeTeam')}
+      subtitle={t('messages.confirmRemoveTeam', { teamName: name })}
+      onConfirm={handleRemove}
+    />
   );
 };
 

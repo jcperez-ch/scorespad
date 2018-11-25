@@ -47,13 +47,14 @@ const reducer = (state = {}, { type, ...payload }) => {
     case 'G=':
       return reduceGame(state, payload, renameGame);
     case 'R+': {
-      const { game: key, key: round } = payload;
-      const transformedPayload = { type, key, round };
-      return reduceGame(
-        reduceGame(state, transformedPayload, gameTeamsReducer),
-        transformedPayload,
+      console.log(state, payload);
+      const ns = reduceGame(
+        reduceGame(state, { type, ...payload }, gameTeamsReducer),
+        payload,
         selectRound,
       );
+      console.log(ns);
+      return ns;
     }
     default:
       return reduceGame(state, { type, ...payload }, gameTeamsReducer);

@@ -15,9 +15,17 @@ export const flexCenterStart = {
   justifyContent: 'flex-start',
 };
 
+export const flexCenterWrap = {
+  ...flexRow,
+  flexWrap: 'wrap',
+  alignItems: 'center',
+  justifyContent: 'center',
+};
+
 const flexStyles = {
   flexCenterBetween,
   flexCenterStart,
+  flexCenterWrap,
 };
 
 export default flexStyles;

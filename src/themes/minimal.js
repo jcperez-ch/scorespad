@@ -30,6 +30,7 @@ const mui = createMuiTheme({
     },
     body2: {
       fontWeight: 400,
+      fontSize: '0.75rem',
     },
   },
 });

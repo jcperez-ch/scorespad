@@ -1,8 +1,8 @@
 import React, { useContext } from 'react';
 import { noop } from 'lodash';
 import { useTranslation } from 'react-i18next/hooks';
-import IconButton from '@material-ui/core/IconButton';
-import Icon from '@material-ui/core/Icon';
+
+import ModalConfirm from 'common/modal/Confirm';
 
 import GameStoreContext from 'components/game/context/Store';
 import { removeGame } from '../actionCreators';
@@ -15,9 +15,13 @@ const GameActionRemove = ({ id, onSuccess = noop }) => {
     onSuccess();
   };
   return (
-    <IconButton aria-label={t('button.remove')} onClick={handleRemove}>
-      <Icon>delete_outline</Icon>
-    </IconButton>
+    <ModalConfirm
+      cancelText={t('button.cancel')}
+      confirmText={t('button.remove')}
+      title={t('title.removeGame')}
+      subtitle={t('messages.confirmRemoveGame')}
+      onConfirm={handleRemove}
+    />
   );
 };
 

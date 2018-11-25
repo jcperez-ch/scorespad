@@ -21,14 +21,14 @@ const TeamFormCreate = ({ open, onClose = noop, onSuccess = noop }) => {
   const [name, setName] = useState('');
   const [t] = useTranslation();
   const [, dispatch] = useContext(GameStoreContext);
-  const [gameKey, game] = useContext(GameUsedContext);
+  const [gameKey, { round }] = useContext(GameUsedContext);
   const validation = useTeamValidation({ name });
   const { touch, reset, valid } = validation;
 
   const handleAdd = () => {
     touch();
     if (valid) {
-      dispatch(createTeam(gameKey, game.round, name)); // TODO set the game round on creation
+      dispatch(createTeam(gameKey, round, name)); // TODO set the game round on creation
       onSuccess();
       reset();
       setName('');

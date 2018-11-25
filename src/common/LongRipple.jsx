@@ -12,9 +12,6 @@ const LongRipple = ({
   const handleTouchStart = () => setRipple(true);
   const handleTouchEnd = (e) => {
     e.preventDefault();
-    setRipple(null);
-  };
-  const handleClick = (e) => {
     if (ripple) {
       onClick(e);
       setRipple(null);
@@ -41,7 +38,7 @@ const LongRipple = ({
       onMouseDown={handleTouchStart}
       onTouchStart={handleTouchStart}
       onTouchEnd={handleTouchEnd}
-      onClick={handleClick}
+      onClick={handleTouchEnd}
     />
   );
 };

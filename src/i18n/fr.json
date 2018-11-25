@@ -2,6 +2,8 @@
   "title": {
     "builder": "~(appTitle)~ :: Construit le Jeu",
     "game": "~(appTitle)~ :: En Jeu",
+    "removeGame": "Effacer le jeu",
+    "removeTeam": "Effacer l'équipe",
     "round": "~(appTitle)~ :: Résultats",
     "root": "Le p'tit cahier ~(version)~"
   },
@@ -31,7 +33,7 @@
     "confirmEndGame": "Veux-tu confirmer que le jeu est finni?",
     "confirmRemoveAllTeams": "Veux-tu effacer toutes les équipes de ce jeu ci?",
     "confirmRemoveGame": "Veux-tu vraiment effacer ce jou ci?",
-    "confirmRemoveTeam": "Veux-tu vraiment effacer \"~(teamName)~\" de ce jeu ci?",
+    "confirmRemoveTeam": "Veux-tu vraiment effacer \"{{ teamName }}\" de ce jeu ci?",
     "selectGame": "Selectionne ton jeu",
     "startQuickGame": "Êtes vous prêts mes amis?"
   },

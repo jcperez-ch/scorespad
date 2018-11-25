@@ -53,7 +53,7 @@ const GameFormUpdate = ({
         <IconButton aria-label={t('button.cancel')} onClick={onClose}>
           <Icon>cancel</Icon>
         </IconButton>
-        <TeamActionRemove index={index} />
+        <TeamActionRemove name={name} index={index} />
       </div>
     </ListItem>
   );

@@ -2,6 +2,8 @@
   "title": {
     "builder": "~(appTitle)~ :: Construye el Juego",
     "game": "~(appTitle)~ :: Juego",
+    "removeGame": "Eliminar Juego",
+    "removeTeam": "Eliminar Equipo",
     "round": "~(appTitle)~ :: Partida",
     "root": "Libretita ~(version)~"
   },
@@ -12,7 +14,7 @@
     "cancel": "Cancerlar",
     "createGame": "Crear Juego",
     "endGame": "Terminar Juego",
-    "eraseTeams": "Borrar Equipos",
+    "eraseTeams": "Eliminar Equipos",
     "ok": "Ok",
     "resumeGame": "Retomar Juego",
     "remove": "Eliminar",
@@ -29,9 +31,9 @@
     "buildQuickTeams": "Construye tus equipos",
     "createdAt": "Creado {{ date }}",
     "confirmEndGame": "Estás seguro de querer terminar este juego?",
-    "confirmRemoveAllTeams": "Estás seguro de querer borrar todos los equipos de este juego?",
-    "confirmRemoveGame": "Estás seguro de que quieres borrar este juego?",
-    "confirmRemoveTeam": "Estás seguro de que quieres borrar a \"~(teamName)~\" del juego?",
+    "confirmRemoveAllTeams": "Estás seguro de querer eliminar todos los equipos de este juego?",
+    "confirmRemoveGame": "Estás seguro de que quieres eliminar este juego?",
+    "confirmRemoveTeam": "Estás seguro de que quieres eliminar a \"{{ teamName }}\" del juego?",
     "selectGame": "Selecciona tu juego",
     "startQuickGame": "Listo para comenzar?"
   },

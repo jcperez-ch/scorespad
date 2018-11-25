@@ -4,23 +4,19 @@ import Icon from '@material-ui/core/Icon';
 import BarToolbar from 'common/bar/Toolbar';
 import BarTitle from 'common/bar/Title';
 import GameGuard from './game/Guard';
+import TeamRoundList from './game/team/round/List';
 import useGame from './game/useGame';
 import LocaleMenu from './locale/Menu';
-import TeamList from './game/team/list/List';
-import GameActionStart from './game/action/Start';
-import TeamActionAdd from './game/team/action/Add';
 import GameUsedContext from './game/context/Used';
 
-const Game = ({ history, match }) => {
+const Round = ({ history, match }) => {
   const game = useGame(match.params);
-  const { gameKey } = match.params;
-  const gameReady = game.teams.length >= 2;
-  const goToHome = () => history.push('/');
-  const goToRound = round => history.push(`/games/${gameKey}/rounds/${round}`);
+  const { gameKey, round } = match.params;
+  const goToGame = () => history.push(`/games/${gameKey}`);
   return (
     <GameUsedContext.Provider value={[gameKey, game]}>
       <BarToolbar>
-        <IconButton color="inherit" onClick={goToHome}>
+        <IconButton color="inherit" onClick={goToGame}>
           <Icon>arrow_back</Icon>
         </IconButton>
         <BarTitle pl="0.5rem">
@@ -28,19 +24,13 @@ const Game = ({ history, match }) => {
             {game && game.name}
           </GameGuard>
         </BarTitle>
-        {gameReady && <TeamActionAdd sticky />}
         <LocaleMenu />
       </BarToolbar>
       <GameGuard game={game}>
-        <TeamList {...game || {}} />
-        {gameReady ? (
-          <GameActionStart onStart={goToRound} />
-        ) : (
-          <TeamActionAdd />
-        )}
+        <TeamRoundList {...game || {}} round={round} />
       </GameGuard>
     </GameUsedContext.Provider>
   );
 };
 
-export default Game;
+export default Round;

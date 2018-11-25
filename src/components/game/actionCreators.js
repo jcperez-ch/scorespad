@@ -14,3 +14,9 @@ export const renameGame = (key, name) => ({
   key,
   name,
 });
+
+export const addRound = (key, round) => ({
+  type: 'R+',
+  key,
+  round,
+});

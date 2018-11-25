@@ -5,7 +5,7 @@ import List from '@material-ui/core/List';
 import TeamListEmpty from './Empty';
 import TeamListItem from './Item';
 
-const TeamList = ({ teams = [], onItemClick = noop }) => (isEmpty(teams) ? (
+const TeamList = ({ teams = [], round, onItemClick = noop }) => (isEmpty(teams) ? (
   <TeamListEmpty />
 ) : (
   <List component="div">
@@ -14,6 +14,7 @@ const TeamList = ({ teams = [], onItemClick = noop }) => (isEmpty(teams) ? (
         key={team.name}
         index={key}
         onClick={onItemClick}
+        round={round}
         {...team}
       />
     ))}
