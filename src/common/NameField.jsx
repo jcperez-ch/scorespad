@@ -1,26 +1,26 @@
 import React from 'react';
+import { noop } from 'lodash';
 import TextField from '@material-ui/core/TextField';
 
 import { onChange, onEnter } from 'utils/handlers';
 
 const NameField = ({
-  label,
   onChange: handleChange,
   onEnter: handleEnter,
-  validation,
+  validation = {},
   value,
+  ...props
 }) => {
-  const { errors, touched, reset } = validation;
+  const { errors = {}, touched = false, reset = noop } = validation;
 
   return (
     <TextField
       error={touched && !!errors.name}
       fullWidth
-      label={label}
       helperText={touched && errors.name}
-      value={value}
       onChange={onChange(handleChange, reset)}
       onKeyDown={onEnter(handleEnter)}
+      {...props}
     />
   );
 };

@@ -19,7 +19,7 @@ export const renameTeam = (key, index, name) => ({
 });
 
 export const addScores = (key, round, scores) => ({
-  type: '$',
+  type: 'S++',
   key,
   round,
   scores,

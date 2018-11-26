@@ -13,20 +13,21 @@ const GameListItem = ({
   const [newName, setNewName] = useState(null);
   const handleEditMode = () => setNewName(name);
   const handleViewMode = () => setNewName(null);
+  const render = (
+    <TeamFormUpdate
+      index={index}
+      name={newName || ''}
+      onChange={setNewName}
+      onClose={handleViewMode}
+      onSuccess={handleViewMode}
+    />
+  );
 
   return (
     <SlideLongRippleSwitch
       on={newName !== null}
       setOn={handleEditMode}
-      render={(
-        <TeamFormUpdate
-          index={index}
-          name={newName || ''}
-          onChange={setNewName}
-          onClose={handleViewMode}
-          onSuccess={handleViewMode}
-        />
-)}
+      render={render}
       rippleComponent={ListItem}
       rippleProps={{ button: true }}
     >

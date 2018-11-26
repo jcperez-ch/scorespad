@@ -6,8 +6,8 @@ import Icon from '@material-ui/core/Icon';
 import Modal from '@material-ui/core/Modal';
 import Typography from '@material-ui/core/Typography';
 
-import ModalActions from 'common/modal/Actions';
-import ModalContent from 'common/modal/Content';
+import ModalActions from './Actions';
+import ModalContent from './Content';
 
 const ModalConfirm = ({
   cancelText,
@@ -21,10 +21,16 @@ const ModalConfirm = ({
   const toggleOpen = () => setOpen(!open);
   return (
     <>
-      <IconButton aria-label={confirmText} onClick={toggleOpen}>
+      <IconButton
+        aria-label={confirmText}
+        aria-owns={open ? 'confirm-dialog' : undefined}
+        aria-haspopup="true"
+        onClick={toggleOpen}
+      >
         <Icon>{icon}</Icon>
       </IconButton>
       <Modal
+        id="confirm-dialog"
         aria-labelledby="confirm-title"
         aria-describedby="confirm-description"
         open={open}

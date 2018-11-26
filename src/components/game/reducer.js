@@ -38,6 +38,23 @@ const gameTeamsReducer = (state, payload) => {
   return teams === state.teams ? state : { ...state, teams };
 };
 
+export const endRound = (state, { round }) => {
+  if (state.round === null) {
+    return state;
+  }
+  const totals = state.teams.map(({ rounds }) => rounds[round].reduce((sum, score) => sum + score, 0));
+  const [, ...scores] = totals;
+  const winnerIndex = scores.reduce(
+    (winner, score, index) => (score > totals[winner] ? index : winner),
+    0,
+  );
+
+  return gameTeamsReducer(
+    { ...state, round: null },
+    { type: 'C+', index: winnerIndex, round },
+  );
+};
+
 const reducer = (state = {}, { type, ...payload }) => {
   switch (type) {
     case 'G+':
@@ -46,16 +63,14 @@ const reducer = (state = {}, { type, ...payload }) => {
       return removeGame(state, payload);
     case 'G=':
       return reduceGame(state, payload, renameGame);
-    case 'R+': {
-      console.log(state, payload);
-      const ns = reduceGame(
+    case 'G$':
+      return reduceGame(state, payload, endRound);
+    case 'R+':
+      return reduceGame(
         reduceGame(state, { type, ...payload }, gameTeamsReducer),
         payload,
         selectRound,
       );
-      console.log(ns);
-      return ns;
-    }
     default:
       return reduceGame(state, { type, ...payload }, gameTeamsReducer);
   }

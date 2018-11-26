@@ -1,10 +1,10 @@
 import React from 'react';
 import { isEmpty, noop } from 'lodash';
 import Grid from '@material-ui/core/Grid';
-import TeamListEmpty from 'components/game/list/Empty';
-import TeamRoundItem from './Item';
+import TeamListEmpty from 'components/game/team/list/Empty';
+import RoundItem from './Item';
 
-const TeamRoundList = ({ teams = [], round, onItemClick = noop }) => (isEmpty(teams) ? (
+const RoundList = ({ teams = [], round, onSubmit = noop }) => (isEmpty(teams) ? (
   <TeamListEmpty />
 ) : (
   <Grid
@@ -14,15 +14,15 @@ const TeamRoundList = ({ teams = [], round, onItemClick = noop }) => (isEmpty(te
     justify="center"
   >
     {teams.map((team, key) => (
-      <TeamRoundItem
+      <RoundItem
         key={team.name}
         index={key}
-        onClick={onItemClick}
         round={round}
+        onEnter={onSubmit}
         {...team}
       />
     ))}
   </Grid>
 ));
 
-export default TeamRoundList;
+export default RoundList;

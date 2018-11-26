@@ -4,14 +4,16 @@ import Icon from '@material-ui/core/Icon';
 import BarToolbar from 'common/bar/Toolbar';
 import BarTitle from 'common/bar/Title';
 import GameGuard from './game/Guard';
-import TeamRoundList from './game/team/round/List';
+
 import useGame from './game/useGame';
 import LocaleMenu from './locale/Menu';
 import GameUsedContext from './game/context/Used';
+import Scores from './game/Scores';
 
 const Round = ({ history, match }) => {
   const game = useGame(match.params);
   const { gameKey, round } = match.params;
+
   const goToGame = () => history.push(`/games/${gameKey}`);
   return (
     <GameUsedContext.Provider value={[gameKey, game]}>
@@ -27,7 +29,7 @@ const Round = ({ history, match }) => {
         <LocaleMenu />
       </BarToolbar>
       <GameGuard game={game}>
-        <TeamRoundList {...game || {}} round={round} />
+        <Scores round={round} onEnd={goToGame} />
       </GameGuard>
     </GameUsedContext.Provider>
   );
