@@ -7,7 +7,8 @@ const Layout = styled.div`
   display: flex;
   flex: 1;
   flex-direction: column;
-  height: 100vh;
+  height: auto;
+  min-height: 100vh;
 `;
 
 export default Layout;

@@ -8,7 +8,6 @@ const NameField = ({
   onChange: handleChange,
   onEnter: handleEnter,
   validation = {},
-  value,
   ...props
 }) => {
   const { errors = {}, touched = false, reset = noop } = validation;

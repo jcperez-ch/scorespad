@@ -1,5 +1,18 @@
 import { reducer as teamsReducer } from './team/reducer';
 
+const reduceGame = (state, { key, ...payload }, reduceFunction) => {
+  if (state[key]) {
+    const game = reduceFunction(state[key], payload);
+    return game === state[key] ? state : { ...state, [key]: game };
+  }
+  return state;
+};
+
+const gameTeamsReducer = (state, payload) => {
+  const teams = teamsReducer(state.teams, payload);
+  return teams === state.teams ? state : { ...state, teams };
+};
+
 export const createGame = (state, { key, name }) => {
   const isNameUsed = Object.keys(state).some(
     gameKey => state[gameKey].name === name,
@@ -24,19 +37,6 @@ export const removeGame = (state, { key }) => (state[key]
 export const renameGame = (state, { name }) => (state.name === name ? state : { ...state, name });
 
 export const selectRound = (state, { round }) => (state.round === round ? state : { ...state, round });
-
-const reduceGame = (state, { key, ...payload }, reduceFunction) => {
-  if (state[key]) {
-    const game = reduceFunction(state[key], payload);
-    return game === state[key] ? state : { ...state, [key]: game };
-  }
-  return state;
-};
-
-const gameTeamsReducer = (state, payload) => {
-  const teams = teamsReducer(state.teams, payload);
-  return teams === state.teams ? state : { ...state, teams };
-};
 
 export const endRound = (state, { round }) => {
   if (state.round === null) {

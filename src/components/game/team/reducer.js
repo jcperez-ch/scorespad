@@ -1,3 +1,15 @@
+import { get } from 'lodash';
+
+const reduceTeam = (state, { index, ...payload }, reduceFunction) => {
+  if (index > state.length || index < 0) {
+    return state;
+  }
+  const reducedTeam = reduceFunction(state[index], payload);
+  return reducedTeam === state[index]
+    ? state
+    : state.map((team, i) => (index === i ? reducedTeam : team));
+};
+
 export const createTeam = (state, { name, round }) => {
   const isNameUsed = state.some(team => team.name === name);
   return [
@@ -12,18 +24,9 @@ export const createTeam = (state, { name, round }) => {
 
 export const removeTeam = (state, { index }) => (index > state.length || index < 0
   ? state
-  : state.reduce(
-    (teams, team, ndx) => (index === ndx ? teams : [...teams, team]),
-    [],
-  ));
+  : state.filter((_, i) => index !== i));
 
-export const renameTeam = (state, { index, name }) => (index > state.length || index < 0
-  ? state
-  : [
-    ...state.slice(0, index),
-    { ...state[index], name },
-    ...state.slice(index + 1),
-  ]);
+export const renameTeam = (team, { name }) => (team.name === name ? team : { ...team, name });
 
 export const addRound = (state, { round }) => (state.every(team => Object.keys(team.rounds).includes(round))
   ? state
@@ -44,6 +47,16 @@ export const addChampionship = (state, { index, round }) => (index > state.lengt
     }
     : team)));
 
+export const removeScore = (team, { round, scoreIndex }) => (get(team.rounds, `${round}.${scoreIndex}`) === undefined
+  ? team
+  : {
+    ...team,
+    rounds: {
+      ...team.rounds,
+      [round]: team.rounds[round].filter((_, i) => i !== scoreIndex),
+    },
+  });
+
 export const addScores = (state, { round, scores }) => (scores.length === 0
   ? state
   : state.map((team, index) => ({
@@ -51,7 +64,7 @@ export const addScores = (state, { round, scores }) => (scores.length === 0
     rounds: {
       ...team.rounds,
       [round]:
-            typeof scores[index] !== 'number'
+            typeof scores[index] !== 'number' || Number.isNaN(scores[index])
               ? team.rounds[round] || []
               : [...(team.rounds[round] || []), scores[index]],
     },
@@ -64,11 +77,13 @@ export const reducer = (state = [], { type, ...payload }) => {
     case 'T-':
       return removeTeam(state, payload);
     case 'T=':
-      return renameTeam(state, payload);
+      return reduceTeam(state, payload, renameTeam);
     case 'R+':
       return addRound(state, payload);
     case 'S++':
       return addScores(state, payload);
+    case 'S-':
+      return reduceTeam(state, payload, removeScore);
     case 'C+':
       return addChampionship(state, payload);
     default:

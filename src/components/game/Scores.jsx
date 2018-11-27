@@ -3,9 +3,9 @@ import React, { useContext, useState } from 'react';
 import GameUsedContext from './context/Used';
 import GameStoreContext from './context/Store';
 import GameScoresContext from './context/Scores';
-import RoundList from './round/List';
-import RoundEnd from './round/End';
-import { addScores } from './team/actionCreators';
+import RoundList from './round/list/List';
+import RoundEnd from './round/action/End';
+import { addScores } from './round/actionCreators';
 
 const GameScores = ({ round, onEnd }) => {
   const [gameKey, { teams = [] }] = useContext(GameUsedContext);
@@ -15,7 +15,13 @@ const GameScores = ({ round, onEnd }) => {
   const handleSubmit = () => {
     const [scores, setScores] = state;
     if (scores.some(score => typeof Number(score) === 'number')) {
-      dispatch(addScores(gameKey, round, scores.map(score => Number(score))));
+      dispatch(
+        addScores(
+          gameKey,
+          round,
+          scores.map(score => Number.parseInt(score, 10)),
+        ),
+      );
       setScores(initialState);
     }
   };

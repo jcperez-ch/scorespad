@@ -16,7 +16,7 @@ const Round = ({ history, match }) => {
 
   const goToGame = () => history.push(`/games/${gameKey}`);
   return (
-    <GameUsedContext.Provider value={[gameKey, game]}>
+    <GameUsedContext.Provider value={[gameKey, game, round]}>
       <BarToolbar>
         <IconButton color="inherit" onClick={goToGame}>
           <Icon>arrow_back</Icon>

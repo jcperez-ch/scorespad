@@ -12,8 +12,12 @@ import GameRoundScore from 'components/game/round/Score';
 import GameRoundSum from 'components/game/round/Sum';
 import { onEnter } from 'utils/handlers';
 
-const TeamRound = ({
-  index, name, rounds, round, onEnter: handleEnter,
+const RoundListItem = ({
+  index,
+  name,
+  rounds,
+  round,
+  onEnter: handleEnter,
 }) => {
   const teamScores = rounds[round];
   const [roundScores, setRoundScores] = useContext(GameScoresContext);
@@ -30,7 +34,12 @@ const TeamRound = ({
         <CardContent>
           <List component="div" dense>
             {map(teamScores, (score, key) => (
-              <GameRoundScore key={key} score={score} />
+              <GameRoundScore
+                key={key}
+                score={score}
+                index={index}
+                scoreIndex={key}
+              />
             ))}
             <GameRoundSum rounds={rounds} round={round} />
           </List>
@@ -54,4 +63,4 @@ const TeamRound = ({
   );
 };
 
-export default TeamRound;
+export default RoundListItem;

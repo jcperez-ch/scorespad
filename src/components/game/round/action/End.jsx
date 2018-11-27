@@ -12,7 +12,7 @@ import StickyFabButton from 'common/StickyFabButton';
 import GameStoreContext from 'components/game/context/Store';
 import { endRound } from 'components/game/actionCreators';
 
-const RoundEnd = ({ gameKey, round, onEnd = noop }) => {
+const RoundActionEnd = ({ gameKey, round, onEnd = noop }) => {
   const [open, setOpen] = useState(false);
   const [t] = useTranslation();
   const [, dispatch] = useContext(GameStoreContext);
@@ -60,4 +60,4 @@ const RoundEnd = ({ gameKey, round, onEnd = noop }) => {
   );
 };
 
-export default RoundEnd;
+export default RoundActionEnd;

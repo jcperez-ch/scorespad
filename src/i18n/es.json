@@ -4,6 +4,7 @@
     "game": "~(appTitle)~ :: Juego",
     "removeGame": "Eliminar Juego",
     "removeTeam": "Eliminar Equipo",
+    "removeScore": "Eliminar Puntuación",
     "round": "~(appTitle)~ :: Partida",
     "root": "Libretita ~(version)~"
   },
@@ -33,6 +34,7 @@
     "confirmEndGame": "Estás seguro de querer terminar este juego?",
     "confirmRemoveAllTeams": "Estás seguro de querer eliminar todos los equipos de este juego?",
     "confirmRemoveGame": "Estás seguro de que quieres eliminar este juego?",
+    "confirmRemoveScore": "Estás seguro de que quieres eliminar esta puntuación?",
     "confirmRemoveTeam": "Estás seguro de que quieres eliminar a \"{{ teamName }}\" del juego?",
     "selectGame": "Selecciona tu juego",
     "startQuickGame": "Listo para comenzar?"

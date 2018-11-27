@@ -36,7 +36,7 @@ const GameFormUpdate = ({
   return (
     <ListItem component="div">
       <div style={flexRow}>
-        <IconButton aria-label="Rename" onClick={handleRename}>
+        <IconButton aria-label={t('button.rename')} onClick={handleRename}>
           <Icon>check</Icon>
         </IconButton>
       </div>

@@ -4,6 +4,7 @@
     "game": "~(appTitle)~ :: En Jeu",
     "removeGame": "Effacer le jeu",
     "removeTeam": "Effacer l'équipe",
+    "removeScore": "Effacer le score",
     "round": "~(appTitle)~ :: Résultats",
     "root": "Le p'tit cahier ~(version)~"
   },
@@ -33,6 +34,7 @@
     "confirmEndGame": "Veux-tu confirmer que le jeu est finni?",
     "confirmRemoveAllTeams": "Veux-tu effacer toutes les équipes de ce jeu ci?",
     "confirmRemoveGame": "Veux-tu vraiment effacer ce jou ci?",
+    "confirmRemoveScore": "Veux-tu vraiment effacer ce score ci?",
     "confirmRemoveTeam": "Veux-tu vraiment effacer \"{{ teamName }}\" de ce jeu ci?",
     "selectGame": "Selectionne ton jeu",
     "startQuickGame": "Êtes vous prêts mes amis?"
