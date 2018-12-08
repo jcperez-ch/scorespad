@@ -2,13 +2,12 @@ import React, { useContext, useState } from 'react';
 import { noop } from 'lodash';
 import { useTranslation } from 'react-i18next/hooks';
 import Button from '@material-ui/core/Button';
-import Tooltip from '@material-ui/core/Tooltip';
 import Modal from '@material-ui/core/Modal';
 import Typography from '@material-ui/core/Typography';
 
+import ButtonsWrapper from 'common/ButtonsWrapper';
 import ModalActions from 'common/modal/Actions';
 import ModalContent from 'common/modal/Content';
-import StickyFabButton from 'common/StickyFabButton';
 import GameStoreContext from 'components/game/context/Store';
 import { endRound } from 'components/game/actionCreators';
 
@@ -24,16 +23,17 @@ const RoundActionEnd = ({ gameKey, round, onEnd = noop }) => {
   };
   return (
     <>
-      <Tooltip title={t('button.endGame')}>
-        <StickyFabButton
+      <ButtonsWrapper>
+        <Button
           color="primary"
-          position="center"
+          variant="contained"
           aria-owns={open ? 'confirm-end-dialog' : undefined}
           aria-haspopup="true"
-          icon="done_outline"
           onClick={toggleOpen}
-        />
-      </Tooltip>
+        >
+          {t('button.endGame')}
+        </Button>
+      </ButtonsWrapper>
       <Modal
         id="confirm-end-dialog"
         aria-labelledby="confirm-end-title"

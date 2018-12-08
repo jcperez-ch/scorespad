@@ -16,6 +16,7 @@ const StyledListItemText = styled(ListItemText)`
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 0;
 `;
 
 const RoundScoreRemove = ({

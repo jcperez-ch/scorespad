@@ -28,15 +28,13 @@ const Game = ({ history, match }) => {
             {game && game.name}
           </GameGuard>
         </BarTitle>
-        {gameReady && <TeamActionAdd sticky />}
+        <TeamActionAdd sticky />
         <LocaleMenu />
       </BarToolbar>
       <GameGuard game={game}>
         <TeamList {...game || {}} />
-        {gameReady ? (
+        {gameReady && (
           <GameActionStart onStart={goToRound} />
-        ) : (
-          <TeamActionAdd />
         )}
       </GameGuard>
     </GameUsedContext.Provider>

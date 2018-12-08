@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import ListItem from '@material-ui/core/ListItem';
-import ListItemText from '@material-ui/core/ListItemText';
-import Typography from '@material-ui/core/Typography';
+
 import SlideLongRippleSwitch from 'common/SlideLongRippleSwitch';
+import StyledScore from 'common/StyledScore';
 import RoundScoreRemove from './form/ScoreRemove';
 
 const GameRoundScore = ({ index, score, scoreIndex }) => {
@@ -29,11 +29,7 @@ const GameRoundScore = ({ index, score, scoreIndex }) => {
         dense: true,
       }}
     >
-      <ListItemText disableTypography>
-        <Typography align="center" variant="body2">
-          {score}
-        </Typography>
-      </ListItemText>
+      <StyledScore variant="body2">{score}</StyledScore>
     </SlideLongRippleSwitch>
   );
 };

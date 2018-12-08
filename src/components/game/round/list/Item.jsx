@@ -3,14 +3,14 @@ import { map } from 'lodash';
 import Grid from '@material-ui/core/Grid';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
-import CardHeader from '@material-ui/core/CardHeader';
 import List from '@material-ui/core/List';
-import TextField from '@material-ui/core/TextField';
 
+import CardHeader from 'common/card/Header';
 import GameScoresContext from 'components/game/context/Scores';
 import GameRoundScore from 'components/game/round/Score';
 import GameRoundSum from 'components/game/round/Sum';
 import { onEnter } from 'utils/handlers';
+import RoundListField from './Field';
 
 const RoundListItem = ({
   index,
@@ -43,19 +43,14 @@ const RoundListItem = ({
             ))}
             <GameRoundSum rounds={rounds} round={round} />
           </List>
-          <TextField
+          <RoundListField
             inputProps={{
-              style: { textAlign: 'center' },
               tabIndex: index + 1,
+              pattern: '-?\\d*',
             }}
             onChange={handleChange}
             onKeyDown={onEnter(handleEnter)}
             value={teamScoreValue}
-            fullWidth
-            margin="dense"
-            variant="outlined"
-            type="number"
-            pattern="-?\d*"
           />
         </CardContent>
       </Card>

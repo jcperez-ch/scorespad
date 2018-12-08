@@ -3,12 +3,14 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import Typography from '@material-ui/core/Typography';
 import SlideLongRippleSwitch from 'common/SlideLongRippleSwitch';
+import Flex from 'common/Flex';
 import { flexCenterBetween } from 'utils/flexStyles';
 
 import TeamFormUpdate from '../form/Update';
+import TeamChampionships from '../Championships';
 
-const GameListItem = ({
-  index, name, rounds, round,
+const TeamListItem = ({
+  index, name, championships = [], rounds, round,
 }) => {
   const [newName, setNewName] = useState(null);
   const handleEditMode = () => setNewName(name);
@@ -32,7 +34,13 @@ const GameListItem = ({
       rippleProps={{ button: true }}
     >
       <ListItemText disableTypography style={flexCenterBetween}>
-        <Typography variant="body1">{name}</Typography>
+        <Flex display direction="column">
+          <Typography variant="body1">{name}</Typography>
+          <TeamChampionships
+            index={index}
+            championships={championships}
+          />
+        </Flex>
         {round && (
           <Typography variant="overline">
             {rounds[round].reduce((sum, value) => value + sum, 0)}
@@ -43,4 +51,4 @@ const GameListItem = ({
   );
 };
 
-export default GameListItem;
+export default TeamListItem;
