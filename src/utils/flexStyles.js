@@ -9,6 +9,12 @@ export const flexCenterBetween = {
   justifyContent: 'space-between',
 };
 
+export const flexCenterEnd = {
+  ...flexRow,
+  alignItems: 'center',
+  justifyContent: 'flex-end',
+};
+
 export const flexCenterStart = {
   ...flexRow,
   alignItems: 'center',

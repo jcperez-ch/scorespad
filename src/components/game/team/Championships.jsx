@@ -23,12 +23,15 @@ const StyledButton = styled(IconButton).attrs({
 
 const TeamChampionships = ({ history, championships }) => {
   const [gameKey] = useContext(GameUsedContext);
-  const goToCampionship = round => history.push(`/games/${gameKey}/rounds/${round}`);
+  const goToCampionship = round => () => history.push(`/games/${gameKey}/rounds/${round}`);
   return (
     <Flex display>
       {championships.map(round => (
         <Flex key={round} flex="1 1 auto">
-          <StyledButton onClick={() => goToCampionship(round)}>
+          <StyledButton
+            onClick={goToCampionship(round)}
+            onTouchEnd={goToCampionship(round)}
+          >
             <StyledIcon>star</StyledIcon>
           </StyledButton>
         </Flex>
