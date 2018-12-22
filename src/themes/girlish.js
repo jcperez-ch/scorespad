@@ -4,40 +4,46 @@ import { createMuiTheme } from '@material-ui/core/styles';
 const mui = createMuiTheme({
   palette: {
     primary: {
-      main: '#2b73bd',
-      light: '#558fca',
-      dark: '#1e5084',
-      contrastText: '#FFFFFF',
+      main: '#ff70b7',
+      light: '#ff8cc5',
+      dark: '#b24e80',
+      contrastText: '#026697',
     },
     secondary: {
-      main: '#02C8A4',
-      light: '#34d3b6',
-      dark: '#018c72',
-      contrastText: '#CCCCCC',
+      main: '#026697',
+      light: '#3484ab',
+      dark: '#014769',
+      contrastText: '#ff70b7',
     },
     background: {
-      default: '#f3f3f3',
-      paper: '#fff',
+      default: '#026697',
+      paper: '#81D1FF',
     },
     error: {
       main: '#d9534f',
     },
+    text: {
+      primary: '#ff70b7',
+      secondary: '#b24e80',
+      disabled: '#FD1687',
+    },
+    divider: 'rgba(0, 0, 0, 0.42)',
   },
   typography: {
-    fontFamily: ['Montserrat Alternates'],
-    fontSize: 16,
+    fontFamily: ['Fredoka One'],
+    fontSize: 17,
     body1: {
-      fontSize: '1.2rem',
+      fontSize: '1.4rem',
     },
     body2: {
       fontWeight: 400,
-      fontSize: '0.75rem',
+      fontSize: '0.8rem',
     },
   },
 });
 
 export default {
-  fonts: ['Montserrat Alternates'],
+  fonts: ['Fredoka One'],
   screenSizes: {
     smallerScreenMin: '321px',
     smallerScreenMax: '480px',
@@ -51,6 +57,6 @@ export default {
   },
   mui,
   globalStyle: createGlobalStyle`
-    @import url('https://fonts.googleapis.com/css?family=Montserrat+Alternates:400,500,800&subset=latin-ext');
+    @import url('https://fonts.googleapis.com/css?family=Fredoka+One');
   `,
 };

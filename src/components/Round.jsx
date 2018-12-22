@@ -8,6 +8,7 @@ import RoundGuard from './game/round/Guard';
 
 import useGame from './game/useGame';
 import LocaleMenu from './locale/Menu';
+import ThemeMenu from './theme/Menu';
 import GameUsedContext from './game/context/Used';
 import Scores from './game/Scores';
 import Championship from './game/round/Championship';
@@ -30,6 +31,7 @@ const Round = ({ history, match }) => {
           </GameGuard>
         </BarTitle>
         <LocaleMenu />
+        <ThemeMenu />
       </BarToolbar>
       <GameGuard game={game}>
         <RoundGuard>

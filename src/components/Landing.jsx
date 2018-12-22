@@ -5,6 +5,7 @@ import BarTitle from 'common/bar/Title';
 import Txt from 'common/Txt';
 
 import LocaleMenu from './locale/Menu';
+import ThemeMenu from './theme/Menu';
 
 import GameActionAdd from './game/action/Add';
 import GameList from './game/list/List';
@@ -19,6 +20,7 @@ const Landing = ({ history }) => {
           <Txt id="messages.selectGame" />
         </BarTitle>
         <LocaleMenu />
+        <ThemeMenu />
       </BarToolbar>
       <GameList onItemClick={goToGame} />
       <GameActionAdd onAdd={goToGame} />

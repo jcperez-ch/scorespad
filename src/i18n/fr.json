@@ -55,9 +55,7 @@
     "startNewGame": "Pour commencer un nouveau jeu, tu dois le nommer, choisi-le et puis appuie sur \"Commencer\", sinon, tu peux toujours presser \"Annuler\""
   },
   "skins": {
-    "default": "Basique",
-    "inferno": "Enfer",
-    "mexican": "Patriotique",
-    "silver": "Argenté"
+    "minimal": "Basique",
+    "girlish": "Féminin"
   }
 }

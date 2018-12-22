@@ -31,7 +31,7 @@ const StyledText = styled(Typography).attrs({
 const DialogTitle = ({ children, onClose, ...props }) => (
   <StyledWrapper {...props}>
     <StyledContainer>
-      <IconButton color="inherit" onClick={onClose}>
+      <IconButton color="primary" onClick={onClose}>
         <Icon>close</Icon>
       </IconButton>
       <StyledText>{children}</StyledText>
