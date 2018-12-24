@@ -8,13 +8,18 @@ import ThemeContext from './Context';
 
 const ThemeProvider = ({ children }) => {
   const storage = 'theme';
-  const themeStore = useState(
+  const [theme, setTheme] = useState(
     window.localStorage.getItem(storage) || 'minimal',
   );
-  const [theme] = themeStore;
   const { globalStyle: Global, ...themeRef } = themes[theme];
+  const handleSetTheme = (value) => {
+    if (window.ga) {
+      window.ga('send', 'event', 'UI', 'theme', value);
+    }
+    setTheme(value);
+  };
   return (
-    <ThemeContext.Provider value={themeStore}>
+    <ThemeContext.Provider value={[theme, handleSetTheme]}>
       <Storage index={storage} value={theme} />
       <StyledThemeProvider theme={themeRef}>
         <MuiThemeProvider theme={themeRef.mui}>
