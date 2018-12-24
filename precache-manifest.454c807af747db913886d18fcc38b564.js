@@ -20,7 +20,7 @@ self.__precacheManifest = [
     "url": "/scorespad/static/css/1.0e567fab.chunk.css"
   },
   {
-    "revision": "af3248c2f96d18e586c2e13591b75d8f",
+    "revision": "bef8bd73ac3e88b0c35948a155a25e8f",
     "url": "/scorespad/index.html"
   }
 ];
