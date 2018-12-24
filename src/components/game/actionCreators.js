@@ -1,3 +1,8 @@
+export const createState = state => ({
+  type: '-- --',
+  ...state,
+});
+
 export const createGame = (key, name) => ({
   type: 'G+',
   key,

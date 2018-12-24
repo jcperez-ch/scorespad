@@ -11,7 +11,7 @@ import DialogTitle from 'common/dialog/Title';
 import DialogHeadline from 'common/dialog/Headline';
 import NameField from 'common/NameField';
 import GameStoreContext from 'components/game/context/Store';
-import { createGame } from '../actionCreators';
+import { createGame } from 'components/game/actionCreators';
 import useGameValidation from './useValidation';
 
 const GameFormCreate = ({ open, onClose = noop, onSuccess = noop }) => {

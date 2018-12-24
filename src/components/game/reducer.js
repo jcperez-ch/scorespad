@@ -57,6 +57,8 @@ export const endRound = (state, { round }) => {
 
 const reducer = (state = {}, { type, ...payload }) => {
   switch (type) {
+    case '-- --':
+      return payload;
     case 'G+':
       return createGame(state, payload);
     case 'G-':

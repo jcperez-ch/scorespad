@@ -5,6 +5,7 @@ import Layout from 'common/Layout';
 import Game from './Game';
 import Landing from './Landing';
 import Round from './Round';
+import Storage from './Storage';
 import ThemeProvider from './theme/Provider';
 import LocaleProvider from './locale/Provider';
 import GameProvider from './game/Provider';
@@ -23,6 +24,7 @@ const Root = () => (
                 path="/games/:gameKey/rounds/:round"
                 component={Round}
               />
+              <Route exact path="/storage" component={Storage} />
             </Switch>
           </GameProvider>
         </Router>
