@@ -6,11 +6,11 @@ import Txt from 'common/Txt';
 
 import LocaleMenu from './locale/Menu';
 import ThemeMenu from './theme/Menu';
-
 import GameActionAdd from './game/action/Add';
 import GameList from './game/list/List';
+import PageViewTracker from './PageViewTracker';
 
-const Landing = ({ history }) => {
+const Landing = ({ history, location }) => {
   const goToGame = id => history.push(`/games/${id}`);
   return (
     <>
@@ -24,6 +24,7 @@ const Landing = ({ history }) => {
       </BarToolbar>
       <GameList onItemClick={goToGame} />
       <GameActionAdd onAdd={goToGame} />
+      <PageViewTracker pathname={location.pathname} />
     </>
   );
 };

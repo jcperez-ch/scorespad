@@ -12,8 +12,9 @@ import ThemeMenu from './theme/Menu';
 import GameUsedContext from './game/context/Used';
 import Scores from './game/Scores';
 import Championship from './game/round/Championship';
+import PageViewTracker from './PageViewTracker';
 
-const Round = ({ history, match }) => {
+const Round = ({ history, location, match }) => {
   const game = useGame(match.params);
   const { gameKey, round } = match.params;
 
@@ -42,6 +43,7 @@ const Round = ({ history, match }) => {
           )}
         </RoundGuard>
       </GameGuard>
+      <PageViewTracker pathname={location.pathname} />
     </GameUsedContext.Provider>
   );
 };

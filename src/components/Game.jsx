@@ -10,8 +10,9 @@ import TeamList from './game/team/list/List';
 import GameActionStart from './game/action/Start';
 import TeamActionAdd from './game/team/action/Add';
 import GameUsedContext from './game/context/Used';
+import PageViewTracker from './PageViewTracker';
 
-const Game = ({ history, match }) => {
+const Game = ({ history, location, match }) => {
   const game = useGame(match.params);
   const { gameKey } = match.params;
   const gameReady = game.teams.length >= 2;
@@ -33,10 +34,9 @@ const Game = ({ history, match }) => {
       </BarToolbar>
       <GameGuard game={game}>
         <TeamList {...game || {}} />
-        {gameReady && (
-          <GameActionStart onStart={goToRound} />
-        )}
+        {gameReady && <GameActionStart onStart={goToRound} />}
       </GameGuard>
+      <PageViewTracker pathname={location.pathname} />
     </GameUsedContext.Provider>
   );
 };
