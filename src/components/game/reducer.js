@@ -62,7 +62,7 @@ const reducer = (state = {}, { type, ...payload }) => {
       return payload;
     case 'G+':
       if (window.ga) {
-        window.ga('send', 'event', 'Game', 'create', 'name', payload.name);
+        window.ga('send', 'event', 'Game', 'create', payload.name);
       }
       return createGame(state, payload);
     case 'G-':
@@ -72,17 +72,13 @@ const reducer = (state = {}, { type, ...payload }) => {
           'event',
           'Game',
           'remove',
-          'name',
           get(state, `${payload.key}.name`, ''),
-          {
-            nonInteraction: true,
-          },
         );
       }
       return removeGame(state, payload);
     case 'G=':
       if (window.ga) {
-        window.ga('send', 'event', 'Game', 'rename', 'name', payload.name);
+        window.ga('send', 'event', 'Game', 'rename', payload.name);
       }
       return reduceGame(state, payload, renameGame);
     case 'G$':
@@ -92,7 +88,6 @@ const reducer = (state = {}, { type, ...payload }) => {
           'event',
           'Game',
           'finish',
-          'name',
           get(state, `${payload.key}.name`, ''),
         );
       }
