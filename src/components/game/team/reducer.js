@@ -102,7 +102,7 @@ export const reducer = (state = [], { type, ...payload }) => {
     case 'S++':
       if (window.ga) {
         const date = new Date(parseInt(payload.round, 36));
-        window.ga('send', 'event', 'Round', 'scores', date);
+        window.ga('send', 'event', 'Round', 'scores', date.toISOString());
       }
       return addScores(state, payload);
     case 'S-':
