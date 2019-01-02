@@ -22,6 +22,7 @@ const GameActionAdd = ({ onAdd }) => {
           color="primary"
           aria-owns={open ? 'game-add-dialog' : undefined}
           aria-haspopup="true"
+          aria-label={t('button.createGame')}
           icon="add"
           onClick={toggleOpen}
         />

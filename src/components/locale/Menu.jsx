@@ -26,6 +26,7 @@ const LocaleMenu = () => {
         color="inherit"
         aria-owns={el ? 'locale-menu' : undefined}
         aria-haspopup="true"
+        aria-label="Locale"
         onClick={handleOpen}
       >
         <Icon>g_translate</Icon>

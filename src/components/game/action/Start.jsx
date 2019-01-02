@@ -27,6 +27,7 @@ const GameActionStart = ({ onStart = noop }) => {
       <StickyFabButton
         color="primary"
         icon="play_arrow"
+        aria-label={t('button.startGame')}
         onClick={handleStart}
       />
     </Tooltip>

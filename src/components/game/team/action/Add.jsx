@@ -22,7 +22,11 @@ const TeamActionAdd = ({ sticky = false, onAdd = noop }) => {
     <>
       <Tooltip disableTouchListener title={t('button.addTeam')}>
         {sticky ? (
-          <IconButton color="inherit" onClick={toggleOpen}>
+          <IconButton
+            color="inherit"
+            aria-label={t('button.addTeam')}
+            onClick={toggleOpen}
+          >
             <Icon>add</Icon>
           </IconButton>
         ) : (
@@ -30,6 +34,7 @@ const TeamActionAdd = ({ sticky = false, onAdd = noop }) => {
             color="primary"
             aria-owns={open ? 'team-add-dialog' : undefined}
             aria-haspopup="true"
+            aria-label={t('button.addTeam')}
             icon="add"
             onClick={toggleOpen}
           />

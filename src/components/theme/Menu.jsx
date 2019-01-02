@@ -27,6 +27,7 @@ const ThemeMenu = () => {
         color="inherit"
         aria-owns={el ? 'theme-menu' : undefined}
         aria-haspopup="true"
+        aria-label="Theme"
         onClick={handleOpen}
       >
         <Icon>color_lens</Icon>
