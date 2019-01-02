@@ -1,15 +1,15 @@
 {
   "main.css": "/scorespad/static/css/main.0832c592.chunk.css",
-  "main.js": "/scorespad/static/js/main.9927fa3a.chunk.js",
-  "main.js.map": "/scorespad/static/js/main.9927fa3a.chunk.js.map",
+  "main.js": "/scorespad/static/js/main.f83c8dc6.chunk.js",
+  "main.js.map": "/scorespad/static/js/main.f83c8dc6.chunk.js.map",
   "static/css/1.cbf60537.chunk.css": "/scorespad/static/css/1.cbf60537.chunk.css",
   "static/js/1.f667538f.chunk.js": "/scorespad/static/js/1.f667538f.chunk.js",
   "static/js/1.f667538f.chunk.js.map": "/scorespad/static/js/1.f667538f.chunk.js.map",
   "runtime~main.js": "/scorespad/static/js/runtime~main.4324ed7f.js",
   "runtime~main.js.map": "/scorespad/static/js/runtime~main.4324ed7f.js.map",
-  "static/css/main.0832c592.chunk.css.map": "/scorespad/static/css/main.0832c592.chunk.css.map",
   "static/css/1.cbf60537.chunk.css.map": "/scorespad/static/css/1.cbf60537.chunk.css.map",
+  "static/css/main.0832c592.chunk.css.map": "/scorespad/static/css/main.0832c592.chunk.css.map",
   "index.html": "/scorespad/index.html",
-  "precache-manifest.34e0a7979fe9b9019d10d0f6098e3cd8.js": "/scorespad/precache-manifest.34e0a7979fe9b9019d10d0f6098e3cd8.js",
+  "precache-manifest.3458b5f2eb53539b6c0b577d8b8c85e4.js": "/scorespad/precache-manifest.3458b5f2eb53539b6c0b577d8b8c85e4.js",
   "service-worker.js": "/scorespad/service-worker.js"
 }

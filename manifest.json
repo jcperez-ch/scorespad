@@ -3,6 +3,12 @@
   "name": "scorespad",
   "icons": [
     {
+      "src": "/icon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "density": "1.0"
+    },
+    {
       "src": "/ico/android-icon-36x36.png",
       "sizes": "36x36",
       "type": "image/png",
