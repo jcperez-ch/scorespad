@@ -11,8 +11,9 @@ import { addRound } from '../actionCreators';
 const GameActionStart = ({ onStart = noop }) => {
   const [t] = useTranslation();
   const [, dispatch] = useContext(GameStoreContext);
-  const [gameKey, { round }] = useContext(GameUsedContext);
+  const [gameKey, game] = useContext(GameUsedContext);
   const handleStart = () => {
+    const { round } = game;
     if (round === null) {
       const newRound = Date.now().toString(36);
       dispatch(addRound(gameKey, newRound));
@@ -23,14 +24,16 @@ const GameActionStart = ({ onStart = noop }) => {
   };
 
   return (
-    <Tooltip title={t('button.startGame')}>
-      <StickyFabButton
-        color="primary"
-        icon="play_arrow"
-        aria-label={t('button.startGame')}
-        onClick={handleStart}
-      />
-    </Tooltip>
+    game && (
+      <Tooltip title={t('button.startGame')}>
+        <StickyFabButton
+          color="primary"
+          icon="play_arrow"
+          aria-label={t('button.startGame')}
+          onClick={handleStart}
+        />
+      </Tooltip>
+    )
   );
 };
 

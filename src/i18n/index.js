@@ -7,7 +7,7 @@ import fr from './fr';
 i18n.use(initReactI18n).init({
   fallbackLng: ['es', 'fr', 'en'],
   lng: window.localStorage.getItem('locale') || 'es',
-  debug: process.env.NODE_ENV !== 'production',
+  debug: false,
   resources: {
     es: { translation: es },
     en: { translation: en },

@@ -50,6 +50,7 @@
     "gameNotFound": "Oops, no se encontró ningún juego.  Regresa al inicio para buscar un juego",
     "noGames": "No hay juegos que mostrar, quizás quieras comenzar creando uno?",
     "noTeams": "No hay equipos que mostrar",
+    "roundNotFound": "Oops, no se encontró ninguna partida.  Regresa al inicio para buscar tu partida",
     "selectGame": "Dejaste algún juego ya empezado? Haz click en el nombre de tu juego o si quieres empezar un juego desde cero haz click en el botón de \"Crear Juego\"",
     "selectNewGame": "Para comenzar un juego haz click en el botón de \"+\"",
     "startNewGame": "Para comenzar el juego necesitas nombrarlo, escribe el nombre abajo y haz click en \"Comenzar Juego\". Si, ya te arrepentiste podrías hacer click en \"Cancelar\""

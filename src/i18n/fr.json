@@ -50,6 +50,7 @@
     "gameNotFound": "Oops, pas de jeu ici.  Tappez sur le button de rétour pour trouver un jeu",
     "noGames": "Il n'y a pas des jeux à montrer, parfois veux-tu creer un?",
     "noTeams": "Il n'y a pas des équipes à montrer",
+    "roundNotFound": "Oops, rien a voir ici.  Tappez sur le button de rétour pour trouver une partie",
     "selectGame": "As-tu laissé ton jeu déjà commencé? appuie sur le triangle pour le reprendre. Ou  si tu veux commencer un nouveau jeu, donc appuie sur \"Creer Jeu\"",
     "selectNewGame": "Pour commencer un nouveau jeu, appuie sur \"Creer Jeu\"",
     "startNewGame": "Pour commencer un nouveau jeu, tu dois le nommer, choisi-le et puis appuie sur \"Commencer\", sinon, tu peux toujours presser \"Annuler\""

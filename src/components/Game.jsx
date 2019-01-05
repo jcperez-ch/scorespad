@@ -15,7 +15,6 @@ import PageViewTracker from './PageViewTracker';
 const Game = ({ history, location, match }) => {
   const game = useGame(match.params);
   const { gameKey } = match.params;
-  const gameReady = game.teams.length >= 2;
   const goToHome = () => history.push('/');
   const goToRound = round => history.push(`/games/${gameKey}/rounds/${round}`);
   return (
@@ -29,12 +28,12 @@ const Game = ({ history, location, match }) => {
             {game && game.name}
           </GameGuard>
         </BarTitle>
-        <TeamActionAdd sticky />
+        {game && <TeamActionAdd sticky />}
         <LocaleMenu />
       </BarToolbar>
       <GameGuard game={game}>
-        <TeamList {...game || {}} />
-        {gameReady && <GameActionStart onStart={goToRound} />}
+        <TeamList />
+        <GameActionStart onStart={goToRound} />
       </GameGuard>
       <PageViewTracker pathname={location.pathname} />
     </GameUsedContext.Provider>

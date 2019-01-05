@@ -50,6 +50,7 @@
     "gameNotFound": "Oops, wrong link. Go back to search for a saved game",
     "noGames": "There are no games to display, maybe start by creating one",
     "noTeams": "There are no teams to display",
+    "roundNotFound": "Oops, wrong link. Go back to search for a saved round",
     "selectGame": "Did you leave a game already started?, Click on the name of the game.  Or if you want to start a brand new game then click on the \"Create Game\" button below",
     "selectNewGame": "To start a new game, click the \"Create Game\" button below",
     "startNewGame": "To start a new game, you need to name it, so, pick a nice one and click on \"Start Game\", if you change your mind, you can always hit \"Cancel\" instead"

@@ -10,7 +10,7 @@ const FullViewportHeight = styled.div`
   display: flex;
   flex-direction: column;
   flex: 1;
-  height: 100vh;
+  max-height: 100vh;
   justify-content: center;
 
   > aside {
