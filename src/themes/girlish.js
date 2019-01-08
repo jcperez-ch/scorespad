@@ -30,6 +30,7 @@ const mui = createMuiTheme({
     divider: 'rgba(0, 0, 0, 0.42)',
   },
   typography: {
+    useNextVariants: true,
     fontFamily: ['Fredoka One'],
     fontSize: 17,
     body1: {

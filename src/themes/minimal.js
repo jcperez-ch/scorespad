@@ -24,6 +24,7 @@ const mui = createMuiTheme({
     },
   },
   typography: {
+    useNextVariants: true,
     fontFamily: ['Montserrat Alternates'],
     fontSize: 16,
     body1: {

@@ -73,59 +73,18 @@ export const addScores = (state, { round, scores }) => (scores.length === 0
 export const reducer = (state = [], { type, ...payload }) => {
   switch (type) {
     case 'T+':
-      if (window.ga) {
-        window.ga('send', 'event', 'Team', 'create', payload.name);
-      }
       return createTeam(state, payload);
     case 'T-':
-      if (window.ga) {
-        window.ga(
-          'send',
-          'event',
-          'Team',
-          'remove',
-          get(state, `${payload.index}.name`, ''),
-        );
-      }
       return removeTeam(state, payload);
     case 'T=':
-      if (window.ga) {
-        window.ga('send', 'event', 'Team', 'rename', payload.name);
-      }
       return reduceTeam(state, payload, renameTeam);
     case 'R+':
-      if (window.ga) {
-        const date = new Date(parseInt(payload.round, 36));
-        window.ga('send', 'event', 'Round', 'add', date.toISOString());
-      }
       return addRound(state, payload);
     case 'S++':
-      if (window.ga) {
-        const date = new Date(parseInt(payload.round, 36));
-        window.ga('send', 'event', 'Round', 'scores', date.toISOString());
-      }
       return addScores(state, payload);
     case 'S-':
-      if (window.ga) {
-        window.ga(
-          'send',
-          'event',
-          'Team',
-          'removeScore',
-          get(state, `${payload.index}.name`, ''),
-        );
-      }
       return reduceTeam(state, payload, removeScore);
     case 'C+':
-      if (window.ga) {
-        window.ga(
-          'send',
-          'event',
-          'Team',
-          'champion',
-          get(state, `${payload.index}.name`, ''),
-        );
-      }
       return addChampionship(state, payload);
     default:
       return state;
