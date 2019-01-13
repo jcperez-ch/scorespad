@@ -10,12 +10,12 @@ import ThemeProvider from './theme/Provider';
 import LocaleProvider from './locale/Provider';
 import GameProvider from './game/Provider';
 
-const Root = () => (
-  <LocaleProvider>
-    <ThemeProvider>
+const Root = ({ locale, theme, games }) => (
+  <LocaleProvider initial={locale}>
+    <ThemeProvider initial={theme}>
       <Layout>
         <Router basename={process.env.PUBLIC_URL}>
-          <GameProvider>
+          <GameProvider initial={games}>
             <Switch>
               <Route exact path="/" component={Landing} />
               <Route exact path="/games/:gameKey" component={Game} />

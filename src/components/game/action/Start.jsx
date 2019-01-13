@@ -24,7 +24,7 @@ const GameActionStart = ({ onStart = noop }) => {
   };
 
   return (
-    game && (
+    game && game.teams.length > 1 && (
       <Tooltip title={t('button.startGame')}>
         <StickyFabButton
           color="primary"

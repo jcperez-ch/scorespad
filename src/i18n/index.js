@@ -4,9 +4,9 @@ import es from './es';
 import en from './en';
 import fr from './fr';
 
-i18n.use(initReactI18n).init({
+const getI18n = initial => i18n.use(initReactI18n).init({
   fallbackLng: ['es', 'fr', 'en'],
-  lng: window.localStorage.getItem('locale') || 'es',
+  lng: initial,
   debug: false,
   resources: {
     es: { translation: es },
@@ -15,4 +15,4 @@ i18n.use(initReactI18n).init({
   },
 });
 
-export default i18n;
+export default getI18n;

@@ -1,8 +1,10 @@
 import { memo } from 'react';
+import { set } from 'idb-keyval';
+import { store } from 'utils/store';
 
-const LocaleStorage = memo(({ index, value, json = false }) => {
-  window.localStorage.setItem(index, json ? JSON.stringify(value) : value);
+const LocalStorage = memo(({ index, value }) => {
+  set(index, value, store);
   return null;
 });
 
-export default LocaleStorage;
+export default LocalStorage;

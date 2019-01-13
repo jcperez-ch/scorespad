@@ -1,13 +1,12 @@
 import React, { Suspense } from 'react';
-import { useTranslation } from 'react-i18next/hooks';
 
-import i18n from 'i18n';
+import getI18n from 'i18n';
 import Storage from 'common/Storage';
 import Spinner from 'common/Spinner';
 
-const LocaleProvider = ({ children }) => {
+const LocaleProvider = ({ initial = 'es', children }) => {
   const storage = 'locale';
-  useTranslation();
+  const i18n = getI18n(initial);
 
   return (
     <Suspense fallback={Spinner}>

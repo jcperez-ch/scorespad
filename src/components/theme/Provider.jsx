@@ -6,11 +6,9 @@ import Storage from 'common/Storage';
 
 import ThemeContext from './Context';
 
-const ThemeProvider = ({ children }) => {
+const ThemeProvider = ({ initial = 'minimal', children }) => {
   const storage = 'theme';
-  const [theme, setTheme] = useState(
-    window.localStorage.getItem(storage) || 'minimal',
-  );
+  const [theme, setTheme] = useState(initial);
   const { globalStyle: Global, ...themeRef } = themes[theme];
   const handleSetTheme = (value) => {
     if (window.ga) {

@@ -1,6 +1,8 @@
 import React, { useContext } from 'react';
 import { map, mapValues } from 'lodash';
+import { set } from 'idb-keyval';
 import { Redirect } from 'react-router-dom';
+import { store } from 'utils/store';
 import { createState } from './game/actionCreators';
 import GameStoreContext from './game/context/Store';
 
@@ -23,10 +25,11 @@ const Storage = ({ location }) => {
     if (Object.keys(gms).length) {
       const newState = mapValues(gms, transformGame);
       dispatch(createState(newState));
-      window.localStorage.setItem('gms', JSON.stringify(newState));
+
+      set('gms', newState, store);
     }
     if (['es', 'en', 'fr'].includes(locale)) {
-      window.localStorage.setItem('locale', locale);
+      set('locale', locale, store);
     }
   } catch (e) {
     return <Redirect to={`/?nostate=${e.message}`} />;
