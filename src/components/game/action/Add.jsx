@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useTranslation } from 'react-i18next/hooks';
+import { useTranslation } from 'react-i18next';
 import Tooltip from '@material-ui/core/Tooltip';
 import StickyFabButton from 'common/StickyFabButton';
 

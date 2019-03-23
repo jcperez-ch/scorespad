@@ -10,8 +10,10 @@ import ThemeProvider from './theme/Provider';
 import LocaleProvider from './locale/Provider';
 import GameProvider from './game/Provider';
 
-const Root = ({ locale, theme, games }) => (
-  <LocaleProvider initial={locale}>
+const Root = ({
+  locale, i18n, theme, games,
+}) => (
+  <LocaleProvider initial={locale} i18n={i18n}>
     <ThemeProvider initial={theme}>
       <Layout>
         <Router basename={process.env.PUBLIC_URL}>

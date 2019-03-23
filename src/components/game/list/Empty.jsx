@@ -1,5 +1,5 @@
 import React from 'react';
-import { useTranslation } from 'react-i18next/hooks';
+import { useTranslation } from 'react-i18next';
 import WarnPlaceholder from 'common/WarnPlaceholder';
 
 const GameListEmpty = () => {

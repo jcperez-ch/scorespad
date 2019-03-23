@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { useTranslation } from 'react-i18next/hooks';
+import { useTranslation } from 'react-i18next';
 import Button from '@material-ui/core/Button';
 import ButtonsWrapper from 'common/ButtonsWrapper';
 import GameUsedContext from './context/Used';

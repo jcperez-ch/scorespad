@@ -1,4 +1,4 @@
-import { useTranslation } from 'react-i18next/hooks';
+import { useTranslation } from 'react-i18next';
 import { useValidation, validators } from 'utils/validation';
 
 const { required } = validators;

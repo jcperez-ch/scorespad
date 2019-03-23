@@ -1,5 +1,5 @@
 import React from 'react';
-import { useTranslation } from 'react-i18next/hooks';
+import { useTranslation } from 'react-i18next';
 import IconButton from '@material-ui/core/IconButton';
 import Icon from '@material-ui/core/Icon';
 import BarToolbar from 'common/bar/Toolbar';

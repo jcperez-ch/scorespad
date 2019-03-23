@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useTranslation } from 'react-i18next/hooks';
+import { useTranslation } from 'react-i18next';
 import ListItem from '@material-ui/core/ListItem';
 import Typography from '@material-ui/core/Typography';
 import ListItemText from '@material-ui/core/ListItemText';
@@ -38,7 +38,7 @@ const GameListItem = ({
     >
       <ListItemText
         disableTypography
-        secondary={
+        secondary={(
           <>
             <Typography variant="body2">
               {t('messages.createdAt', { date: createdAt.toDateString() })}
@@ -49,7 +49,7 @@ const GameListItem = ({
               </Typography>
             )}
           </>
-        }
+        )}
       >
         <Typography variant="body1">{name}</Typography>
       </ListItemText>

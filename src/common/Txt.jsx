@@ -1,4 +1,4 @@
-import { useTranslation } from 'react-i18next/hooks';
+import { useTranslation } from 'react-i18next';
 
 const Txt = ({ id }) => {
   const [t] = useTranslation();

@@ -1,19 +1,18 @@
-import React, { useState } from 'react';
-import { useTranslation } from 'react-i18next/hooks';
+import React, { useState, useContext } from 'react';
 import IconButton from '@material-ui/core/IconButton';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import Icon from '@material-ui/core/Icon';
+import LocaleContext from 'components/locale/Context';
 
 const LocaleMenu = () => {
   const [el, setEl] = useState(null);
-  const [, i18n] = useTranslation();
-  const [locale] = i18n.languages || [];
+  const [locale, setLocale] = useContext(LocaleContext);
   const handleOpen = ({ currentTarget }) => setEl(currentTarget);
   const handleClose = () => setEl(null);
   const handleClick = value => () => {
     setEl(null);
-    i18n.changeLanguage(value);
+    setLocale(value);
   };
   const items = [
     { id: 'es', label: 'Español' },

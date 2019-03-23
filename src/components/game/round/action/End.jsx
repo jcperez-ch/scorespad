@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { noop } from 'lodash';
-import { useTranslation } from 'react-i18next/hooks';
+import { useTranslation } from 'react-i18next';
 import Button from '@material-ui/core/Button';
 import Modal from '@material-ui/core/Modal';
 import Typography from '@material-ui/core/Typography';
