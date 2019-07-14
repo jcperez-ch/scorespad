@@ -15,10 +15,14 @@ const StyledToolbar = styled(Toolbar)`
   align-items: center;
   display: flex;
   justify-content: space-between;
+
+  .material-icons {
+    color: ${themeColors.foregroundOnPrimary};
+  }
 `;
 
 const BarToolbar = ({ children }) => (
-  <StyledAppBar position="static">
+  <StyledAppBar>
     <StyledToolbar>{children}</StyledToolbar>
   </StyledAppBar>
 );
