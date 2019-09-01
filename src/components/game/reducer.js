@@ -45,7 +45,7 @@ export const endRound = (state, { round }) => {
   const totals = state.teams.map(({ rounds }) => rounds[round].reduce((sum, score) => sum + score, 0));
   const [, ...scores] = totals;
   const winnerIndex = scores.reduce(
-    (winner, score, index) => (score > totals[winner] ? index : winner),
+    (winner, score, index) => (score > totals[winner] ? index + 1 : winner),
     0,
   );
 
