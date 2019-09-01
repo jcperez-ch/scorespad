@@ -1,18 +1,14 @@
 import React from 'react';
 import { isEmpty, noop } from 'lodash';
-import Grid from '@material-ui/core/Grid';
 import TeamListEmpty from 'components/game/team/list/Empty';
+
 import RoundListItem from './Item';
+import RoundListWrapper from './Wrapper';
 
 const RoundList = ({ teams = [], round, onSubmit = noop }) => (isEmpty(teams) ? (
   <TeamListEmpty />
 ) : (
-  <Grid
-    container
-    spacing={8}
-    alignItems="flex-start"
-    justify="center"
-  >
+  <RoundListWrapper>
     {teams.map((team, key) => (
       <RoundListItem
         key={team.name}
@@ -22,7 +18,7 @@ const RoundList = ({ teams = [], round, onSubmit = noop }) => (isEmpty(teams) ? 
         {...team}
       />
     ))}
-  </Grid>
+  </RoundListWrapper>
 ));
 
 export default RoundList;

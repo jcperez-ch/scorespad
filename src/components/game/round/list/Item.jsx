@@ -1,8 +1,7 @@
 import React, { useContext } from 'react';
+import styled from 'styled-components';
 import { map } from 'lodash';
-import Grid from '@material-ui/core/Grid';
 import Card from '@material-ui/core/Card';
-import CardContent from '@material-ui/core/CardContent';
 import List from '@material-ui/core/List';
 
 import CardHeader from 'common/card/Header';
@@ -11,6 +10,11 @@ import GameRoundScore from 'components/game/round/Score';
 import GameRoundSum from 'components/game/round/Sum';
 import { onEnter } from 'utils/handlers';
 import RoundListField from './Field';
+
+const StyledRoundListItemContent = styled.div`
+  padding: 16px;
+  text-align: center;
+`;
 
 const RoundListItem = ({
   index,
@@ -28,10 +32,10 @@ const RoundListItem = ({
     );
   };
   return (
-    <Grid item>
+    <li>
       <Card>
         <CardHeader title={name} titleTypographyProps={{ align: 'center' }} />
-        <CardContent>
+        <StyledRoundListItemContent>
           <List component="div" dense>
             {map(teamScores, (score, key) => (
               <GameRoundScore
@@ -52,9 +56,9 @@ const RoundListItem = ({
             onKeyDown={onEnter(handleEnter)}
             value={teamScoreValue}
           />
-        </CardContent>
+        </StyledRoundListItemContent>
       </Card>
-    </Grid>
+    </li>
   );
 };
 
