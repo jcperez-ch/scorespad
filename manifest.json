@@ -48,5 +48,6 @@
   "start_url": "https://jcperez-ch.github.io/scorespad",
   "display": "standalone",
   "theme_color": "#2b73bd",
-  "background_color": "#f3f3f3"
+  "background_color": "#f3f3f3",
+  "version": "1.1.4"
 }
