@@ -7,10 +7,15 @@ import Flex from 'common/Flex';
 import { flexCenterBetween } from 'utils/flexStyles';
 
 import TeamFormUpdate from '../form/Update';
-import TeamChampionships from '../Championships';
+import TeamChampionship from '../Championship';
 
 const TeamListItem = ({
-  index, name, championships = [], rounds, round,
+  index,
+  name,
+  championships = [],
+  rounds,
+  round,
+  onClickChampionship,
 }) => {
   const [newName, setNewName] = useState(null);
   const handleEditMode = () => setNewName(name);
@@ -36,10 +41,15 @@ const TeamListItem = ({
       <ListItemText disableTypography style={flexCenterBetween}>
         <Flex display direction="column">
           <Typography variant="body1">{name}</Typography>
-          <TeamChampionships
-            index={index}
-            championships={championships}
-          />
+          <Flex display>
+            {championships.map(championship => (
+              <TeamChampionship
+                key={championship}
+                championship={championship}
+                onClick={onClickChampionship}
+              />
+            ))}
+          </Flex>
         </Flex>
         {round && (
           <Typography variant="overline">

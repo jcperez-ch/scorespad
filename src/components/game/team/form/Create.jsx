@@ -1,5 +1,4 @@
-import React, { useContext, useState } from 'react';
-import { noop } from 'lodash';
+import React, { useContext, useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
@@ -11,40 +10,46 @@ import DialogTitle from 'common/dialog/Title';
 import DialogHeadline from 'common/dialog/Headline';
 import NameField from 'common/NameField';
 import GameStoreContext from 'components/game/context/Store';
-import GameUsedContext from 'components/game/context/Used';
 
 import { createTeam } from '../actionCreators';
-
 import useTeamValidation from './useValidation';
+import useGame from '../../useGame';
 
-const TeamFormCreate = ({ open, onClose = noop, onSuccess = noop }) => {
+const TeamFormCreate = ({ gameKey, navigate }) => {
+  const game = useGame({ gameKey });
+  const { round } = game;
+  const [open, setOpen] = useState(false);
   const [name, setName] = useState('');
   const [t] = useTranslation();
   const [, dispatch] = useContext(GameStoreContext);
-  const [gameKey, { round }] = useContext(GameUsedContext);
   const validation = useTeamValidation({ name });
-  const { touch, reset, valid } = validation;
+  const { touch, valid } = validation;
 
+  const handleClose = () => navigate('..');
   const handleAdd = () => {
     touch();
     if (valid) {
-      dispatch(createTeam(gameKey, round, name)); // TODO set the game round on creation
-      onSuccess();
-      reset();
-      setName('');
+      dispatch(createTeam(gameKey, round, name));
+      handleClose();
     }
   };
+
+  useEffect(() => {
+    if (!open) {
+      setOpen(true);
+    }
+  }, []);
 
   return (
     <Dialog
       fullScreen
       id="team-add-dialog"
-      onClose={onClose}
+      onClose={handleClose}
       aria-labelledby="team-add-dialog-title"
       open={open}
       TransitionComponent={SlideUp}
     >
-      <DialogTitle id="team-add-dialog-title" onClose={onClose}>
+      <DialogTitle id="team-add-dialog-title" onClose={handleClose}>
         {t('button.addTeam')}
       </DialogTitle>
       <DialogContent>
@@ -58,7 +63,7 @@ const TeamFormCreate = ({ open, onClose = noop, onSuccess = noop }) => {
         />
       </DialogContent>
       <DialogActions>
-        <Button onClick={onClose}>{t('button.cancel')}</Button>
+        <Button onClick={handleClose}>{t('button.cancel')}</Button>
         <Button onClick={handleAdd} color="primary" autoFocus>
           {t('button.addTeam')}
         </Button>

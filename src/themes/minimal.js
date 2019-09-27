@@ -35,6 +35,7 @@ const mui = createMuiTheme({
       fontSize: '0.75rem',
     },
   },
+  overrides: {},
 });
 
 export default {

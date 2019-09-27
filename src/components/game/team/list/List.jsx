@@ -6,7 +6,7 @@ import GameUsedContext from 'components/game/context/Used';
 import TeamListEmpty from './Empty';
 import TeamListItem from './Item';
 
-const TeamList = ({ onItemClick = noop }) => {
+const TeamList = ({ onClickChampionship = noop }) => {
   const [, game] = useContext(GameUsedContext);
 
   if (!game) {
@@ -18,11 +18,11 @@ const TeamList = ({ onItemClick = noop }) => {
     <TeamListEmpty />
   ) : (
     <List component="div">
-      {teams.map((team, key) => (
+      {teams.map((team, index) => (
         <TeamListItem
           key={team.name}
-          index={key}
-          onClick={onItemClick}
+          index={index}
+          onClickChampionship={onClickChampionship}
           round={round}
           {...team}
         />

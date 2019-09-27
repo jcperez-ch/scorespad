@@ -1,14 +1,18 @@
-import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import React, { Fragment } from 'react';
+import { Router } from '@reach/router';
+
 import Layout from 'common/Layout';
 
 import Game from './Game';
 import Landing from './Landing';
 import Round from './Round';
-import Storage from './Storage';
+import { TopLanding, TopGame, TopRound } from './Top';
 import ThemeProvider from './theme/Provider';
 import LocaleProvider from './locale/Provider';
+import TeamFormCreate from './game/team/form/Create';
 import GameProvider from './game/Provider';
+
+const Fragoute = ({ children }) => <>{children}</>;
 
 const Root = ({
   locale, i18n, theme, games,
@@ -16,20 +20,29 @@ const Root = ({
   <LocaleProvider initial={locale} i18n={i18n}>
     <ThemeProvider initial={theme}>
       <Layout>
-        <Router basename={process.env.PUBLIC_URL}>
-          <GameProvider initial={games}>
-            <Switch>
-              <Route exact path="/" component={Landing} />
-              <Route exact path="/games/:gameKey" component={Game} />
-              <Route
-                exact
-                path="/games/:gameKey/rounds/:round"
-                component={Round}
-              />
-              <Route exact path="/storage" component={Storage} />
-            </Switch>
-          </GameProvider>
-        </Router>
+        <GameProvider initial={games}>
+          <Router
+            basepath={process.env.PUBLIC_URL}
+            primary={false}
+            component={Fragment}
+          >
+            <TopLanding path="/" />
+            <Fragoute path="games/:gameKey">
+              <TopGame path="/" />
+              <TopRound path="rounds/:round" />
+              <TeamFormCreate path="team" />
+            </Fragoute>
+          </Router>
+          <Router
+            basepath={process.env.PUBLIC_URL}
+            primary={false}
+            component={Fragoute}
+          >
+            <Landing path="/" component="main" />
+            <Game path="games/:gameKey" />
+            <Round path="games/:gameKey/rounds/:round" />
+          </Router>
+        </GameProvider>
       </Layout>
     </ThemeProvider>
   </LocaleProvider>

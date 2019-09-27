@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import Toolbar from '@material-ui/core/Toolbar';
 import { themeColors } from 'themes';
 
 const StyledAppBar = styled.div`
@@ -11,10 +10,11 @@ const StyledAppBar = styled.div`
   position: static;
 `;
 
-const StyledToolbar = styled(Toolbar)`
+const StyledToolbar = styled.div`
   align-items: center;
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: auto 1fr auto auto;
+  padding: 8px 24px;
 
   .material-icons {
     color: ${themeColors.foregroundOnPrimary};

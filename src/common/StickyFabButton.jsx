@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import Button from '@material-ui/core/Button';
+import Fab from '@material-ui/core/Fab';
 import Icon from '@material-ui/core/Icon';
 import { themeScreenSizes } from 'themes';
 
@@ -17,9 +17,7 @@ const buttonPosition = unit => ({ position = 'right' }) => {
   }
 };
 
-const StyledButton = styled(Button).attrs({
-  variant: 'fab',
-})`
+const StyledButton = styled(Fab)`
   bottom: 0.5rem;
   ${buttonPosition('0.5rem')}
   && {

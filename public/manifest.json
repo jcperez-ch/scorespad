@@ -45,7 +45,7 @@
       "density": "4.0"
     }
   ],
-  "start_url": "https://jcperez-ch.github.io/scorespad",
+  "start_url": "/",
   "display": "standalone",
   "theme_color": "#2b73bd",
   "background_color": "#f3f3f3",

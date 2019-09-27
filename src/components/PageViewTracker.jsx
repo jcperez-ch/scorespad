@@ -1,8 +1,8 @@
 import { memo } from 'react';
 
-const PageViewTracker = memo(({ pathname }) => {
+const PageViewTracker = memo(({ uri }) => {
   if (window.ga) {
-    window.ga('send', 'pageview', pathname);
+    window.ga('send', 'pageview', uri);
   }
   return null;
 });
