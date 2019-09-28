@@ -4,9 +4,9 @@ import {
 } from 'lodash';
 
 const required = ({ value }) => !isEmpty(value);
-const gt = context => ({ value }) => value > context;
-const allOf = context => ({ value, model }) => context.every(validator => validator({ value, model }));
-const someOf = context => ({ value, model }) => context.some(validator => validator({ value, model }));
+const gt = (context) => ({ value }) => value > context;
+const allOf = (context) => ({ value, model }) => context.every((validator) => validator({ value, model }));
+const someOf = (context) => ({ value, model }) => context.some((validator) => validator({ value, model }));
 
 export const validators = {
   allOf,

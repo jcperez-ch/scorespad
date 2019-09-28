@@ -1,6 +1,6 @@
 import { get } from 'lodash';
 
-const gaTrackingEnhancer = reducer => (state, action) => {
+const gaTrackingEnhancer = (reducer) => (state, action) => {
   if (window.ga) {
     const { type, ...payload } = action;
     const { ga } = window;
