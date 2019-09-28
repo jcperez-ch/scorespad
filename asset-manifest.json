@@ -1,15 +1,17 @@
 {
-  "main.css": "/scorespad/static/css/main.c8d30a6c.chunk.css",
-  "main.js": "/scorespad/static/js/main.56b555e3.chunk.js",
-  "main.js.map": "/scorespad/static/js/main.56b555e3.chunk.js.map",
-  "runtime~main.js": "/scorespad/static/js/runtime~main.d5047ad6.js",
-  "runtime~main.js.map": "/scorespad/static/js/runtime~main.d5047ad6.js.map",
-  "static/css/2.43d376a4.chunk.css": "/scorespad/static/css/2.43d376a4.chunk.css",
-  "static/js/2.058c47ac.chunk.js": "/scorespad/static/js/2.058c47ac.chunk.js",
-  "static/js/2.058c47ac.chunk.js.map": "/scorespad/static/js/2.058c47ac.chunk.js.map",
-  "index.html": "/scorespad/index.html",
-  "precache-manifest.898b238fc9f8611855681715895ae72f.js": "/scorespad/precache-manifest.898b238fc9f8611855681715895ae72f.js",
-  "service-worker.js": "/scorespad/service-worker.js",
-  "static/css/2.43d376a4.chunk.css.map": "/scorespad/static/css/2.43d376a4.chunk.css.map",
-  "static/css/main.c8d30a6c.chunk.css.map": "/scorespad/static/css/main.c8d30a6c.chunk.css.map"
+  "files": {
+    "main.css": "/scorespad/static/css/main.cd74bc15.chunk.css",
+    "main.js": "/scorespad/static/js/main.1f48c351.chunk.js",
+    "main.js.map": "/scorespad/static/js/main.1f48c351.chunk.js.map",
+    "runtime-main.js": "/scorespad/static/js/runtime-main.8b526840.js",
+    "runtime-main.js.map": "/scorespad/static/js/runtime-main.8b526840.js.map",
+    "static/css/2.7fad5d03.chunk.css": "/scorespad/static/css/2.7fad5d03.chunk.css",
+    "static/js/2.2aa91eae.chunk.js": "/scorespad/static/js/2.2aa91eae.chunk.js",
+    "static/js/2.2aa91eae.chunk.js.map": "/scorespad/static/js/2.2aa91eae.chunk.js.map",
+    "index.html": "/scorespad/index.html",
+    "precache-manifest.299bc63c33e373cc8124c7be2310f14b.js": "/scorespad/precache-manifest.299bc63c33e373cc8124c7be2310f14b.js",
+    "service-worker.js": "/scorespad/service-worker.js",
+    "static/css/2.7fad5d03.chunk.css.map": "/scorespad/static/css/2.7fad5d03.chunk.css.map",
+    "static/css/main.cd74bc15.chunk.css.map": "/scorespad/static/css/main.cd74bc15.chunk.css.map"
+  }
 }
