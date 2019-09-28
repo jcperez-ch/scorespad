@@ -19,19 +19,16 @@ const LongRipple = ({
       setRipple(null);
     }
   };
-  useEffect(
-    () => {
-      if (ripple) {
-        const timeout = setTimeout(() => {
-          setRipple(false);
-          onLongPress();
-        }, rippleDelay);
-        return () => clearTimeout(timeout);
-      }
-      return noop;
-    },
-    [ripple],
-  );
+  useEffect(() => {
+    if (ripple) {
+      const timeout = setTimeout(() => {
+        setRipple(false);
+        onLongPress();
+      }, rippleDelay);
+      return () => clearTimeout(timeout);
+    }
+    return noop;
+  }, [ripple, onLongPress, rippleDelay]);
   return (
     <Cmp
       {...props}

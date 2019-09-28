@@ -11,7 +11,7 @@ const LocaleProvider = ({ i18n, initial = 'es', children }) => {
     if (i18n.language !== locale) {
       i18n.changeLanguage(locale);
     }
-  }, [locale]);
+  }, [i18n, locale]);
 
   return (
     <Suspense fallback={Spinner}>

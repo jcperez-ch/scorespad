@@ -3,13 +3,13 @@
     "target": "es2018",
     "jsx": "react",
     "allowSyntheticDefaultImports": false,
-    "baseUrl": "./",
+    "baseUrl": "src",
     "paths": {
-      "common/*": ["src/common/*"],
-      "components/*": ["src/components/*"],
-      "i18n/*": ["src/i18n/*"],
-      "themes/*": ["src/themes/*"],
-      "utils/*": ["src/utils/*"]
+      "common/*": ["common/*"],
+      "components/*": ["components/*"],
+      "i18n/*": ["i18n/*"],
+      "themes/*": ["themes/*"],
+      "utils/*": ["utils/*"]
     }
   },
   "exclude": ["node_modules", "dist"]

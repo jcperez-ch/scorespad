@@ -1,13 +1,6 @@
 import { useEffect, useState } from 'react';
 import {
-  every,
-  find,
-  get,
-  identity,
-  isEmpty,
-  isString,
-  map,
-  mapValues,
+  every, find, get, isEmpty, isString, mapValues,
 } from 'lodash';
 
 const required = ({ value }) => !isEmpty(value);
@@ -34,7 +27,7 @@ export const useValidation = (model, schema, messages, inputs = []) => {
         return find(modelErrors, isString) || null;
       }),
     );
-  }, map(model, identity).concat(inputs));
+  }, [model, schema, messages, inputs]);
 
   const valid = every(errors, isEmpty);
 

@@ -38,7 +38,7 @@ const TeamFormCreate = ({ gameKey, navigate }) => {
     if (!open) {
       setOpen(true);
     }
-  }, []);
+  }, [open]);
 
   return (
     <Dialog
