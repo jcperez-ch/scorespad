@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "0872f1b209ea05e50a510fabf9ba6211",
+    "revision": "1419aceebec2ac53faafd248680ab900",
     "url": "/scorespad/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/scorespad/static/css/2.7fad5d03.chunk.css"
   },
   {
-    "revision": "a790c3152389991ee6c7",
+    "revision": "f4468b1acb74f76447b5",
     "url": "/scorespad/static/css/main.cd74bc15.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/scorespad/static/js/2.f005e16d.chunk.js"
   },
   {
-    "revision": "a790c3152389991ee6c7",
-    "url": "/scorespad/static/js/main.0ec78e39.chunk.js"
+    "revision": "f4468b1acb74f76447b5",
+    "url": "/scorespad/static/js/main.c5c98099.chunk.js"
   },
   {
     "revision": "2375efbe2bd9b442eda4",
