@@ -20,6 +20,7 @@ const ThemeMenu = () => {
   const items = [
     { id: 'minimal', label: t('skins.minimal') },
     { id: 'girlish', label: t('skins.girlish') },
+    { id: 'dark', label: t('skins.dark') },
   ]
   return (
     <>

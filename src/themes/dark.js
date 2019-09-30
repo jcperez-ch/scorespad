@@ -4,42 +4,47 @@ import { createMuiTheme } from '@material-ui/core/styles';
 const mui = createMuiTheme({
   palette: {
     primary: {
-      main: '#2b73bd',
-      light: '#558fca',
-      dark: '#1e5084',
-      contrastText: '#FFFFFF',
+      main: '#607d8b',
+      light: '#ffff00',
+      dark: '#78909c',
+      contrastText: '#eceff1',
     },
     secondary: {
-      main: '#02C8A4',
-      light: '#34d3b6',
-      dark: '#018c72',
-      contrastText: '#CCCCCC',
+      main: '#b0bec5',
+      light: '#90a4ae',
+      dark: '#ffff00',
+      contrastText: '#cfd8dc',
     },
     background: {
-      default: '#f3f3f3',
-      paper: '#fff',
+      default: '#212121',
+      paper: '#455a64',
     },
     error: {
-      main: '#d9534f',
+      main: '#d84315',
     },
+    text: {
+      primary: '#e0e0e0',
+      secondary: '#eeeeee',
+      disabled: '#9e9e9e',
+    },
+    divider: 'rgba(200, 210, 220, 0.42)',
   },
   typography: {
     useNextVariants: true,
-    fontFamily: ['Montserrat Alternates'],
-    fontSize: 16,
+    fontFamily: ['Raleway'],
+    fontSize: 17,
     body1: {
-      fontSize: '1.2rem',
+      fontSize: '1.4rem',
     },
     body2: {
       fontWeight: 400,
-      fontSize: '0.75rem',
+      fontSize: '0.8rem',
     },
   },
-  overrides: {},
-})
+});
 
 export default {
-  fonts: ['Montserrat Alternates'],
+  fonts: ['Raleway'],
   screenSizes: {
     smallerScreenMin: '321px',
     smallerScreenMax: '480px',
@@ -53,6 +58,6 @@ export default {
   },
   mui,
   globalStyle: createGlobalStyle`
-    @import url('https://fonts.googleapis.com/css?family=Montserrat+Alternates:400,500,800&subset=latin-ext');
+    @import url('https://fonts.googleapis.com/css?family=Raleway&display=swap');
   `,
-}
+};

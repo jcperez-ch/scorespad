@@ -8,6 +8,6 @@ const themeScreenSizes = {
   largeScreenMin: ({ theme = {} } = {}) => theme.screenSizes.largeScreenMin,
   largeScreenMax: ({ theme = {} } = {}) => theme.screenSizes.largeScreenMax,
   extraLargeScreenMin: ({ theme = {} } = {}) => theme.screenSizes.extraLargeScreenMin,
-};
+}
 
-export default themeScreenSizes;
+export default themeScreenSizes

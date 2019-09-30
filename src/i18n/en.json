@@ -52,6 +52,7 @@
     "startNewGame": "To start a new game, you need to name it, so, pick a nice one and click on \"Start Game\", if you change your mind, you can always hit \"Cancel\" instead"
   },
   "skins": {
+    "dark": "Dark",
     "minimal": "Default",
     "girlish": "Girlish"
   }

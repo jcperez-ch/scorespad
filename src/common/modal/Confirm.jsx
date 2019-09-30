@@ -51,8 +51,8 @@ const ModalConfirm = ({
             {subtitle}
           </Typography>
           <ModalActions>
-            <Button onClick={toggleOpen}>{cancelText}</Button>
-            <Button color="primary" autoFocus onClick={onConfirm}>
+            <Button variant="contained" onClick={toggleOpen}>{cancelText}</Button>
+            <Button variant="contained" color="primary" autoFocus onClick={onConfirm}>
               {confirmText}
             </Button>
           </ModalActions>

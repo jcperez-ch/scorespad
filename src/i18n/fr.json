@@ -52,6 +52,7 @@
     "startNewGame": "Pour commencer un nouveau jeu, tu dois le nommer, choisi-le et puis appuie sur \"Commencer\", sinon, tu peux toujours presser \"Annuler\""
   },
   "skins": {
+    "dark": "Foncé",
     "minimal": "Basique",
     "girlish": "Féminin"
   }

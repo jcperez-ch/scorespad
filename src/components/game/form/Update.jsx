@@ -1,12 +1,12 @@
 import React, { useContext } from 'react'
 import { useTranslation } from 'react-i18next'
 import { noop } from 'lodash'
-import IconButton from '@material-ui/core/IconButton'
+import Fab from '@material-ui/core/Fab'
 import Icon from '@material-ui/core/Icon'
-import ListItem from '@material-ui/core/ListItem'
-import NameField from 'common/NameField'
-import { flexRow } from 'utils/flexStyles'
 
+import ButtonExtended from 'common/button/Extended'
+import StyledNameForm from 'common/styled/NameForm'
+import NameField from 'common/NameField'
 import GameStoreContext from 'components/game/context/Store'
 import GameActionRemove from '../action/Remove'
 import { renameGame } from '../actionCreators'
@@ -34,26 +34,24 @@ const GameFormUpdate = ({
   }
 
   return (
-    <ListItem component="div">
-      <div style={flexRow}>
-        <IconButton aria-label={t('button.rename')} onClick={handleRename}>
+    <StyledNameForm component="div">
+      <div className="field">
+        <NameField
+          label={t('placeholder.gameName')}
+          onChange={onChange}
+          onEnter={handleRename}
+          validation={validation}
+          value={name}
+        />
+        <Fab color="primary" size="small" aria-label={t('button.rename')} onClick={handleRename}>
           <Icon>check</Icon>
-        </IconButton>
+        </Fab>
       </div>
-      <NameField
-        label={t('placeholder.gameName')}
-        onChange={onChange}
-        onEnter={handleRename}
-        validation={validation}
-        value={name}
-      />
-      <div style={flexRow}>
-        <IconButton aria-label={t('button.cancel')} onClick={onClose}>
-          <Icon>cancel</Icon>
-        </IconButton>
+      <div className="buttons">
+        <ButtonExtended icon="cancel" label={t('button.cancel')} onClick={onClose} />
         <GameActionRemove id={id} />
       </div>
-    </ListItem>
+    </StyledNameForm>
   )
 }
 

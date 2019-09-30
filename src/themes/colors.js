@@ -16,6 +16,6 @@ const themeColors = {
   error: ({ theme = {} } = {}) => theme.mui.palette.error.main,
   errorDark: ({ theme = {} } = {}) => theme.mui.palette.error.dark,
   errorLight: ({ theme = {} } = {}) => theme.mui.palette.error.light,
-};
+}
 
-export default themeColors;
+export default themeColors

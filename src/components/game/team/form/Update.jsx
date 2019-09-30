@@ -1,11 +1,11 @@
 import React, { useContext } from 'react'
 import { useTranslation } from 'react-i18next'
-import styled from 'styled-components'
 import { noop } from 'lodash'
 import Fab from '@material-ui/core/Fab'
 import Icon from '@material-ui/core/Icon'
 
 import ButtonExtended from 'common/button/Extended'
+import StyledNameForm from 'common/styled/NameForm'
 import NameField from 'common/NameField'
 import GameStoreContext from 'components/game/context/Store'
 import GameUsedContext from 'components/game/context/Used'
@@ -13,24 +13,6 @@ import TeamActionRemove from '../action/Remove'
 import { renameTeam } from '../actionCreators'
 
 import useGameValidation from './useValidation'
-
-const Styled = styled.div`
-  display: grid;
-  gap: 10px;
-  padding: 10px;
-
-  > .field {
-    display: grid;
-    gap: 10px;
-    grid-template-columns: 1fr auto;
-  }
-  > .buttons {
-    display: grid;
-    gap: 10px;
-    grid-auto-flow: column;
-    justify-content: start;
-  }
-`
 
 const GameFormUpdate = ({
   index,
@@ -54,7 +36,7 @@ const GameFormUpdate = ({
   }
 
   return (
-    <Styled>
+    <StyledNameForm>
       <div className="field">
         <NameField
           label={t('placeholder.teamName')}
@@ -71,7 +53,7 @@ const GameFormUpdate = ({
         <ButtonExtended icon="cancel" label={t('button.cancel')} onClick={onClose} />
         <TeamActionRemove name={name} index={index} />
       </div>
-    </Styled>
+    </StyledNameForm>
   )
 }
 

@@ -20,6 +20,9 @@ const GameActionRemove = ({ id, onSuccess = noop }) => {
       confirmText={t('button.remove')}
       title={t('title.removeGame')}
       subtitle={t('messages.confirmRemoveGame')}
+      fab
+      color="primary"
+      size="small"
       onConfirm={handleRemove}
     />
   )

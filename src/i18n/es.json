@@ -52,6 +52,7 @@
     "startNewGame": "Para comenzar el juego necesitas nombrarlo, escribe el nombre abajo y haz click en \"Comenzar Juego\". Si, ya te arrepentiste podrías hacer click en \"Cancelar\""
   },
   "skins": {
+    "dark": "Darqueto",
     "minimal": "Básico",
     "girlish": "Afeminado"
   }
