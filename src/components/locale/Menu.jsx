@@ -1,24 +1,24 @@
-import React, { useState, useContext } from 'react';
-import IconButton from '@material-ui/core/IconButton';
-import Menu from '@material-ui/core/Menu';
-import MenuItem from '@material-ui/core/MenuItem';
-import Icon from '@material-ui/core/Icon';
-import LocaleContext from 'components/locale/Context';
+import React, { useState, useContext } from 'react'
+import IconButton from '@material-ui/core/IconButton'
+import Menu from '@material-ui/core/Menu'
+import MenuItem from '@material-ui/core/MenuItem'
+import Icon from '@material-ui/core/Icon'
+import LocaleContext from 'components/locale/Context'
 
 const LocaleMenu = () => {
-  const [el, setEl] = useState(null);
-  const [locale, setLocale] = useContext(LocaleContext);
-  const handleOpen = ({ currentTarget }) => setEl(currentTarget);
-  const handleClose = () => setEl(null);
-  const handleClick = value => () => {
-    setEl(null);
-    setLocale(value);
-  };
+  const [el, setEl] = useState(null)
+  const [locale, setLocale] = useContext(LocaleContext)
+  const handleOpen = ({ currentTarget }) => setEl(currentTarget)
+  const handleClose = () => setEl(null)
+  const handleClick = (value) => () => {
+    setEl(null)
+    setLocale(value)
+  }
   const items = [
     { id: 'es', label: 'Español' },
     { id: 'en', label: 'English' },
     { id: 'fr', label: 'Français' },
-  ];
+  ]
   return (
     <>
       <IconButton
@@ -43,7 +43,7 @@ const LocaleMenu = () => {
         ))}
       </Menu>
     </>
-  );
-};
+  )
+}
 
-export default LocaleMenu;
+export default LocaleMenu

@@ -1,22 +1,22 @@
-import React, { useState } from 'react';
-import { useTranslation } from 'react-i18next';
-import ListItem from '@material-ui/core/ListItem';
-import Typography from '@material-ui/core/Typography';
-import ListItemText from '@material-ui/core/ListItemText';
-import SlideLongRippleSwitch from 'common/SlideLongRippleSwitch';
-import CommaList from 'common/CommaList';
+import React, { useState } from 'react'
+import { useTranslation } from 'react-i18next'
+import ListItem from '@material-ui/core/ListItem'
+import Typography from '@material-ui/core/Typography'
+import ListItemText from '@material-ui/core/ListItemText'
+import SlideLongRippleSwitch from 'common/SlideLongRippleSwitch'
+import CommaList from 'common/CommaList'
 
-import GameFormUpdate from '../form/Update';
+import GameFormUpdate from '../form/Update'
 
 const GameListItem = ({
   onClick, id, name, teams,
 }) => {
-  const [newName, setNewName] = useState(null);
-  const [t] = useTranslation();
-  const handleEditMode = () => setNewName(name);
-  const handleViewMode = () => setNewName(null);
-  const handleClick = () => onClick(id);
-  const createdAt = new Date(parseInt(id, 36));
+  const [newName, setNewName] = useState(null)
+  const [t] = useTranslation()
+  const handleEditMode = () => setNewName(name)
+  const handleViewMode = () => setNewName(null)
+  const handleClick = () => onClick(id)
+  const createdAt = new Date(parseInt(id, 36))
   const render = (
     <GameFormUpdate
       id={id}
@@ -25,7 +25,7 @@ const GameListItem = ({
       onClose={handleViewMode}
       onSuccess={handleViewMode}
     />
-  );
+  )
 
   return (
     <SlideLongRippleSwitch
@@ -54,7 +54,7 @@ const GameListItem = ({
         <Typography variant="body1">{name}</Typography>
       </ListItemText>
     </SlideLongRippleSwitch>
-  );
-};
+  )
+}
 
-export default GameListItem;
+export default GameListItem

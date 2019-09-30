@@ -1,7 +1,7 @@
-import React from 'react';
-import Slide from '@material-ui/core/Slide';
-import LongRipple from 'common/LongRipple';
-import SlideItem from 'common/SlideItem';
+import React from 'react'
+import Slide from '@material-ui/core/Slide'
+import LongRipple from 'common/LongRipple'
+import SlideItem from 'common/SlideItem'
 
 const SlideLongRippleSwitch = ({
   children,
@@ -33,6 +33,6 @@ const SlideLongRippleSwitch = ({
       {render}
     </Slide>
   </SlideItem>
-);
+)
 
-export default SlideLongRippleSwitch;
+export default SlideLongRippleSwitch

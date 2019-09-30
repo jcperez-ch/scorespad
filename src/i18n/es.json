@@ -1,12 +1,8 @@
 {
   "title": {
-    "builder": "~(appTitle)~ :: Construye el Juego",
-    "game": "~(appTitle)~ :: Juego",
     "removeGame": "Eliminar Juego",
     "removeTeam": "Eliminar Equipo",
-    "removeScore": "Eliminar Puntuación",
-    "round": "~(appTitle)~ :: Partida",
-    "root": "Libretita ~(version)~"
+    "removeScore": "Eliminar Puntuación"
   },
   "button": {
     "add": "Agregar",

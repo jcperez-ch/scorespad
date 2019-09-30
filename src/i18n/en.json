@@ -1,12 +1,8 @@
 {
   "title": {
-    "builder": "~(appTitle)~ :: Build Game",
-    "game": "~(appTitle)~ :: Play Game",
     "removeGame": "Remove Game",
     "removeTeam": "Remove Team",
-    "removeScore": "Remove Score",
-    "round": "~(appTitle)~ :: Round",
-    "root": "ScoresPad ~(version)~"
+    "removeScore": "Remove Score"
   },
   "button": {
     "add": "Add",

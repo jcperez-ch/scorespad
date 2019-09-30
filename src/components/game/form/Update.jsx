@@ -1,17 +1,17 @@
-import React, { useContext } from 'react';
-import { useTranslation } from 'react-i18next';
-import { noop } from 'lodash';
-import IconButton from '@material-ui/core/IconButton';
-import Icon from '@material-ui/core/Icon';
-import ListItem from '@material-ui/core/ListItem';
-import NameField from 'common/NameField';
-import { flexRow } from 'utils/flexStyles';
+import React, { useContext } from 'react'
+import { useTranslation } from 'react-i18next'
+import { noop } from 'lodash'
+import IconButton from '@material-ui/core/IconButton'
+import Icon from '@material-ui/core/Icon'
+import ListItem from '@material-ui/core/ListItem'
+import NameField from 'common/NameField'
+import { flexRow } from 'utils/flexStyles'
 
-import GameStoreContext from 'components/game/context/Store';
-import GameActionRemove from '../action/Remove';
-import { renameGame } from '../actionCreators';
+import GameStoreContext from 'components/game/context/Store'
+import GameActionRemove from '../action/Remove'
+import { renameGame } from '../actionCreators'
 
-import useGameValidation from './useValidation';
+import useGameValidation from './useValidation'
 
 const GameFormUpdate = ({
   id,
@@ -20,18 +20,18 @@ const GameFormUpdate = ({
   onSuccess = noop,
   onClose = noop,
 }) => {
-  const [, dispatch] = useContext(GameStoreContext);
-  const [t] = useTranslation();
-  const validation = useGameValidation({ name });
-  const { touch, valid, reset } = validation;
+  const [, dispatch] = useContext(GameStoreContext)
+  const [t] = useTranslation()
+  const validation = useGameValidation({ name })
+  const { touch, valid, reset } = validation
   const handleRename = () => {
-    touch();
+    touch()
     if (valid) {
-      reset();
-      dispatch(renameGame(id, name));
-      onSuccess();
+      reset()
+      dispatch(renameGame(id, name))
+      onSuccess()
     }
-  };
+  }
 
   return (
     <ListItem component="div">
@@ -54,7 +54,7 @@ const GameFormUpdate = ({
         <GameActionRemove id={id} />
       </div>
     </ListItem>
-  );
-};
+  )
+}
 
-export default GameFormUpdate;
+export default GameFormUpdate

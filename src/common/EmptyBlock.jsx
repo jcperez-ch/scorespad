@@ -1,5 +1,5 @@
-import React from 'react';
+import React from 'react'
 
-const EmptyBlock = () => <div />;
+const EmptyBlock = () => <div />
 
-export default EmptyBlock;
+export default EmptyBlock

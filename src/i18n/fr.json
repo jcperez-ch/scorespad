@@ -1,12 +1,8 @@
 {
   "title": {
-    "builder": "~(appTitle)~ :: Construit le Jeu",
-    "game": "~(appTitle)~ :: En Jeu",
     "removeGame": "Effacer le jeu",
     "removeTeam": "Effacer l'équipe",
-    "removeScore": "Effacer le score",
-    "round": "~(appTitle)~ :: Résultats",
-    "root": "Le p'tit cahier ~(version)~"
+    "removeScore": "Effacer le score"
   },
   "button": {
     "add": "Ajouter",

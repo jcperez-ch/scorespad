@@ -1,44 +1,44 @@
-import React, { useContext, useState, useEffect } from 'react';
-import { useTranslation } from 'react-i18next';
-import Button from '@material-ui/core/Button';
-import Dialog from '@material-ui/core/Dialog';
-import DialogActions from '@material-ui/core/DialogActions';
-import DialogContent from '@material-ui/core/DialogContent';
+import React, { useContext, useState, useEffect } from 'react'
+import { useTranslation } from 'react-i18next'
+import Button from '@material-ui/core/Button'
+import Dialog from '@material-ui/core/Dialog'
+import DialogActions from '@material-ui/core/DialogActions'
+import DialogContent from '@material-ui/core/DialogContent'
 
-import SlideUp from 'common/SlideUp';
-import DialogTitle from 'common/dialog/Title';
-import DialogHeadline from 'common/dialog/Headline';
-import NameField from 'common/NameField';
-import GameStoreContext from 'components/game/context/Store';
+import SlideUp from 'common/SlideUp'
+import DialogTitle from 'common/dialog/Title'
+import DialogHeadline from 'common/dialog/Headline'
+import NameField from 'common/NameField'
+import GameStoreContext from 'components/game/context/Store'
 
-import { createTeam } from '../actionCreators';
-import useTeamValidation from './useValidation';
-import useGame from '../../useGame';
+import { createTeam } from '../actionCreators'
+import useTeamValidation from './useValidation'
+import useGame from '../../useGame'
 
 const TeamFormCreate = ({ gameKey, navigate }) => {
-  const game = useGame({ gameKey });
-  const { round } = game;
-  const [open, setOpen] = useState(false);
-  const [name, setName] = useState('');
-  const [t] = useTranslation();
-  const [, dispatch] = useContext(GameStoreContext);
-  const validation = useTeamValidation({ name });
-  const { touch, valid } = validation;
+  const game = useGame({ gameKey })
+  const { round } = game
+  const [open, setOpen] = useState(false)
+  const [name, setName] = useState('')
+  const [t] = useTranslation()
+  const [, dispatch] = useContext(GameStoreContext)
+  const validation = useTeamValidation({ name })
+  const { touch, valid } = validation
 
-  const handleClose = () => navigate('..');
+  const handleClose = () => navigate('..')
   const handleAdd = () => {
-    touch();
+    touch()
     if (valid) {
-      dispatch(createTeam(gameKey, round, name));
-      handleClose();
+      dispatch(createTeam(gameKey, round, name))
+      handleClose()
     }
-  };
+  }
 
   useEffect(() => {
     if (!open) {
-      setOpen(true);
+      setOpen(true)
     }
-  }, [open]);
+  }, [open])
 
   return (
     <Dialog
@@ -69,7 +69,7 @@ const TeamFormCreate = ({ gameKey, navigate }) => {
         </Button>
       </DialogActions>
     </Dialog>
-  );
-};
+  )
+}
 
-export default TeamFormCreate;
+export default TeamFormCreate

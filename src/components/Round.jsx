@@ -1,24 +1,24 @@
-import React from 'react';
-import { useTranslation } from 'react-i18next';
+import React from 'react'
+import { useTranslation } from 'react-i18next'
 
-import WarnPlaceholder from 'common/WarnPlaceholder';
-import GameGuard from './game/Guard';
-import RoundGuard from './game/round/Guard';
+import WarnPlaceholder from 'common/WarnPlaceholder'
+import GameGuard from './game/Guard'
+import RoundGuard from './game/round/Guard'
 
-import useGame from './game/useGame';
-import GameUsedContext from './game/context/Used';
-import Scores from './game/Scores';
-import Championship from './game/round/Championship';
-import PageViewTracker from './PageViewTracker';
+import useGame from './game/useGame'
+import GameUsedContext from './game/context/Used'
+import Scores from './game/Scores'
+import Championship from './game/round/Championship'
+import PageViewTracker from './PageViewTracker'
 
 const Round = ({
   gameKey, round, uri, navigate,
 }) => {
-  const game = useGame({ gameKey });
-  const [t] = useTranslation();
+  const game = useGame({ gameKey })
+  const [t] = useTranslation()
 
-  const goToGame = () => navigate('../..');
-  const isActive = game && game.round === round;
+  const goToGame = () => navigate('../..')
+  const isActive = game && game.round === round
   return (
     <GameUsedContext.Provider value={[gameKey, game, round]}>
       <GameGuard game={game}>
@@ -38,7 +38,7 @@ const Round = ({
       </GameGuard>
       <PageViewTracker uri={uri} />
     </GameUsedContext.Provider>
-  );
-};
+  )
+}
 
-export default Round;
+export default Round

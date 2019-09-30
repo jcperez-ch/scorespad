@@ -1,18 +1,18 @@
-import React, { Fragment } from 'react';
-import { Router } from '@reach/router';
+import React, { Fragment } from 'react'
+import { Router, Redirect } from '@reach/router'
 
-import Layout from 'common/Layout';
+import Layout from 'common/Layout'
 
-import Game from './Game';
-import Landing from './Landing';
-import Round from './Round';
-import { TopLanding, TopGame, TopRound } from './Top';
-import ThemeProvider from './theme/Provider';
-import LocaleProvider from './locale/Provider';
-import TeamFormCreate from './game/team/form/Create';
-import GameProvider from './game/Provider';
+import Game from './Game'
+import Landing from './Landing'
+import Round from './Round'
+import { TopLanding, TopGame, TopRound } from './Top'
+import ThemeProvider from './theme/Provider'
+import LocaleProvider from './locale/Provider'
+import TeamFormCreate from './game/team/form/Create'
+import GameProvider from './game/Provider'
 
-const Fragoute = ({ children }) => <>{children}</>;
+const Fragoute = ({ children }) => <>{children}</>
 
 const Root = ({
   locale, i18n, theme, games,
@@ -38,7 +38,8 @@ const Root = ({
             primary={false}
             component={Fragoute}
           >
-            <Landing path="/" component="main" />
+            <Landing path="/" />
+            <Redirect from="index.html" to={process.env.PUBLIC_URL || '/'} />
             <Game path="games/:gameKey" />
             <Round path="games/:gameKey/rounds/:round" />
           </Router>
@@ -46,6 +47,6 @@ const Root = ({
       </Layout>
     </ThemeProvider>
   </LocaleProvider>
-);
+)
 
-export default Root;
+export default Root

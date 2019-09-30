@@ -1,15 +1,15 @@
-import React from 'react';
+import React from 'react'
 
-import GameGuard from './game/Guard';
-import useGame from './game/useGame';
-import TeamList from './game/team/list/List';
-import GameActionStart from './game/action/Start';
-import GameUsedContext from './game/context/Used';
-import PageViewTracker from './PageViewTracker';
+import GameGuard from './game/Guard'
+import useGame from './game/useGame'
+import TeamList from './game/team/list/List'
+import GameActionStart from './game/action/Start'
+import GameUsedContext from './game/context/Used'
+import PageViewTracker from './PageViewTracker'
 
 const Game = ({ gameKey, uri, navigate }) => {
-  const game = useGame({ gameKey });
-  const goToRound = round => navigate(`rounds/${round}`);
+  const game = useGame({ gameKey })
+  const goToRound = (round) => navigate(`rounds/${round}`)
   return (
     <GameUsedContext.Provider value={[gameKey, game]}>
       <GameGuard game={game}>
@@ -18,7 +18,7 @@ const Game = ({ gameKey, uri, navigate }) => {
       </GameGuard>
       <PageViewTracker uri={uri} />
     </GameUsedContext.Provider>
-  );
-};
+  )
+}
 
-export default Game;
+export default Game

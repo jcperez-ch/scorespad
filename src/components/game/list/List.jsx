@@ -1,13 +1,13 @@
-import React, { useContext } from 'react';
-import { isEmpty, map } from 'lodash';
-import List from '@material-ui/core/List';
+import React, { useContext } from 'react'
+import { isEmpty, map } from 'lodash'
+import List from '@material-ui/core/List'
 
-import GameStoreContext from 'components/game/context/Store';
-import GameListEmpty from './Empty';
-import GameListItem from './Item';
+import GameStoreContext from 'components/game/context/Store'
+import GameListEmpty from './Empty'
+import GameListItem from './Item'
 
 const GameList = ({ onItemClick }) => {
-  const [games] = useContext(GameStoreContext);
+  const [games] = useContext(GameStoreContext)
   return isEmpty(games) ? (
     <GameListEmpty />
   ) : (
@@ -16,7 +16,7 @@ const GameList = ({ onItemClick }) => {
         <GameListItem key={key} id={key} onClick={onItemClick} {...game} />
       ))}
     </List>
-  );
-};
+  )
+}
 
-export default GameList;
+export default GameList

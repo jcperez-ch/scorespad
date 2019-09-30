@@ -1,13 +1,13 @@
-import React, { useState } from 'react';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemText from '@material-ui/core/ListItemText';
-import Typography from '@material-ui/core/Typography';
-import SlideLongRippleSwitch from 'common/SlideLongRippleSwitch';
-import Flex from 'common/Flex';
-import { flexCenterBetween } from 'utils/flexStyles';
+import React, { useState } from 'react'
+import ListItem from '@material-ui/core/ListItem'
+import ListItemText from '@material-ui/core/ListItemText'
+import Typography from '@material-ui/core/Typography'
+import SlideLongRippleSwitch from 'common/SlideLongRippleSwitch'
+import Flex from 'common/Flex'
+import { flexCenterBetween } from 'utils/flexStyles'
 
-import TeamFormUpdate from '../form/Update';
-import TeamChampionship from '../Championship';
+import TeamFormUpdate from '../form/Update'
+import TeamChampionship from '../Championship'
 
 const TeamListItem = ({
   index,
@@ -17,9 +17,9 @@ const TeamListItem = ({
   round,
   onClickChampionship,
 }) => {
-  const [newName, setNewName] = useState(null);
-  const handleEditMode = () => setNewName(name);
-  const handleViewMode = () => setNewName(null);
+  const [newName, setNewName] = useState(null)
+  const handleEditMode = () => setNewName(name)
+  const handleViewMode = () => setNewName(null)
   const render = (
     <TeamFormUpdate
       index={index}
@@ -28,7 +28,7 @@ const TeamListItem = ({
       onClose={handleViewMode}
       onSuccess={handleViewMode}
     />
-  );
+  )
 
   return (
     <SlideLongRippleSwitch
@@ -42,7 +42,7 @@ const TeamListItem = ({
         <Flex display direction="column">
           <Typography variant="body1">{name}</Typography>
           <Flex display>
-            {championships.map(championship => (
+            {championships.map((championship) => (
               <TeamChampionship
                 key={championship}
                 championship={championship}
@@ -58,7 +58,7 @@ const TeamListItem = ({
         )}
       </ListItemText>
     </SlideLongRippleSwitch>
-  );
-};
+  )
+}
 
-export default TeamListItem;
+export default TeamListItem

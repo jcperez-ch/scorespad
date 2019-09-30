@@ -1,14 +1,14 @@
-import React, { useState } from 'react';
-import ListItem from '@material-ui/core/ListItem';
+import React, { useState } from 'react'
+import ListItem from '@material-ui/core/ListItem'
 
-import SlideLongRippleSwitch from 'common/SlideLongRippleSwitch';
-import StyledScore from 'common/StyledScore';
-import RoundScoreRemove from './form/ScoreRemove';
+import SlideLongRippleSwitch from 'common/SlideLongRippleSwitch'
+import StyledScore from 'common/StyledScore'
+import RoundScoreRemove from './form/ScoreRemove'
 
 const GameRoundScore = ({ index, score, scoreIndex }) => {
-  const [canClose, setCanClose] = useState(false);
-  const handleEditMode = () => setCanClose(true);
-  const handleViewMode = () => setCanClose(false);
+  const [canClose, setCanClose] = useState(false)
+  const handleEditMode = () => setCanClose(true)
+  const handleViewMode = () => setCanClose(false)
   const render = (
     <RoundScoreRemove
       onClose={handleViewMode}
@@ -17,7 +17,7 @@ const GameRoundScore = ({ index, score, scoreIndex }) => {
       score={score}
       index={index}
     />
-  );
+  )
   return (
     <SlideLongRippleSwitch
       on={canClose}
@@ -31,7 +31,7 @@ const GameRoundScore = ({ index, score, scoreIndex }) => {
     >
       <StyledScore variant="body2">{score}</StyledScore>
     </SlideLongRippleSwitch>
-  );
-};
+  )
+}
 
-export default GameRoundScore;
+export default GameRoundScore

@@ -1,21 +1,21 @@
-import React from 'react';
-import styled from 'styled-components';
-import Fab from '@material-ui/core/Fab';
-import Icon from '@material-ui/core/Icon';
-import { themeScreenSizes } from 'themes';
+import React from 'react'
+import styled from 'styled-components'
+import Fab from '@material-ui/core/Fab'
+import Icon from '@material-ui/core/Icon'
+import { themeScreenSizes } from 'themes'
 
-const buttonPosition = unit => ({ position = 'right' }) => {
+const buttonPosition = (unit) => ({ position = 'right' }) => {
   switch (position) {
     case 'right':
-      return `right: ${unit};`;
+      return `right: ${unit};`
     case 'left':
-      return `left: ${unit};`;
+      return `left: ${unit};`
     case 'center':
-      return 'left: 50%; transform: translateX(-50 %);';
+      return 'left: 50%; transform: translateX(-50 %);'
     default:
-      return '';
+      return ''
   }
-};
+}
 
 const StyledButton = styled(Fab)`
   bottom: 0.5rem;
@@ -33,12 +33,12 @@ const StyledButton = styled(Fab)`
     right: 1.5rem;
     ${buttonPosition('1.5rem')}
   }
-`;
+`
 
 const StickyFabButton = ({ icon, ...props }) => (
   <StyledButton {...props}>
     <Icon>{icon}</Icon>
   </StyledButton>
-);
+)
 
-export default StickyFabButton;
+export default StickyFabButton

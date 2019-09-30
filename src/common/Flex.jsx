@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 
 const Flex = ({
   component: Cmp = 'div',
@@ -24,12 +24,12 @@ const Flex = ({
     wrap ? { flexWrap: wrap } : {},
     shrink ? { flexWrap: shrink } : {},
     grow ? { flexWrap: grow } : {},
-  );
+  )
   return (
     <Cmp style={style} {...props}>
       {children}
     </Cmp>
-  );
-};
+  )
+}
 
-export default Flex;
+export default Flex

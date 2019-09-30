@@ -1,19 +1,19 @@
-import React, { useState } from 'react';
-import { useTranslation } from 'react-i18next';
-import Tooltip from '@material-ui/core/Tooltip';
-import StickyFabButton from 'common/StickyFabButton';
+import React, { useState } from 'react'
+import { useTranslation } from 'react-i18next'
+import Tooltip from '@material-ui/core/Tooltip'
+import StickyFabButton from 'common/StickyFabButton'
 
-import GameFormCreate from '../form/Create';
+import GameFormCreate from '../form/Create'
 
 const GameActionAdd = ({ onAdd }) => {
-  const [open, setOpen] = useState(false);
-  const [t] = useTranslation();
+  const [open, setOpen] = useState(false)
+  const [t] = useTranslation()
 
-  const toggleOpen = () => setOpen(!open);
+  const toggleOpen = () => setOpen(!open)
   const handleAdd = (id) => {
-    setOpen(false);
-    onAdd(id);
-  };
+    setOpen(false)
+    onAdd(id)
+  }
 
   return (
     <>
@@ -29,7 +29,7 @@ const GameActionAdd = ({ onAdd }) => {
       </Tooltip>
       <GameFormCreate open={open} onSuccess={handleAdd} onClose={toggleOpen} />
     </>
-  );
-};
+  )
+}
 
-export default GameActionAdd;
+export default GameActionAdd

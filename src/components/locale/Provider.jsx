@@ -1,17 +1,17 @@
-import React, { Suspense, useState, useEffect } from 'react';
+import React, { Suspense, useState, useEffect } from 'react'
 
-import Storage from 'common/Storage';
-import Spinner from 'common/Spinner';
-import LocaleContext from './Context';
+import Storage from 'common/Storage'
+import Spinner from 'common/Spinner'
+import LocaleContext from './Context'
 
 const LocaleProvider = ({ i18n, initial = 'es', children }) => {
-  const storage = 'locale';
-  const [locale, setLocale] = useState(initial);
+  const storage = 'locale'
+  const [locale, setLocale] = useState(initial)
   useEffect(() => {
     if (i18n.language !== locale) {
-      i18n.changeLanguage(locale);
+      i18n.changeLanguage(locale)
     }
-  }, [i18n, locale]);
+  }, [i18n, locale])
 
   return (
     <Suspense fallback={Spinner}>
@@ -20,7 +20,7 @@ const LocaleProvider = ({ i18n, initial = 'es', children }) => {
         {children}
       </LocaleContext.Provider>
     </Suspense>
-  );
-};
+  )
+}
 
-export default LocaleProvider;
+export default LocaleProvider

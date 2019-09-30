@@ -1,18 +1,18 @@
-import React, { useContext } from 'react';
-import { isEmpty, noop } from 'lodash';
-import List from '@material-ui/core/List';
+import React, { useContext } from 'react'
+import { isEmpty, noop } from 'lodash'
+import List from '@material-ui/core/List'
 
-import GameUsedContext from 'components/game/context/Used';
-import TeamListEmpty from './Empty';
-import TeamListItem from './Item';
+import GameUsedContext from 'components/game/context/Used'
+import TeamListEmpty from './Empty'
+import TeamListItem from './Item'
 
 const TeamList = ({ onClickChampionship = noop }) => {
-  const [, game] = useContext(GameUsedContext);
+  const [, game] = useContext(GameUsedContext)
 
   if (!game) {
-    return null;
+    return null
   }
-  const { teams = [], round } = game;
+  const { teams = [], round } = game
 
   return isEmpty(teams) ? (
     <TeamListEmpty />
@@ -28,7 +28,7 @@ const TeamList = ({ onClickChampionship = noop }) => {
         />
       ))}
     </List>
-  );
-};
+  )
+}
 
-export default TeamList;
+export default TeamList

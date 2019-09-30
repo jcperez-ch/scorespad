@@ -1,11 +1,11 @@
-import React from 'react';
-import styled from 'styled-components';
-import { map, sortBy } from 'lodash';
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemText from '@material-ui/core/ListItemText';
-import Typography from '@material-ui/core/Typography';
-import Flex from 'common/Flex';
+import React from 'react'
+import styled from 'styled-components'
+import { map, sortBy } from 'lodash'
+import List from '@material-ui/core/List'
+import ListItem from '@material-ui/core/ListItem'
+import ListItemText from '@material-ui/core/ListItemText'
+import Typography from '@material-ui/core/Typography'
+import Flex from 'common/Flex'
 
 const StyledSumScore = styled(Typography).attrs({
   variant: 'overline',
@@ -15,7 +15,7 @@ const StyledSumScore = styled(Typography).attrs({
     text-align: right;
     line-height: 1.2;
   }
-`;
+`
 
 const StyledScore = styled(Typography).attrs({
   variant: 'overline',
@@ -24,16 +24,16 @@ const StyledScore = styled(Typography).attrs({
     font-size: 0.875rem;
     margin-left: 0.875rem;
   }
-`;
+`
 
 const Championship = ({ teams, round }) => {
   const sortedTeams = sortBy(
     teams,
     ({ rounds }) => -rounds[round].reduce((sum, value) => value + sum, 0),
-  );
+  )
   return (
     <List component="div">
-      {sortedTeams.map(team => (
+      {sortedTeams.map((team) => (
         <ListItem key={`${team.name}${round}`}>
           <ListItemText disableTypography>
             <Flex display items="center" justify="space-between">
@@ -53,7 +53,7 @@ const Championship = ({ teams, round }) => {
         </ListItem>
       ))}
     </List>
-  );
-};
+  )
+}
 
-export default Championship;
+export default Championship

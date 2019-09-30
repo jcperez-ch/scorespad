@@ -1,17 +1,17 @@
-import React from 'react';
-import { useTranslation } from 'react-i18next';
-import IconButton from '@material-ui/core/IconButton';
-import Icon from '@material-ui/core/Icon';
-import Tooltip from '@material-ui/core/Tooltip';
+import React from 'react'
+import { useTranslation } from 'react-i18next'
+import IconButton from '@material-ui/core/IconButton'
+import Icon from '@material-ui/core/Icon'
+import Tooltip from '@material-ui/core/Tooltip'
 
-import BarToolbar from 'common/bar/Toolbar';
-import BarTitle from 'common/bar/Title';
-import EmptyBlock from 'common/EmptyBlock';
-import Txt from 'common/Txt';
+import BarToolbar from 'common/bar/Toolbar'
+import BarTitle from 'common/bar/Title'
+import EmptyBlock from 'common/EmptyBlock'
+import Txt from 'common/Txt'
 
-import useGame from './game/useGame';
-import LocaleMenu from './locale/Menu';
-import ThemeMenu from './theme/Menu';
+import useGame from './game/useGame'
+import LocaleMenu from './locale/Menu'
+import ThemeMenu from './theme/Menu'
 
 export const TopLanding = () => (
   <BarToolbar>
@@ -22,12 +22,12 @@ export const TopLanding = () => (
     <LocaleMenu />
     <ThemeMenu />
   </BarToolbar>
-);
+)
 
 export const TopRound = ({ game = {}, navigate }) => {
-  const { name } = game;
-  const goToHome = () => navigate('../../../..');
-  const goToGame = () => navigate('../..');
+  const { name } = game
+  const goToHome = () => navigate('../../../..')
+  const goToGame = () => navigate('../..')
   return (
     <BarToolbar>
       <IconButton color="inherit" onClick={game ? goToGame : goToHome}>
@@ -37,15 +37,15 @@ export const TopRound = ({ game = {}, navigate }) => {
       <LocaleMenu />
       <ThemeMenu />
     </BarToolbar>
-  );
-};
+  )
+}
 
 export const TopGame = ({ gameKey, navigate }) => {
-  const game = useGame({ gameKey });
-  const goToHome = () => navigate('../..');
-  const goToAddTeam = () => navigate('team');
+  const game = useGame({ gameKey })
+  const goToHome = () => navigate('../..')
+  const goToAddTeam = () => navigate('team')
 
-  const [t] = useTranslation();
+  const [t] = useTranslation()
   return (
     <BarToolbar>
       <IconButton color="inherit" onClick={goToHome}>
@@ -63,5 +63,5 @@ export const TopGame = ({ gameKey, navigate }) => {
       </Tooltip>
       <LocaleMenu />
     </BarToolbar>
-  );
-};
+  )
+}

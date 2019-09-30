@@ -1,9 +1,9 @@
-import React from 'react';
-import { isEmpty, noop } from 'lodash';
-import TeamListEmpty from 'components/game/team/list/Empty';
+import React from 'react'
+import { isEmpty, noop } from 'lodash'
+import TeamListEmpty from 'components/game/team/list/Empty'
 
-import RoundListItem from './Item';
-import RoundListWrapper from './Wrapper';
+import RoundListItem from './Item'
+import RoundListWrapper from './Wrapper'
 
 const RoundList = ({ teams = [], round, onSubmit = noop }) => (isEmpty(teams) ? (
   <TeamListEmpty />
@@ -19,6 +19,6 @@ const RoundList = ({ teams = [], round, onSubmit = noop }) => (isEmpty(teams) ? 
       />
     ))}
   </RoundListWrapper>
-));
+))
 
-export default RoundList;
+export default RoundList

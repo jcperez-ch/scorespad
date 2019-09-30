@@ -4,27 +4,27 @@ import { createMuiTheme } from '@material-ui/core/styles';
 const mui = createMuiTheme({
   palette: {
     primary: {
-      main: '#ff70b7',
-      light: '#ff8cc5',
-      dark: '#b24e80',
-      contrastText: '#026697',
+      main: '#e91e63',
+      light: '#f06292',
+      dark: '#c2185b',
+      contrastText: '#f8bbd0',
     },
     secondary: {
-      main: '#026697',
-      light: '#3484ab',
-      dark: '#014769',
-      contrastText: '#ff70b7',
+      main: '#2196f3',
+      light: '#64b5f6',
+      dark: '#1e88e5',
+      contrastText: '#1a237e',
     },
     background: {
-      default: '#026697',
-      paper: '#81D1FF',
+      default: '#f8bbd0',
+      paper: '#fce4ec',
     },
     error: {
-      main: '#d9534f',
+      main: '#ffeb3b',
     },
     text: {
-      primary: '#ff70b7',
-      secondary: '#b24e80',
+      primary: '#ad1457',
+      secondary: '#ec407a',
       disabled: '#FD1687',
     },
     divider: 'rgba(0, 0, 0, 0.42)',

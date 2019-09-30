@@ -1,10 +1,10 @@
-import { memo } from 'react';
+import { memo } from 'react'
 
 const PageViewTracker = memo(({ uri }) => {
   if (window.ga) {
-    window.ga('send', 'pageview', uri);
+    window.ga('send', 'pageview', uri)
   }
-  return null;
-});
+  return null
+})
 
-export default PageViewTracker;
+export default PageViewTracker

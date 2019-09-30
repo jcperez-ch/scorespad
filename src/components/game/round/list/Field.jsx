@@ -1,5 +1,5 @@
-import styled from 'styled-components';
-import TextField from '@material-ui/core/TextField';
+import styled from 'styled-components'
+import TextField from '@material-ui/core/TextField'
 
 const RoundListField = styled(TextField).attrs({
   margin: 'dense',
@@ -11,6 +11,6 @@ const RoundListField = styled(TextField).attrs({
   input {
     text-align: center;
   }
-`;
+`
 
-export default RoundListField;
+export default RoundListField

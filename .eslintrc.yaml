@@ -24,7 +24,7 @@ rules:
     - error
     - code: 200
   react/jsx-filename-extension:
-    - warning
+    - warn
     - extensions:
         - .js
         - .jsx
@@ -35,3 +35,8 @@ rules:
     - off
   react/prop-types:
     - off
+  react/jsx-props-no-spreading:
+    - off
+  semi:
+    - error
+    - never

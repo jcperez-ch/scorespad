@@ -1,26 +1,26 @@
-import React, { useContext, useState } from 'react';
-import { useTranslation } from 'react-i18next';
-import IconButton from '@material-ui/core/IconButton';
-import Menu from '@material-ui/core/Menu';
-import MenuItem from '@material-ui/core/MenuItem';
-import Icon from '@material-ui/core/Icon';
-import ThemeContext from './Context';
+import React, { useContext, useState } from 'react'
+import { useTranslation } from 'react-i18next'
+import IconButton from '@material-ui/core/IconButton'
+import Menu from '@material-ui/core/Menu'
+import MenuItem from '@material-ui/core/MenuItem'
+import Icon from '@material-ui/core/Icon'
+import ThemeContext from './Context'
 
 const ThemeMenu = () => {
-  const [el, setEl] = useState(null);
-  const [t] = useTranslation();
-  const [theme, setTheme] = useContext(ThemeContext);
-  const handleOpen = ({ currentTarget }) => setEl(currentTarget);
-  const handleClose = () => setEl(null);
-  const handleClick = value => () => {
-    setEl(null);
-    setTheme(value);
-  };
+  const [el, setEl] = useState(null)
+  const [t] = useTranslation()
+  const [theme, setTheme] = useContext(ThemeContext)
+  const handleOpen = ({ currentTarget }) => setEl(currentTarget)
+  const handleClose = () => setEl(null)
+  const handleClick = (value) => () => {
+    setEl(null)
+    setTheme(value)
+  }
 
   const items = [
     { id: 'minimal', label: t('skins.minimal') },
     { id: 'girlish', label: t('skins.girlish') },
-  ];
+  ]
   return (
     <>
       <IconButton
@@ -45,7 +45,7 @@ const ThemeMenu = () => {
         ))}
       </Menu>
     </>
-  );
-};
+  )
+}
 
-export default ThemeMenu;
+export default ThemeMenu

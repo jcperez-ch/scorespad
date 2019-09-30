@@ -1,8 +1,8 @@
-import React from 'react';
-import { noop } from 'lodash';
-import TextField from '@material-ui/core/TextField';
+import React from 'react'
+import { noop } from 'lodash'
+import TextField from '@material-ui/core/TextField'
 
-import { onChange, onEnter } from 'utils/handlers';
+import { onChange, onEnter } from 'utils/handlers'
 
 const NameField = ({
   onChange: handleChange,
@@ -10,7 +10,7 @@ const NameField = ({
   validation = {},
   ...props
 }) => {
-  const { errors = {}, touched = false, reset = noop } = validation;
+  const { errors = {}, touched = false, reset = noop } = validation
 
   return (
     <TextField
@@ -21,7 +21,7 @@ const NameField = ({
       onKeyDown={onEnter(handleEnter)}
       {...props}
     />
-  );
-};
+  )
+}
 
-export default NameField;
+export default NameField
