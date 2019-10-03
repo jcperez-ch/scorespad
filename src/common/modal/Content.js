@@ -1,5 +1,5 @@
-import styled from 'styled-components';
-import { themeColors, themeScreenSizes } from 'themes';
+import styled from 'styled-components'
+import { themeColors, themeScreenSizes } from 'themes'
 
 const ModalContent = styled.div`
   background-color: ${themeColors.paperBackground};
@@ -16,8 +16,8 @@ const ModalContent = styled.div`
     max-width: 65vw;
   }
   @media (min-width: ${themeScreenSizes.mediumScreenMin}) {
-    max-width: ${props => props.maxWidth || '400px'};
+    max-width: ${(props) => props.maxWidth || '400px'};
   }
-`;
+`
 
-export default ModalContent;
+export default ModalContent

@@ -20,6 +20,7 @@ const GameActionRemove = ({ id, onSuccess = noop }) => {
       confirmText={t('button.remove')}
       title={t('title.removeGame')}
       subtitle={t('messages.confirmRemoveGame')}
+      hideLabel
       fab
       color="primary"
       size="small"

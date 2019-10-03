@@ -56,7 +56,7 @@ const GameFormCreate = ({ open, onClose = noop, onSuccess = noop }) => {
       </DialogContent>
       <DialogActions>
         <Button onClick={onClose}>{t('button.cancel')}</Button>
-        <Button onClick={handleAdd} color="primary" autoFocus>
+        <Button variant="contained" color="primary" autoFocus onClick={handleAdd}>
           {t('button.createGame')}
         </Button>
       </DialogActions>

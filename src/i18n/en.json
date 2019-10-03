@@ -2,7 +2,8 @@
   "title": {
     "removeGame": "Remove Game",
     "removeTeam": "Remove Team",
-    "removeScore": "Remove Score"
+    "removeScore": "Remove Score",
+    "shareGame": "Share this game"
   },
   "button": {
     "add": "Add",
@@ -16,6 +17,7 @@
     "resumeGame": "Resume Game",
     "remove": "Remove",
     "rename": "Rename",
+    "share": "Share",
     "startGame": "Start",
     "sum": "Sum"
   },
@@ -32,6 +34,11 @@
     "confirmRemoveGame": "Are you sure you want to kill this game?",
     "confirmRemoveScore": "Are you sure you want to remove this score?",
     "confirmRemoveTeam": "Are you sure you want to remove \"{{ teamName }}\" in this game?",
+    "confirmShareGame": "This QR Code can be scanned by any other mobile device to transfer this game onto a different device.  Just follow these simple steps:",
+    "confirmShareGame_step1": "Open scorespad in a different device, it can be a computer, tablet or phone.",
+    "confirmShareGame_step2": "Click on the big + buttons appearing at the bottom right of the screen.",
+    "confirmShareGame_step3": "Once the dialog is opened, you can press the \"Scan\" button in order to scan this code.",
+    "confirmShareGame_step4": "Once scanned, scorespad will synchronize the game into a different device and you're done.",
     "selectGame": "Select your game",
     "startQuickGame": "Are you ready to the rumble?"
   },

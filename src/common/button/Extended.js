@@ -20,12 +20,12 @@ const Styled = styled.span`
 
 
 const ButtonExtended = ({
-  label, icon, color = 'primary', size = 'small', ...props
+  label, hideLabel = false, icon, color = 'primary', size = 'small', ...props
 }) => (
   <Fab variant="extended" aria-label={label} color={color} size={size} {...props}>
     <Styled>
-      <Icon className="icon">{icon}</Icon>
-      <span className="label">{label}</span>
+      {typeof icon === 'string' ? <Icon className="icon">{icon}</Icon> : icon}
+      {!hideLabel && <span className="label">{label}</span>}
     </Styled>
   </Fab>
 )

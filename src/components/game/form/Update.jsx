@@ -8,7 +8,9 @@ import ButtonExtended from 'common/button/Extended'
 import StyledNameForm from 'common/styled/NameForm'
 import NameField from 'common/NameField'
 import GameStoreContext from 'components/game/context/Store'
+
 import GameActionRemove from '../action/Remove'
+import GameActionShare from '../action/Share'
 import { renameGame } from '../actionCreators'
 
 import useGameValidation from './useValidation'
@@ -49,6 +51,7 @@ const GameFormUpdate = ({
       </div>
       <div className="buttons">
         <ButtonExtended icon="cancel" label={t('button.cancel')} onClick={onClose} />
+        <GameActionShare id={id} onClose={onClose} />
         <GameActionRemove id={id} />
       </div>
     </StyledNameForm>

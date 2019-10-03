@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import { noop } from 'lodash'
 import Button from '@material-ui/core/Button'
 import IconButton from '@material-ui/core/IconButton'
 import Icon from '@material-ui/core/Icon'
@@ -11,24 +10,28 @@ import ModalActions from './Actions'
 import ModalContent from './Content'
 
 const ModalConfirm = ({
+  children,
   cancelText,
   confirmText,
+  buttonText = confirmText,
   title,
   subtitle,
   icon = 'delete_outline',
   fab = false,
-  onConfirm = noop,
+  onConfirm,
   ...props
 }) => {
   const [open, setOpen] = useState(false)
   const toggleOpen = () => setOpen(!open)
+  const handleClose = () => setOpen(false)
   return (
     <>
       {fab ? (
-        <ButtonExtended {...props} icon={icon} label={confirmText} onClick={toggleOpen} />
+        <ButtonExtended {...props} icon={icon} label={buttonText} onClick={toggleOpen} />
       ) : (
         <IconButton
-          aria-label={confirmText}
+          {...props}
+          aria-label={buttonText}
           aria-owns={open ? 'confirm-dialog' : undefined}
           aria-haspopup="true"
           onClick={toggleOpen}
@@ -50,9 +53,10 @@ const ModalConfirm = ({
           <Typography variant="subtitle1" id="confirm-description">
             {subtitle}
           </Typography>
+          {children}
           <ModalActions>
-            <Button variant="contained" onClick={toggleOpen}>{cancelText}</Button>
-            <Button variant="contained" color="primary" autoFocus onClick={onConfirm}>
+            {cancelText && <Button variant="contained" onClick={toggleOpen}>{cancelText}</Button>}
+            <Button variant="contained" color="primary" autoFocus onClick={onConfirm || handleClose}>
               {confirmText}
             </Button>
           </ModalActions>
