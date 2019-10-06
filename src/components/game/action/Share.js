@@ -32,7 +32,7 @@ const GameActionShare = ({ id, onClose }) => {
   useEffect(() => {
     const game = games[id]
     if (game) {
-      handleGenerate(JSON.stringify(game))
+      handleGenerate(JSON.stringify({ id, ...game }))
     }
   }, [id, games, handleGenerate])
   return (
@@ -46,13 +46,13 @@ const GameActionShare = ({ id, onClose }) => {
       />
       <Dialog
         fullScreen
-        id="game-add-dialog"
+        id="game-share-dialog"
         onClose={toggleOpen}
-        aria-labelledby="game-add-dialog-title"
+        aria-labelledby="game-share-dialog-title"
         open={open}
         TransitionComponent={SlideUp}
       >
-        <DialogTitle id="game-add-dialog-title" onClose={toggleOpen}>
+        <DialogTitle id="game-share-dialog-title" onClose={toggleOpen}>
           {t('title.shareGame')}
         </DialogTitle>
         <DialogContent>

@@ -25,7 +25,12 @@ export const createGame = (state, { key, name }) => {
       teams: [],
     },
   };
-};
+}
+
+export const importGame = (state, { key, game }) => ({
+  ...state,
+  [key]: game,
+})
 
 export const removeGame = (state, { key }) => (state[key]
   ? Object.keys(state).reduce(
@@ -61,6 +66,8 @@ const reducer = (state = {}, { type, ...payload }) => {
       return payload;
     case 'G+':
       return createGame(state, payload);
+    case 'G++':
+      return importGame(state, payload);
     case 'G-':
       return removeGame(state, payload);
     case 'G=':

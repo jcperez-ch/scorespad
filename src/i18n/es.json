@@ -2,13 +2,16 @@
   "title": {
     "removeGame": "Eliminar Juego",
     "removeTeam": "Eliminar Equipo",
-    "removeScore": "Eliminar Puntuación"
+    "removeScore": "Eliminar Puntuación",
+    "scanGame": "Escanear un nuevo juego",
+    "shareGame": "Compartir el juego"
   },
   "button": {
     "add": "Agregar",
     "addTeam": "Agrega Equipo",
     "back": "Regresar",
     "cancel": "Cancerlar",
+    "confirmAndCreate": "Confirmar y crear",
     "createGame": "Crear Juego",
     "endGame": "Terminar Juego",
     "eraseTeams": "Eliminar Equipos",
@@ -16,10 +19,16 @@
     "resumeGame": "Retomar Juego",
     "remove": "Eliminar",
     "rename": "Renombrar",
+    "scan": "Escanear",
     "share": "Compartir",
     "startGame": "Comenzar",
     "sum": "Sumar"
   },
+  "game_scan_title": "Escanea el código desde otro dispositivo",
+  "game_title": "Describe como crear tu juego",
+  "game_tab_byName": "por un nombre",
+  "game_tab_byScan": "Escaneando un código",
+  "game_scan_no_camera": "La cámara no está habilitada en este dispositivo",
   "placeholder": {
     "gameName": "Nombre del Juego",
     "savedGame": "Juego respaldado",
@@ -33,6 +42,11 @@
     "confirmRemoveGame": "Estás seguro de que quieres eliminar este juego?",
     "confirmRemoveScore": "Estás seguro de que quieres eliminar esta puntuación?",
     "confirmRemoveTeam": "Estás seguro de que quieres eliminar a \"{{ teamName }}\" del juego?",
+    "confirmShareGame": "Este código puede ser escaneado por algún otro dispositivo móvil para sincronizar este juego de un dispositivo a otro.  Sólo sigue estos simples pasos:",
+    "confirmShareGame_step1": "Abre scorespad en otro dispositivo, puede ser un ordenador, tablet o teléfono móvil.",
+    "confirmShareGame_step2": "Presiona en el boton + que aparece en la parte inferior derecha de la pantalla.",
+    "confirmShareGame_step3": "Una vez que la pantalla de creación aparezca, puedes presionar el link de \"Escanear\".",
+    "confirmShareGame_step4": "Una vez que la cámara se active en pantalla, scorespad will synchronize the game into a different device and you're done.",
     "selectGame": "Selecciona tu juego",
     "startQuickGame": "Listo para comenzar?"
   },
@@ -48,9 +62,7 @@
     "noGames": "No hay juegos que mostrar, quizás quieras comenzar creando uno?",
     "noTeams": "No hay equipos que mostrar",
     "roundNotFound": "Oops, no se encontró ninguna partida.  Regresa al inicio para buscar tu partida",
-    "selectGame": "Dejaste algún juego ya empezado? Haz click en el nombre de tu juego o si quieres empezar un juego desde cero haz click en el botón de \"Crear Juego\"",
-    "selectNewGame": "Para comenzar un juego haz click en el botón de \"+\"",
-    "startNewGame": "Para comenzar el juego necesitas nombrarlo, escribe el nombre abajo y haz click en \"Comenzar Juego\". Si, ya te arrepentiste podrías hacer click en \"Cancelar\""
+    "selectGame": "Dejaste algún juego ya empezado? Haz click en el nombre de tu juego o si quieres empezar un juego desde cero haz click en el botón de \"Crear Juego\""
   },
   "skins": {
     "dark": "Darqueto",

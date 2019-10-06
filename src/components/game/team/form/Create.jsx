@@ -64,7 +64,7 @@ const TeamFormCreate = ({ gameKey, navigate }) => {
       </DialogContent>
       <DialogActions>
         <Button onClick={handleClose}>{t('button.cancel')}</Button>
-        <Button onClick={handleAdd} color="primary" autoFocus>
+        <Button variant="contained" color="primary" autoFocus onClick={handleAdd}>
           {t('button.addTeam')}
         </Button>
       </DialogActions>
