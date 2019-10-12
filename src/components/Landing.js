@@ -1,6 +1,5 @@
 import React from 'react'
 import { useTranslation } from 'react-i18next'
-import Tooltip from '@material-ui/core/Tooltip'
 import StickyFabButton from 'common/StickyFabButton'
 
 import GameList from './game/list/List'
@@ -14,15 +13,14 @@ const Landing = ({ navigate, uri }) => {
   return (
     <>
       <GameList onItemClick={goToGame} />
-      <Tooltip title={t('button.createGame')}>
-        <StickyFabButton
-          color="primary"
-          aria-haspopup="true"
-          aria-label={t('button.createGame')}
-          icon="add"
-          onClick={goToCreateGame}
-        />
-      </Tooltip>
+      <StickyFabButton
+        tooltip={t('button.createGame')}
+        color="primary"
+        aria-haspopup="true"
+        aria-label={t('button.createGame')}
+        icon="add"
+        onClick={goToCreateGame}
+      />
       <PageViewTracker uri={uri} />
     </>
   )

@@ -1,6 +1,6 @@
-import React from 'react'
+import React, { forwardRef } from 'react'
 import Slide from '@material-ui/core/Slide'
 
-const SlideUp = (props) => <Slide direction="up" {...props} />
+const SlideUp = (props, ref) => <Slide ref={ref} direction="up" {...props} />
 
-export default SlideUp
+export default forwardRef(SlideUp)

@@ -1,20 +1,30 @@
-import React, { useRef, useEffect, useCallback } from 'react'
+import React, {
+  useRef, useEffect, useCallback, useState,
+} from 'react'
 import { noop } from 'lodash'
+import DialogActions from '@material-ui/core/DialogActions'
 
 import VideoStream from './VideoStream'
+import ButtonExtended from '../button/Extended'
 
-const CommonQrCamera = ({
+const CommonQrScan = ({
   className,
   style,
   rearCamera = true,
   videoStyle,
   shouldDecode = true,
+  fallbackCode = null,
+  fallbackMedia = null,
+  tryAgainButtonLabel = 'retry',
+  giveUpButtonLabel = 'give up',
   onInit = noop,
   onCode = noop,
-  fallback = null,
+  onClose = noop,
 }) => {
   const webWorker = useRef(null)
   const drawVideoFrame = useRef(noop)
+  const [codeError, setCodeError] = useState(false)
+  const handleTryAgain = () => setCodeError(false)
   const onVideoStreamInit = (state, drawFrame) => {
     if (onInit) {
       onInit(state)
@@ -32,7 +42,11 @@ const CommonQrCamera = ({
     if (code) {
       const { data } = code
       if (onCode && data.length > 0) {
-        onCode(code)
+        try {
+          onCode(JSON.parse(data))
+        } catch (e) {
+          setCodeError(true)
+        }
       }
     }
 
@@ -62,15 +76,25 @@ const CommonQrCamera = ({
   }
   return (
     <div className={className} style={appliedStyle}>
-      <VideoStream
-        onFrame={onFrame}
-        onInit={onVideoStreamInit}
-        rearCamera={rearCamera}
-        style={videoStyle}
-        fallback={fallback}
-      />
+      {codeError ? (
+        <>
+          {fallbackCode}
+          <DialogActions style={{ paddingRight: 0 }}>
+            <ButtonExtended color="default" size="large" icon="arrow_back" label={giveUpButtonLabel} onClick={onClose} />
+            <ButtonExtended size="large" icon="replay" label={tryAgainButtonLabel} onClick={handleTryAgain} />
+          </DialogActions>
+        </>
+      ) : (
+        <VideoStream
+          onFrame={onFrame}
+          onInit={onVideoStreamInit}
+          rearCamera={rearCamera}
+          style={videoStyle}
+          fallback={fallbackMedia}
+        />
+      )}
     </div>
   )
 }
 
-export default CommonQrCamera
+export default CommonQrScan

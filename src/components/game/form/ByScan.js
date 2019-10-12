@@ -7,7 +7,7 @@ import Fab from '@material-ui/core/Fab'
 import Typography from '@material-ui/core/Typography'
 
 import CommaList from 'common/CommaList'
-import CommonQrCamera from 'common/qr/Camera'
+import CommonQrScan from 'common/qr/Scan'
 import CommonRoutePaper from 'common/styled/RoutePaper'
 import DialogTitle from 'common/dialog/Title'
 import SlideUp from 'common/SlideUp'
@@ -49,7 +49,14 @@ const GameFormByScan = ({ onClose, onSuccess }) => {
           {t('game_scan_title')}
         </DialogTitle>
         <DialogContent>
-          <CommonQrCamera fallback={<WarnPlaceholder icon="warning" message={t('game_scan_no_camera')} />} onCode={handleScan} />
+          <CommonQrScan
+            fallbackCode={<WarnPlaceholder icon="mobile_off" message={t('game_scan_wrong_code')} />}
+            fallbackMedia={<WarnPlaceholder icon="videocam_off" message={t('game_scan_no_camera')} />}
+            tryAgainButtonLabel={t('button.tryAgain')}
+            giveUpButtonLabel={t('button.back')}
+            onCode={handleScan}
+            onClose={onClose}
+          />
         </DialogContent>
       </Dialog>
       {code && (

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { forwardRef } from 'react'
 import IconButton from '@material-ui/core/IconButton'
 import Icon from '@material-ui/core/Icon'
 import Typography from '@material-ui/core/Typography'
@@ -25,8 +25,8 @@ const StyledText = styled(Typography).attrs({
   }
 `
 
-const DialogTitle = ({ children, onClose, ...props }) => (
-  <StyledWrapper {...props}>
+const DialogTitle = ({ children, onClose, ...props }, ref) => (
+  <StyledWrapper ref={ref} {...props}>
     <StyledContainer>
       <IconButton color="primary" onClick={onClose}>
         <Icon>close</Icon>
@@ -36,4 +36,4 @@ const DialogTitle = ({ children, onClose, ...props }) => (
   </StyledWrapper>
 )
 
-export default DialogTitle
+export default forwardRef(DialogTitle)

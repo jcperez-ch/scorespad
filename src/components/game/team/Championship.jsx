@@ -26,7 +26,7 @@ const TeamChampionship = ({ championship, onClick }) => {
     onClick,
   ])
   return (
-    <Flex flex="1 1 auto">
+    <Flex flex="0 1 auto">
       <StyledButton onClick={handleClick} onTouchEnd={handleClick}>
         <StyledIcon>star</StyledIcon>
       </StyledButton>

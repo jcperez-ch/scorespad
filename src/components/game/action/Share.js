@@ -7,6 +7,7 @@ import Button from '@material-ui/core/Button'
 import Dialog from '@material-ui/core/Dialog'
 import DialogActions from '@material-ui/core/DialogActions'
 import DialogContent from '@material-ui/core/DialogContent'
+import useMediaQuery from '@material-ui/core/useMediaQuery'
 
 import SlideUp from 'common/SlideUp'
 import ButtonExtended from 'common/button/Extended'
@@ -19,6 +20,7 @@ const GameActionShare = ({ id, onClose }) => {
   const [dataUrl, setDataUrl] = useState()
   const [open, setOpen] = useState(false)
   const [t] = useTranslation()
+  const matchesLarge = useMediaQuery('(min-width: 481px)')
   const toggleOpen = () => setOpen(!open)
   const handleClose = () => {
     setOpen(false)
@@ -37,20 +39,14 @@ const GameActionShare = ({ id, onClose }) => {
   }, [id, games, handleGenerate])
   return (
     <>
-      <ButtonExtended
-        color="primary"
-        size="small"
-        icon="mobile_screen_share"
-        label={t('button.share')}
-        onClick={toggleOpen}
-      />
+      <ButtonExtended icon="mobile_screen_share" label={t('button.share')} onClick={toggleOpen} />
       <Dialog
         fullScreen
         id="game-share-dialog"
-        onClose={toggleOpen}
         aria-labelledby="game-share-dialog-title"
         open={open}
         TransitionComponent={SlideUp}
+        onClose={toggleOpen}
       >
         <DialogTitle id="game-share-dialog-title" onClose={toggleOpen}>
           {t('title.shareGame')}
@@ -59,9 +55,9 @@ const GameActionShare = ({ id, onClose }) => {
           <DialogHeadline>{t('messages.confirmShareGame')}</DialogHeadline>
           {useMemo(
             () => (
-              <div>{dataUrl && <img src={dataUrl} alt="qr code" />}</div>
+              <div style={matchesLarge ? {} : { textAlign: 'center' }}>{dataUrl && <img src={dataUrl} alt="qr code" />}</div>
             ),
-            [dataUrl],
+            [dataUrl, matchesLarge],
           )}
           <DialogHeadline>
             {t('messages.confirmShareGame_step1')}

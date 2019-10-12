@@ -2,7 +2,6 @@ import React, { useContext } from 'react'
 import { noop } from 'lodash'
 import { useTranslation } from 'react-i18next'
 
-import Tooltip from '@material-ui/core/Tooltip'
 import StickyFabButton from 'common/StickyFabButton'
 import GameStoreContext from 'components/game/context/Store'
 import { addRound } from '../actionCreators'
@@ -24,14 +23,13 @@ const GameActionStart = ({ gameKey, game, onStart = noop }) => {
   return (
     game
     && game.teams.length > 1 && (
-      <Tooltip title={t('button.startGame')}>
-        <StickyFabButton
-          color="primary"
-          icon="play_arrow"
-          aria-label={t('button.startGame')}
-          onClick={handleStart}
-        />
-      </Tooltip>
+      <StickyFabButton
+        tooltip={t('button.startGame')}
+        color="primary"
+        icon="play_arrow"
+        aria-label={t('button.startGame')}
+        onClick={handleStart}
+      />
     )
   )
 }

@@ -20,6 +20,7 @@ const GameFormCreate = ({ navigate, '*': current }) => {
 
   const goToGame = (id) => navigate(`../games/${id}`)
   const handleClose = () => navigate('..')
+  const handleCloseScan = () => navigate('.')
 
   const handleCreate = (id, newName) => {
     dispatch(createGame(id, newName))
@@ -51,7 +52,7 @@ const GameFormCreate = ({ navigate, '*': current }) => {
       </Tabs>
       <Router style={{ display: 'flex', flex: '1 1 100%', flexDirection: 'column' }}>
         <GameFormByName path="/" onSuccess={handleCreate} />
-        <GameFormByScan path="scan" onClose={handleClose} onSuccess={handleImport} />
+        <GameFormByScan path="scan" onClose={handleCloseScan} onSuccess={handleImport} />
       </Router>
     </div>
   )

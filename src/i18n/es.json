@@ -22,6 +22,7 @@
     "scan": "Escanear",
     "share": "Compartir",
     "startGame": "Comenzar",
+    "tryAgain": "Reintentar",
     "sum": "Sumar"
   },
   "game_scan_title": "Escanea el código desde otro dispositivo",
@@ -29,6 +30,7 @@
   "game_tab_byName": "por un nombre",
   "game_tab_byScan": "Escaneando un código",
   "game_scan_no_camera": "La cámara no está habilitada en este dispositivo",
+  "game_scan_wrong_code": "Este no es un código valido para un juego de esta app",
   "placeholder": {
     "gameName": "Nombre del Juego",
     "savedGame": "Juego respaldado",

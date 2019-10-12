@@ -1,19 +1,19 @@
-import React, { lazy, Fragment, Suspense } from 'react'
+import React, { Fragment, Suspense } from 'react'
 import { Router, Redirect } from '@reach/router'
 
 import Layout from 'common/Layout'
 
 import Landing from './Landing'
+import Game from './Game'
+import Round from './Round'
 import { TopLanding, TopGame, TopRound } from './Top'
 import ThemeProvider from './theme/Provider'
 import LocaleProvider from './locale/Provider'
 import GameProvider from './game/Provider'
 
-const Game = lazy(() => import(/* webpackChunkName: "game" *//* webpackMode: "lazy" */'./Game'))
-const Round = lazy(() => import(/* webpackChunkName: "round" *//* webpackMode: "lazy" */'./Round'))
+import TeamFormCreate from './game/team/form/Create'
+import GameFormCreate from './game/form/Create'
 
-const TeamFormCreate = lazy(() => import(/* webpackChunkName: "create" *//* webpackMode: "lazy" */'./game/team/form/Create'))
-const GameFormCreate = lazy(() => import(/* webpackChunkName: "create" *//* webpackMode: "lazy" */'./game/form/Create'))
 const Fragoute = ({ children }) => <>{children}</>
 
 const Root = ({
