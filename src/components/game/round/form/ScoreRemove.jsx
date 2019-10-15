@@ -36,6 +36,7 @@ const RoundScoreRemove = ({
   return (
     <StyledListItemText component="div" disableTypography>
       <ModalConfirm
+        color="primary"
         cancelText={t('button.cancel')}
         confirmText={t('button.remove')}
         title={t('title.removeScore')}
@@ -45,8 +46,8 @@ const RoundScoreRemove = ({
       <Typography align="center" variant="body2">
         {score}
       </Typography>
-      <IconButton aria-label={t('button.cancel')} onClick={onClose}>
-        <Icon>cancel</Icon>
+      <IconButton color="primary" aria-label={t('button.cancel')} onClick={onClose}>
+        <Icon>check</Icon>
       </IconButton>
     </StyledListItemText>
   )

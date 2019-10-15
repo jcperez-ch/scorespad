@@ -21,8 +21,9 @@
     "scan": "Scan",
     "share": "Share",
     "startGame": "Start",
+    "sum": "Sum",
     "tryAgain": "Try Again",
-    "sum": "Sum"
+    "update": "Update"
   },
   "game_scan_title": "Scan code shared by another device",
   "game_title": "Describe how you want your game",
@@ -60,6 +61,7 @@
   "text": {
     "addNewTeam": "Type the name of the team or the member you want to add to the game below, then click on the \"Add\" button.",
     "gameNotFound": "Oops, wrong link. Go back to search for a saved game",
+    "newVersion": "There is a new version, want to update?",
     "noGames": "There are no games to display, maybe start by creating one",
     "noTeams": "There are no teams to display",
     "roundNotFound": "Oops, wrong link. Go back to search for a saved round",

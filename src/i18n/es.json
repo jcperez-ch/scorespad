@@ -23,7 +23,8 @@
     "share": "Compartir",
     "startGame": "Comenzar",
     "tryAgain": "Reintentar",
-    "sum": "Sumar"
+    "sum": "Sumar",
+    "update": "Actualizar"
   },
   "game_scan_title": "Escanea el código desde otro dispositivo",
   "game_title": "Describe como crear tu juego",
@@ -61,6 +62,7 @@
   "text": {
     "addNewTeam": "Escribe el nombre del equipo o persona que quieres agregar el juego, luego presiona el botón de \"Agregar\".",
     "gameNotFound": "Oops, no se encontró ningún juego.  Regresa al inicio para buscar un juego",
+    "newVersion": "Hay una nueva versión, quieres actualizarte?",
     "noGames": "No hay juegos que mostrar, quizás quieras comenzar creando uno?",
     "noTeams": "No hay equipos que mostrar",
     "roundNotFound": "Oops, no se encontró ninguna partida.  Regresa al inicio para buscar tu partida",
