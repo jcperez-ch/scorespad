@@ -4,6 +4,8 @@ import Snackbar from '@material-ui/core/Snackbar'
 import IconButton from '@material-ui/core/IconButton'
 import CloseIcon from '@material-ui/icons/Close'
 
+import Txt from 'common/Txt'
+
 const CommonSnackbar = ({ onClose, ...props }) => (
   <Snackbar
     anchorOrigin={{
@@ -13,10 +15,14 @@ const CommonSnackbar = ({ onClose, ...props }) => (
     ContentProps={{
       'aria-describedby': 'message-id',
     }}
-    message={<span id="message-id">There is a new version, want to update?</span>}
+    message={(
+      <span id="message-id">
+        <Txt id="text.newVersion" />
+      </span>
+    )}
     action={[
       <Button key="undo" variant="outlined" color="primary" size="small" onClick={onClose}>
-        UPDATE
+        <Txt id="button.update" />
       </Button>,
       <IconButton
         key="close"

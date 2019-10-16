@@ -27,10 +27,10 @@
   },
   "game_scan_title": "Scanner le code d'un autre appareil",
   "game_title": "Déscrit comment veux-tu créer le jeu",
-  "game_tab_byName": "By Name",
-  "game_tab_byScan": "By Code",
-  "game_scan_no_camera": "Camera is not enabled in this device",
-  "game_scan_wrong_code": "This code is not a valid game for this app",
+  "game_tab_byName": "Par nom",
+  "game_tab_byScan": "Par code",
+  "game_scan_no_camera": "Caméra n'est pas disponible dans cet appareil",
+  "game_scan_wrong_code": "Le code n'est pas associé à aucun jeu",
   "placeholder": {
     "gameName": "Nom du Jeu",
     "savedGame": "Jeu en cours",
@@ -44,6 +44,11 @@
     "confirmRemoveGame": "Veux-tu vraiment effacer ce jou ci?",
     "confirmRemoveScore": "Veux-tu vraiment effacer ce score ci?",
     "confirmRemoveTeam": "Veux-tu vraiment effacer \"{{ teamName }}\" de ce jeu ci?",
+    "confirmShareGame": "On peux scanner ce code QR par un autre appareil mobile afin de transférer le jeu vers cet appareil.  Simplement suivez les pas en bas:",
+    "confirmShareGame_step1": "Ouvre scorespad avec un autre appareil, ça soit un ordinateur, tablet ou un téléphone mobile.",
+    "confirmShareGame_step2": "Appuie sur le gros buton + qui est placé en bas et à droite.",
+    "confirmShareGame_step3": "Lors que la boîte de dialogue soit visible, appuie su \"Scanner\" afin de scanner le code.",
+    "confirmShareGame_step4": "Une fois scanné, scorespad synchroniserait le jeu vers un appareil different.",
     "selectGame": "Selectionne ton jeu",
     "startQuickGame": "Êtes vous prêts mes amis?"
   },
@@ -60,9 +65,7 @@
     "noGames": "Il n'y a pas des jeux à montrer, parfois veux-tu creer un?",
     "noTeams": "Il n'y a pas des équipes à montrer",
     "roundNotFound": "Oops, rien a voir ici.  Tappez sur le button de rétour pour trouver une partie",
-    "selectGame": "As-tu laissé ton jeu déjà commencé? appuie sur le triangle pour le reprendre. Ou  si tu veux commencer un nouveau jeu, donc appuie sur \"Creer Jeu\"",
-    "selectNewGame": "Pour commencer un nouveau jeu, appuie sur \"Creer Jeu\"",
-    "startNewGame": "Pour commencer un nouveau jeu, tu dois le nommer, choisi-le et puis appuie sur \"Commencer\", sinon, tu peux toujours presser \"Annuler\""
+    "selectGame": "As-tu laissé ton jeu déjà commencé? appuie sur le triangle pour le reprendre. Ou  si tu veux commencer un nouveau jeu, donc appuie sur \"Creer Jeu\""
   },
   "skins": {
     "dark": "Foncé",
