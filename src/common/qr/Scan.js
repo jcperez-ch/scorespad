@@ -56,7 +56,7 @@ const CommonQrScan = ({
   }, [onCode, shouldDecode])
 
   useEffect(() => {
-    webWorker.current = new Worker(`${process.env.PUBLIC_URL || '/'}qr-worker.js`)
+    webWorker.current = new Worker(`${process.env.PUBLIC_URL || ''}/qr-worker.js`)
     webWorker.current.addEventListener('message', onFrameDecoded)
     return () => {
       if (webWorker.current) {
