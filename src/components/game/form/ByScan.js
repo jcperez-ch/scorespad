@@ -16,13 +16,8 @@ import WarnPlaceholder from 'common/WarnPlaceholder'
 const GameFormByScan = ({ onClose, onSuccess }) => {
   const [t] = useTranslation()
   const [code, setCode] = useState(null)
-  const handleScan = useCallback(({ data }) => {
-    try {
-      setCode(JSON.parse(data))
-    } catch (e) {
-      console.log(e)
-      // TODO open snackbar
-    }
+  const handleScan = useCallback((newCode) => {
+    setCode(newCode)
   }, [])
   const handleAdd = () => {
     const { id, ...newGame } = code

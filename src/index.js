@@ -25,7 +25,7 @@ serviceWorker.register({
       const requests = await cache.keys()
       await Promise.all(requests.map((request) => cache.delete(request)))
       await registration.unregister()
-      window.location.reload()
+      setTimeout(() => window.location.reload(), 350)
     }
     start({ hasUpdate: true, onUpdate: handleUpdate })
   },
