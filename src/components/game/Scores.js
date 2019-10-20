@@ -18,13 +18,7 @@ const GameScores = ({ round, onEnd }) => {
   const handleSubmit = () => {
     const [scores, setScores] = state
     if (scores.some((score) => typeof Number(score) === 'number')) {
-      dispatch(
-        addScores(
-          gameKey,
-          round,
-          scores.map((score) => Number.parseInt(score, 10)),
-        ),
-      )
+      dispatch(addScores(gameKey, round, scores.map((score) => Number.parseInt(score, 10))))
       setScores(initialState)
     }
   }
@@ -32,12 +26,7 @@ const GameScores = ({ round, onEnd }) => {
     <GameScoresContext.Provider value={state}>
       <RoundList teams={teams} round={round} onSubmit={handleSubmit} />
       <ButtonsWrapper>
-        <Button
-          icon="plus"
-          color="primary"
-          variant="contained"
-          onClick={handleSubmit}
-        >
+        <Button icon="plus" color="primary" variant="contained" onClick={handleSubmit}>
           {t('button.sum')}
         </Button>
       </ButtonsWrapper>

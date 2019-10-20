@@ -19,13 +19,7 @@ const TeamList = ({ onClickChampionship = noop }) => {
   ) : (
     <List component="div">
       {teams.map((team, index) => (
-        <TeamListItem
-          key={team.name}
-          index={index}
-          onClickChampionship={onClickChampionship}
-          round={round}
-          {...team}
-        />
+        <TeamListItem key={team.name} index={index} onClickChampionship={onClickChampionship} round={round} {...team} />
       ))}
     </List>
   )

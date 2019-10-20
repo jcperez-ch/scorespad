@@ -14,13 +14,7 @@ const GameRoundScore = ({ index, score, scoreIndex }) => {
 
   return (
     <SlideLongRippleSwitch active={canClose ? 0 : 1}>
-      <RoundScoreRemove
-        onClose={handleViewMode}
-        onSuccess={handleViewMode}
-        scoreIndex={scoreIndex}
-        score={score}
-        index={index}
-      />
+      <RoundScoreRemove onClose={handleViewMode} onSuccess={handleViewMode} scoreIndex={scoreIndex} score={score} index={index} />
       <ListItem button dense {...rippleProps}>
         <StyledScore variant="body2">{score}</StyledScore>
       </ListItem>

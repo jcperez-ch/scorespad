@@ -9,11 +9,7 @@ const GameGuard = ({ children, game, fallback }) => {
     return children
   }
 
-  return fallback === undefined ? (
-    <WarnPlaceholder icon="warning" message={t('text.gameNotFound')} />
-  ) : (
-    fallback
-  )
+  return fallback === undefined ? <WarnPlaceholder icon="warning" message={t('text.gameNotFound')} /> : fallback
 }
 
 export default GameGuard

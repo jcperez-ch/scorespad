@@ -41,26 +41,13 @@ const TeamFormCreate = ({ gameKey, navigate }) => {
   }, [open])
 
   return (
-    <Dialog
-      fullScreen
-      id="team-add-dialog"
-      onClose={handleClose}
-      aria-labelledby="team-add-dialog-title"
-      open={open}
-      TransitionComponent={SlideUp}
-    >
+    <Dialog fullScreen id="team-add-dialog" onClose={handleClose} aria-labelledby="team-add-dialog-title" open={open} TransitionComponent={SlideUp}>
       <DialogTitle id="team-add-dialog-title" onClose={handleClose}>
         {t('button.addTeam')}
       </DialogTitle>
       <DialogContent>
         <DialogHeadline>{t('text.addNewTeam')}</DialogHeadline>
-        <NameField
-          label={t('placeholder.teamName')}
-          onChange={setName}
-          onEnter={handleAdd}
-          validation={validation}
-          value={name}
-        />
+        <NameField label={t('placeholder.teamName')} onChange={setName} onEnter={handleAdd} validation={validation} value={name} />
       </DialogContent>
       <DialogActions>
         <Button onClick={handleClose}>{t('button.cancel')}</Button>

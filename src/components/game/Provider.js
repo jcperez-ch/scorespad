@@ -6,10 +6,7 @@ import reducer from './reducer'
 
 const GameProvider = ({ initial = {}, children }) => {
   const storage = 'gms'
-  const gameStore = useReducer(
-    gaTracking(reducer),
-    initial,
-  )
+  const gameStore = useReducer(gaTracking(reducer), initial)
   const [gameState] = gameStore
   return (
     <GameStoreContext.Provider value={gameStore}>

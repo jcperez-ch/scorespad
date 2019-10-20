@@ -23,11 +23,15 @@ rules:
   arrow-parens:
     - error
     - always
+  implicit-arrow-linebreak:
+    - off
   indent:
     - off
   max-len:
     - error
     - code: 200
+  no-confusing-arrow:
+    - off
   object-curly-newline:
     - error
     - ObjectExpression:

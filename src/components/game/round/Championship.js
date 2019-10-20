@@ -27,10 +27,7 @@ const StyledScore = styled(Typography).attrs({
 `
 
 const Championship = ({ teams, round }) => {
-  const sortedTeams = sortBy(
-    teams,
-    ({ rounds }) => -rounds[round].reduce((sum, value) => value + sum, 0),
-  )
+  const sortedTeams = sortBy(teams, ({ rounds }) => -rounds[round].reduce((sum, value) => value + sum, 0))
   return (
     <List component="div">
       {sortedTeams.map((team) => (
@@ -38,9 +35,7 @@ const Championship = ({ teams, round }) => {
           <ListItemText disableTypography>
             <Flex display items="center" justify="space-between">
               <Typography variant="body1">{team.name}</Typography>
-              <StyledSumScore>
-                {team.rounds[round].reduce((sum, value) => value + sum, 0)}
-              </StyledSumScore>
+              <StyledSumScore>{team.rounds[round].reduce((sum, value) => value + sum, 0)}</StyledSumScore>
             </Flex>
             <Flex component="ul" display items="center" justify="flex-end">
               {map(team.rounds[round], (score, index) => (

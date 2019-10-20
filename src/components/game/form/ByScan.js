@@ -32,14 +32,7 @@ const GameFormByScan = ({ onClose, onSuccess }) => {
   }, [code])
   return (
     <CommonRoutePaper>
-      <Dialog
-        id="game-scan-dialog"
-        onClose={onClose}
-        aria-labelledby="game-scan-dialog-title"
-        open={!code}
-        fullScreen
-        TransitionComponent={SlideUp}
-      >
+      <Dialog id="game-scan-dialog" onClose={onClose} aria-labelledby="game-scan-dialog-title" open={!code} fullScreen TransitionComponent={SlideUp}>
         <DialogTitle id="game-share-dialog-title" onClose={onClose}>
           {t('game_scan_title')}
         </DialogTitle>

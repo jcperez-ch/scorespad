@@ -21,10 +21,7 @@ const StyledButton = styled(IconButton).attrs({
 `
 
 const TeamChampionship = ({ championship, onClick }) => {
-  const handleClick = useCallback(() => onClick(championship), [
-    championship,
-    onClick,
-  ])
+  const handleClick = useCallback(() => onClick(championship), [championship, onClick])
   return (
     <Flex flex="0 1 auto">
       <StyledButton onClick={handleClick} onTouchEnd={handleClick}>

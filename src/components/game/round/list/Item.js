@@ -16,20 +16,12 @@ const StyledRoundListItemContent = styled.div`
   text-align: center;
 `
 
-const RoundListItem = ({
-  index,
-  name,
-  rounds,
-  round,
-  onEnter: handleEnter,
-}) => {
+const RoundListItem = ({ index, name, rounds, round, onEnter: handleEnter }) => {
   const teamScores = rounds[round]
   const [roundScores, setRoundScores] = useContext(GameScoresContext)
   const teamScoreValue = roundScores[index]
   const handleChange = ({ target }) => {
-    setRoundScores(
-      roundScores.map((score, i) => (i === index ? target.value : score)),
-    )
+    setRoundScores(roundScores.map((score, i) => (i === index ? target.value : score)))
   }
   return (
     <li>
@@ -38,12 +30,7 @@ const RoundListItem = ({
         <StyledRoundListItemContent>
           <List component="div" dense>
             {map(teamScores, (score, key) => (
-              <GameRoundScore
-                key={key}
-                score={score}
-                index={index}
-                scoreIndex={key}
-              />
+              <GameRoundScore key={key} score={score} index={index} scoreIndex={key} />
             ))}
             <GameRoundSum rounds={rounds} round={round} />
           </List>

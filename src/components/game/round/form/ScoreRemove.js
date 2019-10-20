@@ -19,13 +19,7 @@ const StyledListItemText = styled(ListItemText)`
   padding: 0;
 `
 
-const RoundScoreRemove = ({
-  score,
-  index,
-  scoreIndex,
-  onSuccess = noop,
-  onClose = noop,
-}) => {
+const RoundScoreRemove = ({ score, index, scoreIndex, onSuccess = noop, onClose = noop }) => {
   const [, dispatch] = useContext(GameStoreContext)
   const [t] = useTranslation()
   const [gameKey, , round] = useContext(GameUsedContext)

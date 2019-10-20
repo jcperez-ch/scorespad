@@ -17,28 +17,13 @@ const ThemeMenu = () => {
     setTheme(value)
   }
 
-  const items = [
-    { id: 'minimal', label: t('skins.minimal') },
-    { id: 'girlish', label: t('skins.girlish') },
-    { id: 'dark', label: t('skins.dark') },
-  ]
+  const items = [{ id: 'minimal', label: t('skins.minimal') }, { id: 'girlish', label: t('skins.girlish') }, { id: 'dark', label: t('skins.dark') }]
   return (
     <>
-      <IconButton
-        color="inherit"
-        aria-owns={el ? 'theme-menu' : undefined}
-        aria-haspopup="true"
-        aria-label="Theme"
-        onClick={handleOpen}
-      >
+      <IconButton color="inherit" aria-owns={el ? 'theme-menu' : undefined} aria-haspopup="true" aria-label="Theme" onClick={handleOpen}>
         <Icon>color_lens</Icon>
       </IconButton>
-      <Menu
-        id="theme-menu"
-        anchorEl={el}
-        open={Boolean(el)}
-        onClose={handleClose}
-      >
+      <Menu id="theme-menu" anchorEl={el} open={Boolean(el)} onClose={handleClose}>
         {items.map(({ id, label }) => (
           <MenuItem key={id} selected={id === theme} onClick={handleClick(id)}>
             {label}

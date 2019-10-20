@@ -23,14 +23,7 @@ const GameFormByName = ({ onSuccess }) => {
   }
   return (
     <CommonRoutePaper>
-      <NameField
-        variant="outlined"
-        label={t('placeholder.gameName')}
-        onChange={setNewName}
-        onEnter={handleAdd}
-        validation={validation}
-        value={newName}
-      />
+      <NameField variant="outlined" label={t('placeholder.gameName')} onChange={setNewName} onEnter={handleAdd} validation={validation} value={newName} />
       <Fab variant="extended" color="primary" size="large" aria-label={t('button.createGame')} onClick={handleAdd}>
         {t('button.createGame')}
       </Fab>

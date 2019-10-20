@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { noop } from 'lodash'
+import { get, noop } from 'lodash'
 import { useTranslation } from 'react-i18next'
 
 import StickyFabButton from 'common/StickyFabButton'
@@ -21,15 +21,8 @@ const GameActionStart = ({ gameKey, game, onStart = noop }) => {
   }
 
   return (
-    game
-    && game.teams.length > 1 && (
-      <StickyFabButton
-        tooltip={t('button.startGame')}
-        color="primary"
-        icon="play_arrow"
-        aria-label={t('button.startGame')}
-        onClick={handleStart}
-      />
+    get(game, 'teams.length', 0) > 1 && (
+      <StickyFabButton tooltip={t('button.startGame')} color="primary" icon="play_arrow" aria-label={t('button.startGame')} onClick={handleStart} />
     )
   )
 }

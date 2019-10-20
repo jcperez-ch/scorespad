@@ -1,5 +1,5 @@
-import { createGlobalStyle } from 'styled-components';
-import { createMuiTheme } from '@material-ui/core/styles';
+import { createGlobalStyle } from 'styled-components'
+import { createMuiTheme } from '@material-ui/core/styles'
 
 const mui = createMuiTheme({
   palette: {

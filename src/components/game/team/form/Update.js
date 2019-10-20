@@ -14,13 +14,7 @@ import { renameTeam } from '../actionCreators'
 
 import useGameValidation from './useValidation'
 
-const GameFormUpdate = ({
-  index,
-  name,
-  onChange = noop,
-  onSuccess = noop,
-  onClose = noop,
-}) => {
+const GameFormUpdate = ({ index, name, onChange = noop, onSuccess = noop, onClose = noop }) => {
   const [, dispatch] = useContext(GameStoreContext)
   const [gameKey] = useContext(GameUsedContext)
   const [t] = useTranslation()
@@ -38,13 +32,7 @@ const GameFormUpdate = ({
   return (
     <StyledNameForm>
       <div className="field">
-        <NameField
-          label={t('placeholder.teamName')}
-          onChange={onChange}
-          onEnter={handleRename}
-          validation={validation}
-          value={name}
-        />
+        <NameField label={t('placeholder.teamName')} onChange={onChange} onEnter={handleRename} validation={validation} value={name} />
         <Fab color="primary" size="small" aria-label={t('button.rename')} onClick={handleRename}>
           <Icon>check</Icon>
         </Fab>

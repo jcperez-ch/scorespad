@@ -10,9 +10,7 @@ const StyledListItem = styled(ListItem)`
 
 const GameRoundSum = ({ rounds = [], round }) => (
   <StyledListItem component="div">
-    <StyledScore variant="overline">
-      {rounds[round].reduce((sum, value) => value + sum, 0)}
-    </StyledScore>
+    <StyledScore variant="overline">{rounds[round].reduce((sum, value) => value + sum, 0)}</StyledScore>
   </StyledListItem>
 )
 

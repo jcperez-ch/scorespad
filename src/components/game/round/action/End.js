@@ -24,23 +24,11 @@ const RoundActionEnd = ({ gameKey, round, onEnd = noop }) => {
   return (
     <>
       <ButtonsWrapper>
-        <Button
-          color="primary"
-          variant="contained"
-          aria-owns={open ? 'confirm-end-dialog' : undefined}
-          aria-haspopup="true"
-          onClick={toggleOpen}
-        >
+        <Button color="primary" variant="contained" aria-owns={open ? 'confirm-end-dialog' : undefined} aria-haspopup="true" onClick={toggleOpen}>
           {t('button.endGame')}
         </Button>
       </ButtonsWrapper>
-      <Modal
-        id="confirm-end-dialog"
-        aria-labelledby="confirm-end-title"
-        aria-describedby="confirm-end-description"
-        open={open}
-        onClose={toggleOpen}
-      >
+      <Modal id="confirm-end-dialog" aria-labelledby="confirm-end-title" aria-describedby="confirm-end-description" open={open} onClose={toggleOpen}>
         <ModalContent>
           <Typography variant="h6" id="confirm-end-title">
             {t('button.endGame')}
