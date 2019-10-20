@@ -3,7 +3,7 @@ export const addScores = (key, round, scores) => ({
   key,
   round,
   scores,
-});
+})
 
 export const removeScore = (key, round, index, scoreIndex) => ({
   type: 'S-',
@@ -11,4 +11,4 @@ export const removeScore = (key, round, index, scoreIndex) => ({
   round,
   index,
   scoreIndex,
-});
+})

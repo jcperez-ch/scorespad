@@ -1,5 +1,5 @@
-import { createGlobalStyle } from 'styled-components';
-import { createMuiTheme } from '@material-ui/core/styles';
+import { createGlobalStyle } from 'styled-components'
+import { createMuiTheme } from '@material-ui/core/styles'
 
 const mui = createMuiTheme({
   palette: {
@@ -10,9 +10,9 @@ const mui = createMuiTheme({
       contrastText: '#FFFFFF',
     },
     secondary: {
-      main: '#02C8A4',
-      light: '#34d3b6',
-      dark: '#018c72',
+      main: '#03a9f4',
+      light: '#35baf6',
+      dark: '#0276aa',
       contrastText: '#CCCCCC',
     },
     background: {

@@ -1,5 +1,5 @@
-import { createContext } from 'react';
+import { createContext } from 'react'
 
-const GameUsedContext = createContext(null);
+const GameUsedContext = createContext(null)
 
-export default GameUsedContext;
+export default GameUsedContext

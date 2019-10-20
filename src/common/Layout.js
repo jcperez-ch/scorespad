@@ -1,5 +1,5 @@
-import styled from 'styled-components';
-import { themeColors } from 'themes';
+import styled from 'styled-components'
+import { themeColors } from 'themes'
 
 const Layout = styled.div`
   background-color: ${themeColors.background};
@@ -9,6 +9,6 @@ const Layout = styled.div`
   flex-direction: column;
   height: auto;
   min-height: 100vh;
-`;
+`
 
-export default Layout;
+export default Layout

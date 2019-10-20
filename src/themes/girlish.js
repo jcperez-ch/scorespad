@@ -1,5 +1,5 @@
-import { createGlobalStyle } from 'styled-components';
-import { createMuiTheme } from '@material-ui/core/styles';
+import { createGlobalStyle } from 'styled-components'
+import { createMuiTheme } from '@material-ui/core/styles'
 
 const mui = createMuiTheme({
   palette: {
@@ -7,16 +7,16 @@ const mui = createMuiTheme({
       main: '#e91e63',
       light: '#f06292',
       dark: '#c2185b',
-      contrastText: '#f8bbd0',
+      contrastText: '#fce4ec',
     },
     secondary: {
-      main: '#2196f3',
-      light: '#64b5f6',
-      dark: '#1e88e5',
-      contrastText: '#1a237e',
+      main: '#b50b70',
+      light: '#c33b8c',
+      dark: '#7e074e',
+      contrastText: '#ffffff',
     },
     background: {
-      default: '#f8bbd0',
+      default: '#78d7e6',
       paper: '#fce4ec',
     },
     error: {
@@ -41,7 +41,7 @@ const mui = createMuiTheme({
       fontSize: '0.8rem',
     },
   },
-});
+})
 
 export default {
   fonts: ['Fredoka One'],
@@ -60,4 +60,4 @@ export default {
   globalStyle: createGlobalStyle`
     @import url('https://fonts.googleapis.com/css?family=Fredoka+One');
   `,
-};
+}

@@ -3,6 +3,7 @@
     "removeGame": "Remove Game",
     "removeTeam": "Remove Team",
     "removeScore": "Remove Score",
+    "scanGame": "Scan a new game",
     "shareGame": "Share this game"
   },
   "button": {
@@ -17,10 +18,19 @@
     "resumeGame": "Resume Game",
     "remove": "Remove",
     "rename": "Rename",
+    "scan": "Scan",
     "share": "Share",
     "startGame": "Start",
-    "sum": "Sum"
+    "sum": "Sum",
+    "tryAgain": "Try Again",
+    "update": "Update"
   },
+  "game_scan_title": "Scan code shared by another device",
+  "game_title": "Describe how you want your game",
+  "game_tab_byName": "By Name",
+  "game_tab_byScan": "By Code",
+  "game_scan_no_camera": "Camera is not enabled in this device",
+  "game_scan_wrong_code": "This code is not a valid game for this app",
   "placeholder": {
     "gameName": "Game Name",
     "savedGame": "Saved Game",
@@ -51,12 +61,11 @@
   "text": {
     "addNewTeam": "Type the name of the team or the member you want to add to the game below, then click on the \"Add\" button.",
     "gameNotFound": "Oops, wrong link. Go back to search for a saved game",
+    "newVersion": "There is a new version, want to update?",
     "noGames": "There are no games to display, maybe start by creating one",
     "noTeams": "There are no teams to display",
     "roundNotFound": "Oops, wrong link. Go back to search for a saved round",
-    "selectGame": "Did you leave a game already started?, Click on the name of the game.  Or if you want to start a brand new game then click on the \"Create Game\" button below",
-    "selectNewGame": "To start a new game, click the \"Create Game\" button below",
-    "startNewGame": "To start a new game, you need to name it, so, pick a nice one and click on \"Start Game\", if you change your mind, you can always hit \"Cancel\" instead"
+    "selectGame": "Did you leave a game already started?, Click on the name of the game.  Or if you want to start a brand new game then click on the \"Create Game\" button below"
   },
   "skins": {
     "dark": "Dark",

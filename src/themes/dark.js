@@ -1,5 +1,5 @@
-import { createGlobalStyle } from 'styled-components';
-import { createMuiTheme } from '@material-ui/core/styles';
+import { createGlobalStyle } from 'styled-components'
+import { createMuiTheme } from '@material-ui/core/styles'
 
 const mui = createMuiTheme({
   palette: {
@@ -41,7 +41,7 @@ const mui = createMuiTheme({
       fontSize: '0.8rem',
     },
   },
-});
+})
 
 export default {
   fonts: ['Raleway'],
@@ -60,4 +60,4 @@ export default {
   globalStyle: createGlobalStyle`
     @import url('https://fonts.googleapis.com/css?family=Raleway&display=swap');
   `,
-};
+}

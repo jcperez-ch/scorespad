@@ -11,18 +11,24 @@ import './index.css'
 
 const rootElement = document.getElementById('root')
 
-const start = async () => {
+const start = async (props) => {
   const initialState = await getInitialState()
   await getI18n(initialState.locale)
-  render(<Root {...initialState} i18n={i18n} />, rootElement)
+  render(<Root {...initialState} {...props} i18n={i18n} />, rootElement)
 }
 
 start()
 serviceWorker.register({
-  onUpdate() {
-    console.log('something got updated? did not know') // eslint-disable-line no-console
-  },
-  onSuccess() {
-    console.log('something got offline? did not know') // eslint-disable-line no-console
+  async onUpdate(registration) {
+    const handleUpdate = async () => {
+      const [cache] = await caches.keys()
+      if (cache) {
+        const requests = await cache.keys()
+        await Promise.all((requests || []).map((request) => cache.delete(request)))
+      }
+      await registration.unregister()
+      setTimeout(() => window.location.reload(), 350)
+    }
+    start({ hasUpdate: true, onUpdate: handleUpdate })
   },
 })

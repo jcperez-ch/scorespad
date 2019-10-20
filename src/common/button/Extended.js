@@ -1,33 +1,32 @@
 import React from 'react'
-import styled from 'styled-components'
-import Fab from '@material-ui/core/Fab'
+import Button from '@material-ui/core/Button'
 import Icon from '@material-ui/core/Icon'
+import { makeStyles } from '@material-ui/styles'
 
-const Styled = styled.span`
-  align-items: center;
-  display: grid;
-  gap: 5px;
-  grid-auto-flow: column;
-  padding: 0 5px;
-
-  > .icon {
-    font-size: 14px;
-  }
-  > .label {
-    font-size: 11px;
-  }
-`
-
+const useStyles = makeStyles({
+  startIcon: {
+    marginLeft: '0',
+    marginRight: '0',
+  },
+})
 
 const ButtonExtended = ({
   label, hideLabel = false, icon, color = 'primary', size = 'small', ...props
-}) => (
-  <Fab variant="extended" aria-label={label} color={color} size={size} {...props}>
-    <Styled>
-      {typeof icon === 'string' ? <Icon className="icon">{icon}</Icon> : icon}
+}) => {
+  const { startIcon } = useStyles()
+  return (
+    <Button
+      variant="outlined"
+      classes={hideLabel ? { startIcon } : undefined}
+      startIcon={typeof icon === 'string' ? <Icon className="icon">{icon}</Icon> : icon}
+      aria-label={label}
+      color={color}
+      size={size}
+      {...props}
+    >
       {!hideLabel && <span className="label">{label}</span>}
-    </Styled>
-  </Fab>
-)
+    </Button>
+  )
+}
 
 export default ButtonExtended
