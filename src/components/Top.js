@@ -44,6 +44,7 @@ export const TopGame = ({ gameKey, navigate }) => {
   const game = useGame({ gameKey })
   const goToHome = () => navigate('../..')
   const goToAddTeam = () => navigate('team')
+  const goToShareTeam = () => navigate(`../../share/${gameKey}`, { state: { from: `../../games/${gameKey}` } })
 
   const [t] = useTranslation()
   return (
@@ -53,15 +54,15 @@ export const TopGame = ({ gameKey, navigate }) => {
       </IconButton>
       <BarTitle pl="0.5rem">{game && game.name}</BarTitle>
       <Tooltip disableTouchListener title={t('button.addTeam')}>
-        <IconButton
-          color="inherit"
-          aria-label={t('button.addTeam')}
-          onClick={goToAddTeam}
-        >
+        <IconButton color="inherit" aria-label={t('button.addTeam')} onClick={goToAddTeam}>
           <Icon>add</Icon>
         </IconButton>
       </Tooltip>
-      <LocaleMenu />
+      <Tooltip disableTouchListener title={t('button.share')}>
+        <IconButton color="inherit" aria-label={t('button.share')} onClick={goToShareTeam}>
+          <Icon>share</Icon>
+        </IconButton>
+      </Tooltip>
     </BarToolbar>
   )
 }

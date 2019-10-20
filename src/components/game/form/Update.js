@@ -1,5 +1,6 @@
 import React, { useContext } from 'react'
 import { useTranslation } from 'react-i18next'
+import { navigate } from '@reach/router'
 import { noop } from 'lodash'
 import Fab from '@material-ui/core/Fab'
 import Icon from '@material-ui/core/Icon'
@@ -10,7 +11,6 @@ import NameField from 'common/NameField'
 import GameStoreContext from 'components/game/context/Store'
 
 import GameActionRemove from '../action/Remove'
-import GameActionShare from '../action/Share'
 import { renameGame } from '../actionCreators'
 
 import useGameValidation from './useValidation'
@@ -26,6 +26,7 @@ const GameFormUpdate = ({
   const [t] = useTranslation()
   const validation = useGameValidation({ name })
   const { touch, valid, reset } = validation
+  const handleShare = () => navigate(`share/${id}`, { from: '../..' })
   const handleRename = () => {
     touch()
     if (valid) {
@@ -51,7 +52,7 @@ const GameFormUpdate = ({
       </div>
       <div className="buttons">
         <ButtonExtended icon="cancel" label={t('button.cancel')} onClick={onClose} />
-        <GameActionShare id={id} onClose={onClose} />
+        <ButtonExtended icon="mobile_screen_share" label={t('button.share')} onClick={handleShare} />
         <GameActionRemove id={id} />
       </div>
     </StyledNameForm>

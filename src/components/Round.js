@@ -11,9 +11,7 @@ import Scores from './game/Scores'
 import Championship from './game/round/Championship'
 import PageViewTracker from './PageViewTracker'
 
-const Round = ({
-  gameKey, round, uri, navigate,
-}) => {
+const Round = ({ gameKey, round, uri, navigate }) => {
   const game = useGame({ gameKey })
   const [t] = useTranslation()
 
@@ -22,18 +20,8 @@ const Round = ({
   return (
     <GameUsedContext.Provider value={[gameKey, game, round]}>
       <GameGuard game={game}>
-        <RoundGuard
-          gameKey={gameKey}
-          round={round}
-          fallback={
-            <WarnPlaceholder icon="warning" message={t('text.roundNotFound')} />
-          }
-        >
-          {isActive ? (
-            <Scores round={round} onEnd={goToGame} />
-          ) : (
-            <Championship teams={game ? game.teams : []} round={round} />
-          )}
+        <RoundGuard gameKey={gameKey} round={round} fallback={<WarnPlaceholder icon="warning" message={t('text.roundNotFound')} />}>
+          {isActive ? <Scores round={round} onEnd={goToGame} /> : <Championship teams={game ? game.teams : []} round={round} />}
         </RoundGuard>
       </GameGuard>
       <PageViewTracker uri={uri} />

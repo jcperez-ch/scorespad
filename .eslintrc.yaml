@@ -20,9 +20,28 @@ settings:
         - .json
 extends: airbnb
 rules:
+  arrow-parens:
+    - error
+    - always
+  indent:
+    - off
   max-len:
     - error
     - code: 200
+  object-curly-newline:
+    - error
+    - ObjectExpression:
+        multiline: true
+        consistent: true
+      ObjectPattern:
+        multiline: true
+        consistent: true
+      ImportDeclaration:
+        multiline: true
+        consistent: true
+      ExportDeclaration:
+        multiline: true
+        consistent: true
   react/jsx-filename-extension:
     - warn
     - extensions:
@@ -40,3 +59,5 @@ rules:
   semi:
     - error
     - never
+  template-curly-spacing:
+    - off

@@ -1,6 +1,4 @@
-import React, {
-  Fragment, Suspense, useState, useEffect,
-} from 'react'
+import React, { Fragment, Suspense, useState, useEffect } from 'react'
 import { Router, Redirect } from '@reach/router'
 
 import Layout from 'common/Layout'
@@ -17,12 +15,11 @@ import GameProvider from './game/Provider'
 
 import TeamFormCreate from './game/team/form/Create'
 import GameFormCreate from './game/form/Create'
+import GameActionShare from './game/action/Share'
 
 const Fragoute = ({ children }) => <>{children}</>
 
-const Root = ({
-  locale, i18n, theme, games, hasUpdate, onUpdate,
-}) => {
+const Root = ({ locale, i18n, theme, games, hasUpdate, onUpdate }) => {
   const [updateWarning, setUpdateWarning] = useState(hasUpdate)
   const handleClose = () => setUpdateWarning(false)
 
@@ -35,11 +32,7 @@ const Root = ({
         <Layout>
           <Suspense>
             <GameProvider initial={games}>
-              <Router
-                basepath={process.env.PUBLIC_URL}
-                primary={false}
-                component={Fragment}
-              >
+              <Router basepath={process.env.PUBLIC_URL} primary={false} component={Fragment}>
                 <TopLanding path="/" />
                 <Fragoute path="games/:gameKey">
                   <TopGame path="/" />
@@ -47,15 +40,12 @@ const Root = ({
                   <TeamFormCreate path="team" />
                 </Fragoute>
               </Router>
-              <Router
-                basepath={process.env.PUBLIC_URL}
-                primary={false}
-                component={Fragoute}
-              >
+              <Router basepath={process.env.PUBLIC_URL} primary={false} component={Fragoute}>
                 <Landing path="/" />
                 <Redirect from="index.html" to={process.env.PUBLIC_URL || '/'} />
                 <GameFormCreate path="game/*" />
                 <Game path="games/:gameKey" />
+                <GameActionShare path="/share/:gameKey" />
                 <Round path="games/:gameKey/rounds/:round" />
               </Router>
             </GameProvider>
