@@ -22,14 +22,13 @@ serviceWorker.register({
   async onUpdate(registration) {
     const handleUpdate = async () => {
       const [cache] = await caches.keys()
-      const requests = await cache.keys()
-      await Promise.all(requests.map((request) => cache.delete(request)))
+      if (cache) {
+        const requests = await cache.keys()
+        await Promise.all((requests || []).map((request) => cache.delete(request)))
+      }
       await registration.unregister()
       setTimeout(() => window.location.reload(), 350)
     }
     start({ hasUpdate: true, onUpdate: handleUpdate })
-  },
-  onSuccess() {
-    console.log('something got offline? did not know') // eslint-disable-line no-console
   },
 })

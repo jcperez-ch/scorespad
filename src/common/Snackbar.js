@@ -6,7 +6,9 @@ import CloseIcon from '@material-ui/icons/Close'
 
 import Txt from 'common/Txt'
 
-const CommonSnackbar = ({ onClose, ...props }) => (
+const CommonSnackbar = ({
+  children, onClose, onUpdate, ...props
+}) => (
   <Snackbar
     anchorOrigin={{
       vertical: 'bottom',
@@ -15,15 +17,13 @@ const CommonSnackbar = ({ onClose, ...props }) => (
     ContentProps={{
       'aria-describedby': 'message-id',
     }}
-    message={(
-      <span id="message-id">
-        <Txt id="text.newVersion" />
-      </span>
-    )}
+    message={children}
     action={[
-      <Button key="undo" variant="outlined" color="primary" size="small" onClick={onClose}>
-        <Txt id="button.update" />
-      </Button>,
+      onUpdate && (
+        <Button key="undo" variant="outlined" color="primary" size="small" onClick={onUpdate}>
+          <Txt id="button.update" />
+        </Button>
+      ),
       <IconButton
         key="close"
         aria-label="close"

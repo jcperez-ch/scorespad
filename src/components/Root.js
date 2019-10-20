@@ -5,6 +5,7 @@ import { Router, Redirect } from '@reach/router'
 
 import Layout from 'common/Layout'
 import CommonSnackbar from 'common/Snackbar'
+import Txt from 'common/Txt'
 
 import Landing from './Landing'
 import Game from './Game'
@@ -58,7 +59,11 @@ const Root = ({
                 <Round path="games/:gameKey/rounds/:round" />
               </Router>
             </GameProvider>
-            <CommonSnackbar open={updateWarning} onUpdate={onUpdate} onClose={handleClose} />
+            <CommonSnackbar open={updateWarning} onUpdate={onUpdate} onClose={handleClose}>
+              <span id="message-id">
+                <Txt id="text.newVersion" />
+              </span>
+            </CommonSnackbar>
           </Suspense>
         </Layout>
       </ThemeProvider>
