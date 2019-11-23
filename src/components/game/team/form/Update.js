@@ -9,31 +9,29 @@ import StyledNameForm from 'common/styled/NameForm'
 import NameField from 'common/NameField'
 import GameStoreContext from 'components/game/context/Store'
 import GameUsedContext from 'components/game/context/Used'
+import useValidation from 'utils/validation'
+
 import TeamActionRemove from '../action/Remove'
 import { renameTeam } from '../actionCreators'
 
-import useGameValidation from './useValidation'
-
-const GameFormUpdate = ({ index, name, onChange = noop, onSuccess = noop, onClose = noop }) => {
+const TeamFormUpdate = ({ index, name, onChange = noop, onSuccess = noop, onClose = noop }) => {
   const [, dispatch] = useContext(GameStoreContext)
   const [gameKey] = useContext(GameUsedContext)
   const [t] = useTranslation()
-  const validation = useGameValidation({ name })
-  const { touch, valid, reset } = validation
-  const handleRename = () => {
-    touch()
-    if (valid) {
-      reset()
+  const { error, onSubmit } = useValidation({
+    name,
+    errorMessage: 'errors.requiredTeamName',
+    onSubmit: () => {
       dispatch(renameTeam(gameKey, index, name))
       onSuccess()
-    }
-  }
+    },
+  })
 
   return (
     <StyledNameForm>
       <div className="field">
-        <NameField label={t('placeholder.teamName')} onChange={onChange} onEnter={handleRename} validation={validation} value={name} />
-        <Fab color="primary" size="small" aria-label={t('button.rename')} onClick={handleRename}>
+        <NameField label={t('placeholder.teamName')} onChange={onChange} onEnter={onSubmit} error={error} value={name} />
+        <Fab color="primary" size="small" aria-label={t('button.rename')} onClick={onSubmit}>
           <Icon>check</Icon>
         </Fab>
       </div>
@@ -45,4 +43,4 @@ const GameFormUpdate = ({ index, name, onChange = noop, onSuccess = noop, onClos
   )
 }
 
-export default GameFormUpdate
+export default TeamFormUpdate

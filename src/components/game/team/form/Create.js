@@ -10,9 +10,9 @@ import DialogTitle from 'common/dialog/Title'
 import DialogHeadline from 'common/dialog/Headline'
 import NameField from 'common/NameField'
 import GameStoreContext from 'components/game/context/Store'
+import useValidation from 'utils/validation'
 
 import { createTeam } from '../actionCreators'
-import useTeamValidation from './useValidation'
 import useGame from '../../useGame'
 
 const TeamFormCreate = ({ gameKey, navigate }) => {
@@ -22,17 +22,16 @@ const TeamFormCreate = ({ gameKey, navigate }) => {
   const [name, setName] = useState('')
   const [t] = useTranslation()
   const [, dispatch] = useContext(GameStoreContext)
-  const validation = useTeamValidation({ name })
-  const { touch, valid } = validation
 
   const handleClose = () => navigate('..')
-  const handleAdd = () => {
-    touch()
-    if (valid) {
+  const { error, onSubmit } = useValidation({
+    name,
+    errorMessage: 'errors.requiredTeamName',
+    onSubmit: () => {
       dispatch(createTeam(gameKey, round, name))
       handleClose()
-    }
-  }
+    },
+  })
 
   useEffect(() => {
     if (!open) {
@@ -47,11 +46,11 @@ const TeamFormCreate = ({ gameKey, navigate }) => {
       </DialogTitle>
       <DialogContent>
         <DialogHeadline>{t('text.addNewTeam')}</DialogHeadline>
-        <NameField label={t('placeholder.teamName')} onChange={setName} onEnter={handleAdd} validation={validation} value={name} />
+        <NameField label={t('placeholder.teamName')} onChange={setName} onEnter={onSubmit} error={error} value={name} />
       </DialogContent>
       <DialogActions>
         <Button onClick={handleClose}>{t('button.cancel')}</Button>
-        <Button variant="contained" color="primary" autoFocus onClick={handleAdd}>
+        <Button variant="contained" color="primary" autoFocus onClick={onSubmit}>
           {t('button.addTeam')}
         </Button>
       </DialogActions>
