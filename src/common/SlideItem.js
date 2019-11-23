@@ -2,18 +2,19 @@ import styled from 'styled-components'
 
 const SlideItem = styled.ul`
   display: grid;
-  grid-template: 1fr / 1fr;
+  grid-template: 'unique' auto / auto;
   position: relative;
 
-  & > * {
-    grid-area: 1 / 1 / 1 / 1;
-    transition: transform 250ms ease, visibility 0s ease 250ms, max-height 200ms linear;
+  & > li {
+    grid-area: unique;
+    transition: opacity 250ms ease, visibility 0s ease 240ms;
+    display: flex;
 
     &:first-child {
-      ${({ active }) => (active ? 'transform: translateX(-100%);visibility:hidden;max-height:0;' : 'transform: none;transition-delay: 0s;')}
+      ${({ active }) => (active ? 'visibility:hidden;opacity: 0;' : 'transition-delay: 0s;opacity: 1;')}
     }
     &:last-child {
-      ${({ active = false }) => (active ? 'transform: none;transition-delay: 0s;' : 'transform: translateX(100%);visibility:hidden;max-height:0;')}
+      ${({ active = false }) => (active ? 'transition-delay: 0s;opacity: 1;' : 'visibility:hidden;opacity: 0;')}
     }
   }
 `
