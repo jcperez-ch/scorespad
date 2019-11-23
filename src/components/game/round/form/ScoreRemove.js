@@ -13,10 +13,12 @@ import GameUsedContext from 'components/game/context/Used'
 import { removeScore } from '../actionCreators'
 
 const StyledListItemText = styled(ListItemText)`
-  display: flex;
+  display: grid;
+  grid-auto-flow: column;
   align-items: center;
   justify-content: center;
   padding: 0;
+  gap: 5px;
 `
 
 const RoundScoreRemove = ({ score, index, scoreIndex, onSuccess = noop, onClose = noop }) => {
@@ -35,12 +37,13 @@ const RoundScoreRemove = ({ score, index, scoreIndex, onSuccess = noop, onClose 
         confirmText={t('button.remove')}
         title={t('title.removeScore')}
         subtitle={t('messages.confirmRemoveScore')}
+        size="small"
         onConfirm={handleRemove}
       />
       <Typography align="center" variant="body2">
         {score}
       </Typography>
-      <IconButton color="primary" aria-label={t('button.cancel')} onClick={onClose}>
+      <IconButton color="primary" size="small" aria-label={t('button.cancel')} onClick={onClose}>
         <Icon>check</Icon>
       </IconButton>
     </StyledListItemText>

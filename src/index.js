@@ -21,8 +21,9 @@ start()
 serviceWorker.register({
   async onUpdate(registration) {
     const handleUpdate = async () => {
-      const [cache] = await caches.keys()
-      if (cache) {
+      const [cacheKey] = await caches.keys()
+      if (cacheKey) {
+        const cache = await caches.open(cacheKey)
         const requests = await cache.keys()
         await Promise.all((requests || []).map((request) => cache.delete(request)))
       }
