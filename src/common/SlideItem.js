@@ -1,4 +1,16 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
+
+const activeCss = css`
+  transition-delay: 0s;
+  opacity: 1;
+  max-height: none;
+`
+
+const inactiveCss = css`
+  visibility: hidden;
+  opacity: 0;
+  max-height: 0;
+`
 
 const SlideItem = styled.ul`
   display: grid;
@@ -8,13 +20,12 @@ const SlideItem = styled.ul`
   & > li {
     grid-area: unique;
     transition: opacity 250ms ease, visibility 0s ease 240ms;
-    display: flex;
 
     &:first-child {
-      ${({ active }) => (active ? 'visibility:hidden;opacity: 0;' : 'transition-delay: 0s;opacity: 1;')}
+      ${({ active = false }) => (active ? inactiveCss : activeCss)}
     }
     &:last-child {
-      ${({ active = false }) => (active ? 'transition-delay: 0s;opacity: 1;' : 'visibility:hidden;opacity: 0;')}
+      ${({ active = false }) => (active ? activeCss : inactiveCss)}
     }
   }
 `

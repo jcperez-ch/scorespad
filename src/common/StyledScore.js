@@ -6,6 +6,8 @@ const StyledScore = styled(Typography).attrs({
   component: 'div',
 })`
   width: 100%;
+  display: flex;
+  justify-content: center;
 `
 
 export default StyledScore
