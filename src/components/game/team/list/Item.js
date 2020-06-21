@@ -23,7 +23,7 @@ const TeamListItem = ({ index, name, championships = [], rounds, round, onClickC
         <ListItemText disableTypography style={flexCenterBetween}>
           <div>
             <Typography variant="body1">{name}</Typography>
-            <Flex display>
+            <Flex display wrap="wrap">
               {championships.map((championship) => (
                 <TeamChampionship key={championship} championship={championship} onClick={onClickChampionship} />
               ))}

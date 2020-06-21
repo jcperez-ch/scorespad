@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
 const ButtonsWrapper = styled.div`
   display: flex;
@@ -9,6 +9,6 @@ const ButtonsWrapper = styled.div`
     flex: 1 1 100%;
     margin: 0.25rem 0;
   }
-`;
+`
 
-export default ButtonsWrapper;
+export default ButtonsWrapper
