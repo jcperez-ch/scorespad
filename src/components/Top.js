@@ -1,5 +1,6 @@
 import React from 'react'
 import { useTranslation } from 'react-i18next'
+import { useNavigate, useParams } from 'react-router-dom'
 import IconButton from '@material-ui/core/IconButton'
 import Icon from '@material-ui/core/Icon'
 import Tooltip from '@material-ui/core/Tooltip'
@@ -24,7 +25,8 @@ export const TopLanding = () => (
   </BarToolbar>
 )
 
-export const TopRound = ({ game = {}, navigate }) => {
+export const TopRound = ({ game = {} }) => {
+  const navigate = useNavigate()
   const { name } = game
   const goToHome = () => navigate('../../../..')
   const goToGame = () => navigate('../..')
@@ -40,8 +42,10 @@ export const TopRound = ({ game = {}, navigate }) => {
   )
 }
 
-export const TopGame = ({ gameKey, navigate }) => {
-  const game = useGame({ gameKey })
+export const TopGame = () => {
+  const { gameKey } = useParams()
+  const game = useGame()
+  const navigate = useNavigate()
   const goToHome = () => navigate('../..')
   const goToAddTeam = () => navigate('team')
   const goToShareTeam = () => navigate(`../../share/${gameKey}`, { state: { from: `../../games/${gameKey}` } })

@@ -1,5 +1,6 @@
 import React, { useContext, useState, useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
+import { useNavigate, useParams } from 'react-router-dom'
 import Button from '@material-ui/core/Button'
 import Dialog from '@material-ui/core/Dialog'
 import DialogActions from '@material-ui/core/DialogActions'
@@ -15,13 +16,14 @@ import useValidation from 'utils/validation'
 import { createTeam } from '../actionCreators'
 import useGame from '../../useGame'
 
-const TeamFormCreate = ({ gameKey, navigate }) => {
-  const game = useGame({ gameKey })
-  const { round } = game
+const TeamFormCreate = () => {
   const [open, setOpen] = useState(false)
   const [name, setName] = useState('')
   const [t] = useTranslation()
+  const navigate = useNavigate()
   const [, dispatch] = useContext(GameStoreContext)
+  const { gameKey } = useParams()
+  const { round } = useGame()
 
   const handleClose = () => navigate('..')
   const { error, onSubmit } = useValidation({

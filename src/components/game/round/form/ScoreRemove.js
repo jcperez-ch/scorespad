@@ -2,6 +2,7 @@ import React, { useContext } from 'react'
 import styled from 'styled-components'
 import { noop } from 'lodash'
 import { useTranslation } from 'react-i18next'
+import { useParams } from 'react-router-dom'
 import IconButton from '@material-ui/core/IconButton'
 import Icon from '@material-ui/core/Icon'
 import ListItemText from '@material-ui/core/ListItemText'
@@ -9,7 +10,6 @@ import Typography from '@material-ui/core/Typography'
 
 import ModalConfirm from 'common/modal/Confirm'
 import GameStoreContext from 'components/game/context/Store'
-import GameUsedContext from 'components/game/context/Used'
 import { removeScore } from '../actionCreators'
 
 const StyledListItemText = styled(ListItemText)`
@@ -22,9 +22,9 @@ const StyledListItemText = styled(ListItemText)`
 `
 
 const RoundScoreRemove = ({ score, index, scoreIndex, onSuccess = noop, onClose = noop }) => {
+  const { gameKey, round } = useParams()
   const [, dispatch] = useContext(GameStoreContext)
   const [t] = useTranslation()
-  const [gameKey, , round] = useContext(GameUsedContext)
   const handleRemove = () => {
     dispatch(removeScore(gameKey, round, index, scoreIndex))
     onSuccess()

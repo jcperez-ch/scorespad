@@ -1,13 +1,13 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import { isEmpty, noop } from 'lodash'
 import List from '@material-ui/core/List'
 
-import GameUsedContext from 'components/game/context/Used'
+import useGame from 'components/game/useGame'
 import TeamListEmpty from './Empty'
 import TeamListItem from './Item'
 
 const TeamList = ({ onClickChampionship = noop }) => {
-  const [, game] = useContext(GameUsedContext)
+  const game = useGame()
 
   if (!game) {
     return null

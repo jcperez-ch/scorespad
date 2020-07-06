@@ -1,12 +1,14 @@
 import React from 'react'
 import { useTranslation } from 'react-i18next'
+import { useNavigate } from 'react-router-dom'
 import StickyFabButton from 'common/StickyFabButton'
 
 import GameList from './game/list/List'
 import PageViewTracker from './PageViewTracker'
 
-const Landing = ({ navigate, uri }) => {
+const Landing = () => {
   const [t] = useTranslation()
+  const navigate = useNavigate()
   const goToGame = (id) => navigate(`games/${id}`)
   const goToCreateGame = () => navigate('game')
 
@@ -21,7 +23,7 @@ const Landing = ({ navigate, uri }) => {
         icon="add"
         onClick={goToCreateGame}
       />
-      <PageViewTracker uri={uri} />
+      <PageViewTracker />
     </>
   )
 }

@@ -1,12 +1,16 @@
-import React, { useContext } from 'react'
 import { get, noop } from 'lodash'
+import React, { useContext } from 'react'
 import { useTranslation } from 'react-i18next'
+import { useParams } from 'react-router-dom'
 
 import StickyFabButton from 'common/StickyFabButton'
 import GameStoreContext from 'components/game/context/Store'
+import useGame from 'components/game/useGame'
 import { addRound } from '../actionCreators'
 
-const GameActionStart = ({ gameKey, game, onStart = noop }) => {
+const GameActionStart = ({ onStart = noop }) => {
+  const game = useGame()
+  const { gameKey } = useParams()
   const [t] = useTranslation()
   const [, dispatch] = useContext(GameStoreContext)
   const handleStart = () => {

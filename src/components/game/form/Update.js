@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import { useTranslation } from 'react-i18next'
-import { navigate } from '@reach/router'
+import { useNavigate } from 'react-router-dom'
 import { noop } from 'lodash'
 import Fab from '@material-ui/core/Fab'
 import Icon from '@material-ui/core/Icon'
@@ -17,6 +17,7 @@ import { renameGame } from '../actionCreators'
 const GameFormUpdate = ({ id, name, onChange = noop, onSuccess = noop, onClose = noop }) => {
   const [, dispatch] = useContext(GameStoreContext)
   const [t] = useTranslation()
+  const navigate = useNavigate()
   const { error, onSubmit } = useValidation({
     name,
     errorMessage: 'errors.requiredGameName',

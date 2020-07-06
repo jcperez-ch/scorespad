@@ -1,5 +1,6 @@
 import React, { useCallback, useContext, useEffect, useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
+import { useLocation, useNavigate, useParams } from 'react-router-dom'
 import QRCode from 'qrcode'
 import Button from '@material-ui/core/Button'
 import Dialog from '@material-ui/core/Dialog'
@@ -12,11 +13,14 @@ import DialogTitle from 'common/dialog/Title'
 import DialogHeadline from 'common/dialog/Headline'
 import GameStoreContext from 'components/game/context/Store'
 
-const GameActionShare = ({ gameKey, location, navigate }) => {
+const GameActionShare = () => {
+  const { gameKey } = useParams()
   const [games] = useContext(GameStoreContext)
   const [dataUrl, setDataUrl] = useState()
   const [open, setOpen] = useState(true)
   const [t] = useTranslation()
+  const navigate = useNavigate()
+  const location = useLocation()
   const matchesLarge = useMediaQuery('(min-width: 481px)')
   const handleClose = () => {
     setOpen(false)
