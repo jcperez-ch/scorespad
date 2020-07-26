@@ -9,6 +9,7 @@ import RoundGuard from './game/round/Guard'
 import useGame from './game/useGame'
 import Scores from './game/Scores'
 import Championship from './game/round/Championship'
+import RoundTop from './game/round/Top'
 import PageViewTracker from './PageViewTracker'
 
 const Round = () => {
@@ -21,6 +22,7 @@ const Round = () => {
   const isActive = game && game.round === round
   return (
     <>
+      <RoundTop />
       <GameGuard>
         <RoundGuard fallback={<WarnPlaceholder icon="warning" message={t('text.roundNotFound')} />}>
           {isActive ? <Scores round={round} onEnd={goToGame} /> : <Championship teams={game ? game.teams : []} round={round} />}
