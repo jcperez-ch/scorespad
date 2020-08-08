@@ -4,7 +4,7 @@ import TextField from '@material-ui/core/TextField'
 const RoundListField = styled(TextField).attrs({
   margin: 'dense',
   variant: 'outlined',
-  type: 'number',
+  type: 'text',
 })`
   width: 100px;
 

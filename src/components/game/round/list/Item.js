@@ -23,6 +23,13 @@ const RoundListItem = ({ index, name, rounds, round, onEnter: handleEnter }) => 
   const handleChange = ({ target }) => {
     setRoundScores(roundScores.map((score, i) => (i === index ? target.value : score)))
   }
+  const handleOnlyNumbers = (event) => {
+    if (event.key.length > 1 || /[0-9]|-|\.|,/.test(event.key)) {
+      return true
+    }
+    event.preventDefault()
+    return false
+  }
   return (
     <li>
       <Card>
@@ -40,7 +47,7 @@ const RoundListItem = ({ index, name, rounds, round, onEnter: handleEnter }) => 
               pattern: '-?\\d*',
             }}
             onChange={handleChange}
-            onKeyDown={onEnter(handleEnter)}
+            onKeyDown={onEnter(handleEnter, handleOnlyNumbers)}
             value={teamScoreValue}
           />
         </StyledRoundListItemContent>
