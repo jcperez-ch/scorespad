@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "95c8aa3d8d9aa0644643361136cf9191",
+    "revision": "e5c270571e6b0510f2f5402cd41cfbc9",
     "url": "/scorespad/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/scorespad/static/css/6.7fad5d03.chunk.css"
   },
   {
-    "revision": "e9988a8555be9ff7b600",
+    "revision": "afa36680c69eb74a7434",
     "url": "/scorespad/static/css/main.cd74bc15.chunk.css"
   },
   {
@@ -36,19 +36,19 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/scorespad/static/js/gs.39e81c8d.chunk.js"
   },
   {
-    "revision": "e9988a8555be9ff7b600",
-    "url": "/scorespad/static/js/main.cdf92974.chunk.js"
+    "revision": "afa36680c69eb74a7434",
+    "url": "/scorespad/static/js/main.63b20e08.chunk.js"
   },
   {
-    "revision": "18e828a4e4417c4c6a7a",
-    "url": "/scorespad/static/js/r.e1ff28ad.chunk.js"
+    "revision": "feb8cd68eeedf9674731",
+    "url": "/scorespad/static/js/r.a3cf77db.chunk.js"
   },
   {
-    "revision": "93c23b4865be63d99437",
-    "url": "/scorespad/static/js/runtime-main.73c5c7e2.js"
+    "revision": "9d157e3ead504a4f499a",
+    "url": "/scorespad/static/js/runtime-main.b1a19637.js"
   },
   {
-    "revision": "38ce4d4237bcf0a848a4",
-    "url": "/scorespad/static/js/tc.7b2520a4.chunk.js"
+    "revision": "d3474db0f54d1efc48a7",
+    "url": "/scorespad/static/js/tc.058be8a9.chunk.js"
   }
 ]);

@@ -5,14 +5,14 @@
     "gs.js": "/scorespad/static/js/gs.39e81c8d.chunk.js",
     "gs.js.map": "/scorespad/static/js/gs.39e81c8d.chunk.js.map",
     "main.css": "/scorespad/static/css/main.cd74bc15.chunk.css",
-    "main.js": "/scorespad/static/js/main.cdf92974.chunk.js",
-    "main.js.map": "/scorespad/static/js/main.cdf92974.chunk.js.map",
-    "r.js": "/scorespad/static/js/r.e1ff28ad.chunk.js",
-    "r.js.map": "/scorespad/static/js/r.e1ff28ad.chunk.js.map",
-    "runtime-main.js": "/scorespad/static/js/runtime-main.73c5c7e2.js",
-    "runtime-main.js.map": "/scorespad/static/js/runtime-main.73c5c7e2.js.map",
-    "tc.js": "/scorespad/static/js/tc.7b2520a4.chunk.js",
-    "tc.js.map": "/scorespad/static/js/tc.7b2520a4.chunk.js.map",
+    "main.js": "/scorespad/static/js/main.63b20e08.chunk.js",
+    "main.js.map": "/scorespad/static/js/main.63b20e08.chunk.js.map",
+    "r.js": "/scorespad/static/js/r.a3cf77db.chunk.js",
+    "r.js.map": "/scorespad/static/js/r.a3cf77db.chunk.js.map",
+    "runtime-main.js": "/scorespad/static/js/runtime-main.b1a19637.js",
+    "runtime-main.js.map": "/scorespad/static/js/runtime-main.b1a19637.js.map",
+    "tc.js": "/scorespad/static/js/tc.058be8a9.chunk.js",
+    "tc.js.map": "/scorespad/static/js/tc.058be8a9.chunk.js.map",
     "static/css/6.7fad5d03.chunk.css": "/scorespad/static/css/6.7fad5d03.chunk.css",
     "static/js/6.84eb9120.chunk.js": "/scorespad/static/js/6.84eb9120.chunk.js",
     "static/js/6.84eb9120.chunk.js.map": "/scorespad/static/js/6.84eb9120.chunk.js.map",
@@ -21,17 +21,17 @@
     "static/js/8.b09bf0bd.chunk.js": "/scorespad/static/js/8.b09bf0bd.chunk.js",
     "static/js/8.b09bf0bd.chunk.js.map": "/scorespad/static/js/8.b09bf0bd.chunk.js.map",
     "index.html": "/scorespad/index.html",
-    "precache-manifest.f48f24a2009c9f1e0f4ad53344ff618f.js": "/scorespad/precache-manifest.f48f24a2009c9f1e0f4ad53344ff618f.js",
+    "precache-manifest.cdc7e4841e50871eed9b2b5a1e018d4d.js": "/scorespad/precache-manifest.cdc7e4841e50871eed9b2b5a1e018d4d.js",
     "service-worker.js": "/scorespad/service-worker.js",
     "static/css/6.7fad5d03.chunk.css.map": "/scorespad/static/css/6.7fad5d03.chunk.css.map",
     "static/css/main.cd74bc15.chunk.css.map": "/scorespad/static/css/main.cd74bc15.chunk.css.map",
     "static/js/6.84eb9120.chunk.js.LICENSE.txt": "/scorespad/static/js/6.84eb9120.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.73c5c7e2.js",
+    "static/js/runtime-main.b1a19637.js",
     "static/css/6.7fad5d03.chunk.css",
     "static/js/6.84eb9120.chunk.js",
     "static/css/main.cd74bc15.chunk.css",
-    "static/js/main.cdf92974.chunk.js"
+    "static/js/main.63b20e08.chunk.js"
   ]
 }
