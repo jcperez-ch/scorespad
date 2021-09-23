@@ -25,7 +25,7 @@ const Round = () => {
       <RoundTop />
       <GameGuard>
         <RoundGuard fallback={<WarnPlaceholder icon="warning" message={t('text.roundNotFound')} />}>
-          {isActive ? <Scores round={round} onEnd={goToGame} /> : <Championship teams={game ? game.teams : []} round={round} />}
+          {isActive ? <Scores round={round} onEnd={goToGame} /> : <Championship teams={game ? game.teams : []} round={round} onDelete={goToGame} />}
         </RoundGuard>
       </GameGuard>
       <PageViewTracker />

@@ -5,29 +5,29 @@ import { useTranslation } from 'react-i18next'
 
 import ModalConfirm from 'common/modal/Confirm'
 import GameStoreContext from 'components/game/context/Store'
+import { deleteChampionship } from 'components/game/team/actionCreators'
 
-import { removeTeam } from '../actionCreators'
-
-const TeamActionRemove = ({ index, name, onSuccess = noop }) => {
+const RoundActionDelete = ({ round, onSuccess = noop }) => {
   const [, dispatch] = useContext(GameStoreContext)
   const { gameKey } = useParams()
   const [t] = useTranslation()
-  const handleRemove = () => {
-    dispatch(removeTeam(gameKey, index))
+  const handleDelete = () => {
     onSuccess()
+    dispatch(deleteChampionship(gameKey, round))
   }
   return (
     <ModalConfirm
       cancelText={t('button.cancel')}
       confirmText={t('button.remove')}
       title={t('title.removeTeam')}
-      subtitle={t('messages.confirmRemoveTeam', { teamName: name })}
-      fab
+      subtitle={t('messages.confirmRemoveRound')}
       color="primary"
+      fab
       size="small"
-      onConfirm={handleRemove}
+      variant="contained"
+      onConfirm={handleDelete}
     />
   )
 }
 
-export default TeamActionRemove
+export default RoundActionDelete

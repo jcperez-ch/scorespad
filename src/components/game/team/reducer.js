@@ -46,6 +46,19 @@ export const addChampionship = (state, { index, round }) =>
             }
           : team)
 
+export const deleteChampionship = (state, { round }) => {
+  const index = state.findIndex((team) => team.championships.some((championship) => round === championship))
+  return index > state.length || index < 0
+    ? state
+    : state.map((team, i) =>
+        i === index
+        ? {
+            ...team,
+            championships: team.championships.filter((championship) => round !== championship),
+          }
+        : team)
+}
+
 export const removeScore = (team, { round, scoreIndex }) =>
   get(team.rounds, `${round}.${scoreIndex}`) === undefined
     ? team
@@ -84,6 +97,8 @@ export const reducer = (state = [], { type, ...payload }) => {
       return reduceTeam(state, payload, removeScore)
     case 'C+':
       return addChampionship(state, payload)
+    case 'C-':
+      return deleteChampionship(state, payload)
     default:
       return state
   }

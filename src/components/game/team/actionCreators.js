@@ -17,3 +17,9 @@ export const renameTeam = (key, index, name) => ({
   index,
   name,
 })
+
+export const deleteChampionship = (key, round) => ({
+  type: 'C-',
+  key,
+  round,
+})
