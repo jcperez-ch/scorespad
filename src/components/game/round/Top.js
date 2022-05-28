@@ -8,17 +8,16 @@ import BarTitle from 'common/bar/Title'
 import LocaleMenu from 'components/locale/Menu'
 import ThemeMenu from 'components/theme/Menu'
 
-const RoundTop = ({ game = {} }) => {
+const RoundTop = () => {
   const navigate = useNavigate()
-  const { name } = game
-  const goToHome = () => navigate('../../../..')
-  const goToGame = () => navigate('../..')
+  const goToGame = () => navigate(-1)
+
   return (
     <BarToolbar>
-      <IconButton color="inherit" onClick={game ? goToGame : goToHome}>
+      <IconButton color="inherit" onClick={goToGame}>
         <Icon>arrow_back</Icon>
       </IconButton>
-      <BarTitle pl="0.5rem">{name}</BarTitle>
+      <BarTitle pl="0.5rem" />
       <LocaleMenu />
       <ThemeMenu />
     </BarToolbar>

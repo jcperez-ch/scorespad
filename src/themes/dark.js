@@ -1,7 +1,7 @@
 import { createGlobalStyle } from 'styled-components'
-import { createMuiTheme } from '@material-ui/core/styles'
+import { createTheme } from '@material-ui/core/styles'
 
-const mui = createMuiTheme({
+const mui = createTheme({
   palette: {
     primary: {
       main: '#607d8b',

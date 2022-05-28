@@ -26,7 +26,7 @@ const GameActionShare = () => {
     setOpen(false)
   }
   const handleExited = () => {
-    navigate(location.state.from || '../..')
+    navigate(location.state.from || '/')
   }
 
   const handleGenerate = useCallback(async (code) => {

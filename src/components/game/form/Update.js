@@ -26,7 +26,7 @@ const GameFormUpdate = ({ id, name, onChange = noop, onSuccess = noop, onClose =
       onSuccess()
     },
   })
-  const handleShare = () => navigate(`share/${id}`, { from: '../..' })
+  const handleShare = () => navigate(`share/${id}`, { from: '/' })
 
   return (
     <StyledNameForm component="div">

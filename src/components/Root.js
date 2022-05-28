@@ -26,20 +26,20 @@ const Root = ({ locale, i18n, theme, games, hasUpdate, onUpdate }) => {
     setUpdateWarning(hasUpdate)
   }, [hasUpdate])
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={process.env.PUBLIC_URL}>
       <LocaleProvider initial={locale} i18n={i18n}>
         <ThemeProvider initial={theme}>
           <Layout>
             <Suspense>
               <GameProvider initial={games}>
-                <Routes basename={process.env.PUBLIC_URL}>
-                  <Route element={<Landing />} path="/" />
+                <Routes>
+                  <Route element={<Landing />} index />
                   <Route element={<Game />} path="games/:gameKey" />
-                  <Route element={<LazyGameActionShare />} path="share/:gameKey" />
                   <Route element={<LazyTeamFormCreate />} path="games/:gameKey/team" />
                   <Route element={<LazyRound />} path="games/:gameKey/rounds/:round" />
+                  <Route element={<LazyGameActionShare />} path="share/:gameKey" />
                   <Route element={<LazyGameFormCreate />} path="game">
-                    <Route element={<LazyGameFormByName />} path="/" />
+                    <Route element={<LazyGameFormByName />} index />
                     <Route element={<LazyGameFormByScan />} path="scan" />
                   </Route>
                 </Routes>

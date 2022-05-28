@@ -25,7 +25,7 @@ const TeamFormCreate = () => {
   const { gameKey } = useParams()
   const { round } = useGame()
 
-  const handleClose = () => navigate('..')
+  const handleClose = () => navigate(-1)
   const { error, onSubmit } = useValidation({
     name,
     errorMessage: 'errors.requiredTeamName',

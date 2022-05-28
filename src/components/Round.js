@@ -13,12 +13,12 @@ import RoundTop from './game/round/Top'
 import PageViewTracker from './PageViewTracker'
 
 const Round = () => {
-  const { round } = useParams()
+  const { gameKey, round } = useParams()
   const game = useGame()
   const [t] = useTranslation()
   const navigate = useNavigate()
 
-  const goToGame = () => navigate('../..')
+  const goToGame = () => navigate(`/games/${gameKey}`)
   const isActive = game && game.round === round
   return (
     <>

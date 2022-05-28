@@ -14,9 +14,9 @@ const GameTop = () => {
   const { gameKey } = useParams()
   const game = useGame()
   const navigate = useNavigate()
-  const goToHome = () => navigate('../..')
+  const goToHome = () => navigate('/')
   const goToAddTeam = () => navigate('team')
-  const goToShareTeam = () => navigate(`../../share/${gameKey}`, { state: { from: `../../games/${gameKey}` } })
+  const goToShareTeam = () => navigate(`/share/${gameKey}`, { state: { from: `/games/${gameKey}` } })
 
   const [t] = useTranslation()
   return (

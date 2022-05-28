@@ -24,11 +24,11 @@ const GameFormByScan = () => {
   const handleScan = useCallback((newCode) => {
     setCode(newCode)
   }, [])
-  const handleClose = () => navigate('..')
+  const handleClose = () => navigate('/')
   const handleAdd = () => {
     const { id, ...newGame } = code
     dispatch(importGame(id, newGame))
-    navigate(`../games/${id}`)
+    navigate(`/games/${id}`)
   }
   const createdAt = useMemo(() => {
     if (code) {

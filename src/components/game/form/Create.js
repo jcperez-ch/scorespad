@@ -18,7 +18,7 @@ const GameFormCreate = () => {
     navigate(route || '.')
   }
 
-  const handleClose = () => navigate('..')
+  const handleClose = () => navigate('/')
 
   return (
     <div
