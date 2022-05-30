@@ -9,7 +9,7 @@ import SpeakerPhoneIcon from '@material-ui/icons/SpeakerPhone'
 
 import DialogTitle from 'common/dialog/Title'
 
-const GameFormCreate = () => {
+export default () => {
   const [t] = useTranslation()
   const navigate = useNavigate()
   const { pathname } = useLocation()
@@ -39,5 +39,3 @@ const GameFormCreate = () => {
     </div>
   )
 }
-
-export default GameFormCreate

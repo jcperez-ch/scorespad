@@ -13,7 +13,7 @@ import LocaleMenu from './locale/Menu'
 import ThemeMenu from './theme/Menu'
 import PageViewTracker from './PageViewTracker'
 
-const Landing = () => {
+export default () => {
   const [t] = useTranslation()
   const navigate = useNavigate()
   const goToGame = (id) => navigate(`games/${id}`)
@@ -42,5 +42,3 @@ const Landing = () => {
     </>
   )
 }
-
-export default Landing

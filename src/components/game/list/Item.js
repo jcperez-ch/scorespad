@@ -9,9 +9,7 @@ import CommaList from 'common/CommaList'
 
 import GameFormUpdate from '../form/Update'
 
-const GameListItem = ({
-  onClick, id, name, teams,
-}) => {
+export default ({ onClick, id, name, teams }) => {
   const [newName, setNewName] = useState(null)
   const [t] = useTranslation()
   const handleEditMode = () => setNewName(name)
@@ -51,5 +49,3 @@ const GameListItem = ({
     </SlideLongRippleSwitch>
   )
 }
-
-export default GameListItem

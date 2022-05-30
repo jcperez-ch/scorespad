@@ -8,7 +8,7 @@ import BarTitle from 'common/bar/Title'
 import LocaleMenu from 'components/locale/Menu'
 import ThemeMenu from 'components/theme/Menu'
 
-const RoundTop = () => {
+export default () => {
   const navigate = useNavigate()
   const goToGame = () => navigate(-1)
 
@@ -23,5 +23,3 @@ const RoundTop = () => {
     </BarToolbar>
   )
 }
-
-export default RoundTop

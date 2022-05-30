@@ -6,7 +6,7 @@ import StyledScore from 'common/StyledScore'
 import useLongRipple from 'common/useLongRipple'
 import RoundScoreRemove from './form/ScoreRemove'
 
-const GameRoundScore = ({ index, score, scoreIndex }) => {
+export default ({ index, score, scoreIndex }) => {
   const [canClose, setCanClose] = useState(false)
   const handleEditMode = () => setCanClose(true)
   const handleViewMode = () => setCanClose(false)
@@ -21,5 +21,3 @@ const GameRoundScore = ({ index, score, scoreIndex }) => {
     </SlideLongRippleSwitch>
   )
 }
-
-export default GameRoundScore

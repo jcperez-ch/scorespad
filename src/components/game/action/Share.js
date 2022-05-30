@@ -13,7 +13,7 @@ import DialogTitle from 'common/dialog/Title'
 import DialogHeadline from 'common/dialog/Headline'
 import GameStoreContext from 'components/game/context/Store'
 
-const GameActionShare = () => {
+export default () => {
   const { gameKey } = useParams()
   const [games] = useContext(GameStoreContext)
   const [dataUrl, setDataUrl] = useState()
@@ -78,5 +78,3 @@ const GameActionShare = () => {
     </Dialog>
   )
 }
-
-export default GameActionShare

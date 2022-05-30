@@ -16,7 +16,7 @@ import WarnPlaceholder from 'common/WarnPlaceholder'
 import GameStoreContext from 'components/game/context/Store'
 import { importGame } from 'components/game/actionCreators'
 
-const GameFormByScan = () => {
+export default () => {
   const [t] = useTranslation()
   const navigate = useNavigate()
   const [, dispatch] = useContext(GameStoreContext)
@@ -70,5 +70,3 @@ const GameFormByScan = () => {
     </CommonRoutePaper>
   )
 }
-
-export default GameFormByScan

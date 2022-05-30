@@ -10,7 +10,7 @@ import BarTitle from 'common/bar/Title'
 
 import useGame from './useGame'
 
-const GameTop = () => {
+export default () => {
   const { gameKey } = useParams()
   const game = useGame()
   const navigate = useNavigate()
@@ -38,5 +38,3 @@ const GameTop = () => {
     </BarToolbar>
   )
 }
-
-export default GameTop

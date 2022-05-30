@@ -18,7 +18,7 @@ const LazyGameFormByScan = lazy(() => import(/* webpackChunkName: "gc" */ './gam
 const LazyRound = lazy(() => import(/* webpackChunkName: "r" */ './Round'))
 const LazyTeamFormCreate = lazy(() => import(/* webpackChunkName: "tc" */ './game/team/form/Create'))
 
-const Root = ({ locale, i18n, theme, games, hasUpdate, onUpdate }) => {
+export default ({ locale, i18n, theme, games, hasUpdate, onUpdate }) => {
   const [updateWarning, setUpdateWarning] = useState(hasUpdate)
   const handleClose = () => setUpdateWarning(false)
 
@@ -56,5 +56,3 @@ const Root = ({ locale, i18n, theme, games, hasUpdate, onUpdate }) => {
     </BrowserRouter>
   )
 }
-
-export default Root

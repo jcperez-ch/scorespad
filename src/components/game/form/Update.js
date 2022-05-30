@@ -14,7 +14,7 @@ import useValidation from 'utils/validation'
 import GameActionRemove from '../action/Remove'
 import { renameGame } from '../actionCreators'
 
-const GameFormUpdate = ({ id, name, onChange = noop, onSuccess = noop, onClose = noop }) => {
+export default ({ id, name, onChange = noop, onSuccess = noop, onClose = noop }) => {
   const [, dispatch] = useContext(GameStoreContext)
   const [t] = useTranslation()
   const navigate = useNavigate()
@@ -44,5 +44,3 @@ const GameFormUpdate = ({ id, name, onChange = noop, onSuccess = noop, onClose =
     </StyledNameForm>
   )
 }
-
-export default GameFormUpdate

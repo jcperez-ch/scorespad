@@ -16,7 +16,7 @@ const StyledRoundListItemContent = styled.div`
   text-align: center;
 `
 
-const RoundListItem = ({ index, name, rounds, round, onEnter: handleEnter }) => {
+export default ({ index, name, rounds, round, onEnter: handleEnter }) => {
   const teamScores = rounds[round]
   const [roundScores, setRoundScores] = useContext(GameScoresContext)
   const teamScoreValue = roundScores[index]
@@ -55,5 +55,3 @@ const RoundListItem = ({ index, name, rounds, round, onEnter: handleEnter }) => 
     </li>
   )
 }
-
-export default RoundListItem

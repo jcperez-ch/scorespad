@@ -11,16 +11,18 @@ import ModalContent from 'common/modal/Content'
 import GameStoreContext from 'components/game/context/Store'
 import { endRound } from 'components/game/actionCreators'
 
-const RoundActionEnd = ({ gameKey, round, onEnd = noop }) => {
+export default ({ gameKey, round, onEnd = noop }) => {
   const [open, setOpen] = useState(false)
   const [t] = useTranslation()
   const [, dispatch] = useContext(GameStoreContext)
   const toggleOpen = () => setOpen(!open)
+
   const handleSubmit = () => {
     dispatch(endRound(gameKey, round))
     setOpen(false)
     onEnd(round)
   }
+
   return (
     <>
       <ButtonsWrapper>
@@ -47,5 +49,3 @@ const RoundActionEnd = ({ gameKey, round, onEnd = noop }) => {
     </>
   )
 }
-
-export default RoundActionEnd

@@ -5,7 +5,7 @@ import MenuItem from '@material-ui/core/MenuItem'
 import Icon from '@material-ui/core/Icon'
 import LocaleContext from 'components/locale/Context'
 
-const LocaleMenu = () => {
+export default () => {
   const [el, setEl] = useState(null)
   const [locale, setLocale] = useContext(LocaleContext)
   const handleOpen = ({ currentTarget }) => setEl(currentTarget)
@@ -45,5 +45,3 @@ const LocaleMenu = () => {
     </>
   )
 }
-
-export default LocaleMenu

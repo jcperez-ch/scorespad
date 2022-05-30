@@ -6,8 +6,9 @@ import GameStoreContext from 'components/game/context/Store'
 import GameListEmpty from './Empty'
 import GameListItem from './Item'
 
-const GameList = ({ onItemClick }) => {
+export default ({ onItemClick }) => {
   const [games] = useContext(GameStoreContext)
+
   return isEmpty(games) ? (
     <GameListEmpty />
   ) : (
@@ -18,5 +19,3 @@ const GameList = ({ onItemClick }) => {
     </List>
   )
 }
-
-export default GameList

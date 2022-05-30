@@ -6,7 +6,7 @@ import MenuItem from '@material-ui/core/MenuItem'
 import Icon from '@material-ui/core/Icon'
 import ThemeContext from './Context'
 
-const ThemeMenu = () => {
+export default () => {
   const [el, setEl] = useState(null)
   const [t] = useTranslation()
   const [theme, setTheme] = useContext(ThemeContext)
@@ -33,5 +33,3 @@ const ThemeMenu = () => {
     </>
   )
 }
-
-export default ThemeMenu

@@ -7,7 +7,7 @@ import ModalConfirm from 'common/modal/Confirm'
 import GameStoreContext from 'components/game/context/Store'
 import { removeGame } from '../actionCreators'
 
-const GameActionRemove = ({ id, onSuccess = noop }) => {
+export default ({ id, onSuccess = noop }) => {
   const [, dispatch] = useContext(GameStoreContext)
   const [t] = useTranslation()
   const handleRemove = () => {
@@ -28,5 +28,3 @@ const GameActionRemove = ({ id, onSuccess = noop }) => {
     />
   )
 }
-
-export default GameActionRemove

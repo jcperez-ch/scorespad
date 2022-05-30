@@ -8,10 +8,8 @@ const StyledListItem = styled(ListItem)`
   border-top: 1px solid ${themeColors.border};
 `
 
-const GameRoundSum = ({ rounds = [], round }) => (
+export default ({ rounds = [], round }) => (
   <StyledListItem component="div">
     <StyledScore variant="overline">{rounds[round].reduce((sum, value) => value + sum, 0)}</StyledScore>
   </StyledListItem>
 )
-
-export default GameRoundSum

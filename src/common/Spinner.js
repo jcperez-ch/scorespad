@@ -13,11 +13,9 @@ const SpinnerElement = styled.span`
   font-size: 1.2rem;
 `
 
-const Spinner = () => (
+export default () => (
   // eslint-disable-next-line jsx-a11y/accessible-emoji
   <SpinnerElement role="img" aria-label="Loading...">
     ⚙️
   </SpinnerElement>
 )
-
-export default Spinner

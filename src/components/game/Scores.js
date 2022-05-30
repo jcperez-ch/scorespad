@@ -11,13 +11,14 @@ import RoundEnd from './round/action/End'
 import { addScores } from './round/actionCreators'
 import useGame from './useGame'
 
-const GameScores = ({ round, onEnd }) => {
+export default ({ round, onEnd }) => {
   const { gameKey } = useParams()
   const { teams = [] } = useGame()
   const [, dispatch] = useContext(GameStoreContext)
   const initialState = Array.from({ length: teams.length }, () => '')
   const state = useState(initialState)
   const [t] = useTranslation()
+
   const handleSubmit = () => {
     const [scores, setScores] = state
     if (scores.some((score) => typeof Number(score) === 'number')) {
@@ -43,5 +44,3 @@ const GameScores = ({ round, onEnd }) => {
     </GameScoresContext.Provider>
   )
 }
-
-export default GameScores

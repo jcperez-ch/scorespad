@@ -8,11 +8,12 @@ import GameStoreContext from 'components/game/context/Store'
 import useGame from 'components/game/useGame'
 import { addRound } from '../actionCreators'
 
-const GameActionStart = ({ onStart = noop }) => {
+export default ({ onStart = noop }) => {
   const game = useGame()
   const { gameKey } = useParams()
   const [t] = useTranslation()
   const [, dispatch] = useContext(GameStoreContext)
+
   const handleStart = () => {
     const { round } = game
     if (round === null) {
@@ -30,5 +31,3 @@ const GameActionStart = ({ onStart = noop }) => {
     )
   )
 }
-
-export default GameActionStart

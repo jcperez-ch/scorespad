@@ -30,7 +30,7 @@ const StyledScore = styled(Typography).attrs({
   }
 `
 
-const Championship = ({ teams, round, onDelete = noop }) => {
+export default ({ teams, round, onDelete = noop }) => {
   const sortedTeams = sortBy(teams, ({ rounds }) => -rounds[round].reduce((sum, value) => value + sum, 0))
   return (
     <>
@@ -59,5 +59,3 @@ const Championship = ({ teams, round, onDelete = noop }) => {
     </>
   )
 }
-
-export default Championship

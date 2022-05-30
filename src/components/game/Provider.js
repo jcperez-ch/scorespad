@@ -4,7 +4,7 @@ import GameStoreContext from 'components/game/context/Store'
 import gaTracking from 'utils/gaTracking'
 import reducer from './reducer'
 
-const GameProvider = ({ initial = {}, children }) => {
+export default ({ initial = {}, children }) => {
   const storage = 'gms'
   const gameStore = useReducer(gaTracking(reducer), initial)
   const [gameState] = gameStore
@@ -15,5 +15,3 @@ const GameProvider = ({ initial = {}, children }) => {
     </GameStoreContext.Provider>
   )
 }
-
-export default GameProvider

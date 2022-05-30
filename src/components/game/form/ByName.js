@@ -9,7 +9,7 @@ import GameStoreContext from 'components/game/context/Store'
 import { createGame } from 'components/game/actionCreators'
 import useValidation from 'utils/validation'
 
-const GameFormByName = () => {
+export default () => {
   const [newName, setNewName] = useState('')
   const navigate = useNavigate()
   const [t] = useTranslation()
@@ -33,5 +33,3 @@ const GameFormByName = () => {
     </CommonRoutePaper>
   )
 }
-
-export default GameFormByName

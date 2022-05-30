@@ -7,7 +7,7 @@ import TeamList from './game/team/list/List'
 import GameActionStart from './game/action/Start'
 import PageViewTracker from './PageViewTracker'
 
-const Game = () => {
+export default () => {
   const navigate = useNavigate()
   const goToRound = (round) => navigate(`rounds/${round}`)
 
@@ -22,5 +22,3 @@ const Game = () => {
     </>
   )
 }
-
-export default Game

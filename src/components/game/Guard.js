@@ -4,10 +4,8 @@ import WarnPlaceholder from 'common/WarnPlaceholder'
 
 import useGame from './useGame'
 
-const GameGuard = ({ children, fallback }) => {
+export default ({ children, fallback }) => {
   const game = useGame()
   const [t] = useTranslation()
   return game ? children : fallback || <WarnPlaceholder icon="warning" message={t('text.gameNotFound')} />
 }
-
-export default GameGuard

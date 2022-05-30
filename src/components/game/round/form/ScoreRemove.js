@@ -21,7 +21,7 @@ const StyledListItemText = styled(ListItemText)`
   gap: 5px;
 `
 
-const RoundScoreRemove = ({ score, index, scoreIndex, onSuccess = noop, onClose = noop }) => {
+export default ({ score, index, scoreIndex, onSuccess = noop, onClose = noop }) => {
   const { gameKey, round } = useParams()
   const [, dispatch] = useContext(GameStoreContext)
   const [t] = useTranslation()
@@ -49,5 +49,3 @@ const RoundScoreRemove = ({ score, index, scoreIndex, onSuccess = noop, onClose 
     </StyledListItemText>
   )
 }
-
-export default RoundScoreRemove

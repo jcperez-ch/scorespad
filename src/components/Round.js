@@ -12,7 +12,7 @@ import Championship from './game/round/Championship'
 import RoundTop from './game/round/Top'
 import PageViewTracker from './PageViewTracker'
 
-const Round = () => {
+export default () => {
   const { gameKey, round } = useParams()
   const game = useGame()
   const [t] = useTranslation()
@@ -32,5 +32,3 @@ const Round = () => {
     </>
   )
 }
-
-export default Round

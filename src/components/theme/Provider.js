@@ -6,7 +6,7 @@ import Storage from 'common/Storage'
 
 import ThemeContext from './Context'
 
-const ThemeProvider = ({ initial = 'minimal', children }) => {
+export default ({ initial = 'minimal', children }) => {
   const storage = 'theme'
   const [theme, setTheme] = useState(initial)
   const { globalStyle: Global, ...themeRef } = themes[theme]
@@ -30,5 +30,3 @@ const ThemeProvider = ({ initial = 'minimal', children }) => {
     </ThemeContext.Provider>
   )
 }
-
-export default ThemeProvider
