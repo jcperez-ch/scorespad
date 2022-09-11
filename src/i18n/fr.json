@@ -51,6 +51,7 @@
     "confirmShareGame_step2": "Appuie sur le gros buton + qui est placé en bas et à droite.",
     "confirmShareGame_step3": "Lors que la boîte de dialogue soit visible, appuie su \"Scanner\" afin de scanner le code.",
     "confirmShareGame_step4": "Une fois scanné, scorespad synchroniserait le jeu vers un appareil different.",
+    "playedAt": "Joué le {{ date }} à {{ time }}",
     "selectGame": "Selectionne ton jeu",
     "startQuickGame": "Êtes vous prêts mes amis?"
   },

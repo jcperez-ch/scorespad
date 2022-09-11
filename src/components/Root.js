@@ -16,6 +16,7 @@ const LazyGameFormByName = lazy(() => import(/* webpackChunkName: "gc" */ './gam
 const LazyGameActionShare = lazy(() => import(/* webpackChunkName: "gs" */ './game/action/Share'))
 const LazyGameFormByScan = lazy(() => import(/* webpackChunkName: "gc" */ './game/form/ByScan'))
 const LazyRound = lazy(() => import(/* webpackChunkName: "r" */ './Round'))
+const LazyChampionshipsList = lazy(() => import(/* webpackChunkName: "ch" */ './ChampionshipsList'))
 const LazyTeamFormCreate = lazy(() => import(/* webpackChunkName: "tc" */ './game/team/form/Create'))
 
 export default ({ locale, i18n, theme, games, hasUpdate, onUpdate }) => {
@@ -37,6 +38,7 @@ export default ({ locale, i18n, theme, games, hasUpdate, onUpdate }) => {
                   <Route element={<Game />} path="games/:gameKey" />
                   <Route element={<LazyTeamFormCreate />} path="games/:gameKey/team" />
                   <Route element={<LazyRound />} path="games/:gameKey/rounds/:round" />
+                  <Route element={<LazyChampionshipsList />} path="games/:gameKey/championships/:index" />
                   <Route element={<LazyGameActionShare />} path="share/:gameKey" />
                   <Route element={<LazyGameFormCreate />} path="game">
                     <Route element={<LazyGameFormByName />} index />

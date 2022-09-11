@@ -9,6 +9,7 @@ import { flexCenterBetween } from 'utils/flexStyles'
 
 import TeamFormUpdate from '../form/Update'
 import TeamChampionship from '../Championship'
+import TeamGroupedChampionships from '../championship/GroupedChampionships'
 
 const TeamListItem = ({ index, name, championships = [], rounds, round, onClickChampionship }) => {
   const [newName, setNewName] = useState(null)
@@ -24,9 +25,11 @@ const TeamListItem = ({ index, name, championships = [], rounds, round, onClickC
           <div>
             <Typography variant="body1">{name}</Typography>
             <Flex display wrap="wrap">
-              {championships.map((championship) => (
-                <TeamChampionship key={championship} championship={championship} onClick={onClickChampionship} />
-              ))}
+              {championships.length > 6
+                ? <TeamGroupedChampionships index={index} count={championships.length} />
+                : championships.map((championship) => (
+                  <TeamChampionship key={championship} championship={championship} onClick={onClickChampionship} />
+                ))}
             </Flex>
           </div>
           {round && <Typography variant="overline">{rounds[round].reduce((sum, value) => value + sum, 0)}</Typography>}

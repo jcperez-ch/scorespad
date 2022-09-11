@@ -51,6 +51,7 @@
     "confirmShareGame_step2": "Click on the big + buttons appearing at the bottom right of the screen.",
     "confirmShareGame_step3": "Once the dialog is opened, you can press the \"Scan\" button in order to scan this code.",
     "confirmShareGame_step4": "Once scanned, scorespad will synchronize the game into a different device and you're done.",
+    "playedAt": "Played on {{ date }} at {{ time }}",
     "selectGame": "Select your game",
     "startQuickGame": "Are you ready to the rumble?"
   },
