@@ -1,24 +1,24 @@
-import React from 'react'
-import { useTranslation } from 'react-i18next'
-import { Outlet, useLocation, useNavigate } from 'react-router-dom'
+import React from 'react';
+import { useTranslation } from 'react-i18next';
+import { Outlet, useLocation, useNavigate } from 'react-router-dom';
 
-import Tabs from '@material-ui/core/Tabs'
-import Tab from '@material-ui/core/Tab'
-import KeyboardIcon from '@material-ui/icons/Keyboard'
-import SpeakerPhoneIcon from '@material-ui/icons/SpeakerPhone'
+import Tabs from '@material-ui/core/Tabs';
+import Tab from '@material-ui/core/Tab';
+import KeyboardIcon from '@material-ui/icons/Keyboard';
+import SpeakerPhoneIcon from '@material-ui/icons/SpeakerPhone';
 
-import DialogTitle from 'common/dialog/Title'
+import DialogTitle from 'common/dialog/Title';
 
-export default () => {
-  const [t] = useTranslation()
-  const navigate = useNavigate()
-  const { pathname } = useLocation()
+export default function GameFormCreate() {
+  const [t] = useTranslation();
+  const navigate = useNavigate();
+  const { pathname } = useLocation();
 
   const handleChange = (_, route) => {
-    navigate(route || '.')
-  }
+    navigate(route || '.');
+  };
 
-  const handleClose = () => navigate('/')
+  const handleClose = () => navigate('/');
 
   return (
     <div
@@ -37,5 +37,5 @@ export default () => {
       </Tabs>
       <Outlet />
     </div>
-  )
+  );
 }

@@ -1,5 +1,5 @@
-import styled from 'styled-components'
-import { themeColors } from 'themes'
+import styled from 'styled-components';
+import { themeColors } from 'themes';
 
 const BarTitle = styled.h2`
   color: ${themeColors.foregroundOnPrimary};
@@ -10,6 +10,6 @@ const BarTitle = styled.h2`
   text-overflow: ellipsis;
   user-select: none;
   white-space: nowrap;
-`
+`;
 
-export default BarTitle
+export default BarTitle;

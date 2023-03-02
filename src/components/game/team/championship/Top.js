@@ -1,16 +1,16 @@
-import React from 'react'
-import { useNavigate } from 'react-router-dom'
-import IconButton from '@material-ui/core/IconButton'
-import Icon from '@material-ui/core/Icon'
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
+import IconButton from '@material-ui/core/IconButton';
+import Icon from '@material-ui/core/Icon';
 
-import BarToolbar from 'common/bar/Toolbar'
-import BarTitle from 'common/bar/Title'
-import LocaleMenu from 'components/locale/Menu'
-import ThemeMenu from 'components/theme/Menu'
+import BarToolbar from 'common/bar/Toolbar';
+import BarTitle from 'common/bar/Title';
+import LocaleMenu from 'components/locale/Menu';
+import ThemeMenu from 'components/theme/Menu';
 
-export default ({ title }) => {
-  const navigate = useNavigate()
-  const goToGame = () => navigate(-1)
+export default function TeamChampionshipTop({ title }) {
+  const navigate = useNavigate();
+  const goToGame = () => navigate(-1);
 
   return (
     <BarToolbar>
@@ -21,5 +21,5 @@ export default ({ title }) => {
       <LocaleMenu />
       <ThemeMenu />
     </BarToolbar>
-  )
+  );
 }

@@ -1,23 +1,23 @@
-import React from 'react'
-import { useTranslation } from 'react-i18next'
-import { useNavigate } from 'react-router-dom'
+import React from 'react';
+import { useTranslation } from 'react-i18next';
+import { useNavigate } from 'react-router-dom';
 
-import StickyFabButton from 'common/StickyFabButton'
-import BarToolbar from 'common/bar/Toolbar'
-import BarTitle from 'common/bar/Title'
-import EmptyBlock from 'common/EmptyBlock'
-import Txt from 'common/Txt'
+import StickyFabButton from 'common/StickyFabButton';
+import BarToolbar from 'common/bar/Toolbar';
+import BarTitle from 'common/bar/Title';
+import EmptyBlock from 'common/EmptyBlock';
+import Txt from 'common/Txt';
 
-import GameList from './game/list/List'
-import LocaleMenu from './locale/Menu'
-import ThemeMenu from './theme/Menu'
-import PageViewTracker from './PageViewTracker'
+import GameList from './game/list/List';
+import LocaleMenu from './locale/Menu';
+import ThemeMenu from './theme/Menu';
+import PageViewTracker from './PageViewTracker';
 
-export default () => {
-  const [t] = useTranslation()
-  const navigate = useNavigate()
-  const goToGame = (id) => navigate(`games/${id}`)
-  const goToCreateGame = () => navigate('game')
+export default function Landing() {
+  const [t] = useTranslation();
+  const navigate = useNavigate();
+  const goToGame = (id) => navigate(`games/${id}`);
+  const goToCreateGame = () => navigate('game');
 
   return (
     <>
@@ -40,5 +40,5 @@ export default () => {
       />
       <PageViewTracker />
     </>
-  )
+  );
 }

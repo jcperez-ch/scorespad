@@ -1,19 +1,19 @@
-import React, { useContext } from 'react'
-import { noop } from 'lodash'
-import { useTranslation } from 'react-i18next'
+import React, { useContext } from 'react';
+import { noop } from 'lodash';
+import { useTranslation } from 'react-i18next';
 
-import ModalConfirm from 'common/modal/Confirm'
+import ModalConfirm from 'common/modal/Confirm';
 
-import GameStoreContext from 'components/game/context/Store'
-import { removeGame } from '../actionCreators'
+import GameStoreContext from 'components/game/context/Store';
+import { removeGame } from '../actionCreators';
 
-export default ({ id, onSuccess = noop }) => {
-  const [, dispatch] = useContext(GameStoreContext)
-  const [t] = useTranslation()
+export default function GameActionRemove({ id, onSuccess = noop }) {
+  const [, dispatch] = useContext(GameStoreContext);
+  const [t] = useTranslation();
   const handleRemove = () => {
-    dispatch(removeGame(id))
-    onSuccess()
-  }
+    dispatch(removeGame(id));
+    onSuccess();
+  };
   return (
     <ModalConfirm
       cancelText={t('button.cancel')}
@@ -26,5 +26,5 @@ export default ({ id, onSuccess = noop }) => {
       size="small"
       onConfirm={handleRemove}
     />
-  )
+  );
 }

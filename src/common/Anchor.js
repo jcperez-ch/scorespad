@@ -1,7 +1,7 @@
-import { Link } from 'react-router-dom'
-import styled from 'styled-components'
+import { Link } from 'react-router-dom';
+import styled from 'styled-components';
 
-import { themeColors } from 'themes'
+import { themeColors } from 'themes';
 
 const Anchor = styled(Link)`
   color: ${themeColors.primary};
@@ -12,6 +12,6 @@ const Anchor = styled(Link)`
     color: ${themeColors.primaryDark};
     text-decoration: underline;
   }
-`
+`;
 
-export default Anchor
+export default Anchor;

@@ -1,24 +1,24 @@
-import React from 'react'
-import { useTranslation } from 'react-i18next'
-import { useNavigate, useParams } from 'react-router-dom'
-import IconButton from '@material-ui/core/IconButton'
-import Icon from '@material-ui/core/Icon'
-import Tooltip from '@material-ui/core/Tooltip'
+import React from 'react';
+import { useTranslation } from 'react-i18next';
+import { useNavigate, useParams } from 'react-router-dom';
+import IconButton from '@material-ui/core/IconButton';
+import Icon from '@material-ui/core/Icon';
+import Tooltip from '@material-ui/core/Tooltip';
 
-import BarToolbar from 'common/bar/Toolbar'
-import BarTitle from 'common/bar/Title'
+import BarToolbar from 'common/bar/Toolbar';
+import BarTitle from 'common/bar/Title';
 
-import useGame from './useGame'
+import useGame from './useGame';
 
-export default () => {
-  const { gameKey } = useParams()
-  const game = useGame()
-  const navigate = useNavigate()
-  const goToHome = () => navigate('/')
-  const goToAddTeam = () => navigate('team')
-  const goToShareTeam = () => navigate(`/share/${gameKey}`, { state: { from: `/games/${gameKey}` } })
+export default function GameTop() {
+  const { gameKey } = useParams();
+  const game = useGame();
+  const navigate = useNavigate();
+  const goToHome = () => navigate('/');
+  const goToAddTeam = () => navigate('team');
+  const goToShareTeam = () => navigate(`/share/${gameKey}`, { state: { from: `/games/${gameKey}` } });
 
-  const [t] = useTranslation()
+  const [t] = useTranslation();
   return (
     <BarToolbar>
       <IconButton color="inherit" onClick={goToHome}>
@@ -36,5 +36,5 @@ export default () => {
         </IconButton>
       </Tooltip>
     </BarToolbar>
-  )
+  );
 }

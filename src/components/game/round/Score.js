@@ -1,16 +1,16 @@
-import React, { useState } from 'react'
-import ListItem from '@material-ui/core/ListItem'
+import React, { useState } from 'react';
+import ListItem from '@material-ui/core/ListItem';
 
-import SlideLongRippleSwitch from 'common/SlideLongRippleSwitch'
-import StyledScore from 'common/StyledScore'
-import useLongRipple from 'common/useLongRipple'
-import RoundScoreRemove from './form/ScoreRemove'
+import SlideLongRippleSwitch from 'common/SlideLongRippleSwitch';
+import StyledScore from 'common/StyledScore';
+import useLongRipple from 'common/useLongRipple';
+import RoundScoreRemove from './form/ScoreRemove';
 
-export default ({ index, score, scoreIndex }) => {
-  const [canClose, setCanClose] = useState(false)
-  const handleEditMode = () => setCanClose(true)
-  const handleViewMode = () => setCanClose(false)
-  const rippleProps = useLongRipple({ onLongPress: handleEditMode })
+export default function RoundScore({ index, score, scoreIndex }) {
+  const [canClose, setCanClose] = useState(false);
+  const handleEditMode = () => setCanClose(true);
+  const handleViewMode = () => setCanClose(false);
+  const rippleProps = useLongRipple({ onLongPress: handleEditMode });
 
   return (
     <SlideLongRippleSwitch active={canClose ? 0 : 1}>
@@ -19,5 +19,5 @@ export default ({ index, score, scoreIndex }) => {
         <StyledScore variant="body2">{score}</StyledScore>
       </ListItem>
     </SlideLongRippleSwitch>
-  )
+  );
 }

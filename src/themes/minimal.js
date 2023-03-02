@@ -1,5 +1,5 @@
-import { createGlobalStyle } from 'styled-components'
-import { createTheme } from '@material-ui/core/styles'
+import { createGlobalStyle } from 'styled-components';
+import { createTheme } from '@material-ui/core/styles';
 
 const mui = createTheme({
   palette: {
@@ -36,7 +36,7 @@ const mui = createTheme({
     },
   },
   overrides: {},
-})
+});
 
 export default {
   fonts: ['Montserrat Alternates'],
@@ -55,4 +55,4 @@ export default {
   globalStyle: createGlobalStyle`
     @import url('https://fonts.googleapis.com/css?family=Montserrat+Alternates:400,500,800&subset=latin-ext');
   `,
-}
+};

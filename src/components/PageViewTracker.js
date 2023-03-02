@@ -1,15 +1,15 @@
-import { memo } from 'react'
-import { useLocation } from 'react-router-dom'
+import { memo } from 'react';
+import { useLocation } from 'react-router-dom';
 
 const PageViewTracker = () => {
-  const { pathname } = useLocation()
+  const { pathname } = useLocation();
   if (window.ga) {
-    window.ga('send', 'pageview', pathname)
+    window.ga('send', 'pageview', pathname);
   } else {
     // eslint-disable-next-line no-console
-    console.log('ga.send', pathname)
+    console.log('ga.send', pathname);
   }
-  return null
-}
+  return null;
+};
 
-export default memo(PageViewTracker)
+export default memo(PageViewTracker);

@@ -1,21 +1,21 @@
-import { noop } from 'lodash'
-import React, { useContext } from 'react'
-import { useParams } from 'react-router-dom'
-import { useTranslation } from 'react-i18next'
+import { noop } from 'lodash';
+import React, { useContext } from 'react';
+import { useParams } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
-import ModalConfirm from 'common/modal/Confirm'
-import GameStoreContext from 'components/game/context/Store'
-import { deleteChampionship } from 'components/game/team/actionCreators'
+import ModalConfirm from 'common/modal/Confirm';
+import GameStoreContext from 'components/game/context/Store';
+import { deleteChampionship } from 'components/game/team/actionCreators';
 
-export default ({ round, onSuccess = noop }) => {
-  const [, dispatch] = useContext(GameStoreContext)
-  const { gameKey } = useParams()
-  const [t] = useTranslation()
+export default function RoundActionDelete({ round, onSuccess = noop }) {
+  const [, dispatch] = useContext(GameStoreContext);
+  const { gameKey } = useParams();
+  const [t] = useTranslation();
 
   const handleDelete = () => {
-    onSuccess()
-    dispatch(deleteChampionship(gameKey, round))
-  }
+    onSuccess();
+    dispatch(deleteChampionship(gameKey, round));
+  };
 
   return (
     <ModalConfirm
@@ -29,5 +29,5 @@ export default ({ round, onSuccess = noop }) => {
       variant="contained"
       onConfirm={handleDelete}
     />
-  )
+  );
 }

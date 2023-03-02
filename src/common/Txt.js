@@ -1,9 +1,9 @@
-import { useTranslation } from 'react-i18next'
+import { useTranslation } from 'react-i18next';
 
 const Txt = ({ id }) => {
-  const [t] = useTranslation()
+  const [t] = useTranslation();
 
-  return t(id)
-}
+  return t(id);
+};
 
-export default Txt
+export default Txt;

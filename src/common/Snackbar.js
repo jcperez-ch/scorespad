@@ -1,10 +1,10 @@
-import React from 'react'
-import Button from '@material-ui/core/Button'
-import Snackbar from '@material-ui/core/Snackbar'
-import IconButton from '@material-ui/core/IconButton'
-import CloseIcon from '@material-ui/icons/Close'
+import React from 'react';
+import Button from '@material-ui/core/Button';
+import Snackbar from '@material-ui/core/Snackbar';
+import IconButton from '@material-ui/core/IconButton';
+import CloseIcon from '@material-ui/icons/Close';
 
-import Txt from 'common/Txt'
+import Txt from 'common/Txt';
 
 const CommonSnackbar = ({
   children, onClose, onUpdate, ...props
@@ -36,6 +36,6 @@ const CommonSnackbar = ({
     {...props}
     onClose={onClose}
   />
-)
+);
 
-export default CommonSnackbar
+export default CommonSnackbar;

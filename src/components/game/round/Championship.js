@@ -1,15 +1,15 @@
-import React from 'react'
-import styled from 'styled-components'
-import { map, noop, sortBy } from 'lodash'
-import List from '@material-ui/core/List'
-import ListItem from '@material-ui/core/ListItem'
-import ListItemText from '@material-ui/core/ListItemText'
-import Typography from '@material-ui/core/Typography'
+import React from 'react';
+import styled from 'styled-components';
+import { map, noop, sortBy } from 'lodash';
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemText from '@material-ui/core/ListItemText';
+import Typography from '@material-ui/core/Typography';
 
-import ButtonsWrapper from 'common/ButtonsWrapper'
-import Flex from 'common/Flex'
+import ButtonsWrapper from 'common/ButtonsWrapper';
+import Flex from 'common/Flex';
 
-import RoundActionDelete from './action/Delete'
+import RoundActionDelete from './action/Delete';
 
 const StyledSumScore = styled(Typography).attrs({
   variant: 'overline',
@@ -19,7 +19,7 @@ const StyledSumScore = styled(Typography).attrs({
     text-align: right;
     line-height: 1.2;
   }
-`
+`;
 
 const StyledScore = styled(Typography).attrs({
   variant: 'overline',
@@ -28,10 +28,10 @@ const StyledScore = styled(Typography).attrs({
     font-size: 0.875rem;
     margin-left: 0.875rem;
   }
-`
+`;
 
-export default ({ teams, round, onDelete = noop }) => {
-  const sortedTeams = sortBy(teams, ({ rounds }) => -rounds[round].reduce((sum, value) => value + sum, 0))
+export default function RoundChampionship({ teams, round, onDelete = noop }) {
+  const sortedTeams = sortBy(teams, ({ rounds }) => -rounds[round].reduce((sum, value) => value + sum, 0));
   return (
     <>
       <List component="div">
@@ -57,5 +57,5 @@ export default ({ teams, round, onDelete = noop }) => {
         <RoundActionDelete round={round} onSuccess={onDelete} />
       </ButtonsWrapper>
     </>
-  )
+  );
 }

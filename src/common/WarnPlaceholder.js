@@ -1,8 +1,8 @@
-import React from 'react'
-import styled from 'styled-components'
-import Icon from '@material-ui/core/Icon'
-import Typography from '@material-ui/core/Typography'
-import { themeColors, themeScreenSizes } from 'themes'
+import React from 'react';
+import styled from 'styled-components';
+import Icon from '@material-ui/core/Icon';
+import Typography from '@material-ui/core/Typography';
+import { themeColors, themeScreenSizes } from 'themes';
 
 const FullViewportHeight = styled.div`
   align-items: center;
@@ -29,7 +29,7 @@ const FullViewportHeight = styled.div`
     padding: ${({ theme = {} } = {}) => theme.mui.spacing(1)}px;
     text-align: center;
   }
-`
+`;
 
 const WarnPlaceholder = ({ color = 'primary', icon, message }) => (
   <FullViewportHeight>
@@ -42,6 +42,6 @@ const WarnPlaceholder = ({ color = 'primary', icon, message }) => (
       {message}
     </Typography>
   </FullViewportHeight>
-)
+);
 
-export default WarnPlaceholder
+export default WarnPlaceholder;

@@ -1,10 +1,10 @@
-import React from 'react'
-import { useTranslation } from 'react-i18next'
-import WarnPlaceholder from 'common/WarnPlaceholder'
+import React from 'react';
+import { useTranslation } from 'react-i18next';
+import WarnPlaceholder from 'common/WarnPlaceholder';
 
 const TeamListEmpty = () => {
-  const [t] = useTranslation()
-  return <WarnPlaceholder icon="people" message={t('text.noTeams')} />
-}
+  const [t] = useTranslation();
+  return <WarnPlaceholder icon="people" message={t('text.noTeams')} />;
+};
 
-export default TeamListEmpty
+export default TeamListEmpty;

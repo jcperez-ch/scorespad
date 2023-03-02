@@ -1,6 +1,6 @@
-import React from 'react'
-import Paper from '@material-ui/core/Paper'
-import { makeStyles } from '@material-ui/styles'
+import React from 'react';
+import Paper from '@material-ui/core/Paper';
+import { makeStyles } from '@material-ui/styles';
 
 const useStyles = makeStyles({
   root: {
@@ -12,11 +12,11 @@ const useStyles = makeStyles({
     margin: '0',
     padding: '1.5rem',
   },
-})
+});
 
 const CommonRoutePaper = ({ children, ...props }) => {
-  const { root } = useStyles()
-  return <Paper classes={{ root }} role="tabpanel" elevation={5} {...props}>{children}</Paper>
-}
+  const { root } = useStyles();
+  return <Paper classes={{ root }} role="tabpanel" elevation={5} {...props}>{children}</Paper>;
+};
 
-export default CommonRoutePaper
+export default CommonRoutePaper;

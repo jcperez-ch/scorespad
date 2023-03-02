@@ -1,16 +1,16 @@
-import styled, { css } from 'styled-components'
+import styled, { css } from 'styled-components';
 
 const activeCss = css`
   transition-delay: 0s;
   opacity: 1;
   max-height: none;
-`
+`;
 
 const inactiveCss = css`
   visibility: hidden;
   opacity: 0;
   max-height: 0;
-`
+`;
 
 const SlideItem = styled.ul`
   display: grid;
@@ -28,6 +28,6 @@ const SlideItem = styled.ul`
       ${({ active = false }) => (active ? activeCss : inactiveCss)}
     }
   }
-`
+`;
 
-export default SlideItem
+export default SlideItem;

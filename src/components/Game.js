@@ -1,15 +1,15 @@
-import React from 'react'
-import { useNavigate } from 'react-router-dom'
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
-import GameGuard from './game/Guard'
-import GameTop from './game/Top'
-import TeamList from './game/team/list/List'
-import GameActionStart from './game/action/Start'
-import PageViewTracker from './PageViewTracker'
+import GameGuard from './game/Guard';
+import GameTop from './game/Top';
+import TeamList from './game/team/list/List';
+import GameActionStart from './game/action/Start';
+import PageViewTracker from './PageViewTracker';
 
-export default () => {
-  const navigate = useNavigate()
-  const goToRound = (round) => navigate(`rounds/${round}`)
+export default function Game() {
+  const navigate = useNavigate();
+  const goToRound = (round) => navigate(`rounds/${round}`);
 
   return (
     <>
@@ -20,5 +20,5 @@ export default () => {
       </GameGuard>
       <PageViewTracker />
     </>
-  )
+  );
 }

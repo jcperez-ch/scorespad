@@ -1,21 +1,21 @@
-import React, { useState } from 'react'
-import ListItem from '@material-ui/core/ListItem'
-import ListItemText from '@material-ui/core/ListItemText'
-import Typography from '@material-ui/core/Typography'
-import SlideLongRippleSwitch from 'common/SlideLongRippleSwitch'
-import useLongRipple from 'common/useLongRipple'
-import Flex from 'common/Flex'
-import { flexCenterBetween } from 'utils/flexStyles'
+import React, { useState } from 'react';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemText from '@material-ui/core/ListItemText';
+import Typography from '@material-ui/core/Typography';
+import SlideLongRippleSwitch from 'common/SlideLongRippleSwitch';
+import useLongRipple from 'common/useLongRipple';
+import Flex from 'common/Flex';
+import { flexCenterBetween } from 'utils/flexStyles';
 
-import TeamFormUpdate from '../form/Update'
-import TeamChampionship from '../Championship'
-import TeamGroupedChampionships from '../championship/GroupedChampionships'
+import TeamFormUpdate from '../form/Update';
+import TeamChampionship from '../Championship';
+import TeamGroupedChampionships from '../championship/GroupedChampionships';
 
 const TeamListItem = ({ index, name, championships = [], rounds, round, onClickChampionship }) => {
-  const [newName, setNewName] = useState(null)
-  const handleEditMode = () => setNewName(name)
-  const handleViewMode = () => setNewName(null)
-  const rippleProps = useLongRipple({ onLongPress: handleEditMode })
+  const [newName, setNewName] = useState(null);
+  const handleEditMode = () => setNewName(name);
+  const handleViewMode = () => setNewName(null);
+  const rippleProps = useLongRipple({ onLongPress: handleEditMode });
 
   return (
     <SlideLongRippleSwitch active={newName === null ? 1 : 0}>
@@ -36,7 +36,7 @@ const TeamListItem = ({ index, name, championships = [], rounds, round, onClickC
         </ListItemText>
       </ListItem>
     </SlideLongRippleSwitch>
-  )
-}
+  );
+};
 
-export default TeamListItem
+export default TeamListItem;

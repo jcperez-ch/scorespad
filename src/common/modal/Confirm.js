@@ -1,13 +1,13 @@
-import React, { useState } from 'react'
-import Button from '@material-ui/core/Button'
-import IconButton from '@material-ui/core/IconButton'
-import Icon from '@material-ui/core/Icon'
-import Modal from '@material-ui/core/Modal'
-import Typography from '@material-ui/core/Typography'
+import React, { useState } from 'react';
+import Button from '@material-ui/core/Button';
+import IconButton from '@material-ui/core/IconButton';
+import Icon from '@material-ui/core/Icon';
+import Modal from '@material-ui/core/Modal';
+import Typography from '@material-ui/core/Typography';
 
-import ButtonExtended from '../button/Extended'
-import ModalActions from './Actions'
-import ModalContent from './Content'
+import ButtonExtended from '../button/Extended';
+import ModalActions from './Actions';
+import ModalContent from './Content';
 
 const ModalConfirm = ({
   children,
@@ -21,9 +21,9 @@ const ModalConfirm = ({
   onConfirm,
   ...props
 }) => {
-  const [open, setOpen] = useState(false)
-  const toggleOpen = () => setOpen(!open)
-  const handleClose = () => setOpen(false)
+  const [open, setOpen] = useState(false);
+  const toggleOpen = () => setOpen(!open);
+  const handleClose = () => setOpen(false);
   return (
     <>
       {fab ? (
@@ -63,7 +63,7 @@ const ModalConfirm = ({
         </ModalContent>
       </Modal>
     </>
-  )
-}
+  );
+};
 
-export default ModalConfirm
+export default ModalConfirm;

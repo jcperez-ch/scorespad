@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 const StyledNameForm = styled.div`
   display: grid;
@@ -16,6 +16,6 @@ const StyledNameForm = styled.div`
     grid-auto-flow: column;
     justify-content: start;
   }
-`
+`;
 
-export default StyledNameForm
+export default StyledNameForm;

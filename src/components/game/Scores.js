@@ -1,26 +1,26 @@
-import React, { useContext, useState } from 'react'
-import { useTranslation } from 'react-i18next'
-import { useParams } from 'react-router-dom'
-import Button from '@material-ui/core/Button'
-import ButtonsWrapper from 'common/ButtonsWrapper'
+import React, { useContext, useState } from 'react';
+import { useTranslation } from 'react-i18next';
+import { useParams } from 'react-router-dom';
+import Button from '@material-ui/core/Button';
+import ButtonsWrapper from 'common/ButtonsWrapper';
 
-import GameStoreContext from './context/Store'
-import GameScoresContext from './context/Scores'
-import RoundList from './round/list/List'
-import RoundEnd from './round/action/End'
-import { addScores } from './round/actionCreators'
-import useGame from './useGame'
+import GameStoreContext from './context/Store';
+import GameScoresContext from './context/Scores';
+import RoundList from './round/list/List';
+import RoundEnd from './round/action/End';
+import { addScores } from './round/actionCreators';
+import useGame from './useGame';
 
-export default ({ round, onEnd }) => {
-  const { gameKey } = useParams()
-  const { teams = [] } = useGame()
-  const [, dispatch] = useContext(GameStoreContext)
-  const initialState = Array.from({ length: teams.length }, () => '')
-  const state = useState(initialState)
-  const [t] = useTranslation()
+export default function GameScores({ round, onEnd }) {
+  const { gameKey } = useParams();
+  const { teams = [] } = useGame();
+  const [, dispatch] = useContext(GameStoreContext);
+  const initialState = Array.from({ length: teams.length }, () => '');
+  const state = useState(initialState);
+  const [t] = useTranslation();
 
   const handleSubmit = () => {
-    const [scores, setScores] = state
+    const [scores, setScores] = state;
     if (scores.some((score) => typeof Number(score) === 'number')) {
       dispatch(
         addScores(
@@ -28,10 +28,10 @@ export default ({ round, onEnd }) => {
           round,
           scores.map((score) => Number.parseInt(score, 10)),
         ),
-      )
-      setScores(initialState)
+      );
+      setScores(initialState);
     }
-  }
+  };
   return (
     <GameScoresContext.Provider value={state}>
       <RoundList teams={teams} round={round} onSubmit={handleSubmit} />
@@ -42,5 +42,5 @@ export default ({ round, onEnd }) => {
       </ButtonsWrapper>
       <RoundEnd gameKey={gameKey} round={round} onEnd={onEnd} />
     </GameScoresContext.Provider>
-  )
+  );
 }

@@ -1,32 +1,32 @@
-import React, { useContext } from 'react'
-import { useTranslation } from 'react-i18next'
-import { useNavigate } from 'react-router-dom'
-import { noop } from 'lodash'
-import Fab from '@material-ui/core/Fab'
-import Icon from '@material-ui/core/Icon'
+import React, { useContext } from 'react';
+import { useTranslation } from 'react-i18next';
+import { useNavigate } from 'react-router-dom';
+import { noop } from 'lodash';
+import Fab from '@material-ui/core/Fab';
+import Icon from '@material-ui/core/Icon';
 
-import ButtonExtended from 'common/button/Extended'
-import StyledNameForm from 'common/styled/NameForm'
-import NameField from 'common/NameField'
-import GameStoreContext from 'components/game/context/Store'
-import useValidation from 'utils/validation'
+import ButtonExtended from 'common/button/Extended';
+import StyledNameForm from 'common/styled/NameForm';
+import NameField from 'common/NameField';
+import GameStoreContext from 'components/game/context/Store';
+import useValidation from 'utils/validation';
 
-import GameActionRemove from '../action/Remove'
-import { renameGame } from '../actionCreators'
+import GameActionRemove from '../action/Remove';
+import { renameGame } from '../actionCreators';
 
-export default ({ id, name, onChange = noop, onSuccess = noop, onClose = noop }) => {
-  const [, dispatch] = useContext(GameStoreContext)
-  const [t] = useTranslation()
-  const navigate = useNavigate()
+export default function GameFormUpdate({ id, name, onChange = noop, onSuccess = noop, onClose = noop }) {
+  const [, dispatch] = useContext(GameStoreContext);
+  const [t] = useTranslation();
+  const navigate = useNavigate();
   const { error, onSubmit } = useValidation({
     name,
     errorMessage: 'errors.requiredGameName',
     onSubmit: () => {
-      dispatch(renameGame(id, name))
-      onSuccess()
+      dispatch(renameGame(id, name));
+      onSuccess();
     },
-  })
-  const handleShare = () => navigate(`share/${id}`, { from: '/' })
+  });
+  const handleShare = () => navigate(`share/${id}`, { from: '/' });
 
   return (
     <StyledNameForm component="div">
@@ -42,5 +42,5 @@ export default ({ id, name, onChange = noop, onSuccess = noop, onClose = noop })
         <GameActionRemove id={id} />
       </div>
     </StyledNameForm>
-  )
+  );
 }

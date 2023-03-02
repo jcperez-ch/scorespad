@@ -1,11 +1,11 @@
 import React, {
   useRef, useEffect, useCallback, useState,
-} from 'react'
-import { noop } from 'lodash'
-import DialogActions from '@material-ui/core/DialogActions'
+} from 'react';
+import { noop } from 'lodash';
+import DialogActions from '@material-ui/core/DialogActions';
 
-import VideoStream from './VideoStream'
-import ButtonExtended from '../button/Extended'
+import VideoStream from './VideoStream';
+import ButtonExtended from '../button/Extended';
 
 const CommonQrScan = ({
   className,
@@ -21,50 +21,50 @@ const CommonQrScan = ({
   onCode = noop,
   onClose = noop,
 }) => {
-  const webWorker = useRef(null)
-  const drawVideoFrame = useRef(noop)
-  const [codeError, setCodeError] = useState(false)
-  const handleTryAgain = () => setCodeError(false)
+  const webWorker = useRef(null);
+  const drawVideoFrame = useRef(noop);
+  const [codeError, setCodeError] = useState(false);
+  const handleTryAgain = () => setCodeError(false);
   const onVideoStreamInit = (state, drawFrame) => {
     if (onInit) {
-      onInit(state)
+      onInit(state);
     }
-    drawVideoFrame.current = drawFrame
+    drawVideoFrame.current = drawFrame;
     if (shouldDecode) {
-      drawVideoFrame.current()
+      drawVideoFrame.current();
     }
-  }
+  };
 
-  const onFrame = (frameData) => webWorker.current.postMessage(frameData)
+  const onFrame = (frameData) => webWorker.current.postMessage(frameData);
 
   const onFrameDecoded = useCallback((event) => {
-    const code = event.data
+    const code = event.data;
     if (code) {
-      const { data } = code
+      const { data } = code;
       if (onCode && data.length > 0) {
         try {
-          onCode(JSON.parse(data))
+          onCode(JSON.parse(data));
         } catch (e) {
-          setCodeError(true)
+          setCodeError(true);
         }
       }
     }
 
     if (shouldDecode) {
-      drawVideoFrame.current()
+      drawVideoFrame.current();
     }
-  }, [onCode, shouldDecode])
+  }, [onCode, shouldDecode]);
 
   useEffect(() => {
-    webWorker.current = new Worker(`${process.env.PUBLIC_URL || ''}/qr-worker.js`)
-    webWorker.current.addEventListener('message', onFrameDecoded)
+    webWorker.current = new Worker(`${process.env.PUBLIC_URL || ''}/qr-worker.js`);
+    webWorker.current.addEventListener('message', onFrameDecoded);
     return () => {
       if (webWorker.current) {
-        webWorker.current.terminate()
-        webWorker.current = null
+        webWorker.current.terminate();
+        webWorker.current = null;
       }
-    }
-  }, [onFrameDecoded])
+    };
+  }, [onFrameDecoded]);
 
   const appliedStyle = {
     display: 'grid',
@@ -73,7 +73,7 @@ const CommonQrScan = ({
     margin: '0 auto',
     overflow: 'hidden',
     ...style,
-  }
+  };
   return (
     <div className={className} style={appliedStyle}>
       {codeError ? (
@@ -94,7 +94,7 @@ const CommonQrScan = ({
         />
       )}
     </div>
-  )
-}
+  );
+};
 
-export default CommonQrScan
+export default CommonQrScan;

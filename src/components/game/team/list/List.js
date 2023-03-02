@@ -1,18 +1,18 @@
-import React from 'react'
-import { isEmpty, noop } from 'lodash'
-import List from '@material-ui/core/List'
+import React from 'react';
+import { isEmpty, noop } from 'lodash';
+import List from '@material-ui/core/List';
 
-import useGame from 'components/game/useGame'
-import TeamListEmpty from './Empty'
-import TeamListItem from './Item'
+import useGame from 'components/game/useGame';
+import TeamListEmpty from './Empty';
+import TeamListItem from './Item';
 
 const TeamList = ({ onClickChampionship = noop }) => {
-  const game = useGame()
+  const game = useGame();
 
   if (!game) {
-    return null
+    return null;
   }
-  const { teams = [], round } = game
+  const { teams = [], round } = game;
 
   return isEmpty(teams) ? (
     <TeamListEmpty />
@@ -22,7 +22,7 @@ const TeamList = ({ onClickChampionship = noop }) => {
         <TeamListItem key={team.name} index={index} onClickChampionship={onClickChampionship} round={round} {...team} />
       ))}
     </List>
-  )
-}
+  );
+};
 
-export default TeamList
+export default TeamList;

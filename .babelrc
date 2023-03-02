@@ -1,0 +1,10 @@
+{
+    "plugins": [
+      ["module-resolver", {
+        "alias": {
+          "components": "./src/components",
+          "common": "./src/common"
+        }
+      }]
+    ]
+  }

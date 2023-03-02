@@ -1,5 +1,5 @@
-import React from 'react'
-import styled from 'styled-components'
+import React from 'react';
+import styled from 'styled-components';
 
 const StyledCommaListItem = styled.span`
   &:after {
@@ -8,12 +8,12 @@ const StyledCommaListItem = styled.span`
   &:last-child:after {
     content: none;
   }
-`
+`;
 
 const CommaList = ({ items, attribute = 'name', keyedBy = 'id' }) => items.map((item) => (
   <StyledCommaListItem key={item[keyedBy]}>
     {item[attribute]}
   </StyledCommaListItem>
-))
+));
 
-export default CommaList
+export default CommaList;

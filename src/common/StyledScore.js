@@ -1,5 +1,5 @@
-import styled from 'styled-components'
-import Typography from '@material-ui/core/Typography'
+import styled from 'styled-components';
+import Typography from '@material-ui/core/Typography';
 
 const StyledScore = styled(Typography).attrs({
   align: 'center',
@@ -8,6 +8,6 @@ const StyledScore = styled(Typography).attrs({
   width: 100%;
   display: flex;
   justify-content: center;
-`
+`;
 
-export default StyledScore
+export default StyledScore;
