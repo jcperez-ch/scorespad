@@ -3,7 +3,9 @@
       ["module-resolver", {
         "alias": {
           "components": "./src/components",
-          "common": "./src/common"
+          "common": "./src/common",
+          "themes": "./src/themes",
+          "utils": "./src/utils"
         }
       }]
     ]

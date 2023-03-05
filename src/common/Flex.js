@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Flex = ({
+function Flex({
   component: Cmp = 'div',
   display,
   basis,
@@ -13,7 +13,7 @@ const Flex = ({
   shrink,
   grow,
   ...props
-}) => {
+}) {
   const style = Object.assign(
     display ? { display: 'flex' } : {},
     flex ? { flex } : {},
@@ -30,6 +30,6 @@ const Flex = ({
       {children}
     </Cmp>
   );
-};
+}
 
 export default Flex;

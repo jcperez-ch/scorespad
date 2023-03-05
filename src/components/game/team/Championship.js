@@ -20,7 +20,7 @@ const StyledButton = styled(IconButton).attrs({
   }
 `;
 
-const TeamChampionship = ({ championship, onClick }) => {
+function TeamChampionship({ championship, onClick }) {
   const handleClick = useCallback(() => onClick(championship), [championship, onClick]);
   return (
     <Flex flex="0 1 auto">
@@ -29,6 +29,6 @@ const TeamChampionship = ({ championship, onClick }) => {
       </StyledButton>
     </Flex>
   );
-};
+}
 
 export default TeamChampionship;

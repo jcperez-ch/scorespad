@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { noop } from 'lodash';
+import noop from 'utils/fn/noop';
 import { useTranslation } from 'react-i18next';
 import Button from '@material-ui/core/Button';
 import Modal from '@material-ui/core/Modal';

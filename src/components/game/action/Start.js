@@ -1,4 +1,3 @@
-import { get, noop } from 'lodash';
 import React, { useContext } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router-dom';
@@ -6,6 +5,7 @@ import { useParams } from 'react-router-dom';
 import StickyFabButton from 'common/StickyFabButton';
 import GameStoreContext from 'components/game/context/Store';
 import useGame from 'components/game/useGame';
+import noop from 'utils/fn/noop';
 import { addRound } from '../actionCreators';
 
 export default function GameActionStart({ onStart = noop }) {
@@ -26,7 +26,7 @@ export default function GameActionStart({ onStart = noop }) {
   };
 
   return (
-    get(game, 'teams.length', 0) > 1 && (
+    game.teams.length > 1 && (
       <StickyFabButton tooltip={t('button.startGame')} color="primary" icon="play_arrow" aria-label={t('button.startGame')} onClick={handleStart} />
     )
   );

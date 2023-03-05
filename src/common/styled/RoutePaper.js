@@ -14,9 +14,9 @@ const useStyles = makeStyles({
   },
 });
 
-const CommonRoutePaper = ({ children, ...props }) => {
+function CommonRoutePaper({ children, ...props }) {
   const { root } = useStyles();
   return <Paper classes={{ root }} role="tabpanel" elevation={5} {...props}>{children}</Paper>;
-};
+}
 
 export default CommonRoutePaper;

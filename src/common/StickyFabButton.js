@@ -12,7 +12,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const StickyFabButton = ({ icon, tooltip, ...props }) => {
+function StickyFabButton({ icon, tooltip, ...props }) {
   const { fab } = useStyles();
   return (
     <Tooltip title={tooltip}>
@@ -21,6 +21,6 @@ const StickyFabButton = ({ icon, tooltip, ...props }) => {
       </Fab>
     </Tooltip>
   );
-};
+}
 
 export default StickyFabButton;

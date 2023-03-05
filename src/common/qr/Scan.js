@@ -1,13 +1,11 @@
-import React, {
-  useRef, useEffect, useCallback, useState,
-} from 'react';
-import { noop } from 'lodash';
+import React, { useRef, useEffect, useCallback, useState } from 'react';
+import noop from 'utils/fn/noop';
 import DialogActions from '@material-ui/core/DialogActions';
 
 import VideoStream from './VideoStream';
 import ButtonExtended from '../button/Extended';
 
-const CommonQrScan = ({
+function CommonQrScan({
   className,
   style,
   rearCamera = true,
@@ -20,7 +18,7 @@ const CommonQrScan = ({
   onInit = noop,
   onCode = noop,
   onClose = noop,
-}) => {
+}) {
   const webWorker = useRef(null);
   const drawVideoFrame = useRef(noop);
   const [codeError, setCodeError] = useState(false);
@@ -37,23 +35,26 @@ const CommonQrScan = ({
 
   const onFrame = (frameData) => webWorker.current.postMessage(frameData);
 
-  const onFrameDecoded = useCallback((event) => {
-    const code = event.data;
-    if (code) {
-      const { data } = code;
-      if (onCode && data.length > 0) {
-        try {
-          onCode(JSON.parse(data));
-        } catch (e) {
-          setCodeError(true);
+  const onFrameDecoded = useCallback(
+    (event) => {
+      const code = event.data;
+      if (code) {
+        const { data } = code;
+        if (onCode && data.length > 0) {
+          try {
+            onCode(JSON.parse(data));
+          } catch (e) {
+            setCodeError(true);
+          }
         }
       }
-    }
 
-    if (shouldDecode) {
-      drawVideoFrame.current();
-    }
-  }, [onCode, shouldDecode]);
+      if (shouldDecode) {
+        drawVideoFrame.current();
+      }
+    },
+    [onCode, shouldDecode],
+  );
 
   useEffect(() => {
     webWorker.current = new Worker(`${process.env.PUBLIC_URL || ''}/qr-worker.js`);
@@ -85,16 +86,10 @@ const CommonQrScan = ({
           </DialogActions>
         </>
       ) : (
-        <VideoStream
-          onFrame={onFrame}
-          onInit={onVideoStreamInit}
-          rearCamera={rearCamera}
-          style={videoStyle}
-          fallback={fallbackMedia}
-        />
+        <VideoStream onFrame={onFrame} onInit={onVideoStreamInit} rearCamera={rearCamera} style={videoStyle} fallback={fallbackMedia} />
       )}
     </div>
   );
-};
+}
 
 export default CommonQrScan;

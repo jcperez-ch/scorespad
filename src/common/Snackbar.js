@@ -6,36 +6,38 @@ import CloseIcon from '@material-ui/icons/Close';
 
 import Txt from 'common/Txt';
 
-const CommonSnackbar = ({
+function CommonSnackbar({
   children, onClose, onUpdate, ...props
-}) => (
-  <Snackbar
-    anchorOrigin={{
+}) {
+  return (
+    <Snackbar
+      anchorOrigin={{
       vertical: 'bottom',
       horizontal: 'center',
     }}
-    ContentProps={{
+      ContentProps={{
       'aria-describedby': 'message-id',
     }}
-    message={children}
-    action={[
+      message={children}
+      action={[
       onUpdate && (
         <Button key="undo" variant="outlined" color="primary" size="small" onClick={onUpdate}>
           <Txt id="button.update" />
         </Button>
       ),
-      <IconButton
-        key="close"
-        aria-label="close"
-        color="primary"
-        onClick={onClose}
-      >
-        <CloseIcon />
-      </IconButton>,
+        <IconButton
+          key="close"
+          aria-label="close"
+          color="primary"
+          onClick={onClose}
+        >
+          <CloseIcon />
+        </IconButton>,
     ]}
-    {...props}
-    onClose={onClose}
-  />
-);
+      {...props}
+      onClose={onClose}
+    />
+  );
+}
 
 export default CommonSnackbar;

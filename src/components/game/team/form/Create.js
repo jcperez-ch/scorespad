@@ -16,7 +16,7 @@ import useValidation from 'utils/validation';
 import { createTeam } from '../actionCreators';
 import useGame from '../../useGame';
 
-const TeamFormCreate = () => {
+function TeamFormCreate() {
   const [open, setOpen] = useState(false);
   const [name, setName] = useState('');
   const [t] = useTranslation();
@@ -58,6 +58,6 @@ const TeamFormCreate = () => {
       </DialogActions>
     </Dialog>
   );
-};
+}
 
 export default TeamFormCreate;

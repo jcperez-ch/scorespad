@@ -1,4 +1,4 @@
-import { noop } from 'lodash';
+import noop from 'utils/fn/noop';
 import React, { useContext } from 'react';
 import { useParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';

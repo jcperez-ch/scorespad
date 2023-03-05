@@ -24,7 +24,7 @@ export default function GameListItem({ onClick, id, name, teams }) {
       <ListItem button {...rippleProps}>
         <ListItemText
           disableTypography
-          secondary={
+          secondary={(
             <>
               <Typography variant="body2">{t('messages.createdAt', { date: createdAt.toDateString() })}</Typography>
               {teams.length > 0 && (
@@ -33,7 +33,7 @@ export default function GameListItem({ onClick, id, name, teams }) {
                 </Typography>
               )}
             </>
-          }
+          )}
         >
           <Typography variant="body1">{name}</Typography>
         </ListItemText>

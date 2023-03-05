@@ -25,15 +25,17 @@ const StyledText = styled(Typography).attrs({
   }
 `;
 
-const DialogTitle = ({ children, onClose, ...props }, ref) => (
-  <StyledWrapper ref={ref} {...props}>
-    <StyledContainer>
-      <IconButton color="primary" onClick={onClose}>
-        <Icon>close</Icon>
-      </IconButton>
-      <StyledText>{children}</StyledText>
-    </StyledContainer>
-  </StyledWrapper>
-);
+function DialogTitle({ children, onClose, ...props }, ref) {
+  return (
+    <StyledWrapper ref={ref} {...props}>
+      <StyledContainer>
+        <IconButton color="primary" onClick={onClose}>
+          <Icon>close</Icon>
+        </IconButton>
+        <StyledText>{children}</StyledText>
+      </StyledContainer>
+    </StyledWrapper>
+  );
+}
 
 export default forwardRef(DialogTitle);

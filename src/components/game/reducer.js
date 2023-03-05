@@ -48,7 +48,7 @@ export const endRound = (state, { round }) => {
   return gameTeamsReducer({ ...state, round: null }, { type: 'C+', index: winnerIndex, round });
 };
 
-const reducer = (state = {}, { type, ...payload }) => {
+const reducer = (state, { type, ...payload }) => {
   switch (type) {
     case '-- --':
       return payload;

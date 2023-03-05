@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { noop } from 'lodash';
+import noop from 'utils/fn/noop';
 import { useTranslation } from 'react-i18next';
 
 import ModalConfirm from 'common/modal/Confirm';

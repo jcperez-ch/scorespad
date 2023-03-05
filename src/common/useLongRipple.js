@@ -1,11 +1,7 @@
 import { useState, useEffect } from 'react';
-import { noop } from 'lodash';
+import noop from 'utils/fn/noop';
 
-const useLongRipple = ({
-  onLongPress = noop,
-  onClick = noop,
-  rippleDelay = 800,
-}) => {
+const useLongRipple = ({ onLongPress = noop, onClick = noop, rippleDelay = 800 }) => {
   const [ripple, setRipple] = useState(null);
   const handleTouchStart = () => setRipple(true);
   const handleTouchEnd = (e) => {

@@ -28,7 +28,7 @@ const StyledCount = styled.span`
   text-transform: lowercase;
 `;
 
-const TeamGroupedChampionships = ({ count, index }) => {
+function TeamGroupedChampionships({ count, index }) {
   const navigate = useNavigate();
   const goToChampionships = () => navigate(`championships/${index}`);
   return (
@@ -43,6 +43,6 @@ const TeamGroupedChampionships = ({ count, index }) => {
       </StyledButton>
     </Flex>
   );
-};
+}
 
 export default TeamGroupedChampionships;

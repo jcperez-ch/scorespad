@@ -11,7 +11,7 @@ import TeamFormUpdate from '../form/Update';
 import TeamChampionship from '../Championship';
 import TeamGroupedChampionships from '../championship/GroupedChampionships';
 
-const TeamListItem = ({ index, name, championships = [], rounds, round, onClickChampionship }) => {
+function TeamListItem({ index, name, championships = [], rounds, round, onClickChampionship }) {
   const [newName, setNewName] = useState(null);
   const handleEditMode = () => setNewName(name);
   const handleViewMode = () => setNewName(null);
@@ -37,6 +37,6 @@ const TeamListItem = ({ index, name, championships = [], rounds, round, onClickC
       </ListItem>
     </SlideLongRippleSwitch>
   );
-};
+}
 
 export default TeamListItem;

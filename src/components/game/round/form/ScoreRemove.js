@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import styled from 'styled-components';
-import { noop } from 'lodash';
+import noop from 'utils/fn/noop';
 import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router-dom';
 import IconButton from '@material-ui/core/IconButton';

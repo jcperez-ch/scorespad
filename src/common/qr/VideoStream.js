@@ -47,6 +47,7 @@ class CommonVideoStream extends Component {
   };
 
   startCamera = async () => {
+    const { rearCamera } = this.props;
     this.stopCamera();
 
     if (!(navigator.mediaDevices && navigator.mediaDevices.getUserMedia)) {
@@ -57,8 +58,8 @@ class CommonVideoStream extends Component {
     const cameras = devices.filter((device) => device.kind === 'videoinput');
     let videoMode = { facingMode: 'user' };
     if (cameras.length > 1) {
-      const cameraIndex = this.props.rearCamera ? 1 : 0;
-      const cameraEnv = this.props.rearCamera ? 'environment' : 'user';
+      const cameraIndex = rearCamera ? 1 : 0;
+      const cameraEnv = rearCamera ? 'environment' : 'user';
       videoMode = isSafari() ? { facingMode: { exact: cameraEnv } } : { deviceId: cameras[cameraIndex].deviceId };
     }
 
@@ -123,7 +124,18 @@ class CommonVideoStream extends Component {
   render() {
     const { style = {}, fallback = null } = this.props;
     const { error } = this.state;
-    return error ? fallback : <video style={{ ...videoStyles, ...style }} ref={(v) => (this.video = v)} />;
+    return error ? (
+      fallback
+    ) : (
+      <video
+        muted
+        style={{ ...videoStyles, ...style }}
+        ref={(v) => {
+          this.video = v;
+          return v;
+        }}
+      />
+    );
   }
 }
 

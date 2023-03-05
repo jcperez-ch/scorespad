@@ -9,7 +9,7 @@ import ButtonExtended from '../button/Extended';
 import ModalActions from './Actions';
 import ModalContent from './Content';
 
-const ModalConfirm = ({
+function ModalConfirm({
   children,
   cancelText,
   confirmText,
@@ -20,7 +20,7 @@ const ModalConfirm = ({
   fab = false,
   onConfirm,
   ...props
-}) => {
+}) {
   const [open, setOpen] = useState(false);
   const toggleOpen = () => setOpen(!open);
   const handleClose = () => setOpen(false);
@@ -64,6 +64,6 @@ const ModalConfirm = ({
       </Modal>
     </>
   );
-};
+}
 
 export default ModalConfirm;

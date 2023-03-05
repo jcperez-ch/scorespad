@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
-import { noop } from 'lodash';
+import noop from 'utils/fn/noop';
 import Fab from '@material-ui/core/Fab';
 import Icon from '@material-ui/core/Icon';
 

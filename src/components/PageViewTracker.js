@@ -1,7 +1,7 @@
 import { memo } from 'react';
 import { useLocation } from 'react-router-dom';
 
-const PageViewTracker = () => {
+function PageViewTracker() {
   const { pathname } = useLocation();
   if (window.ga) {
     window.ga('send', 'pageview', pathname);
@@ -10,6 +10,6 @@ const PageViewTracker = () => {
     console.log('ga.send', pathname);
   }
   return null;
-};
+}
 
 export default memo(PageViewTracker);

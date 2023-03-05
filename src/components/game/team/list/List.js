@@ -1,12 +1,12 @@
 import React from 'react';
-import { isEmpty, noop } from 'lodash';
 import List from '@material-ui/core/List';
 
 import useGame from 'components/game/useGame';
+import noop from 'utils/fn/noop';
 import TeamListEmpty from './Empty';
 import TeamListItem from './Item';
 
-const TeamList = ({ onClickChampionship = noop }) => {
+export default function TeamList({ onClickChampionship = noop }) {
   const game = useGame();
 
   if (!game) {
@@ -14,7 +14,7 @@ const TeamList = ({ onClickChampionship = noop }) => {
   }
   const { teams = [], round } = game;
 
-  return isEmpty(teams) ? (
+  return teams.length === 0 ? (
     <TeamListEmpty />
   ) : (
     <List component="div">
@@ -23,6 +23,4 @@ const TeamList = ({ onClickChampionship = noop }) => {
       ))}
     </List>
   );
-};
-
-export default TeamList;
+}

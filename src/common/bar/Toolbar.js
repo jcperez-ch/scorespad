@@ -21,10 +21,12 @@ const StyledToolbar = styled.div`
   }
 `;
 
-const BarToolbar = ({ children }) => (
-  <StyledAppBar>
-    <StyledToolbar>{children}</StyledToolbar>
-  </StyledAppBar>
-);
+function BarToolbar({ children }) {
+  return (
+    <StyledAppBar>
+      <StyledToolbar>{children}</StyledToolbar>
+    </StyledAppBar>
+  );
+}
 
 export default BarToolbar;

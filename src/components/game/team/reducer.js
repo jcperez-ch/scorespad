@@ -1,5 +1,3 @@
-import { get } from 'lodash';
-
 const reduceTeam = (state, { index, ...payload }, reduceFunction) => {
   if (index > state.length || index < 0) {
     return state;
@@ -44,7 +42,8 @@ export const addChampionship = (state, { index, round }) =>
               ...team,
               championships: [...team.championships, round],
             }
-          : team);
+          : team,
+      );
 
 export const deleteChampionship = (state, { round }) => {
   const index = state.findIndex((team) => team.championships.some((championship) => round === championship));
@@ -52,15 +51,16 @@ export const deleteChampionship = (state, { round }) => {
     ? state
     : state.map((team, i) =>
         i === index
-        ? {
-            ...team,
-            championships: team.championships.filter((championship) => round !== championship),
-          }
-        : team);
+          ? {
+              ...team,
+              championships: team.championships.filter((championship) => round !== championship),
+            }
+          : team,
+      );
 };
 
 export const removeScore = (team, { round, scoreIndex }) =>
-  get(team.rounds, `${round}.${scoreIndex}`) === undefined
+  team.rounds[round][scoreIndex] == null
     ? team
     : {
         ...team,
@@ -81,7 +81,7 @@ export const addScores = (state, { round, scores }) =>
         },
       }));
 
-export const reducer = (state = [], { type, ...payload }) => {
+export const reducer = (state, { type, ...payload }) => {
   switch (type) {
     case 'T+':
       return createTeam(state, payload);
@@ -100,6 +100,6 @@ export const reducer = (state = [], { type, ...payload }) => {
     case 'C-':
       return deleteChampionship(state, payload);
     default:
-      return state;
+      return state ?? [];
   }
 };

@@ -1,5 +1,3 @@
-import { get } from 'lodash';
-
 const gaTrackingEnhancer = (reducer) => (state, action) => {
   if (window.ga) {
     const { type, ...payload } = action;
@@ -9,19 +7,19 @@ const gaTrackingEnhancer = (reducer) => (state, action) => {
         ga('send', 'event', 'Game', 'create', payload.name);
         break;
       case 'G-':
-        ga('send', 'event', 'Game', 'remove', get(state, `${payload.key}.name`, ''));
+        ga('send', 'event', 'Game', 'remove', state[payload.key]?.name ?? '');
         break;
       case 'G=':
         ga('send', 'event', 'Game', 'rename', payload.name);
         break;
       case 'G$':
-        ga('send', 'event', 'Game', 'finish', get(state, `${payload.key}.name`, ''));
+        ga('send', 'event', 'Game', 'finish', state[payload.key]?.name ?? '');
         break;
       case 'T+':
         ga('send', 'event', 'Team', 'create', payload.name);
         break;
       case 'T-':
-        ga('send', 'event', 'Team', 'remove', get(state, `${payload.key}.teams.${payload.index}.name`, ''));
+        ga('send', 'event', 'Team', 'remove', state[payload.key]?.teams[payload.index]?.name ?? '');
         break;
       case 'T=':
         ga('send', 'event', 'Team', 'rename', payload.name);
@@ -37,10 +35,10 @@ const gaTrackingEnhancer = (reducer) => (state, action) => {
         break;
       }
       case 'S-':
-        ga('send', 'event', 'Team', 'removeScore', get(state, `${payload.key}.teams.${payload.index}.name`, ''));
+        ga('send', 'event', 'Team', 'removeScore', state[payload.key]?.teams[payload.index]?.name ?? '');
         break;
       case 'C+':
-        ga('send', 'event', 'Team', 'champion', get(state, `${payload.key}.teams.${payload.index}.name`, ''));
+        ga('send', 'event', 'Team', 'champion', state[payload.key]?.teams[payload.index]?.name ?? '');
         break;
       default:
     }

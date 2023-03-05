@@ -3,8 +3,6 @@ import TextField from '@material-ui/core/TextField';
 
 import { onChange, onEnter } from 'utils/handlers';
 
-const NameField = ({ onChange: handleChange, onEnter: handleEnter, error = null, ...props }) => (
-  <TextField error={!!error} fullWidth helperText={error} onChange={onChange(handleChange)} onKeyDown={onEnter(handleEnter)} {...props} />
-);
-
-export default NameField;
+export default function NameField({ onChange: handleChange, onEnter: handleEnter, error = null, ...props }) {
+  return <TextField error={!!error} fullWidth helperText={error} onChange={onChange(handleChange)} onKeyDown={onEnter(handleEnter)} {...props} />;
+}

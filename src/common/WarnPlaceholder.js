@@ -31,17 +31,17 @@ const FullViewportHeight = styled.div`
   }
 `;
 
-const WarnPlaceholder = ({ color = 'primary', icon, message }) => (
-  <FullViewportHeight>
-    <aside>
-      <Icon color={color} fontSize="inherit">
-        {icon}
-      </Icon>
-    </aside>
-    <Typography color={color} component="div" variant="body1">
-      {message}
-    </Typography>
-  </FullViewportHeight>
-);
-
-export default WarnPlaceholder;
+export default function WarnPlaceholder({ color = 'primary', icon, message }) {
+  return (
+    <FullViewportHeight>
+      <aside>
+        <Icon color={color} fontSize="inherit">
+          {icon}
+        </Icon>
+      </aside>
+      <Typography color={color} component="div" variant="body1">
+        {message}
+      </Typography>
+    </FullViewportHeight>
+  );
+}

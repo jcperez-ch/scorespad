@@ -1,5 +1,7 @@
 import React from 'react';
 
-const EmptyBlock = () => <div />;
+function EmptyBlock() {
+  return <div />;
+}
 
 export default EmptyBlock;

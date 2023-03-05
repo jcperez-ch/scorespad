@@ -1,6 +1,6 @@
-import { Store, get } from 'idb-keyval';
+import { createStore, get } from 'idb-keyval';
 
-export const store = new Store('scorespad-db', 'scorespad-store');
+export const store = createStore('scorespad-db', 'scorespad-store');
 
 export const getInitialState = async () => {
   let [games, theme, locale] = await Promise.all([get('gms', store), get('theme', store), get('locale', store)]);

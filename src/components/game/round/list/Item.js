@@ -1,6 +1,5 @@
 import React, { useContext } from 'react';
 import styled from 'styled-components';
-import { map } from 'lodash';
 import Card from '@material-ui/core/Card';
 import List from '@material-ui/core/List';
 
@@ -36,7 +35,8 @@ export default function RoundListItem({ index, name, rounds, round, onEnter: han
         <CardHeader title={name} titleTypographyProps={{ align: 'center' }} />
         <StyledRoundListItemContent>
           <List component="div" dense>
-            {map(teamScores, (score, key) => (
+            {teamScores.map((score, key) => (
+              // eslint-disable-next-line react/no-array-index-key
               <GameRoundScore key={key} score={score} index={index} scoreIndex={key} />
             ))}
             <GameRoundSum rounds={rounds} round={round} />

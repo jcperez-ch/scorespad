@@ -1,3 +1,7 @@
+/* eslint-disable no-use-before-define */
+/* eslint-disable no-param-reassign */
+/* eslint-disable no-console */
+/* eslint-disable no-useless-concat */
 // This optional code is used to register a service worker.
 // register() is not called by default.
 
@@ -39,7 +43,7 @@ export function register(config) {
         // Add some additional logging to localhost, pointing developers to the
         // service worker/PWA documentation.
         navigator.serviceWorker.ready.then(() => {
-          console.log('This web app is being served cache-first by a service ' + 'worker. To learn more, visit https://bit.ly/CRA-PWA');
+          console.log('This web app is being served cache-first by a service worker. To learn more, visit https://bit.ly/CRA-PWA');
         });
       } else {
         // Is not localhost. Just register service worker

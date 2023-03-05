@@ -1,9 +1,9 @@
 import React, { Children } from 'react';
 import SlideItem from 'common/SlideItem';
 
-const SlideLongRippleSwitch = ({
+function SlideLongRippleSwitch({
   children, active = 0,
-}) => {
+}) {
   const count = Children.count(children);
   return (
     <SlideItem active={active} count={count}>
@@ -12,6 +12,6 @@ const SlideLongRippleSwitch = ({
       ))}
     </SlideItem>
   );
-};
+}
 
 export default SlideLongRippleSwitch;

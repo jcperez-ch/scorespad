@@ -1,4 +1,4 @@
-import { noop } from 'lodash';
+import noop from 'utils/fn/noop';
 import React, { useContext } from 'react';
 import { useParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
@@ -8,7 +8,7 @@ import GameStoreContext from 'components/game/context/Store';
 
 import { removeTeam } from '../actionCreators';
 
-const TeamActionRemove = ({ index, name, onSuccess = noop }) => {
+function TeamActionRemove({ index, name, onSuccess = noop }) {
   const [, dispatch] = useContext(GameStoreContext);
   const { gameKey } = useParams();
   const [t] = useTranslation();
@@ -28,6 +28,6 @@ const TeamActionRemove = ({ index, name, onSuccess = noop }) => {
       onConfirm={handleRemove}
     />
   );
-};
+}
 
 export default TeamActionRemove;

@@ -10,9 +10,9 @@ const useStyles = makeStyles({
   },
 });
 
-const ButtonExtended = ({
+function ButtonExtended({
   label, hideLabel = false, icon, color = 'primary', size = 'small', ...props
-}) => {
+}) {
   const { startIcon } = useStyles();
   return (
     <Button
@@ -27,6 +27,6 @@ const ButtonExtended = ({
       {!hideLabel && <span className="label">{label}</span>}
     </Button>
   );
-};
+}
 
 export default ButtonExtended;
