@@ -1,13 +1,15 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import List from '@material-ui/core/List';
 
+import WarnPlaceholder from 'common/WarnPlaceholder';
 import useGame from 'components/game/useGame';
 import noop from 'utils/fn/noop';
-import TeamListEmpty from './Empty';
 import TeamListItem from './Item';
 
 export default function TeamList({ onClickChampionship = noop }) {
   const game = useGame();
+  const [t] = useTranslation();
 
   if (!game) {
     return null;
@@ -15,7 +17,7 @@ export default function TeamList({ onClickChampionship = noop }) {
   const { teams = [], round } = game;
 
   return teams.length === 0 ? (
-    <TeamListEmpty />
+    <WarnPlaceholder icon="people" message={t('text.noTeams')} />
   ) : (
     <List component="div">
       {teams.map((team, index) => (
