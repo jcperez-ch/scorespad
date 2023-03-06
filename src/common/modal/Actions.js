@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from '@emotion/styled';
 
 const ModalActions = styled.div`
   padding: 2.5rem 0 0;

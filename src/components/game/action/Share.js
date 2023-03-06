@@ -2,11 +2,11 @@ import React, { useCallback, useContext, useEffect, useMemo, useState } from 're
 import { useTranslation } from 'react-i18next';
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import QRCode from 'qrcode';
-import Button from '@material-ui/core/Button';
-import Dialog from '@material-ui/core/Dialog';
-import DialogActions from '@material-ui/core/DialogActions';
-import DialogContent from '@material-ui/core/DialogContent';
-import useMediaQuery from '@material-ui/core/useMediaQuery';
+import Button from '@mui/material/Button';
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import useMediaQuery from '@mui/material/useMediaQuery';
 
 import SlideUp from 'common/SlideUp';
 import DialogTitle from 'common/dialog/Title';
@@ -47,8 +47,9 @@ export default function GameActionShare() {
       open={open}
       TransitionComponent={SlideUp}
       onClose={handleClose}
-      onExited={handleExited}
-    >
+      TransitionProps={{
+        onExited: handleExited
+      }}>
       <DialogTitle id="game-share-dialog-title" onClose={handleClose}>
         {t('title.shareGame')}
       </DialogTitle>

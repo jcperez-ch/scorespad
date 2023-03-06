@@ -1,8 +1,8 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import styled from 'styled-components';
-import Button from '@material-ui/core/Button';
-import Icon from '@material-ui/core/Icon';
+import styled from '@emotion/styled';
+import Button from '@mui/material/Button';
+import Icon from '@mui/material/Icon';
 
 import Flex from 'common/Flex';
 
@@ -13,14 +13,16 @@ const StyledIcon = styled(Icon)`
   }
 `;
 
-const StyledButton = styled(Button).attrs({
-  variant: 'text',
-  color: 'primary',
-})`
+const StyledButton = styled(Button)`
   && {
     padding: 0.25rem;
   }
 `;
+
+StyledButton.defaultProps = {
+  variant: 'text',
+  color: 'primary',
+};
 
 const StyledCount = styled.span`
   padding: 0 0.25rem;

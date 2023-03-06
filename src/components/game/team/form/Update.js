@@ -2,8 +2,8 @@ import noop from 'utils/fn/noop';
 import React, { useContext } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router-dom';
-import Fab from '@material-ui/core/Fab';
-import Icon from '@material-ui/core/Icon';
+import Fab from '@mui/material/Fab';
+import Icon from '@mui/material/Icon';
 
 import ButtonExtended from 'common/button/Extended';
 import StyledNameForm from 'common/styled/NameForm';

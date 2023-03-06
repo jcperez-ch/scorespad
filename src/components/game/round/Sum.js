@@ -1,6 +1,6 @@
 import React from 'react';
-import styled from 'styled-components';
-import ListItem from '@material-ui/core/ListItem';
+import styled from '@emotion/styled';
+import ListItem from '@mui/material/ListItem';
 import StyledScore from 'common/StyledScore';
 import { themeColors } from 'themes';
 

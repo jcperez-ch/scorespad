@@ -1,7 +1,7 @@
 import React, { useCallback, useMemo, useState } from 'react';
-import { ThemeProvider as StyledThemeProvider } from 'styled-components';
-import { MuiThemeProvider } from '@material-ui/core/styles';
-import themes from 'themes';
+import { Global, ThemeProvider as EmotionThemeProvider } from '@emotion/react';
+import { ThemeProvider as MuiThemeProvider, StyledEngineProvider } from '@mui/material/styles';
+import { themes } from 'themes';
 import Storage from 'common/Storage';
 
 import ThemeContext from './Context';
@@ -9,7 +9,7 @@ import ThemeContext from './Context';
 export default function ThemeProvider({ initial = 'minimal', children }) {
   const storage = 'theme';
   const [theme, setTheme] = useState(initial);
-  const { globalStyle: Global, ...themeRef } = themes[theme];
+  const { globalStyles, muiTheme, ...themeConfig } = themes[theme];
   const handleSetTheme = useCallback((value) => {
     if (window.ga) {
       window.ga('send', 'event', 'UI', 'theme', value);
@@ -19,14 +19,16 @@ export default function ThemeProvider({ initial = 'minimal', children }) {
   return (
     <ThemeContext.Provider value={useMemo(() => [theme, handleSetTheme], [theme, handleSetTheme])}>
       <Storage index={storage} value={theme} />
-      <StyledThemeProvider theme={themeRef}>
-        <MuiThemeProvider theme={themeRef.mui}>
-          <>
-            <Global />
-            {children}
-          </>
-        </MuiThemeProvider>
-      </StyledThemeProvider>
+      <EmotionThemeProvider theme={themeConfig}>
+        <StyledEngineProvider injectFirst>
+          <MuiThemeProvider theme={muiTheme}>
+            <>
+              <Global styles={globalStyles} />
+              {children}
+            </>
+          </MuiThemeProvider>
+        </StyledEngineProvider>
+      </EmotionThemeProvider>
     </ThemeContext.Provider>
   );
 }

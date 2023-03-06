@@ -1,8 +1,8 @@
 import React, { forwardRef } from 'react';
-import IconButton from '@material-ui/core/IconButton';
-import Icon from '@material-ui/core/Icon';
-import Typography from '@material-ui/core/Typography';
-import styled from 'styled-components';
+import IconButton from '@mui/material/IconButton';
+import Icon from '@mui/material/Icon';
+import Typography from '@mui/material/Typography';
+import styled from '@emotion/styled';
 
 import { themeColors } from 'themes';
 
@@ -16,20 +16,22 @@ const StyledContainer = styled.div`
   justify-content: flex-start;
 `;
 
-const StyledText = styled(Typography).attrs({
-  component: 'h4',
-  variant: 'overline',
-})`
+const StyledText = styled(Typography)`
   && {
     margin-left: 0.75rem;
   }
 `;
 
+StyledText.defaultProps = {
+  component: 'h4',
+  variant: 'overline',
+};
+
 function DialogTitle({ children, onClose, ...props }, ref) {
   return (
     <StyledWrapper ref={ref} {...props}>
       <StyledContainer>
-        <IconButton color="primary" onClick={onClose}>
+        <IconButton color="primary" onClick={onClose} size="large">
           <Icon>close</Icon>
         </IconButton>
         <StyledText>{children}</StyledText>

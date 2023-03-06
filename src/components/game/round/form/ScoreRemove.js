@@ -1,12 +1,12 @@
 import React, { useContext } from 'react';
-import styled from 'styled-components';
+import styled from '@emotion/styled';
 import noop from 'utils/fn/noop';
 import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router-dom';
-import IconButton from '@material-ui/core/IconButton';
-import Icon from '@material-ui/core/Icon';
-import ListItemText from '@material-ui/core/ListItemText';
-import Typography from '@material-ui/core/Typography';
+import IconButton from '@mui/material/IconButton';
+import Icon from '@mui/material/Icon';
+import ListItemText from '@mui/material/ListItemText';
+import Typography from '@mui/material/Typography';
 
 import ModalConfirm from 'common/modal/Confirm';
 import GameStoreContext from 'components/game/context/Store';

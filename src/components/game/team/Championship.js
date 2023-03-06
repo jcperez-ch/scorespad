@@ -1,7 +1,7 @@
 import React, { useCallback } from 'react';
-import styled from 'styled-components';
-import IconButton from '@material-ui/core/IconButton';
-import Icon from '@material-ui/core/Icon';
+import styled from '@emotion/styled';
+import IconButton from '@mui/material/IconButton';
+import Icon from '@mui/material/Icon';
 
 import Flex from 'common/Flex';
 
@@ -11,14 +11,16 @@ const StyledIcon = styled(Icon)`
   }
 `;
 
-const StyledButton = styled(IconButton).attrs({
-  variant: 'text',
-  color: 'primary',
-})`
+const StyledButton = styled(IconButton)`
   && {
     padding: 0.5rem;
   }
 `;
+
+StyledButton.defaultProps = {
+  variant: 'text',
+  color: 'primary',
+};
 
 function TeamChampionship({ championship, onClick }) {
   const handleClick = useCallback(() => onClick(championship), [championship, onClick]);

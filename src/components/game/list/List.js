@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import List from '@material-ui/core/List';
+import List from '@mui/material/List';
 
 import GameStoreContext from 'components/game/context/Store';
 import GameListItem from './Item';

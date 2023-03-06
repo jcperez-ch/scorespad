@@ -1,6 +1,6 @@
 import React, { useRef, useEffect, useCallback, useState } from 'react';
 import noop from 'utils/fn/noop';
-import DialogActions from '@material-ui/core/DialogActions';
+import DialogActions from '@mui/material/DialogActions';
 
 import VideoStream from './VideoStream';
 import ButtonExtended from '../button/Extended';

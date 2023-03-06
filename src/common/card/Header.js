@@ -1,5 +1,5 @@
-import styled from 'styled-components';
-import MuiCardHeader from '@material-ui/core/CardHeader';
+import styled from '@emotion/styled';
+import MuiCardHeader from '@mui/material/CardHeader';
 
 const CardHeader = styled(MuiCardHeader)`
   padding: 0.5rem;

@@ -1,6 +1,6 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
-import List from '@material-ui/core/List';
+import List from '@mui/material/List';
 
 import GameGuard from './game/Guard';
 

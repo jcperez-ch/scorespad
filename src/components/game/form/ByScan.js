@@ -1,11 +1,11 @@
 import React, { useCallback, useContext, useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
-import Button from '@material-ui/core/Button';
-import CardHeader from '@material-ui/core/CardHeader';
-import DialogActions from '@material-ui/core/DialogActions';
-import DialogContent from '@material-ui/core/DialogContent';
-import Typography from '@material-ui/core/Typography';
+import Button from '@mui/material/Button';
+import CardHeader from '@mui/material/CardHeader';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import Typography from '@mui/material/Typography';
 
 import CommaList from 'common/CommaList';
 import CommonQrScan from 'common/qr/Scan';

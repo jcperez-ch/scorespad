@@ -1,11 +1,13 @@
-import styled from 'styled-components';
-import Typography from '@material-ui/core/Typography';
+import styled from '@emotion/styled';
+import Typography from '@mui/material/Typography';
 
-const DialogHeadline = styled(Typography).attrs({
-  variant: 'body2',
-  gutterBottom: true,
-})`
+const DialogHeadline = styled(Typography)`
   padding: 1rem 0 0.5rem;
 `;
+
+DialogHeadline.defaultProps = {
+  variant: 'body2',
+  gutterBottom: true,
+};
 
 export default DialogHeadline;

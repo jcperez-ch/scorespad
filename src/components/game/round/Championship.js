@@ -1,9 +1,9 @@
 import React from 'react';
-import styled from 'styled-components';
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemText from '@material-ui/core/ListItemText';
-import Typography from '@material-ui/core/Typography';
+import styled from '@emotion/styled';
+import List from '@mui/material/List';
+import ListItem from '@mui/material/ListItem';
+import ListItemText from '@mui/material/ListItemText';
+import Typography from '@mui/material/Typography';
 
 import ButtonsWrapper from 'common/ButtonsWrapper';
 import Flex from 'common/Flex';
@@ -11,24 +11,26 @@ import noop from 'utils/fn/noop';
 
 import RoundActionDelete from './action/Delete';
 
-const StyledSumScore = styled(Typography).attrs({
-  variant: 'overline',
-})`
+const StyledSumScore = styled(Typography)`
   && {
     font-size: 2rem;
     text-align: right;
     line-height: 1.2;
   }
 `;
-
-const StyledScore = styled(Typography).attrs({
+StyledSumScore.defaultProps = {
   variant: 'overline',
-})`
+};
+
+const StyledScore = styled(Typography)`
   && {
     font-size: 0.875rem;
     margin-left: 0.875rem;
   }
 `;
+StyledScore.defaultProps = {
+  variant: 'overline',
+};
 
 export default function RoundChampionship({ teams, round, onDelete = noop }) {
   const teamTotal = ({ rounds }) => rounds[round].reduce((sum, value) => value + sum, 0);

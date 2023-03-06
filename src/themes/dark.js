@@ -1,7 +1,7 @@
-import { createGlobalStyle } from 'styled-components';
-import { createTheme } from '@material-ui/core/styles';
+import { css } from '@emotion/react';
+import { createTheme, adaptV4Theme } from '@mui/material/styles';
 
-const mui = createTheme({
+const muiConfig = {
   palette: {
     primary: {
       main: '#607d8b',
@@ -41,7 +41,7 @@ const mui = createTheme({
       fontSize: '0.8rem',
     },
   },
-});
+};
 
 export default {
   fonts: ['Raleway'],
@@ -56,8 +56,9 @@ export default {
     largeScreenMax: '1440px',
     extraLargeScreenMin: '1441px',
   },
-  mui,
-  globalStyle: createGlobalStyle`
+  mui: muiConfig,
+  muiTheme: createTheme(adaptV4Theme(muiConfig)),
+  globalStyles: css`
     @import url('https://fonts.googleapis.com/css?family=Raleway&display=swap');
   `,
 };

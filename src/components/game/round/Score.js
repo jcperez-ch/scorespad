@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import ListItem from '@material-ui/core/ListItem';
+import ListItem from '@mui/material/ListItem';
 
 import SlideLongRippleSwitch from 'common/SlideLongRippleSwitch';
 import StyledScore from 'common/StyledScore';

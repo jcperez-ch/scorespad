@@ -1,9 +1,9 @@
 import React, { useContext, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import IconButton from '@material-ui/core/IconButton';
-import Menu from '@material-ui/core/Menu';
-import MenuItem from '@material-ui/core/MenuItem';
-import Icon from '@material-ui/core/Icon';
+import IconButton from '@mui/material/IconButton';
+import Menu from '@mui/material/Menu';
+import MenuItem from '@mui/material/MenuItem';
+import Icon from '@mui/material/Icon';
 import ThemeContext from './Context';
 
 export default function ThemeMenu() {
@@ -22,18 +22,22 @@ export default function ThemeMenu() {
     { id: 'girlish', label: t('skins.girlish') },
     { id: 'dark', label: t('skins.dark') },
   ];
-  return (
-    <>
-      <IconButton color="inherit" aria-owns={el ? 'theme-menu' : undefined} aria-haspopup="true" aria-label="Theme" onClick={handleOpen}>
-        <Icon>color_lens</Icon>
-      </IconButton>
-      <Menu id="theme-menu" anchorEl={el} open={Boolean(el)} onClose={handleClose}>
-        {items.map(({ id, label }) => (
-          <MenuItem key={id} selected={id === theme} onClick={handleClick(id)}>
-            {label}
-          </MenuItem>
-        ))}
-      </Menu>
-    </>
-  );
+  return <>
+    <IconButton
+      color="inherit"
+      aria-owns={el ? 'theme-menu' : undefined}
+      aria-haspopup="true"
+      aria-label="Theme"
+      onClick={handleOpen}
+      size="large">
+      <Icon>color_lens</Icon>
+    </IconButton>
+    <Menu id="theme-menu" anchorEl={el} open={Boolean(el)} onClose={handleClose}>
+      {items.map(({ id, label }) => (
+        <MenuItem key={id} selected={id === theme} onClick={handleClick(id)}>
+          {label}
+        </MenuItem>
+      ))}
+    </Menu>
+  </>;
 }

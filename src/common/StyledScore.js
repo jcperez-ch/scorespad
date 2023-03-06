@@ -1,13 +1,15 @@
-import styled from 'styled-components';
-import Typography from '@material-ui/core/Typography';
+import styled from '@emotion/styled';
+import Typography from '@mui/material/Typography';
 
-const StyledScore = styled(Typography).attrs({
-  align: 'center',
-  component: 'div',
-})`
+const StyledScore = styled(Typography)`
   width: 100%;
   display: flex;
   justify-content: center;
 `;
+
+StyledScore.defaultProps = {
+  align: 'center',
+  component: 'div',
+};
 
 export default StyledScore;

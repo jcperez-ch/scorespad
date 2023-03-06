@@ -1,8 +1,8 @@
 import React from 'react';
-import Fab from '@material-ui/core/Fab';
-import Icon from '@material-ui/core/Icon';
-import Tooltip from '@material-ui/core/Tooltip';
-import { makeStyles } from '@material-ui/styles';
+import Fab from '@mui/material/Fab';
+import Icon from '@mui/material/Icon';
+import Tooltip from '@mui/material/Tooltip';
+import { makeStyles } from '@mui/styles';
 
 const useStyles = makeStyles((theme) => ({
   fab: {

@@ -5,5 +5,4 @@ import themeColors from './colors';
 import themeScreenSizes from './screenSizes';
 
 export { themeColors, themeScreenSizes };
-
-export default { minimal, girlish, dark };
+export const themes = { minimal, girlish, dark };

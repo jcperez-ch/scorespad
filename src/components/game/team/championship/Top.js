@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import IconButton from '@material-ui/core/IconButton';
-import Icon from '@material-ui/core/Icon';
+import IconButton from '@mui/material/IconButton';
+import Icon from '@mui/material/Icon';
 
 import BarToolbar from 'common/bar/Toolbar';
 import BarTitle from 'common/bar/Title';
@@ -14,7 +14,7 @@ export default function TeamChampionshipTop({ title }) {
 
   return (
     <BarToolbar>
-      <IconButton color="inherit" onClick={goToGame}>
+      <IconButton color="inherit" onClick={goToGame} size="large">
         <Icon>arrow_back</Icon>
       </IconButton>
       <BarTitle>{title}</BarTitle>

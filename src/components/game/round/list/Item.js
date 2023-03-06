@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
-import styled from 'styled-components';
-import Card from '@material-ui/core/Card';
-import List from '@material-ui/core/List';
+import styled from '@emotion/styled';
+import Card from '@mui/material/Card';
+import List from '@mui/material/List';
 
 import CardHeader from 'common/card/Header';
 import GameScoresContext from 'components/game/context/Scores';

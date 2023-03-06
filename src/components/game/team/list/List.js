@@ -1,8 +1,8 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
-import List from '@material-ui/core/List';
-import Button from '@material-ui/core/Button';
+import List from '@mui/material/List';
+import Button from '@mui/material/Button';
 
 import WarnPlaceholder from 'common/WarnPlaceholder';
 import useGame from 'components/game/useGame';

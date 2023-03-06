@@ -1,7 +1,7 @@
 import React from 'react';
-import styled from 'styled-components';
-import Icon from '@material-ui/core/Icon';
-import Typography from '@material-ui/core/Typography';
+import styled from '@emotion/styled';
+import Icon from '@mui/material/Icon';
+import Typography from '@mui/material/Typography';
 import { themeColors, themeScreenSizes } from 'themes';
 
 const FullViewportHeight = styled.div`
@@ -26,7 +26,7 @@ const FullViewportHeight = styled.div`
   }
   > div {
     flex: 0 0 auto;
-    padding: ${({ theme = {} } = {}) => theme.mui.spacing(1)}px;
+    padding: ${({ theme = {} } = {}) => theme.spacing(1)};
     text-align: center;
   }
 `;

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemText from '@material-ui/core/ListItemText';
-import Typography from '@material-ui/core/Typography';
+import ListItem from '@mui/material/ListItem';
+import ListItemText from '@mui/material/ListItemText';
+import Typography from '@mui/material/Typography';
 import SlideLongRippleSwitch from 'common/SlideLongRippleSwitch';
 import useLongRipple from 'common/useLongRipple';
 import Flex from 'common/Flex';

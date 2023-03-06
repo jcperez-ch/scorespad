@@ -1,9 +1,9 @@
-import styled from 'styled-components';
+import styled from '@emotion/styled';
 import { themeColors, themeScreenSizes } from 'themes';
 
 const ModalContent = styled.div`
   background-color: ${themeColors.paperBackground};
-  box-shadow: ${({ theme = {} } = {}) => theme.mui.shadows[5]};
+  box-shadow: ${({ theme = {} } = {}) => theme.shadows[5]};
   left: 50%;
   padding: 1.5rem;
   position: absolute;
