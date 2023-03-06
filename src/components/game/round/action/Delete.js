@@ -21,7 +21,7 @@ export default function RoundActionDelete({ round, onSuccess = noop }) {
     <ModalConfirm
       cancelText={t('button.cancel')}
       confirmText={t('button.remove')}
-      title={t('title.removeTeam')}
+      title={t('title.removeRound')}
       subtitle={t('messages.confirmRemoveRound')}
       color="primary"
       fab

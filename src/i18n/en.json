@@ -3,6 +3,7 @@
     "addTeam": "Add team or player",
     "removeGame": "Remove Game",
     "removeTeam": "Remove Team",
+    "removeRound": "Remove Game Scores",
     "removeScore": "Remove Score",
     "scanGame": "Scan a new game",
     "shareGame": "Share this game"

@@ -3,6 +3,7 @@
     "addTeam": "Agregar Equipo o jugador",
     "removeGame": "Eliminar Juego",
     "removeTeam": "Eliminar Equipo",
+    "removeRound": "Eliminar Puntuaciones",
     "removeScore": "Eliminar Puntuación",
     "scanGame": "Escanear un nuevo juego",
     "shareGame": "Compartir el juego"
