@@ -19,6 +19,14 @@
     "arrow-parens":"error",
     "implicit-arrow-linebreak":"off",
     "indent":"off",
+    "jsx-a11y/anchor-is-valid": [
+      "error",
+      {
+        "components": ["a", "anchor"],
+        "specialLink": ["hrefLeft", "hrefRight"],
+        "aspects": ["noHref", "invalidHref", "preferButton"]
+      }
+    ],
     "max-len":[
       "error",
       200

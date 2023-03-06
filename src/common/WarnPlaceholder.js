@@ -31,7 +31,7 @@ const FullViewportHeight = styled.div`
   }
 `;
 
-export default function WarnPlaceholder({ color = 'primary', icon, message }) {
+export default function WarnPlaceholder({ children = null, color = 'primary', icon, message }) {
   return (
     <FullViewportHeight>
       <aside>
@@ -42,6 +42,7 @@ export default function WarnPlaceholder({ color = 'primary', icon, message }) {
       <Typography color={color} component="div" variant="body1">
         {message}
       </Typography>
+      {children != null && <div>{children}</div>}
     </FullViewportHeight>
   );
 }

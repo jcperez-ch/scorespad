@@ -1,17 +1,15 @@
 import React, { useCallback, useContext, useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
+import Button from '@material-ui/core/Button';
 import CardHeader from '@material-ui/core/CardHeader';
-import Dialog from '@material-ui/core/Dialog';
+import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
-import Fab from '@material-ui/core/Fab';
 import Typography from '@material-ui/core/Typography';
 
 import CommaList from 'common/CommaList';
 import CommonQrScan from 'common/qr/Scan';
-import CommonRoutePaper from 'common/styled/RoutePaper';
 import DialogTitle from 'common/dialog/Title';
-import SlideUp from 'common/SlideUp';
 import WarnPlaceholder from 'common/WarnPlaceholder';
 import GameStoreContext from 'components/game/context/Store';
 import { importGame } from 'components/game/actionCreators';
@@ -38,35 +36,38 @@ export default function GameFormByScan() {
     return '';
   }, [code]);
   return (
-    <CommonRoutePaper>
-      <Dialog id="game-scan-dialog" onClose={handleClose} aria-labelledby="game-scan-dialog-title" open={!code} fullScreen TransitionComponent={SlideUp}>
-        <DialogTitle id="game-share-dialog-title" onClose={handleClose}>
-          {t('game_scan_title')}
-        </DialogTitle>
-        <DialogContent>
-          <CommonQrScan
-            fallbackCode={<WarnPlaceholder icon="mobile_off" message={t('game_scan_wrong_code')} />}
-            fallbackMedia={<WarnPlaceholder icon="videocam_off" message={t('game_scan_no_camera')} />}
-            tryAgainButtonLabel={t('button.tryAgain')}
-            giveUpButtonLabel={t('button.back')}
-            onCode={handleScan}
-            onClose={handleClose}
-          />
-        </DialogContent>
-      </Dialog>
-      {code && (
-        <>
-          <CardHeader title={code.name} subheader={t('messages.createdAt', { date: createdAt })} />
-          {code.teams.length > 0 && (
-            <Typography variant="overline">
-              <CommaList items={code.teams} keyedBy="name" attribute="name" />
-            </Typography>
-          )}
-          <Fab variant="extended" color="primary" size="large" aria-label={t('button.createGame')} onClick={handleAdd}>
-            {t('button.confirmAndCreate')}
-          </Fab>
-        </>
-      )}
-    </CommonRoutePaper>
+    <>
+      <DialogTitle id="game-share-dialog-title" onClose={handleClose}>
+        {t('game_scan_title')}
+      </DialogTitle>
+      <DialogContent>
+        <CommonQrScan
+          fallbackCode={<WarnPlaceholder icon="mobile_off" message={t('game_scan_wrong_code')} />}
+          fallbackMedia={<WarnPlaceholder icon="videocam_off" message={t('game_scan_no_camera')} />}
+          tryAgainButtonLabel={t('button.tryAgain')}
+          giveUpButtonLabel={t('button.back')}
+          onCode={handleScan}
+          onClose={handleClose}
+        />
+        {code && (
+          <>
+            <CardHeader title={code.name} subheader={t('messages.createdAt', { date: createdAt })} />
+            {code.teams.length > 0 && (
+              <Typography variant="overline">
+                <CommaList items={code.teams} keyedBy="name" attribute="name" />
+              </Typography>
+            )}
+          </>
+        )}
+      </DialogContent>
+      <DialogActions>
+        <Button onClick={() => navigate('/game')}>{t('button.back')}</Button>
+        {code && (
+          <Button variant="contained" color="primary" autoFocus onClick={handleAdd}>
+            {t('button.confirm')}
+          </Button>
+        )}
+      </DialogActions>
+    </>
   );
 }

@@ -1,10 +1,13 @@
 import React, { useContext, useState } from 'react';
-import { useTranslation } from 'react-i18next';
-import { useNavigate } from 'react-router-dom';
-import Fab from '@material-ui/core/Fab';
+import { Trans, useTranslation } from 'react-i18next';
+import { Link, useNavigate } from 'react-router-dom';
+import Button from '@material-ui/core/Button';
+import DialogActions from '@material-ui/core/DialogActions';
+import DialogContent from '@material-ui/core/DialogContent';
 
 import NameField from 'common/NameField';
-import CommonRoutePaper from 'common/styled/RoutePaper';
+import DialogHeadline from 'common/dialog/Headline';
+import DialogTitle from 'common/dialog/Title';
 import GameStoreContext from 'components/game/context/Store';
 import { createGame } from 'components/game/actionCreators';
 import useValidation from 'utils/validation';
@@ -23,13 +26,26 @@ export default function GameFormByName() {
       navigate(`/games/${id}`);
     },
   });
+  const handleClose = () => navigate('/');
 
   return (
-    <CommonRoutePaper>
-      <NameField variant="outlined" label={t('placeholder.gameName')} onChange={setNewName} onEnter={onSubmit} error={error} value={newName} />
-      <Fab variant="extended" color="primary" size="large" aria-label={t('button.createGame')} onClick={onSubmit}>
-        {t('button.createGame')}
-      </Fab>
-    </CommonRoutePaper>
+    <>
+      <DialogTitle id="game-add-dialog-title" onClose={handleClose}>
+        {t('game_title')}
+      </DialogTitle>
+      <DialogContent>
+        <DialogHeadline>{t('text.addNewGame')}</DialogHeadline>
+        <NameField variant="outlined" label={t('placeholder.gameName')} onChange={setNewName} onEnter={onSubmit} error={error} value={newName} />
+        <DialogHeadline>
+          <Trans components={{ a: <Link to="./scan" /> }} i18nKey="text.addNewGameByScan" values={{ here: t('button.here') }} />
+        </DialogHeadline>
+      </DialogContent>
+      <DialogActions>
+        <Button onClick={handleClose}>{t('button.cancel')}</Button>
+        <Button variant="contained" color="primary" autoFocus onClick={onSubmit}>
+          {t('button.createGame')}
+        </Button>
+      </DialogActions>
+    </>
   );
 }

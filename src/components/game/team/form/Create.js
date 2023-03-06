@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from 'react';
+import React, { useContext, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate, useParams } from 'react-router-dom';
 import Button from '@material-ui/core/Button';
@@ -17,7 +17,6 @@ import { createTeam } from '../actionCreators';
 import useGame from '../../useGame';
 
 function TeamFormCreate() {
-  const [open, setOpen] = useState(false);
   const [name, setName] = useState('');
   const [t] = useTranslation();
   const navigate = useNavigate();
@@ -35,14 +34,8 @@ function TeamFormCreate() {
     },
   });
 
-  useEffect(() => {
-    if (!open) {
-      setOpen(true);
-    }
-  }, [open]);
-
   return (
-    <Dialog fullScreen id="team-add-dialog" onClose={handleClose} aria-labelledby="team-add-dialog-title" open={open} TransitionComponent={SlideUp}>
+    <Dialog fullScreen id="team-add-dialog" onClose={handleClose} aria-labelledby="team-add-dialog-title" open TransitionComponent={SlideUp}>
       <DialogTitle id="team-add-dialog-title" onClose={handleClose}>
         {t('button.addTeam')}
       </DialogTitle>

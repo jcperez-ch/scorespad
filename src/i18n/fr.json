@@ -11,10 +11,12 @@
     "addTeam": "Ajoute un Équipe",
     "back": "Returner",
     "cancel": "Annuler",
+    "confirm": "Confirmer",
     "createGame": "Creer jeu",
     "delete": "Enlever",
     "endGame": "Terminer le jeu",
     "eraseTeams": "Éfacer les Équipes",
+    "here": "ici",
     "ok": "Oki",
     "resumeGame": "Reprendre le jeu",
     "remove": "Effacer",
@@ -26,10 +28,8 @@
     "tryAgain": "Réessayer",
     "update": "Mis à jour"
   },
-  "game_scan_title": "Scanner le code d'un autre appareil",
-  "game_title": "Déscrit comment veux-tu créer le jeu",
-  "game_tab_byName": "Par nom",
-  "game_tab_byScan": "Par code",
+  "game_scan_title": "Scanner le code",
+  "game_title": "Ton nouveau jeu",
   "game_scan_no_camera": "Caméra n'est pas disponible dans cet appareil",
   "game_scan_wrong_code": "Le code n'est pas associé à aucun jeu",
   "placeholder": {
@@ -62,6 +62,8 @@
     "teamAlreadyFound": "Cet équipe là était déjà dans le jeu, non?"
   },
   "text": {
+    "addNewGame": "Si tu veux creer un nouveau jeu, tu dois le nommer. Écris le nom du jeu dans le champ là bas.",
+    "addNewGameByScan": "Si tu as déjà un jeu enregistré dans un autre appareil, tu peux scanner son code avec ta caméra.  Clique <a>{{ here }}</a> pour scanner le jeu.",
     "addNewTeam": "Nomme l'équipe ou l'individu que tu desire abonner au jeu, et puis appuie sur \"Ajouter\".",
     "gameNotFound": "Oops, pas de jeu ici.  Tappez sur le button de rétour pour trouver un jeu",
     "newVersion": "Il y a une nouvelle version, veut tu le mettre à jour?",
