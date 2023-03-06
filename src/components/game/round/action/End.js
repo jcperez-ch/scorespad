@@ -40,7 +40,7 @@ export default function RoundActionEnd({ gameKey, round, onEnd = noop }) {
           </Typography>
           <ModalActions>
             <Button onClick={toggleOpen}>{t('button.cancel')}</Button>
-            <Button color="primary" autoFocus onClick={handleSubmit}>
+            <Button color="primary" variant="contained" autoFocus onClick={handleSubmit}>
               {t('button.endGame')}
             </Button>
           </ModalActions>

@@ -1,5 +1,6 @@
 {
   "title": {
+    "addTeam": "Ajouter équipe ou joueur",
     "removeGame": "Effacer le jeu",
     "removeTeam": "Effacer l'équipe",
     "removeScore": "Effacer le score",
@@ -8,7 +9,7 @@
   },
   "button": {
     "add": "Ajouter",
-    "addTeam": "Ajoute un Équipe",
+    "addTeam": "Ajouter un équipe",
     "back": "Returner",
     "cancel": "Annuler",
     "confirm": "Confirmer",
@@ -42,8 +43,8 @@
     "createdAt": "Creé le {{ date }}",
     "confirmEndGame": "Veux-tu confirmer que le jeu est finni?",
     "confirmRemoveAllTeams": "Veux-tu effacer toutes les équipes de ce jeu ci?",
-    "confirmRemoveGame": "Veux-tu vraiment effacer ce jou ci?",
-    "confirmRemoveRound": "Veux-tu vraiment enlever les scores de ce jou passé?",
+    "confirmRemoveGame": "Veux-tu vraiment effacer ce jeu ci?",
+    "confirmRemoveRound": "Veux-tu vraiment enlever les scores de ce jeu passé?",
     "confirmRemoveScore": "Veux-tu vraiment effacer ce score ci?",
     "confirmRemoveTeam": "Veux-tu vraiment effacer \"{{ teamName }}\" de ce jeu ci?",
     "confirmShareGame": "On peux scanner ce code QR par un autre appareil mobile afin de transférer le jeu vers cet appareil.  Simplement suivez les pas en bas:",
@@ -65,6 +66,7 @@
     "addNewGame": "Si tu veux creer un nouveau jeu, tu dois le nommer. Écris le nom du jeu dans le champ là bas.",
     "addNewGameByScan": "Si tu as déjà un jeu enregistré dans un autre appareil, tu peux scanner son code avec ta caméra.  Clique <a>{{ here }}</a> pour scanner le jeu.",
     "addNewTeam": "Nomme l'équipe ou l'individu que tu desire abonner au jeu, et puis appuie sur \"Ajouter\".",
+    "addNewTeamForNewGame": "En suite, écris le nomme de l'équipe ou le joueur à ajouter à ce jeu",
     "gameNotFound": "Oops, pas de jeu ici.  Tappez sur le button de rétour pour trouver un jeu",
     "newVersion": "Il y a une nouvelle version, veut tu le mettre à jour?",
     "noGames": "Il n'y a pas des jeux à montrer, parfois veux-tu creer un?",

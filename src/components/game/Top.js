@@ -25,11 +25,13 @@ export default function GameTop() {
         <Icon>arrow_back</Icon>
       </IconButton>
       <BarTitle pl="0.5rem">{game && game.name}</BarTitle>
-      <Tooltip disableTouchListener title={t('button.addTeam')}>
-        <IconButton color="inherit" aria-label={t('button.addTeam')} onClick={goToAddTeam}>
-          <Icon>add</Icon>
-        </IconButton>
-      </Tooltip>
+      {game.teams.length > 0 && (
+        <Tooltip disableTouchListener title={t('button.addTeam')}>
+          <IconButton color="inherit" aria-label={t('button.addTeam')} onClick={goToAddTeam}>
+            <Icon>add</Icon>
+          </IconButton>
+        </Tooltip>
+      )}
       <Tooltip disableTouchListener title={t('button.share')}>
         <IconButton color="inherit" aria-label={t('button.share')} onClick={goToShareTeam}>
           <Icon>share</Icon>

@@ -1,6 +1,8 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import { useNavigate } from 'react-router-dom';
 import List from '@material-ui/core/List';
+import Button from '@material-ui/core/Button';
 
 import WarnPlaceholder from 'common/WarnPlaceholder';
 import useGame from 'components/game/useGame';
@@ -10,6 +12,8 @@ import TeamListItem from './Item';
 export default function TeamList({ onClickChampionship = noop }) {
   const game = useGame();
   const [t] = useTranslation();
+  const navigate = useNavigate();
+  const goToAddTeam = () => navigate('team');
 
   if (!game) {
     return null;
@@ -17,7 +21,11 @@ export default function TeamList({ onClickChampionship = noop }) {
   const { teams = [], round } = game;
 
   return teams.length === 0 ? (
-    <WarnPlaceholder icon="people" message={t('text.noTeams')} />
+    <WarnPlaceholder icon="people" message={t('text.noTeams')}>
+      <Button variant="contained" color="primary" onClick={goToAddTeam}>
+        {t('button.addTeam')}
+      </Button>
+    </WarnPlaceholder>
   ) : (
     <List component="div">
       {teams.map((team, index) => (

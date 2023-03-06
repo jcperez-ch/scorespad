@@ -1,5 +1,6 @@
 {
   "title": {
+    "addTeam": "Add team or player",
     "removeGame": "Remove Game",
     "removeTeam": "Remove Team",
     "removeScore": "Remove Score",
@@ -8,7 +9,7 @@
   },
   "button": {
     "add": "Add",
-    "addTeam": "Add a Team",
+    "addTeam": "Add Team",
     "back": "Back",
     "cancel": "Cancel",
     "confirm": "Confirm",
@@ -64,7 +65,8 @@
   "text": {
     "addNewGame": "Si deseas crear un nuevo juego, debes nombrarlo. Escribe el nombre del juego en el campo de abajo:",
     "addNewGameByScan": "If you already have a saved game in another device, you can scan the code with your camera.  Click <a>{{ here }}</a> to scan the game.",
-    "addNewTeam": "Type the name of the team or the member you want to add to the game below, then click on the \"Add\" button.",
+    "addNewTeam": "Type the name of the team or the player you want to add to the game below, then click on the \"Add\" button.",
+    "addNewTeamForNewGame": "Now type the name of the first team or player for this game.",
     "gameNotFound": "Oops, wrong link. Go back to search for a saved game",
     "newVersion": "There is a new version, want to update?",
     "noGames": "There are no games to display, maybe start by creating one?",

@@ -23,7 +23,7 @@ export default function GameFormByName() {
     onSubmit: () => {
       const id = Date.now().toString(36);
       dispatch(createGame(id, newName));
-      navigate(`/games/${id}`);
+      navigate(`/games/${id}/team?step`);
     },
   });
   const handleClose = () => navigate('/');

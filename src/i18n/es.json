@@ -1,5 +1,6 @@
 {
   "title": {
+    "addTeam": "Agregar Equipo o jugador",
     "removeGame": "Eliminar Juego",
     "removeTeam": "Eliminar Equipo",
     "removeScore": "Eliminar Puntuación",
@@ -8,7 +9,7 @@
   },
   "button": {
     "add": "Agregar",
-    "addTeam": "Agrega Equipo",
+    "addTeam": "Agregar Equipo",
     "back": "Regresar",
     "cancel": "Cancerlar",
     "confirm": "Confirmar",
@@ -64,7 +65,8 @@
   "text": {
     "addNewGame": "Para crear un nuevo juego, debes nombrarlo. Escribe el nombre del juego en el campo de abajo:",
     "addNewGameByScan": "Si ya tienes un juego guardado en otro dispositivo, puedes escanear el su código con tu cámara.  Da click <a>{{ here }}</a> para escanear el juego.",
-    "addNewTeam": "Escribe el nombre del equipo o persona que quieres agregar el juego, luego presiona el botón de \"Agregar\".",
+    "addNewTeam": "Escribe el nombre del equipo o jugador que quieres agregar el juego, luego presiona el botón de \"Agregar\".",
+    "addNewTeamForNewGame": "Ahora escribe el nombre del primer equipo o jugador de este juego",
     "gameNotFound": "Oops, no se encontró ningún juego.  Regresa al inicio para buscar un juego",
     "newVersion": "Hay una nueva versión, quieres actualizarte?",
     "noGames": "No hay juegos que mostrar, quizás quieras comenzar creando uno?",
