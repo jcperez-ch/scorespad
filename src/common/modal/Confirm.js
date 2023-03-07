@@ -1,67 +1,31 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Button from '@mui/material/Button';
-import IconButton from '@mui/material/IconButton';
-import Icon from '@mui/material/Icon';
-import Modal from '@mui/material/Modal';
-import Typography from '@mui/material/Typography';
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContentText from '@mui/material/DialogContentText';
+import DialogContent from '@mui/material/DialogContent';
+import DialogTitle from '@mui/material/DialogTitle';
 
-import ButtonExtended from '../button/Extended';
-import ModalActions from './Actions';
-import ModalContent from './Content';
-
-function ModalConfirm({
-  children,
-  cancelText,
-  confirmText,
-  buttonText = confirmText,
-  title,
-  subtitle,
-  icon = 'delete_outline',
-  fab = false,
-  onConfirm,
-  ...props
-}) {
-  const [open, setOpen] = useState(false);
-  const toggleOpen = () => setOpen(!open);
-  const handleClose = () => setOpen(false);
-  return <>
-    {fab ? (
-      <ButtonExtended {...props} icon={icon} label={buttonText} onClick={toggleOpen} />
-    ) : (
-      <IconButton
-        {...props}
-        aria-label={buttonText}
-        aria-owns={open ? 'confirm-dialog' : undefined}
-        aria-haspopup="true"
-        onClick={toggleOpen}
-        size="large">
-        <Icon>{icon}</Icon>
-      </IconButton>
-    )}
-    <Modal
-      id="confirm-dialog"
-      aria-labelledby="confirm-title"
-      aria-describedby="confirm-description"
-      open={open}
-      onClose={toggleOpen}
-    >
-      <ModalContent>
-        <Typography variant="h6" id="confirm-title">
-          {title}
-        </Typography>
-        <Typography variant="subtitle1" id="confirm-description">
-          {subtitle}
-        </Typography>
+export default function ModalConfirm({ children, cancelText, confirmText, open, title, subtitle, onConfirm, onClose }) {
+  return (
+    <Dialog id="confirm-dialog" aria-labelledby="confirm-title" aria-describedby="confirm-description" open={open} onClose={onClose}>
+      <DialogTitle component="h6" id="confirm-title">
+        {title}
+      </DialogTitle>
+      <DialogContent>
+        <DialogContentText id="confirm-description">{subtitle}</DialogContentText>
         {children}
-        <ModalActions>
-          {cancelText && <Button variant="contained" onClick={toggleOpen}>{cancelText}</Button>}
-          <Button variant="contained" color="primary" autoFocus onClick={onConfirm || handleClose}>
+        <DialogActions>
+          {cancelText && (
+            <Button color="secondary" onClick={onClose}>
+              {cancelText}
+            </Button>
+          )}
+          <Button color="primary" autoFocus onClick={onConfirm ?? onClose}>
             {confirmText}
           </Button>
-        </ModalActions>
-      </ModalContent>
-    </Modal>
-  </>;
+        </DialogActions>
+      </DialogContent>
+    </Dialog>
+  );
 }
-
-export default ModalConfirm;

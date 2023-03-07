@@ -2,10 +2,11 @@ import React, { useContext } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 import noop from 'utils/fn/noop';
+import Button from '@mui/material/Button';
+import ButtonGroup from '@mui/material/ButtonGroup';
 import Fab from '@mui/material/Fab';
 import Icon from '@mui/material/Icon';
 
-import ButtonExtended from 'common/button/Extended';
 import StyledNameForm from 'common/styled/NameForm';
 import NameField from 'common/NameField';
 import GameStoreContext from 'components/game/context/Store';
@@ -36,11 +37,15 @@ export default function GameFormUpdate({ id, name, onChange = noop, onSuccess = 
           <Icon>check</Icon>
         </Fab>
       </div>
-      <div className="buttons">
-        <ButtonExtended icon="cancel" label={t('button.cancel')} onClick={onClose} />
-        <ButtonExtended icon="mobile_screen_share" label={t('button.share')} onClick={handleShare} />
+      <ButtonGroup color="secondary" variant="outlined" size="small">
+        <Button startIcon={<Icon>cancel</Icon>} onClick={onClose}>
+          {t('button.cancel')}
+        </Button>
+        <Button startIcon={<Icon>mobile_screen_share</Icon>} onClick={handleShare}>
+          {t('button.share')}
+        </Button>
         <GameActionRemove id={id} />
-      </div>
+      </ButtonGroup>
     </StyledNameForm>
   );
 }

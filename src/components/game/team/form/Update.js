@@ -2,10 +2,11 @@ import noop from 'utils/fn/noop';
 import React, { useContext } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router-dom';
+import Button from '@mui/material/Button';
+import ButtonGroup from '@mui/material/ButtonGroup';
 import Fab from '@mui/material/Fab';
 import Icon from '@mui/material/Icon';
 
-import ButtonExtended from 'common/button/Extended';
 import StyledNameForm from 'common/styled/NameForm';
 import NameField from 'common/NameField';
 import GameStoreContext from 'components/game/context/Store';
@@ -35,10 +36,12 @@ function TeamFormUpdate({ index, name, onChange = noop, onSuccess = noop, onClos
           <Icon>check</Icon>
         </Fab>
       </div>
-      <div className="buttons">
-        <ButtonExtended icon="cancel" label={t('button.cancel')} onClick={onClose} />
+      <ButtonGroup color="secondary" variant="outlined" size="small">
+        <Button startIcon={<Icon>cancel</Icon>} onClick={onClose}>
+          {t('button.cancel')}
+        </Button>
         <TeamActionRemove name={name} index={index} />
-      </div>
+      </ButtonGroup>
     </StyledNameForm>
   );
 }

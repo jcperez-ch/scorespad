@@ -1,9 +1,10 @@
 import React, { useContext, useState } from 'react';
 import { Trans, useTranslation } from 'react-i18next';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import Button from '@mui/material/Button';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
+import Link from '@mui/material/Link';
 
 import NameField from 'common/NameField';
 import DialogHeadline from 'common/dialog/Headline';
@@ -37,7 +38,7 @@ export default function GameFormByName() {
         <DialogHeadline>{t('text.addNewGame')}</DialogHeadline>
         <NameField variant="outlined" label={t('placeholder.gameName')} onChange={setNewName} onEnter={onSubmit} error={error} value={newName} />
         <DialogHeadline>
-          <Trans components={{ a: <Link to="./scan" /> }} i18nKey="text.addNewGameByScan" values={{ here: t('button.here') }} />
+          <Trans components={{ a: <Link href="./scan" /> }} i18nKey="text.addNewGameByScan" values={{ here: t('button.here') }} />
         </DialogHeadline>
       </DialogContent>
       <DialogActions>

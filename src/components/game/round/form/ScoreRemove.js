@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import styled from '@emotion/styled';
 import noop from 'utils/fn/noop';
 import { useTranslation } from 'react-i18next';
@@ -29,16 +29,28 @@ export default function RoundFormScoreRemove({ score, index, scoreIndex, onSucce
     dispatch(removeScore(gameKey, round, index, scoreIndex));
     onSuccess();
   };
+  const [isOpen, setIsOpen] = useState(false);
+  const handleCancel = () => setIsOpen(false);
   return (
     <StyledListItemText component="div" disableTypography>
-      <ModalConfirm
+      <IconButton
         color="primary"
+        aria-label={t('title.removeScore')}
+        aria-owns={isOpen ? 'confirm-dialog' : undefined}
+        aria-haspopup="true"
+        onClick={() => setIsOpen(true)}
+        size="large"
+      >
+        <Icon>delete_outline</Icon>
+      </IconButton>
+      <ModalConfirm
         cancelText={t('button.cancel')}
         confirmText={t('button.remove')}
+        open={isOpen}
         title={t('title.removeScore')}
         subtitle={t('messages.confirmRemoveScore')}
-        size="small"
         onConfirm={handleRemove}
+        onClose={handleCancel}
       />
       <Typography align="center" variant="body2">
         {score}

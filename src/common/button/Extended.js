@@ -10,9 +10,7 @@ const useStyles = makeStyles({
   },
 });
 
-function ButtonExtended({
-  label, hideLabel = false, icon, color = 'primary', size = 'small', ...props
-}) {
+function ButtonExtended({ label, hideLabel = false, icon, color = 'primary', size = 'small', ...props }) {
   const { startIcon } = useStyles();
   return (
     <Button

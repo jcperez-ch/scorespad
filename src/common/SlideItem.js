@@ -22,7 +22,7 @@ const SlideItem = styled.ul`
     grid-area: unique;
     transition: opacity 250ms ease, visibility 0s ease 240ms;
 
-    &:first-child {
+    &:first-of-type {
       ${({ active = false }) => (active ? inactiveCss : activeCss)}
     }
     &:last-child {
