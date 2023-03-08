@@ -6,7 +6,7 @@ import 'reset-css/reset.css';
 import Root from './components/Root';
 import getI18n from './i18n';
 import { getInitialState } from './utils/store';
-import * as serviceWorker from './serviceWorker';
+import * as serviceWorker from './serviceWorkerRegistration';
 import './index.css';
 
 const rootElement = document.getElementById('root');
