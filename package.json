@@ -57,7 +57,7 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
     "start": "react-app-rewired --openssl-legacy-provider start",
-    "build": "react-app-rewired build && cp node_modules/jsqr/dist/jsQR.js ./build",
+    "build": "react-app-rewired build && cp node_modules/jsqr/dist/jsQR.js ./build && cp src/serviceWorker.js ./build/service-worker.js",
     "copy": "cp node_modules/jsqr/dist/jsQR.js ./public",
     "test": "react-app-rewired test --env=jsdom",
     "eject": "react-app-rewired eject",
