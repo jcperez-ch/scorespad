@@ -1,27 +1,25 @@
 {
   "files": {
     "main.css": "/scorespad/static/css/main.27f951cd.css",
-    "main.js": "/scorespad/static/js/main.c8f17533.js",
-    "gc.js": "/scorespad/static/js/gc.af1fe8ac.chunk.js",
-    "gs.js": "/scorespad/static/js/gs.bdbcc0f6.chunk.js",
-    "r.js": "/scorespad/static/js/r.df634ec5.chunk.js",
-    "ch.js": "/scorespad/static/js/ch.729a718e.chunk.js",
-    "tc.js": "/scorespad/static/js/tc.f0ca1569.chunk.js",
-    "static/js/562.9cdad946.chunk.js": "/scorespad/static/js/562.9cdad946.chunk.js",
-    "static/js/137.aa34bd43.chunk.js": "/scorespad/static/js/137.aa34bd43.chunk.js",
+    "main.js": "/scorespad/static/js/main.f2bb5909.js",
+    "gc.js": "/scorespad/static/js/gc.19659064.chunk.js",
+    "gs.js": "/scorespad/static/js/gs.aa966dbf.chunk.js",
+    "r.js": "/scorespad/static/js/r.584b30a4.chunk.js",
+    "ch.js": "/scorespad/static/js/ch.93bf1d8e.chunk.js",
+    "tc.js": "/scorespad/static/js/tc.79eba872.chunk.js",
+    "static/js/613.ecec9c56.chunk.js": "/scorespad/static/js/613.ecec9c56.chunk.js",
     "index.html": "/scorespad/index.html",
     "main.27f951cd.css.map": "/scorespad/static/css/main.27f951cd.css.map",
-    "main.c8f17533.js.map": "/scorespad/static/js/main.c8f17533.js.map",
-    "gc.af1fe8ac.chunk.js.map": "/scorespad/static/js/gc.af1fe8ac.chunk.js.map",
-    "gs.bdbcc0f6.chunk.js.map": "/scorespad/static/js/gs.bdbcc0f6.chunk.js.map",
-    "r.df634ec5.chunk.js.map": "/scorespad/static/js/r.df634ec5.chunk.js.map",
-    "ch.729a718e.chunk.js.map": "/scorespad/static/js/ch.729a718e.chunk.js.map",
-    "tc.f0ca1569.chunk.js.map": "/scorespad/static/js/tc.f0ca1569.chunk.js.map",
-    "562.9cdad946.chunk.js.map": "/scorespad/static/js/562.9cdad946.chunk.js.map",
-    "137.aa34bd43.chunk.js.map": "/scorespad/static/js/137.aa34bd43.chunk.js.map"
+    "main.f2bb5909.js.map": "/scorespad/static/js/main.f2bb5909.js.map",
+    "gc.19659064.chunk.js.map": "/scorespad/static/js/gc.19659064.chunk.js.map",
+    "gs.aa966dbf.chunk.js.map": "/scorespad/static/js/gs.aa966dbf.chunk.js.map",
+    "r.584b30a4.chunk.js.map": "/scorespad/static/js/r.584b30a4.chunk.js.map",
+    "ch.93bf1d8e.chunk.js.map": "/scorespad/static/js/ch.93bf1d8e.chunk.js.map",
+    "tc.79eba872.chunk.js.map": "/scorespad/static/js/tc.79eba872.chunk.js.map",
+    "613.ecec9c56.chunk.js.map": "/scorespad/static/js/613.ecec9c56.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.27f951cd.css",
-    "static/js/main.c8f17533.js"
+    "static/js/main.f2bb5909.js"
   ]
 }
