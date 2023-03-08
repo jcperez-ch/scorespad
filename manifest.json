@@ -45,7 +45,7 @@
       "density": "4.0"
     }
   ],
-  "start_url": "/scorespad/index.html",
+  "start_url": "/scorespad",
   "display": "standalone",
   "theme_color": "#2b73bd",
   "background_color": "#f3f3f3",
