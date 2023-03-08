@@ -19,6 +19,7 @@ export default function GameFormUpdate({ id, name, onChange = noop, onSuccess = 
   const [, dispatch] = useContext(GameStoreContext);
   const [t] = useTranslation();
   const navigate = useNavigate();
+
   const { error, onSubmit } = useValidation({
     name,
     errorMessage: 'errors.requiredGameName',

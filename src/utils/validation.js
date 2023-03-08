@@ -1,15 +1,16 @@
-import { useState } from 'react';
+import { useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 
 const useTeamValidation = ({ name, onSubmit, errorMessage }) => {
   const [t] = useTranslation();
-  const [submitCount, setSubmitCount] = useState(0);
+  const isSubmittedRef = useRef(false);
   return {
-    error: submitCount === 0 || name ? null : t(errorMessage),
+    error: isSubmittedRef.current && !name ? t(errorMessage) : null,
     onSubmit: () => {
-      setSubmitCount(submitCount + 1);
       if (name) {
         onSubmit();
+      } else {
+        isSubmittedRef.current = true;
       }
     },
   };

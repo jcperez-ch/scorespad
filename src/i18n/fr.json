@@ -13,6 +13,7 @@
     "addTeam": "Ajouter un équipe",
     "back": "Returner",
     "cancel": "Annuler",
+    "close": "Fermer",
     "confirm": "Confirmer",
     "createGame": "Creer jeu",
     "delete": "Enlever",
@@ -28,6 +29,7 @@
     "startGame": "Commencer",
     "sum": "Additionner",
     "tryAgain": "Réessayer",
+    "undo": "Annuler",
     "update": "Mis à jour"
   },
   "game_scan_title": "Scanner le code",
@@ -54,6 +56,7 @@
     "confirmShareGame_step3": "Lors que la boîte de dialogue soit visible, appuie su \"Scanner\" afin de scanner le code.",
     "confirmShareGame_step4": "Une fois scanné, scorespad synchroniserait le jeu vers un appareil different.",
     "playedAt": "Joué le {{ date }} à {{ time }}",
+    "gameRenamed": "Jeu renommé!",
     "selectGame": "Selectionne ton jeu",
     "startQuickGame": "Êtes vous prêts mes amis?"
   },

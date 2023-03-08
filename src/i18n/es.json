@@ -13,6 +13,7 @@
     "addTeam": "Agregar Equipo",
     "back": "Regresar",
     "cancel": "Cancerlar",
+    "close": "Cerrar",
     "confirm": "Confirmar",
     "createGame": "Crear Juego",
     "delete": "Borrar",
@@ -28,6 +29,7 @@
     "startGame": "Comenzar",
     "sum": "Sumar",
     "tryAgain": "Reintentar",
+    "undo": "Deshacer",
     "update": "Actualizar"
   },
   "game_scan_title": "Escanea el código",
@@ -53,6 +55,7 @@
     "confirmShareGame_step2": "Presiona en el boton + que aparece en la parte inferior derecha de la pantalla.",
     "confirmShareGame_step3": "Una vez que la pantalla de creación aparezca, puedes presionar el link de \"Escanear\".",
     "confirmShareGame_step4": "Una vez que la cámara se active en pantalla, scorespad will synchronize the game into a different device and you're done.",
+    "gameRenamed": "Juego renombrado!",
     "playedAt": "Jugado {{ date }} a las {{ time }}",
     "selectGame": "Selecciona tu juego",
     "startQuickGame": "Listo para comenzar?"

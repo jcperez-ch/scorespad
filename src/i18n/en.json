@@ -13,6 +13,7 @@
     "addTeam": "Add Team",
     "back": "Back",
     "cancel": "Cancel",
+    "close": "Close",
     "confirm": "Confirm",
     "createGame": "Create Game",
     "delete": "Delete",
@@ -28,6 +29,7 @@
     "startGame": "Start",
     "sum": "Sum",
     "tryAgain": "Try Again",
+    "undo": "Undo",
     "update": "Update"
   },
   "game_scan_title": "Scan code",
@@ -54,6 +56,7 @@
     "confirmShareGame_step3": "Once the dialog is opened, you can press the \"Scan\" button in order to scan this code.",
     "confirmShareGame_step4": "Once scanned, scorespad will synchronize the game into a different device and you're done.",
     "playedAt": "Played on {{ date }} at {{ time }}",
+    "gameRenamed": "Game renamed!",
     "selectGame": "Select your game",
     "startQuickGame": "Are you ready to the rumble?"
   },

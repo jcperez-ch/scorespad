@@ -25,12 +25,13 @@ export default function RoundFormScoreRemove({ score, index, scoreIndex, onSucce
   const { gameKey, round } = useParams();
   const [, dispatch] = useContext(GameStoreContext);
   const [t] = useTranslation();
+  const [isOpen, setIsOpen] = useState(false);
+  const handleClose = () => setIsOpen(false);
   const handleRemove = () => {
     dispatch(removeScore(gameKey, round, index, scoreIndex));
     onSuccess();
+    handleClose();
   };
-  const [isOpen, setIsOpen] = useState(false);
-  const handleCancel = () => setIsOpen(false);
   return (
     <StyledListItemText component="div" disableTypography>
       <IconButton
@@ -50,7 +51,7 @@ export default function RoundFormScoreRemove({ score, index, scoreIndex, onSucce
         title={t('title.removeScore')}
         subtitle={t('messages.confirmRemoveScore')}
         onConfirm={handleRemove}
-        onClose={handleCancel}
+        onClose={handleClose}
       />
       <Typography align="center" variant="body2">
         {score}
