@@ -37,7 +37,7 @@
   "game_scan_no_camera": "La cámara no está habilitada en este dispositivo",
   "game_scan_wrong_code": "Este no es un código valido para un juego de esta app",
   "placeholder": {
-    "gameName": "Nombre del Juego",
+    "game_name": "Nombre del Juego",
     "savedGame": "Juego respaldado",
     "teamName": "Nombre del Equipo"
   },

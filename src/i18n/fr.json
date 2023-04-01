@@ -37,7 +37,7 @@
   "game_scan_no_camera": "Caméra n'est pas disponible dans cet appareil",
   "game_scan_wrong_code": "Le code n'est pas associé à aucun jeu",
   "placeholder": {
-    "gameName": "Nom du Jeu",
+    "game_name": "Nom du Jeu",
     "savedGame": "Jeu en cours",
     "teamName": "Nom de l'Équipe"
   },

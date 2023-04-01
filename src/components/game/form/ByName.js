@@ -36,7 +36,7 @@ export default function GameFormByName() {
       </DialogTitle>
       <DialogContent>
         <DialogHeadline>{t('text.addNewGame')}</DialogHeadline>
-        <NameField variant="outlined" label={t('placeholder.gameName')} onChange={setNewName} onEnter={onSubmit} error={error} value={newName} />
+        <NameField variant="outlined" label={t('placeholder.game_name')} onChange={setNewName} onEnter={onSubmit} error={error} value={newName} />
         <DialogHeadline>
           <Trans components={{ a: <Link href="./scan" /> }} i18nKey="text.addNewGameByScan" values={{ here: t('button.here') }} />
         </DialogHeadline>

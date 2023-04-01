@@ -33,7 +33,7 @@ export default function GameFormUpdate({ id, name, onChange = noop, onSuccess = 
   return (
     <StyledNameForm component="div">
       <div className="field">
-        <NameField label={t('placeholder.gameName')} onChange={onChange} onEnter={onSubmit} error={error} value={name} />
+        <NameField label={t('placeholder.game_name')} onChange={onChange} onEnter={onSubmit} error={error} value={name} />
         <Fab color="primary" size="small" aria-label={t('button.rename')} onClick={onSubmit}>
           <Icon>check</Icon>
         </Fab>
