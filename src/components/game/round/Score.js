@@ -16,7 +16,7 @@ export default function RoundScore({ index, score, scoreIndex }) {
     <SlideLongRippleSwitch active={canClose ? 0 : 1}>
       <RoundScoreRemove onClose={handleViewMode} onSuccess={handleViewMode} scoreIndex={scoreIndex} score={score} index={index} />
       <ListItem button dense {...rippleProps}>
-        <StyledScore variant="body2">{score}</StyledScore>
+        <StyledScore>{score}</StyledScore>
       </ListItem>
     </SlideLongRippleSwitch>
   );

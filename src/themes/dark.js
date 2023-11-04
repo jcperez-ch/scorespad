@@ -8,30 +8,30 @@ export default {
     ...common,
     palette: {
       primary: {
-        main: '#C147E9',
-        light: '#B137D9',
-        dark: '#810CA8',
-        contrastText: '#E5B8F4',
+        main: '#982121',
+        light: '#a8b5b2',
+        dark: '#434a48',
+        contrastText: '#FFFFFF',
       },
       secondary: {
-        main: '#FFACAC',
-        light: '#FFBFA9',
-        dark: '#FFEBB4',
+        main: '#F2C2C2',
+        light: '#FFFFFF',
+        dark: '#B29F9F',
         contrastText: '#ff0000',
       },
       background: {
-        default: '#18122B',
-        paper: '#292043',
+        default: '#333333',
+        paper: '#999999',
       },
       error: {
-        main: '#d84315',
+        main: '#FF4315',
       },
       text: {
-        primary: '#C060A1',
-        secondary: '#9F73AB',
+        primary: '#452222',
+        secondary: '#FFFFFF',
         disabled: '#635985',
       },
-      divider: '#FBFFB1',
+      divider: '#872222',
     },
     typography: {
       useNextVariants: true,
@@ -48,5 +48,8 @@ export default {
   }),
   globalStyles: css`
     @import url('https://fonts.googleapis.com/css?family=Raleway&display=swap');
+    :root {
+      --text-field-default-border-color: #982121;
+    }
   `,
 };

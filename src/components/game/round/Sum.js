@@ -11,7 +11,7 @@ const StyledListItem = styled(ListItem)`
 export default function RoundSum({ rounds = [], round }) {
   return (
     <StyledListItem component="div">
-      <StyledScore variant="overline">{rounds[round].reduce((sum, value) => value + sum, 0)}</StyledScore>
+      <StyledScore>{rounds[round].reduce((sum, value) => value + sum, 0)}</StyledScore>
     </StyledListItem>
   );
 }

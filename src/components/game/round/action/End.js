@@ -23,7 +23,7 @@ export default function RoundActionEnd({ gameKey, round, onEnd = noop }) {
   return (
     <>
       <ButtonsWrapper>
-        <Button color="primary" variant="contained" aria-owns={open ? 'confirm-end-dialog' : undefined} aria-haspopup="true" onClick={() => setOpen(true)}>
+        <Button color="secondary" variant="outlined" aria-owns={open ? 'confirm-end-dialog' : undefined} aria-haspopup="true" onClick={() => setOpen(true)}>
           {t('button.endGame')}
         </Button>
       </ButtonsWrapper>
