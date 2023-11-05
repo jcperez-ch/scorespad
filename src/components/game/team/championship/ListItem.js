@@ -4,6 +4,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import ListItem from '@mui/material/ListItem';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
+import Typography from '@mui/material/Typography';
 import Icon from '@mui/material/Icon';
 
 export default function TeamChampionshipsListItem({ roundKey }) {
@@ -16,9 +17,13 @@ export default function TeamChampionshipsListItem({ roundKey }) {
   return (
     <ListItem button onClick={goToChampionship}>
       <ListItemIcon>
-        <Icon color="primary">star</Icon>
+        <Icon color="secondary">star</Icon>
       </ListItemIcon>
-      <ListItemText>{t('messages.playedAt', { date: playedAt.toDateString(), time: playedAt.toLocaleTimeString() })}</ListItemText>
+      <ListItemText disableTypography>
+        <Typography color="secondary" variant="overline">
+          {t('messages.playedAt', { date: playedAt.toDateString(), time: playedAt.toLocaleTimeString() })}
+        </Typography>
+      </ListItemText>
     </ListItem>
   );
 }
