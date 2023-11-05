@@ -11,7 +11,7 @@ import CommaList from 'common/CommaList';
 import CommonQrScan from 'common/qr/Scan';
 import DialogTitle from 'common/dialog/Title';
 import WarnPlaceholder from 'common/WarnPlaceholder';
-import StyledButton from 'common/styled/StyledPrimaryButton';
+import StyledPrimaryButton from 'common/styled/StyledPrimaryButton';
 import GameStoreContext from 'components/game/context/Store';
 import { importGame } from 'components/game/actionCreators';
 
@@ -66,9 +66,9 @@ export default function GameFormByScan() {
           {t('button.back')}
         </Button>
         {code && (
-          <StyledButton variant="contained" color="primary" autoFocus onClick={handleAdd}>
+          <StyledPrimaryButton autoFocus onClick={handleAdd}>
             {t('button.confirm')}
-          </StyledButton>
+          </StyledPrimaryButton>
         )}
       </DialogActions>
     </>

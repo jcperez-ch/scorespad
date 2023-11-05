@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router-dom';
 
 import ButtonsWrapper from 'common/ButtonsWrapper';
-import StyledButton from 'common/styled/StyledPrimaryButton';
+import StyledPrimaryButton from 'common/styled/StyledPrimaryButton';
 
 import GameStoreContext from './context/Store';
 import GameScoresContext from './context/Scores';
@@ -37,9 +37,9 @@ export default function GameScores({ round, onEnd }) {
     <GameScoresContext.Provider value={state}>
       <RoundList teams={teams} round={round} onSubmit={handleSubmit} />
       <ButtonsWrapper>
-        <StyledButton icon="plus" color="primary" variant="contained" onClick={handleSubmit}>
+        <StyledPrimaryButton icon="plus" onClick={handleSubmit}>
           {t('button.sum')}
-        </StyledButton>
+        </StyledPrimaryButton>
       </ButtonsWrapper>
       <RoundEnd gameKey={gameKey} round={round} onEnd={onEnd} />
     </GameScoresContext.Provider>

@@ -9,6 +9,7 @@ import DialogContent from '@mui/material/DialogContent';
 import SlideUp from 'common/SlideUp';
 import DialogTitle from 'common/dialog/Title';
 import DialogHeadline from 'common/dialog/Headline';
+import StyledPrimaryButton from 'common/styled/StyledPrimaryButton';
 import NameField from 'common/NameField';
 import GameStoreContext from 'components/game/context/Store';
 import useValidation from 'utils/validation';
@@ -45,10 +46,10 @@ export default function TeamFormCreate() {
         <NameField label={t('placeholder.teamName')} onChange={setName} onEnter={onSubmit} error={error} value={name} />
       </DialogContent>
       <DialogActions>
-        <Button onClick={handleClose}>{t('button.cancel')}</Button>
-        <Button variant="contained" color="primary" onClick={() => onSubmit()}>
-          {t('button.add')}
+        <Button color="secondary" onClick={handleClose}>
+          {t('button.cancel')}
         </Button>
+        <StyledPrimaryButton onClick={() => onSubmit()}>{t('button.add')}</StyledPrimaryButton>
       </DialogActions>
     </Dialog>
   );

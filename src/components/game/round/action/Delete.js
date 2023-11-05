@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next';
 import Icon from '@mui/material/Icon';
 
 import ModalConfirm from 'common/modal/Confirm';
-import StyledButton from 'common/styled/StyledPrimaryButton';
+import StyledPrimaryButton from 'common/styled/StyledPrimaryButton';
 import GameStoreContext from 'components/game/context/Store';
 import { deleteChampionship } from 'components/game/team/actionCreators';
 
@@ -23,9 +23,9 @@ export default function RoundActionDelete({ round, onSuccess = noop }) {
 
   return (
     <>
-      <StyledButton color="primary" variant="contained" startIcon={<Icon>delete_outline</Icon>} onClick={() => setIsOpen(true)}>
+      <StyledPrimaryButton startIcon={<Icon>delete_outline</Icon>} onClick={() => setIsOpen(true)}>
         {t('button.remove')}
-      </StyledButton>
+      </StyledPrimaryButton>
       <ModalConfirm
         cancelText={t('button.cancel')}
         confirmText={t('button.remove')}

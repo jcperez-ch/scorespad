@@ -22,9 +22,7 @@ export default function TeamList({ onClickChampionship = noop }) {
 
   return teams.length === 0 ? (
     <WarnPlaceholder icon="people" message={t('text.noTeams')}>
-      <StyledPrimaryButton variant="contained" color="primary" onClick={goToAddTeam}>
-        {t('button.addTeam')}
-      </StyledPrimaryButton>
+      <StyledPrimaryButton onClick={goToAddTeam}>{t('button.addTeam')}</StyledPrimaryButton>
     </WarnPlaceholder>
   ) : (
     <List component="div">
