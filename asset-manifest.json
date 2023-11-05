@@ -1,26 +1,26 @@
 {
   "files": {
     "main.css": "/scorespad/static/css/main.27f951cd.css",
-    "main.js": "/scorespad/static/js/main.213887ed.js",
-    "gc.js": "/scorespad/static/js/gc.10c2c3d2.chunk.js",
-    "gs.js": "/scorespad/static/js/gs.aa966dbf.chunk.js",
-    "r.js": "/scorespad/static/js/r.03ba0e0d.chunk.js",
+    "main.js": "/scorespad/static/js/main.6329e9f2.js",
+    "gc.js": "/scorespad/static/js/gc.e31cb7e3.chunk.js",
+    "gs.js": "/scorespad/static/js/gs.5097f4b5.chunk.js",
+    "r.js": "/scorespad/static/js/r.fc38a926.chunk.js",
     "ch.js": "/scorespad/static/js/ch.93bf1d8e.chunk.js",
-    "tc.js": "/scorespad/static/js/tc.79eba872.chunk.js",
+    "tc.js": "/scorespad/static/js/tc.3c788c56.chunk.js",
     "static/js/613.ecec9c56.chunk.js": "/scorespad/static/js/613.ecec9c56.chunk.js",
     "service-worker.js": "/scorespad/service-worker.js",
     "index.html": "/scorespad/index.html",
     "main.27f951cd.css.map": "/scorespad/static/css/main.27f951cd.css.map",
-    "main.213887ed.js.map": "/scorespad/static/js/main.213887ed.js.map",
-    "gc.10c2c3d2.chunk.js.map": "/scorespad/static/js/gc.10c2c3d2.chunk.js.map",
-    "gs.aa966dbf.chunk.js.map": "/scorespad/static/js/gs.aa966dbf.chunk.js.map",
-    "r.03ba0e0d.chunk.js.map": "/scorespad/static/js/r.03ba0e0d.chunk.js.map",
+    "main.6329e9f2.js.map": "/scorespad/static/js/main.6329e9f2.js.map",
+    "gc.e31cb7e3.chunk.js.map": "/scorespad/static/js/gc.e31cb7e3.chunk.js.map",
+    "gs.5097f4b5.chunk.js.map": "/scorespad/static/js/gs.5097f4b5.chunk.js.map",
+    "r.fc38a926.chunk.js.map": "/scorespad/static/js/r.fc38a926.chunk.js.map",
     "ch.93bf1d8e.chunk.js.map": "/scorespad/static/js/ch.93bf1d8e.chunk.js.map",
-    "tc.79eba872.chunk.js.map": "/scorespad/static/js/tc.79eba872.chunk.js.map",
+    "tc.3c788c56.chunk.js.map": "/scorespad/static/js/tc.3c788c56.chunk.js.map",
     "613.ecec9c56.chunk.js.map": "/scorespad/static/js/613.ecec9c56.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.27f951cd.css",
-    "static/js/main.213887ed.js"
+    "static/js/main.6329e9f2.js"
   ]
 }
