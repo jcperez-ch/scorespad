@@ -9,6 +9,7 @@ import Link from '@mui/material/Link';
 import NameField from 'common/NameField';
 import DialogHeadline from 'common/dialog/Headline';
 import DialogTitle from 'common/dialog/Title';
+import StyledButton from 'common/styled/StyledPrimaryButton';
 import GameStoreContext from 'components/game/context/Store';
 import { createGame } from 'components/game/actionCreators';
 import useValidation from 'utils/validation';
@@ -42,10 +43,12 @@ export default function GameFormByName() {
         </DialogHeadline>
       </DialogContent>
       <DialogActions>
-        <Button onClick={handleClose}>{t('button.cancel')}</Button>
-        <Button variant="contained" color="primary" autoFocus onClick={onSubmit}>
-          {t('button.createGame')}
+        <Button color="secondary" onClick={handleClose}>
+          {t('button.cancel')}
         </Button>
+        <StyledButton variant="contained" color="primary" autoFocus onClick={onSubmit}>
+          {t('button.createGame')}
+        </StyledButton>
       </DialogActions>
     </>
   );

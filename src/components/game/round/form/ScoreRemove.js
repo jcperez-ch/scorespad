@@ -14,9 +14,8 @@ import { removeScore } from '../actionCreators';
 
 const StyledListItemText = styled(ListItemText)`
   display: grid;
-  grid-auto-flow: column;
+  grid-template-columns: minmax(0, auto) 1fr minmax(0, auto);
   align-items: center;
-  justify-content: center;
   padding: 0;
   gap: 5px;
 `;
@@ -35,12 +34,12 @@ export default function RoundFormScoreRemove({ score, index, scoreIndex, onSucce
   return (
     <StyledListItemText component="div" disableTypography>
       <IconButton
-        color="primary"
         aria-label={t('title.removeScore')}
         aria-owns={isOpen ? 'confirm-dialog' : undefined}
         aria-haspopup="true"
+        color="warning"
         onClick={() => setIsOpen(true)}
-        size="large"
+        size="small"
       >
         <Icon>delete_outline</Icon>
       </IconButton>
@@ -56,7 +55,7 @@ export default function RoundFormScoreRemove({ score, index, scoreIndex, onSucce
       <Typography align="center" variant="body2">
         {score}
       </Typography>
-      <IconButton color="primary" size="small" aria-label={t('button.cancel')} onClick={onClose}>
+      <IconButton aria-label={t('button.cancel')} color="success" size="small" onClick={onClose}>
         <Icon>check</Icon>
       </IconButton>
     </StyledListItemText>

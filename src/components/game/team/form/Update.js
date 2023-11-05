@@ -4,10 +4,10 @@ import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router-dom';
 import Button from '@mui/material/Button';
 import ButtonGroup from '@mui/material/ButtonGroup';
-import Fab from '@mui/material/Fab';
 import Icon from '@mui/material/Icon';
 
 import StyledNameForm from 'common/styled/NameForm';
+import StyledFab from 'common/styled/StyledFab';
 import NameField from 'common/NameField';
 import GameStoreContext from 'components/game/context/Store';
 import useValidation from 'utils/validation';
@@ -32,9 +32,9 @@ function TeamFormUpdate({ index, name, onChange = noop, onSuccess = noop, onClos
     <StyledNameForm>
       <div className="field">
         <NameField label={t('placeholder.teamName')} onChange={onChange} onEnter={onSubmit} error={error} value={name} />
-        <Fab color="primary" size="small" aria-label={t('button.rename')} onClick={onSubmit}>
+        <StyledFab color="primary" size="small" aria-label={t('button.rename')} onClick={onSubmit}>
           <Icon>check</Icon>
-        </Fab>
+        </StyledFab>
       </div>
       <ButtonGroup color="secondary" variant="outlined" size="small">
         <Button startIcon={<Icon>cancel</Icon>} onClick={onClose}>

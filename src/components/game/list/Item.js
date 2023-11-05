@@ -44,7 +44,6 @@ export default function GameListItem({ onClick, id, name, teams }) {
       {gameUpdatedSnackbar}
       <ListItem button {...rippleProps}>
         <ListItemText
-          disableTypography
           secondary={
             <>
               <Typography variant="body2">{t('messages.createdAt', { date: createdAt.toDateString() })}</Typography>

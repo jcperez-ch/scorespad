@@ -21,7 +21,7 @@ export default function ModalConfirm({ children, cancelText, confirmText, open, 
               {cancelText}
             </Button>
           )}
-          <Button color="primary" autoFocus onClick={onConfirm ?? onClose}>
+          <Button variant="outlined" color="warning" autoFocus onClick={onConfirm ?? onClose}>
             {confirmText}
           </Button>
         </DialogActions>

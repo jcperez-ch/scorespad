@@ -4,15 +4,21 @@ import TextField from '@mui/material/TextField';
 const RoundListField = styled(TextField)`
   width: 100px;
 
-  & input {
-    text-align: center;
-    font-size: 1.4rem;
-    &:-webkit-autofill {
-      background-color: red !important;
+  & .MuiOutlinedInput-root {
+    & fieldset {
+      border-color: var(--text-field-default-border-color);
+    }
+    &:hover fieldset {
+      border-color: var(--text-field-active-border-color);
+    }
+    &.Mui-focused fieldset {
+      border-color: var(--text-field-active-border-color);
     }
   }
-  fieldset {
-    border-color: var(--text-field-default-border-color);
+  & input {
+    color: var(--text-field-default-border-color);
+    text-align: center;
+    font-size: 1.4rem;
   }
 `;
 

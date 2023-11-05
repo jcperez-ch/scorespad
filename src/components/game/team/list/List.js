@@ -2,7 +2,7 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 import List from '@mui/material/List';
-import Button from '@mui/material/Button';
+import StyledPrimaryButton from 'common/styled/StyledPrimaryButton';
 
 import WarnPlaceholder from 'common/WarnPlaceholder';
 import useGame from 'components/game/useGame';
@@ -22,9 +22,9 @@ export default function TeamList({ onClickChampionship = noop }) {
 
   return teams.length === 0 ? (
     <WarnPlaceholder icon="people" message={t('text.noTeams')}>
-      <Button variant="contained" color="primary" onClick={goToAddTeam}>
+      <StyledPrimaryButton variant="contained" color="primary" onClick={goToAddTeam}>
         {t('button.addTeam')}
-      </Button>
+      </StyledPrimaryButton>
     </WarnPlaceholder>
   ) : (
     <List component="div">

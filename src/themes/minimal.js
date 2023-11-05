@@ -42,5 +42,9 @@ export default {
   }),
   globalStyles: css`
     @import url('https://fonts.googleapis.com/css?family=Montserrat+Alternates:400,500,800&subset=latin-ext');
+    :root {
+      --button-color: #c2185b;
+      --button-text-color: #ffffff;
+    }
   `,
 };

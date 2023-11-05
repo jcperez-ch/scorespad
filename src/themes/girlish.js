@@ -47,5 +47,9 @@ export default {
   }),
   globalStyles: css`
     @import url('https://fonts.googleapis.com/css?family=Fredoka+One');
+    :root {
+      --button-color: #c2185b;
+      --button-text-color: #fce4ec;
+    }
   `,
 };

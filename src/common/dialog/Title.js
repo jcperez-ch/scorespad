@@ -31,7 +31,7 @@ function DialogTitle({ children, onClose, ...props }, ref) {
   return (
     <StyledWrapper ref={ref} {...props}>
       <StyledContainer>
-        <IconButton color="primary" onClick={onClose} size="large">
+        <IconButton color="secondary" variant="outlined" onClick={onClose} size="large">
           <Icon>close</Icon>
         </IconButton>
         <StyledText>{children}</StyledText>

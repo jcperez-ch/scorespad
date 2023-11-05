@@ -1,8 +1,9 @@
 import React, { useContext, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router-dom';
-import Button from '@mui/material/Button';
+
 import ButtonsWrapper from 'common/ButtonsWrapper';
+import StyledButton from 'common/styled/StyledPrimaryButton';
 
 import GameStoreContext from './context/Store';
 import GameScoresContext from './context/Scores';
@@ -36,9 +37,9 @@ export default function GameScores({ round, onEnd }) {
     <GameScoresContext.Provider value={state}>
       <RoundList teams={teams} round={round} onSubmit={handleSubmit} />
       <ButtonsWrapper>
-        <Button icon="plus" color="primary" variant="contained" onClick={handleSubmit}>
+        <StyledButton icon="plus" color="primary" variant="contained" onClick={handleSubmit}>
           {t('button.sum')}
-        </Button>
+        </StyledButton>
       </ButtonsWrapper>
       <RoundEnd gameKey={gameKey} round={round} onEnd={onEnd} />
     </GameScoresContext.Provider>

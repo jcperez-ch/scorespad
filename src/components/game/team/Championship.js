@@ -7,18 +7,24 @@ import Flex from 'common/Flex';
 
 const StyledIcon = styled(Icon)`
   && {
-    font-size: 0.75rem;
+    font-size: 1.25rem;
+    color: var(--button-color);
   }
 `;
 
 const StyledButton = styled(IconButton)`
   && {
     padding: 0.5rem;
+    transition: transform 0.25s ease-out;
+    font-size: 1.25rem;
+    &:hover {
+      transform: scale(1.25) rotate(5deg);
+    }
   }
 `;
 
 StyledButton.defaultProps = {
-  variant: 'text',
+  variant: 'outlined',
   color: 'primary',
 };
 

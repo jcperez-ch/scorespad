@@ -15,7 +15,10 @@ const FullViewportHeight = styled.div`
 
   > aside {
     flex: 0 0 auto;
-    font-size: 60vw;
+
+    .material-icons {
+      font-size: 40vw;
+    }
 
     @media (min-width: ${themeScreenSizes.smallScreenMin}) {
       font-size: 35vw;
@@ -31,7 +34,7 @@ const FullViewportHeight = styled.div`
   }
 `;
 
-export default function WarnPlaceholder({ children = null, color = 'primary', icon, message }) {
+export default function WarnPlaceholder({ children = null, color = 'secondary', icon, message }) {
   return (
     <FullViewportHeight>
       <aside>
