@@ -4,6 +4,7 @@ import ListItem from '@mui/material/ListItem';
 import Typography from '@mui/material/Typography';
 import ListItemText from '@mui/material/ListItemText';
 
+import StyledListItemHeadline from 'common/styled/ListItemHeadline';
 import SlideLongRippleSwitch from 'common/SlideLongRippleSwitch';
 import useLongRipple from 'common/useLongRipple';
 import CommaList from 'common/CommaList';
@@ -55,7 +56,7 @@ export default function GameListItem({ onClick, id, name, teams }) {
             </>
           }
         >
-          <Typography variant="body1">{name}</Typography>
+          <StyledListItemHeadline>{name}</StyledListItemHeadline>
         </ListItemText>
       </ListItem>
     </SlideLongRippleSwitch>

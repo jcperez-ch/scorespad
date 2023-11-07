@@ -8,20 +8,20 @@ export default {
     ...common,
     palette: {
       primary: {
-        main: '#1F1F1F',
+        main: '#020000',
         light: '#2F2F2F',
         dark: '#00dac6',
-        contrastText: '#FFFFFF',
+        contrastText: '#f1fff9',
       },
       secondary: {
-        main: '#BB86FC',
-        light: '#FFFFFF',
-        dark: '#FF0000',
-        contrastText: '#BB86FC',
+        main: '#a7ffff',
+        light: '#e8fffe',
+        dark: '#065b5c',
+        contrastText: '#020000',
       },
       background: {
-        default: '#121212',
-        paper: '#1D1D1D',
+        default: '#041518',
+        paper: '#05aaa1',
       },
       error: {
         main: '#FF2222',
@@ -49,17 +49,19 @@ export default {
   globalStyles: css`
     @import url('https://fonts.googleapis.com/css?family=Raleway&display=swap');
     :root {
-      --top-bar-background-color: #1f1f1f;
-      --top-bar-box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
-      --top-bar-text-color: #ffffff;
-      --button-active-background-color: #00dac6;
-      --button-hover-background-color: #00dac6;
-      --button-active-text-color: #1f1f1f;
-      --button-hover-text-color: #1f1f1f;
-      --dialog-close-button-color: #ffffff;
+      --top-bar-background-color: #020000;
+      --top-bar-box-shadow: 0 0 5px #020000, 0 0 20px #02797a, 0 0 30px #3efcff;
+      --top-bar-text-color: #f1fff9;
+      --backgrond-image: linear-gradient(to bottom right, #041518, #02797a);
+      --button-active-background-color: #3efcff;
+      --button-hover-background-color: #3efcff;
+      --button-active-text-color: #020000;
+      --button-hover-text-color: #020000;
+      --dialog-close-button-color: #3efcff;
       --text-field-default-border-color: #e2e2e2;
-      --text-field-active-border-color: #bb86fc;
-      --star-color: #00dac6;
+      --text-field-active-border-color: #e8fffe;
+      --headline-text-shadow: 0 0 5px #02797a, 0 0 10px #02797a, 0 0 15px #3efcff;
+      --star-color: #3efcff;
     }
   `,
 };

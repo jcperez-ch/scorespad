@@ -79,6 +79,7 @@
     "selectGame": "As-tu laissé ton jeu déjà commencé? appuie sur le triangle pour le reprendre. Ou  si tu veux commencer un nouveau jeu, donc appuie sur \"Creer Jeu\""
   },
   "skins": {
+    "aurora": "Aurora",
     "dark": "Foncé",
     "minimal": "Basique",
     "girlish": "Pastel"

@@ -19,25 +19,22 @@ export default function ThemeMenu() {
 
   const items = [
     { id: 'minimal', label: t('skins.minimal') },
+    { id: 'aurora', label: t('skins.aurora') },
     { id: 'girlish', label: t('skins.girlish') },
     { id: 'dark', label: t('skins.dark') },
   ];
-  return <>
-    <IconButton
-      color="inherit"
-      aria-owns={el ? 'theme-menu' : undefined}
-      aria-haspopup="true"
-      aria-label="Theme"
-      onClick={handleOpen}
-      size="large">
-      <Icon>color_lens</Icon>
-    </IconButton>
-    <Menu id="theme-menu" anchorEl={el} open={Boolean(el)} onClose={handleClose}>
-      {items.map(({ id, label }) => (
-        <MenuItem key={id} selected={id === theme} onClick={handleClick(id)}>
-          {label}
-        </MenuItem>
-      ))}
-    </Menu>
-  </>;
+  return (
+    <>
+      <IconButton color="inherit" aria-owns={el ? 'theme-menu' : undefined} aria-haspopup="true" aria-label="Theme" onClick={handleOpen} size="large">
+        <Icon>color_lens</Icon>
+      </IconButton>
+      <Menu id="theme-menu" anchorEl={el} open={Boolean(el)} onClose={handleClose}>
+        {items.map(({ id, label }) => (
+          <MenuItem key={id} selected={id === theme} onClick={handleClick(id)}>
+            {label}
+          </MenuItem>
+        ))}
+      </Menu>
+    </>
+  );
 }

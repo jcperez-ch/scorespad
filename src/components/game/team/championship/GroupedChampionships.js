@@ -9,7 +9,7 @@ import Flex from 'common/Flex';
 const StyledIcon = styled(Icon)`
   && {
     font-size: 1.25rem;
-    color: var(--button-color);
+    color: var(--star-color);
   }
 `;
 
@@ -30,7 +30,7 @@ StyledButton.defaultProps = {
 };
 
 const StyledCount = styled.span`
-  color: var(--button-color);
+  color: var(--star-color);
   font-size: 0.75rem;
   text-transform: lowercase;
   padding: 0 0.25rem;

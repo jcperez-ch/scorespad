@@ -79,6 +79,7 @@
     "selectGame": "Did you leave a game already started?, Click on the name of the game.  Or if you want to start a brand new game then click on the \"Create Game\" button below"
   },
   "skins": {
+    "aurora": "Aurora",
     "dark": "Dark",
     "minimal": "Default",
     "girlish": "Pastel"

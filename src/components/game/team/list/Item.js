@@ -2,8 +2,10 @@ import React, { useState } from 'react';
 import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
 import Typography from '@mui/material/Typography';
+
 import SlideLongRippleSwitch from 'common/SlideLongRippleSwitch';
 import useLongRipple from 'common/useLongRipple';
+import StyledListItemHeadline from 'common/styled/ListItemHeadline';
 import Flex from 'common/Flex';
 import { flexCenterBetween } from 'utils/flexStyles';
 
@@ -23,13 +25,13 @@ function TeamListItem({ index, name, championships = [], rounds, round, onClickC
       <ListItem button {...rippleProps}>
         <ListItemText disableTypography style={flexCenterBetween}>
           <div>
-            <Typography variant="body1">{name}</Typography>
+            <StyledListItemHeadline>{name}</StyledListItemHeadline>
             <Flex display wrap="wrap">
-              {championships.length > 6
-                ? <TeamGroupedChampionships index={index} count={championships.length} />
-                : championships.map((championship) => (
-                  <TeamChampionship key={championship} championship={championship} onClick={onClickChampionship} />
-                ))}
+              {championships.length > 6 ? (
+                <TeamGroupedChampionships index={index} count={championships.length} />
+              ) : (
+                championships.map((championship) => <TeamChampionship key={championship} championship={championship} onClick={onClickChampionship} />)
+              )}
             </Flex>
           </div>
           {round && <Typography variant="overline">{rounds[round].reduce((sum, value) => value + sum, 0)}</Typography>}

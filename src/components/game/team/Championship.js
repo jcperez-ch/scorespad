@@ -8,7 +8,7 @@ import Flex from 'common/Flex';
 const StyledIcon = styled(Icon)`
   && {
     font-size: 1.25rem;
-    color: var(--button-color);
+    color: var(--star-color);
   }
 `;
 

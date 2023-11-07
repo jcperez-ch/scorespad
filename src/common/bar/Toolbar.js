@@ -1,10 +1,10 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import { themeColors } from 'themes';
 
 const StyledAppBar = styled.div`
-  background-color: ${themeColors.primary};
-  box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
+  background-color: var(--top-bar-background-color);
+  box-shadow: var(--top-bar-box-shadow);
+  border-bottom: var(--top-bar-border);
   flex: 0 0 auto;
   position: static;
 `;
@@ -14,9 +14,12 @@ const StyledToolbar = styled.div`
   display: grid;
   grid-template-columns: auto 1fr auto auto;
   padding: 8px 24px;
+  & h2 {
+    color: var(--top-bar-text-color);
+  }
 
   .material-icons {
-    color: ${themeColors.foregroundOnPrimary};
+    color: var(--top-bar-text-color);
   }
 `;
 
