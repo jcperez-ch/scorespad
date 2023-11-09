@@ -25,7 +25,7 @@ const StyledButton = styled(Button)`
 `;
 
 StyledButton.defaultProps = {
-  variant: 'outlined',
+  variant: 'text',
   color: 'primary',
 };
 

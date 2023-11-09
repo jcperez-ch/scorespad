@@ -51,10 +51,12 @@ export default {
       --top-bar-background-color: #e91e63;
       --top-bar-border: 4px dashed #ffffff;
       --top-bar-text-color: #ffffff;
+
       --button-active-background-color: #c2185b;
       --button-hover-background-color: #c2185b;
       --button-active-text-color: #fce4ec;
       --button-hover-text-color: #fce4ec;
+
       --star-color: #c2185b;
     }
   `,

@@ -52,13 +52,18 @@ export default {
       --top-bar-background-color: #1f1f1f;
       --top-bar-box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
       --top-bar-text-color: #ffffff;
+
+      --button-background-color: #1f1f1f;
       --button-active-background-color: #00dac6;
       --button-hover-background-color: #00dac6;
       --button-active-text-color: #1f1f1f;
       --button-hover-text-color: #1f1f1f;
+
       --dialog-close-button-color: #ffffff;
+
       --text-field-default-border-color: #e2e2e2;
       --text-field-active-border-color: #bb86fc;
+
       --star-color: #00dac6;
     }
   `,

@@ -21,17 +21,17 @@ export default {
       },
       background: {
         default: '#041518',
-        paper: '#05aaa1',
+        paper: 'rgba(4, 21, 24, 0.5)',
       },
       error: {
         main: '#FF2222',
       },
       text: {
-        primary: '#E2E2E2',
+        primary: '#a7ffff',
         secondary: '#FFFFFF',
         disabled: '#635985',
       },
-      divider: '#E2E2E2',
+      divider: '#a7ffff',
     },
     typography: {
       useNextVariants: true,
@@ -49,19 +49,25 @@ export default {
   globalStyles: css`
     @import url('https://fonts.googleapis.com/css?family=Raleway&display=swap');
     :root {
-      --top-bar-background-color: #020000;
+      --top-bar-background-color: rgba(4, 21, 24, 0.2);
       --top-bar-box-shadow: 0 0 5px #020000, 0 0 20px #02797a, 0 0 30px #3efcff;
       --top-bar-text-color: #f1fff9;
+
       --backgrond-image: linear-gradient(to bottom right, #041518, #02797a);
-      --button-active-background-color: #3efcff;
-      --button-hover-background-color: #3efcff;
+
+      --button-background-color: rgba(2, 0, 0, 0.5);
+      --button-active-background-color: rgba(62, 252, 255, 0.5);
+      --button-hover-background-color: rgba(62, 252, 255, 0.5);
       --button-active-text-color: #020000;
       --button-hover-text-color: #020000;
+
       --dialog-close-button-color: #3efcff;
-      --text-field-default-border-color: #e2e2e2;
-      --text-field-active-border-color: #e8fffe;
+
+      --text-field-default-border-color: #a7ffff;
+      --text-field-active-border-color: #02797a;
+
       --headline-text-shadow: 0 0 5px #02797a, 0 0 10px #02797a, 0 0 15px #3efcff;
-      --star-color: #3efcff;
+      --star-color: #f1fff9;
     }
   `,
 };
