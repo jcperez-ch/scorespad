@@ -52,10 +52,15 @@ export default {
       --top-bar-border: 4px dashed #ffffff;
       --top-bar-text-color: #ffffff;
 
+      --backgrond-image: linear-gradient(to bottom right, #78d7e6, #91d0d6);
+
+      --button-background-color: #e91e63;
       --button-active-background-color: #c2185b;
       --button-hover-background-color: #c2185b;
       --button-active-text-color: #fce4ec;
       --button-hover-text-color: #fce4ec;
+
+      --menu-icon-color: #c2185b;
 
       --star-color: #c2185b;
     }

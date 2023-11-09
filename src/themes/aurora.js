@@ -63,6 +63,8 @@ export default {
 
       --dialog-close-button-color: #3efcff;
 
+      --menu-icon-color: #a7ffff;
+
       --text-field-default-border-color: #a7ffff;
       --text-field-active-border-color: #02797a;
 

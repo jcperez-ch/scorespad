@@ -10,13 +10,13 @@ export default {
         main: '#2c83cd',
         light: '#558fca',
         dark: '#1e5084',
-        contrastText: '#FFFFFF',
+        contrastText: '#ffffff',
       },
       secondary: {
         main: '#03a9f4',
         light: '#35baf6',
         dark: '#0276aa',
-        contrastText: '#CCCCCC',
+        contrastText: '#cccccc',
       },
       background: {
         default: '#f3f3f3',
@@ -51,6 +51,8 @@ export default {
       --button-hover-background-color: #c2185b;
       --button-active-text-color: #ffffff;
       --button-hover-text-color: #ffffff;
+
+      --menu-icon-color: rgba(0, 0, 0, 0.87);
 
       --star-color: #c2185b;
     }
