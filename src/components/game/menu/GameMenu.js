@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate, useParams } from 'react-router-dom';
 import styled from '@emotion/styled';
@@ -9,18 +9,29 @@ import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import Icon from '@mui/material/Icon';
 
+import ModalConfirm from 'common/modal/Confirm';
+import GameStoreContext from 'components/game/context/Store';
+
+import { removeGame } from '../actionCreators';
+
 const StyledMenuIcon = styled(Icon)`
   color: var(--menu-icon-color);
 `;
 
 export default function GameMenu() {
+  const [, dispatch] = useContext(GameStoreContext);
   const { gameKey } = useParams();
   const [el, setEl] = useState(null);
+  const [confirmDeleteOpen, setConfirmDeleteOpen] = useState(false);
   const [t] = useTranslation();
   const navigate = useNavigate();
   const handleOpen = ({ currentTarget }) => setEl(currentTarget);
   const handleClose = () => setEl(null);
   const goToShareTeam = () => navigate(`/share/${gameKey}`, { state: { from: `/games/${gameKey}` } });
+  const handleRemove = () => {
+    navigate('/');
+    dispatch(removeGame(gameKey));
+  };
   return (
     <>
       <IconButton color="inherit" aria-owns={el ? 'theme-menu' : undefined} aria-haspopup="true" aria-label="Theme" onClick={handleOpen} size="large">
@@ -39,7 +50,27 @@ export default function GameMenu() {
           </ListItemIcon>
           <ListItemText>{t('button.share')}</ListItemText>
         </MenuItem>
+        <MenuItem
+          onClick={() => {
+            setConfirmDeleteOpen(true);
+            handleClose();
+          }}
+        >
+          <ListItemIcon>
+            <StyledMenuIcon>delete_outline</StyledMenuIcon>
+          </ListItemIcon>
+          <ListItemText>{t('button.delete')}</ListItemText>
+        </MenuItem>
       </Menu>
+      <ModalConfirm
+        open={confirmDeleteOpen}
+        cancelText={t('button.cancel')}
+        confirmText={t('button.delete')}
+        onClose={() => setConfirmDeleteOpen(false)}
+        title={t('button.deleteGame')}
+        subtitle={t('messages.confirmRemoveGame')}
+        onConfirm={handleRemove}
+      />
     </>
   );
 }
