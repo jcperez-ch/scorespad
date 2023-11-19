@@ -26,7 +26,7 @@ export default function GameActionShare() {
     setOpen(false);
   };
   const handleExited = () => {
-    navigate(location.state.from || '/');
+    navigate(location.state?.from ?? '/');
   };
 
   const handleGenerate = useCallback(async (code) => {
@@ -48,8 +48,9 @@ export default function GameActionShare() {
       TransitionComponent={SlideUp}
       onClose={handleClose}
       TransitionProps={{
-        onExited: handleExited
-      }}>
+        onExited: handleExited,
+      }}
+    >
       <DialogTitle id="game-share-dialog-title" onClose={handleClose}>
         {t('title.shareGame')}
       </DialogTitle>

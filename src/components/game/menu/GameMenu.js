@@ -27,7 +27,8 @@ export default function GameMenu() {
   const navigate = useNavigate();
   const handleOpen = ({ currentTarget }) => setEl(currentTarget);
   const handleClose = () => setEl(null);
-  const goToShareTeam = () => navigate(`/share/${gameKey}`, { state: { from: `/games/${gameKey}` } });
+  const goToShareTeam = () => navigate(`/games/${gameKey}/share`, { state: { from: `/games/${gameKey}` } });
+  const goToUpdateTeam = () => navigate(`/games/${gameKey}/update`, { state: { from: `/games/${gameKey}` } });
   const handleRemove = () => {
     navigate('/');
     dispatch(removeGame(gameKey));
@@ -38,7 +39,7 @@ export default function GameMenu() {
         <Icon>settings</Icon>
       </IconButton>
       <Menu id="theme-menu" anchorEl={el} open={Boolean(el)} onClose={handleClose}>
-        <MenuItem onClick={() => {}}>
+        <MenuItem onClick={goToUpdateTeam}>
           <ListItemIcon>
             <StyledMenuIcon>drive_file_rename_outline</StyledMenuIcon>
           </ListItemIcon>

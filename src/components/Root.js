@@ -18,6 +18,7 @@ const LazyGameFormByScan = lazy(() => import(/* webpackChunkName: "gc" */ './gam
 const LazyRound = lazy(() => import(/* webpackChunkName: "r" */ './Round'));
 const LazyChampionshipsList = lazy(() => import(/* webpackChunkName: "ch" */ './ChampionshipsList'));
 const LazyTeamFormCreate = lazy(() => import(/* webpackChunkName: "tc" */ './game/team/form/Create'));
+const LazyGameActionUpdate = lazy(() => import(/* webpackChunkName: "gr" */ './game/action/Update'));
 
 export default function Root({ locale, i18n, theme, games, hasUpdate, onUpdate }) {
   const [updateWarning, setUpdateWarning] = useState(hasUpdate);
@@ -39,7 +40,8 @@ export default function Root({ locale, i18n, theme, games, hasUpdate, onUpdate }
                   <Route element={<LazyTeamFormCreate />} path="games/:gameKey/team" />
                   <Route element={<LazyRound />} path="games/:gameKey/rounds/:round" />
                   <Route element={<LazyChampionshipsList />} path="games/:gameKey/championships/:index" />
-                  <Route element={<LazyGameActionShare />} path="share/:gameKey" />
+                  <Route element={<LazyGameActionShare />} path="games/:gameKey/share" />
+                  <Route element={<LazyGameActionUpdate />} path="games/:gameKey/update" />
                   <Route element={<LazyGameFormCreate />} path="game">
                     <Route element={<LazyGameFormByName />} index />
                     <Route element={<LazyGameFormByScan />} path="scan" />

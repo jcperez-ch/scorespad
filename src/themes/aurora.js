@@ -68,6 +68,7 @@ export default {
       --text-field-default-border-color: #a7ffff;
       --text-field-active-border-color: #02797a;
 
+      --headline-text-color: #a7ffff;
       --headline-text-shadow: 0 0 5px #02797a, 0 0 10px #02797a, 0 0 15px #3efcff;
       --star-color: #f1fff9;
     }
