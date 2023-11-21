@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/scorespad/static/css/main.27f951cd.css",
-    "main.js": "/scorespad/static/js/main.8a96400e.js",
+    "main.js": "/scorespad/static/js/main.94a2aae4.js",
     "gc.js": "/scorespad/static/js/gc.a8797c25.chunk.js",
     "gs.js": "/scorespad/static/js/gs.d9d2bf68.chunk.js",
     "r.js": "/scorespad/static/js/r.3519ee6c.chunk.js",
@@ -12,7 +12,7 @@
     "service-worker.js": "/scorespad/service-worker.js",
     "index.html": "/scorespad/index.html",
     "main.27f951cd.css.map": "/scorespad/static/css/main.27f951cd.css.map",
-    "main.8a96400e.js.map": "/scorespad/static/js/main.8a96400e.js.map",
+    "main.94a2aae4.js.map": "/scorespad/static/js/main.94a2aae4.js.map",
     "gc.a8797c25.chunk.js.map": "/scorespad/static/js/gc.a8797c25.chunk.js.map",
     "gs.d9d2bf68.chunk.js.map": "/scorespad/static/js/gs.d9d2bf68.chunk.js.map",
     "r.3519ee6c.chunk.js.map": "/scorespad/static/js/r.3519ee6c.chunk.js.map",
@@ -23,6 +23,6 @@
   },
   "entrypoints": [
     "static/css/main.27f951cd.css",
-    "static/js/main.8a96400e.js"
+    "static/js/main.94a2aae4.js"
   ]
 }
