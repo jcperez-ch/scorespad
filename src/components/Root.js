@@ -1,11 +1,9 @@
-import React, { Suspense, lazy, useEffect, useState } from 'react';
+import React, { Suspense, lazy } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import Button from '@mui/material/Button';
 
 import Layout from 'common/Layout';
-import CommonSnackbar from 'common/Snackbar';
-import Txt from 'common/Txt';
 
+import AppWorker from './AppWorker';
 import Landing from './Landing';
 import Game from './Game';
 import ThemeProvider from './theme/Provider';
@@ -21,13 +19,7 @@ const LazyChampionshipsList = lazy(() => import(/* webpackChunkName: "ch" */ './
 const LazyTeamFormCreate = lazy(() => import(/* webpackChunkName: "tc" */ './game/team/form/Create'));
 const LazyGameActionUpdate = lazy(() => import(/* webpackChunkName: "gr" */ './game/action/Update'));
 
-export default function Root({ locale, i18n, theme, games, onUpdate }) {
-  const [updateWarning, setUpdateWarning] = useState(onUpdate != null);
-  const handleClose = () => setUpdateWarning(false);
-  useEffect(() => {
-    setUpdateWarning(onUpdate != null);
-  }, [onUpdate]);
-
+export default function Root({ locale, i18n, theme, games }) {
   return (
     <BrowserRouter basename={process.env.PUBLIC_URL}>
       <LocaleProvider initial={locale} i18n={i18n}>
@@ -49,23 +41,7 @@ export default function Root({ locale, i18n, theme, games, onUpdate }) {
                   </Route>
                 </Routes>
               </GameProvider>
-              <CommonSnackbar
-                open={updateWarning}
-                action={
-                  onUpdate != null
-                    ? [
-                        <Button key="undo" variant="outlined" color="primary" size="small" onClick={onUpdate}>
-                          <Txt id="button.update" />
-                        </Button>,
-                      ]
-                    : undefined
-                }
-                onClose={handleClose}
-              >
-                <span id="message-id">
-                  <Txt id="text.newVersion" />
-                </span>
-              </CommonSnackbar>
+              <AppWorker />
             </Suspense>
           </Layout>
         </ThemeProvider>
