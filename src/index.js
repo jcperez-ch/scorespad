@@ -20,16 +20,17 @@ const start = async (props) => {
 start();
 serviceWorker.register({
   async onUpdate(registration) {
-    const handleUpdate = async () => {
-      const [cacheKey] = await caches.keys();
-      if (cacheKey) {
-        const cache = await caches.open(cacheKey);
-        const requests = await cache.keys();
-        await Promise.all((requests || []).map((request) => cache.delete(request)));
-      }
-      await registration.unregister();
-      setTimeout(() => window.location.reload(), 350);
-    };
-    start({ hasUpdate: true, onUpdate: handleUpdate });
+    start({
+      onUpdate: async () => {
+        const [cacheKey] = await caches.keys();
+        if (cacheKey) {
+          const cache = await caches.open(cacheKey);
+          const requests = await cache.keys();
+          await Promise.all((requests || []).map((request) => cache.delete(request)));
+        }
+        await registration.unregister();
+        setTimeout(() => window.location.reload(), 350);
+      },
+    });
   },
 });
