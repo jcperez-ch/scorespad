@@ -35,10 +35,10 @@ export default {
     },
     typography: {
       useNextVariants: true,
-      fontFamily: ['Limelight'],
+      fontFamily: ['Amarante'],
       fontSize: 17,
       body1: {
-        fontSize: '1.4rem',
+        fontSize: '1.3rem',
       },
       body2: {
         fontWeight: 400,
@@ -46,7 +46,7 @@ export default {
     },
   }),
   globalStyles: css`
-    @import url('https://fonts.googleapis.com/css2?family=Limelight&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Amarante&display=swap');
     :root {
       --top-bar-background-color: rgba(72, 126, 76, 0.6);
       --top-bar-border: 1px solid rgb(118, 255, 3);
