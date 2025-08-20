@@ -18,7 +18,9 @@ export const getInitialState = async () => {
     if (!theme && browserLocale) {
       locale = browserLocale;
     }
-    window.localStorage.clear();
+    if (browserGames != null || browserTheme != null || browserLocale != null) {
+      window.localStorage.clear();
+    }
   }
 
   return { games, theme, locale };
