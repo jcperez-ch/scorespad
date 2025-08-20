@@ -22,6 +22,7 @@ export default function ThemeMenu() {
     { id: 'aurora', label: t('skins.aurora') },
     { id: 'girlish', label: t('skins.girlish') },
     { id: 'dark', label: t('skins.dark') },
+    { id: 'forest', label: t('skins.forest') },
   ];
   return (
     <>
