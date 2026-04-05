@@ -1,43 +1,83 @@
-import AddTaskIcon from '@mui/icons-material/AddTask';
-import BugReportIcon from '@mui/icons-material/BugReport';
-import GitHubIcon from '@mui/icons-material/GitHub';
-import HomeIcon from '@mui/icons-material/Home';
-import TerrainIcon from '@mui/icons-material/Terrain';
-
 import asyncComponentLoader from '@/utils/loader';
 
 import { Routes } from './types';
 
 const routes: Routes = [
   {
-    component: asyncComponentLoader(() => import('@/pages/Welcome')),
+    component: asyncComponentLoader(() => import('@/pages/Landing')),
     path: '/',
-    title: 'Welcome',
-    icon: HomeIcon,
+    routes: [
+      {
+        path: 'game',
+        component: asyncComponentLoader(() => import('@/pages/Games/GameFormByName')),
+      },
+      {
+        path: 'qr',
+        component: asyncComponentLoader(() => import('@/pages/Games/GameFormByQR')),
+      },
+    ],
   },
   {
-    component: asyncComponentLoader(() => import('@/pages/Page1')),
-    path: '/page-1',
-    title: 'Page 1',
-    icon: GitHubIcon,
-  },
-  {
-    component: asyncComponentLoader(() => import('@/pages/Page2')),
-    path: '/page-2',
-    title: 'Page 2',
-    icon: AddTaskIcon,
-  },
-  {
-    component: asyncComponentLoader(() => import('@/pages/Page3')),
-    path: '/page-3',
-    title: 'Page 3',
-    icon: TerrainIcon,
-  },
-  {
-    component: asyncComponentLoader(() => import('@/pages/Page4')),
-    path: '/page-4',
-    title: 'Page 4',
-    icon: BugReportIcon,
+    component: asyncComponentLoader(() => import('@/pages/Games/GameDetail')),
+    path: '/games/:gameKey',
+    routes: [
+      {
+        component: asyncComponentLoader(() => import('@/pages/Games/GameLobby')),
+        path: '',
+      },
+      {
+        component: asyncComponentLoader(() => import('@/pages/Rounds/RoundHistory')),
+        path: 'history',
+      },
+      {
+        component: asyncComponentLoader(() => import('@/pages/Rounds/PastRound')),
+        path: 'past/:roundKey',
+      },
+      {
+        component: asyncComponentLoader(() => import('@/pages/Games/GameSetup')),
+        path: 'setup',
+      },
+      {
+        component: asyncComponentLoader(() => import('@/pages/Games/GameShare')),
+        path: 'share',
+      },
+      {
+        component: asyncComponentLoader(() => import('@/pages/Rounds/RoundDetail')),
+        path: 'rounds/:roundKey',
+        routes: [
+          {
+            component: asyncComponentLoader(() => import('@/pages/Rounds/RoundScoresForm')),
+            path: 'scores',
+          },
+          {
+            component: asyncComponentLoader(() => import('@/pages/Rounds/ScoreAdd')),
+            path: 'team/:teamKey/score/add',
+          },
+        ],
+      },
+      {
+        component: asyncComponentLoader(() => import('@/pages/Games/GameManageTeams')),
+        path: 'teams',
+        routes: [
+          {
+            component: asyncComponentLoader(() => import('@/pages/Teams/TeamCreate')),
+            path: 'new',
+          },
+        ],
+      },
+      {
+        component: asyncComponentLoader(() => import('@/pages/Teams/TeamUpdate')),
+        path: 'update/:teamKey',
+      },
+      {
+        component: asyncComponentLoader(() => import('@/pages/Games/GameUpdate')),
+        path: 'update',
+      },
+      {
+        component: asyncComponentLoader(() => import('@/pages/NotFound')),
+        path: '*',
+      },
+    ],
   },
   {
     component: asyncComponentLoader(() => import('@/pages/NotFound')),

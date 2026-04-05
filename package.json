@@ -1,16 +1,12 @@
 {
-  "name": "react-pwa",
+  "name": "scorespad",
   "version": "3.0.0",
   "type": "module",
-  "description": "Starter kit for modern web applications",
-  "homepage": "https://react-pwa.surenatoyan.com/",
+  "description": "Easy way to keep your scores when playing board games",
+  "homepage": "https://jcperez-ch.github.io/scorespad",
   "repository": {
     "type": "git",
-    "url": "https://github.com/suren-atoyan/react-pwa.git"
-  },
-  "bugs": {
-    "url": "https://github.com/suren-atoyan/react-pwa/issues",
-    "email": "contact@surenatoyan.com"
+    "url": "git+https://github.com/jcperez-ch/scorespad.git"
   },
   "license": "MIT",
   "scripts": {
@@ -24,7 +20,8 @@
     "ts:check": "tsc --noEmit",
     "test:unit": "vitest src",
     "test:e2e": "playwright test",
-    "test:e2e:ui": "playwright test --ui"
+    "test:e2e:ui": "playwright test --ui",
+    "deploy": "gh-pages -d build"
   },
   "dependencies": {
     "@emotion/react": "^11.14.0",
@@ -32,12 +29,19 @@
     "@mui/icons-material": "^6.4.6",
     "@mui/material": "^6.4.6",
     "@toolpad/core": "^0.12.1",
+    "date-fns": "^4.1.0",
+    "gh-pages": "^6.3.0",
+    "i18next": "^25.4.0",
+    "idb-keyval": "^6.2.2",
     "jotai": "^2.12.1",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
     "react-error-boundary": "^5.0.0",
     "react-hotkeys-hook": "^4.6.1",
+    "react-i18next": "^15.7.1",
+    "react-qrcode-pretty": "^3.3.1",
     "react-router": "^7.2.0",
+    "reset-css": "^5.0.2",
     "usehooks-ts": "^3.1.1"
   },
   "devDependencies": {
@@ -45,9 +49,9 @@
     "@playwright/test": "^1.50.1",
     "@trivago/prettier-plugin-sort-imports": "^5.2.2",
     "@types/node": "^22.13.8",
-    "@types/react": "^19.0.10",
+    "@types/react": "^19.2.0",
     "@types/react-dom": "^19.0.4",
-    "@vitejs/plugin-react": "^4.3.4",
+    "@vitejs/plugin-react": "^5.2.0",
     "eslint": "^9.21.0",
     "eslint-plugin-react-hooks": "^5.0.0",
     "eslint-plugin-react-refresh": "^0.4.19",
@@ -58,9 +62,10 @@
     "prettier": "^3.5.2",
     "typescript": "~5.7.2",
     "typescript-eslint": "^8.24.1",
-    "vite": "^6.2.0",
-    "vite-plugin-pwa": "^0.21.1",
-    "vitest": "^3.0.7"
+    "vite": "^7.3.1",
+    "vite-plugin-pwa": "^1.2.0",
+    "vitest": "^4.1.0",
+    "workbox-window": "^7.4.0"
   },
   "lint-staged": {
     "src/**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
@@ -71,14 +76,14 @@
     ]
   },
   "author": {
-    "name": "Suren Atoyan",
-    "email": "contact@surenatoyan.com",
-    "url": "http://surenatoyan.com/"
+    "name": "JC Perez Chavez",
+    "email": "jc.perezchavez@gmail.com"
   },
   "keywords": [
     "react",
     "pwa",
-    "starter-kit",
+    "scorespad",
+    "games",
     "vite"
   ]
 }

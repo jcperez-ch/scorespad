@@ -4,8 +4,9 @@ import MenuIcon from '@mui/icons-material/Menu';
 import { AppBar, Button, Divider, IconButton, Stack, Toolbar, Tooltip } from '@mui/material';
 
 import { useNotifications } from '@toolpad/core/useNotifications';
+import { t } from 'i18next';
 
-import { repository, title } from '@/config';
+import { repository } from '@/config';
 import { useHotKeysDialog } from '@/sections/HotKeys/hooks';
 import { useSidebar } from '@/sections/Sidebar/hooks';
 import { useThemeMode } from '@/theme';
@@ -46,7 +47,7 @@ function Header() {
               <MenuIcon />
             </IconButton>
             <Button onClick={showNotification} color="info">
-              {title}
+              {t('button.startGame')}
             </Button>
           </Stack>
           <Stack direction="row" alignItems="center">

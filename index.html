@@ -1,38 +1,156 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no"
+    />
+    <meta name="theme-color" content="#2b73bd" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <!-- https://web.dev/uses-rel-preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
-<head>
-  <title>React PWA</title>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <!-- https://web.dev/uses-rel-preconnect -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <meta name="description" content="Starter kit for modern web applications" />
 
-  <meta name="description" content="Starter kit for modern web applications">
-  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-  <link rel="alternate icon" href="/favicon.ico" type="image/png" sizes="16x16">
-  <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180">
-  <link rel="mask-icon" href="/favicon.svg" color="#FFFFFF">
-  <meta name="theme-color" content="#ffffff">
+    <meta name="keywords" content="react, pwa, boilerplate, template" />
 
-  <meta name="keywords" content="react, pwa, boilerplate, template" />
+    <meta
+      name="description"
+      content="Starter kit for modern web applications"
+      data-react-helmet="true"
+    />
+    <meta property="og:title" content="React-PWA" data-react-helmet="true" />
+    <meta
+      property="og:description"
+      content="Starter kit for modern web applications"
+      data-react-helmet="true"
+    />
+    <meta name="twitter:card" content="summary" data-react-helmet="true" />
 
-  <meta name="description" content="Starter kit for modern web applications" data-react-helmet="true" />
-  <meta property="og:title" content="React-PWA" data-react-helmet="true">
-  <meta property="og:description" content="Starter kit for modern web applications" data-react-helmet="true">
-  <meta property="og:url" content="https://react-pwa.surenatoyan.com/" data-react-helmet="true">
-  <meta property="og:image" content="https://react-pwa.surenatoyan.com/cover.png" data-react-helmet="true" />
-  <meta name="twitter:card" content="summary" data-react-helmet="true" />
+    <!-- Start Favicon Stuff-->
+    <link rel="apple-touch-icon" sizes="57x57" href="/ico/apple-icon-57x57.png" />
+    <link rel="apple-touch-icon" sizes="60x60" href="/ico/apple-icon-60x60.png" />
+    <link rel="apple-touch-icon" sizes="72x72" href="/ico/apple-icon-72x72.png" />
+    <link rel="apple-touch-icon" sizes="76x76" href="/ico/apple-icon-76x76.png" />
+    <link
+      rel="apple-touch-icon"
+      sizes="114x114"
+      href="/ico/apple-icon-114x114.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="120x120"
+      href="/ico/apple-icon-120x120.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="144x144"
+      href="/ico/apple-icon-144x144.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="152x152"
+      href="/ico/apple-icon-152x152.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/ico/apple-icon-180x180.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="192x192"
+      href="/ico/android-icon-192x192.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/ico/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="96x96"
+      href="/ico/favicon-96x96.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/ico/favicon-16x16.png"
+    />
 
-  <!-- https://web.dev/defer-non-critical-css/ -->
-  <link rel="preload" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" as="style"
-    onload="this.onload=null;this.rel='stylesheet'">
-</head>
+    <!-- https://web.dev/defer-non-critical-css/ -->
+    <link
+      rel="preload"
+      href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+      as="style"
+      onload="this.onload=null;this.rel='stylesheet'"
+    />
+    <title>Scorespad</title>
+    <!-- Start Single Page Apps for GitHub Pages -->
+    <script type="text/javascript">
+      // Single Page Apps for GitHub Pages
+      // https://github.com/rafrex/spa-github-pages
+      // Copyright (c) 2016 Rafael Pedicini, licensed under the MIT License
+      // ----------------------------------------------------------------------
+      // This script checks to see if a redirect is present in the query string
+      // and converts it back into the correct url and adds it to the
+      // browser's history using window.history.replaceState(...),
+      // which won't cause the browser to attempt to load the new url.
+      // When the single page app is loaded further down in this file,
+      // the correct url will be waiting in the browser's history for
+      // the single page app to route accordingly.
+      (function (l) {
+        if (l.search) {
+          var q = {};
+          l.search
+            .slice(1)
+            .split('&')
+            .forEach(function (v) {
+              var a = v.split('=');
+              q[a[0]] = a.slice(1).join('=').replace(/~and~/g, '&');
+            });
+          if (q.p !== undefined) {
+            window.history.replaceState(
+              null,
+              null,
+              l.pathname.slice(0, -1) + (q.p || '') + (q.q ? '?' + q.q : '') + l.hash,
+            );
+          }
+        }
+      })(window.location);
+    </script>
+    <!--Global site tag(gtag.js) - Google Analytics-->
+    <script>
+      if (window.location.protocol.startsWith('https')) {
+        const trackingId = 'UA-20956472-3';
+        (function (i, s, o, g, r, a, m) {
+          i['GoogleAnalyticsObject'] = r;
+          (i[r] =
+            i[r] ||
+            function () {
+              (i[r].q = i[r].q || []).push(arguments);
+            }),
+            (i[r].l = 1 * new Date());
+          (a = s.createElement(o)), (m = s.getElementsByTagName(o)[0]);
+          a.async = 1;
+          a.src = g;
+          m.parentNode.insertBefore(a, m);
+        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
 
-<body>
-  <div id="root"></div>
-  <script type="module" src="/src/main.tsx"></script>
-</body>
+        ga('create', trackingId, 'auto');
+      }
+    </script>
+  </head>
 
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
 </html>

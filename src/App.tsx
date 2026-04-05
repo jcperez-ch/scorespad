@@ -1,29 +1,20 @@
-import { Fragment } from 'react';
 import { BrowserRouter } from 'react-router';
 
 import { CssBaseline } from '@mui/material';
 
-import { withErrorHandler } from '@/error-handling';
+import Layout from '@/components/common/Layout';
 import AppErrorBoundaryFallback from '@/error-handling/fallbacks/App';
+import withErrorHandler from '@/error-handling/withErrorHandler';
+import Pages from '@/routes/Pages';
 
-import Pages from './routes/Pages';
-import Header from './sections/Header';
-import HotKeys from './sections/HotKeys';
-import Sidebar from './sections/Sidebar';
-
-function App() {
+const AppWithErrorHandler = withErrorHandler(function App() {
   return (
-    <Fragment>
+    <Layout>
       <CssBaseline />
-      <HotKeys />
       <BrowserRouter>
-        <Header />
-        <Sidebar />
         <Pages />
       </BrowserRouter>
-    </Fragment>
+    </Layout>
   );
-}
-
-const AppWithErrorHandler = withErrorHandler(App, AppErrorBoundaryFallback);
+}, AppErrorBoundaryFallback);
 export default AppWithErrorHandler;
