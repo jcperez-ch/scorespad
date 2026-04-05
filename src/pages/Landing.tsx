@@ -42,25 +42,27 @@ export default function Landing() {
           </Button>
         </PageNullState>
       ) : (
-        <List component="div">
-          {Object.keys(games).map((gameKey) => (
-            <GameListItem
-              key={gameKey}
-              gameKey={gameKey}
-              onClick={(id: string) => navigate(`games/${id}`)}
-              {...games[gameKey]}
-            />
-          ))}
-        </List>
+        <>
+          <List component="div" sx={{ pb: 10 }}>
+            {Object.keys(games).map((gameKey) => (
+              <GameListItem
+                key={gameKey}
+                gameKey={gameKey}
+                onClick={(id: string) => navigate(`games/${id}`)}
+                {...games[gameKey]}
+              />
+            ))}
+          </List>
+          <Fab
+            color="primary"
+            aria-label={t('button.createGame')}
+            onClick={goToCreateGame}
+            sx={{ position: 'fixed', bottom: 24, right: 24 }}
+          >
+            <AddIcon />
+          </Fab>
+        </>
       )}
-      <Fab
-        color="primary"
-        aria-label={t('button.createGame')}
-        onClick={goToCreateGame}
-        sx={{ position: 'fixed', bottom: 24, right: 24 }}
-      >
-        <AddIcon />
-      </Fab>
       <Fab
         color="default"
         aria-label={t('settings.title')}

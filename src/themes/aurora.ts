@@ -9,15 +9,15 @@ export default {
     ...common,
     palette: {
       primary: {
-        main: '#097f89ff',
+        main: '#3efcff',
         light: '#2F2F2F',
         dark: '#00dac6',
-        contrastText: '#f1fff9',
+        contrastText: '#041518',
       },
       secondary: {
-        main: '#a7ffff',
-        light: '#e8fffe',
-        dark: '#065b5c',
+        main: '#ffb0d9',
+        light: '#ffd6ec',
+        dark: '#e87ab5',
         contrastText: '#020000',
       },
       background: {

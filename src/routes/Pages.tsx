@@ -10,7 +10,7 @@ function Pages() {
   return (
     <Box
       id="pages-root-container"
-      sx={{ height: '100vh', display: 'flex', flexDirection: 'column' }}
+      sx={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}
     >
       <Routes>{renderRoutes(routes)}</Routes>
     </Box>
