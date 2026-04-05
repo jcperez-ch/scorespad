@@ -11,7 +11,7 @@ const AppWithErrorHandler = withErrorHandler(function App() {
   return (
     <Layout>
       <CssBaseline />
-      <BrowserRouter>
+      <BrowserRouter basename={import.meta.env.BASE_URL}>
         <Pages />
       </BrowserRouter>
     </Layout>
