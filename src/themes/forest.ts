@@ -54,7 +54,10 @@ export default {
       --top-bar-border: 1px solid rgb(118, 255, 3);
       --top-bar-text-color: #ffffff;
 
-      --backgrond-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 60 60'%3E%3Cpath d='M15 3 C15 3 8 15 15 25 C10 22 3 15 3 15 C3 15 10 28 20 30 C10 30 2 28 2 28 C2 28 10 38 22 35 C18 40 10 42 10 42 C10 42 22 42 30 35 C30 45 25 55 25 55 C25 55 35 45 35 35 C42 42 50 42 50 42 C50 42 42 40 38 35 C50 38 58 28 58 28 C58 28 50 30 40 30 C50 28 57 15 57 15 C57 15 50 22 45 25 C52 15 45 3 45 3 C45 3 42 15 40 20 C38 10 30 2 30 2 C30 2 22 10 20 20 C18 15 15 3 15 3Z' fill='rgba(0,0,0,0.06)'/%3E%3C/svg%3E") repeat, linear-gradient(to bottom right, #2d5a27, #1a3a18);
+      --backgrond-image:
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 60 60'%3E%3Cpath d='M15 3 C15 3 8 15 15 25 C10 22 3 15 3 15 C3 15 10 28 20 30 C10 30 2 28 2 28 C2 28 10 38 22 35 C18 40 10 42 10 42 C10 42 22 42 30 35 C30 45 25 55 25 55 C25 55 35 45 35 35 C42 42 50 42 50 42 C50 42 42 40 38 35 C50 38 58 28 58 28 C58 28 50 30 40 30 C50 28 57 15 57 15 C57 15 50 22 45 25 C52 15 45 3 45 3 C45 3 42 15 40 20 C38 10 30 2 30 2 C30 2 22 10 20 20 C18 15 15 3 15 3Z' fill='rgba(0,0,0,0.06)'/%3E%3C/svg%3E")
+          repeat,
+        linear-gradient(to bottom right, #2d5a27, #1a3a18);
 
       --button-background-color: rgba(72, 126, 76, 0.6);
       --button-active-background-color: rgb(27, 94, 32);

@@ -65,7 +65,7 @@ export default {
       --dialog-close-button-color: #ffffff;
 
       --fab-default-background-color: #2c2c2c;
-      --fab-default-text-color: #E2E2E2;
+      --fab-default-text-color: #e2e2e2;
 
       --menu-icon-color: #ffffff;
 

@@ -43,7 +43,14 @@ type Props = {
   pastRounds: string[];
 };
 
-export default function GameListItem({ onClick, gameKey, name, gameType, teams, pastRounds }: Props) {
+export default function GameListItem({
+  onClick,
+  gameKey,
+  name,
+  gameType,
+  teams,
+  pastRounds,
+}: Props) {
   const [t] = useTranslation();
   const formatOptions = useLocalizedFormatRelativeOptions();
   const leaderKeys = useMemo(() => findLeaders(teams, pastRounds), [teams, pastRounds]);
@@ -66,7 +73,9 @@ export default function GameListItem({ onClick, gameKey, name, gameType, teams, 
                     leaderKeys.has(team.key) ? (
                       <StyledLeader key={team.key}>
                         {team.name}
-                        <span role="img" aria-label={t('navigation.currentLeader')}>🥇</span>
+                        <span role="img" aria-label={t('navigation.currentLeader')}>
+                          🥇
+                        </span>
                       </StyledLeader>
                     ) : (
                       team.name

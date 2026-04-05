@@ -53,7 +53,10 @@ export default function GameDetail() {
                 <Chip
                   label={t(`gameType.${game.gameType}`)}
                   size="small"
-                  sx={{ backgroundColor: gameTypeColors[game.gameType], color: 'var(--game-type-font-color)' }}
+                  sx={{
+                    backgroundColor: gameTypeColors[game.gameType],
+                    color: 'var(--game-type-font-color)',
+                  }}
                 />
               )
             }

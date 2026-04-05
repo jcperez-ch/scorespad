@@ -4,8 +4,6 @@ import Storage from '@/components/Storage';
 import GamesContext from '@/config/GamesContext';
 
 import { StoreState } from './State';
-// import gaTracking from '@/utils/gaTracking';
-
 import reducer from './reducer';
 
 type Props = {

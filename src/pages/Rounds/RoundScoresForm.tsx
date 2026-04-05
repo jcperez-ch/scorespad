@@ -38,7 +38,8 @@ export default function RoundScoresForm() {
     return undefined;
   };
 
-  const hasValidationErrors = requiresMultipleOfFive &&
+  const hasValidationErrors =
+    requiresMultipleOfFive &&
     Object.values(scores).some((value) => {
       if (value === '') return false;
       const num = parseInt(value, 10);

@@ -29,7 +29,8 @@ export default function Landing() {
   const [themeOpen, setThemeOpen] = useState(false);
 
   const goToCreateGame = () => navigate('game');
-  const handleSettingsOpen = (e: React.MouseEvent<HTMLElement>) => setSettingsAnchor(e.currentTarget);
+  const handleSettingsOpen = (e: React.MouseEvent<HTMLElement>) =>
+    setSettingsAnchor(e.currentTarget);
   const handleSettingsClose = () => setSettingsAnchor(null);
 
   return (

@@ -2,6 +2,11 @@ import { useContext, useState } from 'react';
 import { Trans, useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router';
 
+import Extension from '@mui/icons-material/Extension';
+import GridView from '@mui/icons-material/GridView';
+import Layers from '@mui/icons-material/Layers';
+import Style from '@mui/icons-material/Style';
+import Train from '@mui/icons-material/Train';
 import Button from '@mui/material/Button';
 import DialogActions from '@mui/material/DialogActions';
 import FormControl from '@mui/material/FormControl';
@@ -9,11 +14,6 @@ import InputLabel from '@mui/material/InputLabel';
 import Link from '@mui/material/Link';
 import MenuItem from '@mui/material/MenuItem';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
-import Extension from '@mui/icons-material/Extension';
-import GridView from '@mui/icons-material/GridView';
-import Layers from '@mui/icons-material/Layers';
-import Style from '@mui/icons-material/Style';
-import Train from '@mui/icons-material/Train';
 
 import styled from '@emotion/styled';
 
@@ -62,7 +62,13 @@ const gameTypeIcons: Record<GameType, React.ReactNode> = {
   other: <Extension />,
 };
 
-const gameTypes: GameType[] = ['continental', 'canasta', 'classic_dominoes', 'mexican_train', 'other'];
+const gameTypes: GameType[] = [
+  'continental',
+  'canasta',
+  'classic_dominoes',
+  'mexican_train',
+  'other',
+];
 
 export default function GameFormByName() {
   const [newName, setNewName] = useState('');
@@ -106,7 +112,11 @@ export default function GameFormByName() {
             )}
           >
             {gameTypes.map((type) => (
-              <MenuItem key={type} value={type} sx={{ display: 'flex', alignItems: 'center', columnGap: 1.5 }}>
+              <MenuItem
+                key={type}
+                value={type}
+                sx={{ display: 'flex', alignItems: 'center', columnGap: 1.5 }}
+              >
                 {gameTypeIcons[type]}
                 {t(`gameType.${type}`)}
               </MenuItem>

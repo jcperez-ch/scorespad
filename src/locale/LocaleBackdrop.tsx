@@ -68,10 +68,7 @@ export default function LocaleBackdrop({ open, onClose }: Props) {
         <List>
           {items.map(({ id, label }) => (
             <StyledListItemButton key={id} selected={id === locale} onClick={handleClick(id)}>
-              <ListItemText
-                primary={label}
-                slotProps={{ primary: { variant: 'h6' } }}
-              />
+              <ListItemText primary={label} slotProps={{ primary: { variant: 'h6' } }} />
             </StyledListItemButton>
           ))}
         </List>
