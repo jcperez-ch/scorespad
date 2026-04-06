@@ -37,7 +37,7 @@ type Props = {
   onClick: (id: string) => void;
   gameKey: string;
   name: string;
-  gameType: GameType;
+  gameType?: GameType;
   teams: Team[];
   pastRounds: string[];
 };

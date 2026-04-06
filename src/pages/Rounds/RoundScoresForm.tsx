@@ -21,7 +21,7 @@ export default function RoundScoresForm() {
   const [t] = useTranslation();
   const [, dispatch] = useContext(GamesContext);
   const handleClose = () => navigate(`/games/${gameKey}/rounds/${round}`);
-  const requiresMultipleOfFive = multipleOfFiveTypes.has(gameType);
+  const requiresMultipleOfFive = gameType != null && multipleOfFiveTypes.has(gameType);
   const step = requiresMultipleOfFive ? 5 : 1;
   const [scores, setScores] = useState<Record<string, string>>(
     teams.reduce<Record<string, string>>(
