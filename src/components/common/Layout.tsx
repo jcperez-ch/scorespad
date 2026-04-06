@@ -10,7 +10,7 @@ const Layout = styled.div`
   flex: 1;
   flex-direction: column;
   height: auto;
-  min-height: 100vh;
+  min-height: 100dvh;
 `;
 
 export default Layout;

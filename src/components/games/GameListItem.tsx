@@ -8,7 +8,7 @@ import ListItemText from '@mui/material/ListItemText';
 import Typography from '@mui/material/Typography';
 
 import styled from '@emotion/styled';
-import { formatRelative } from 'date-fns';
+import { format } from 'date-fns';
 
 import InlineList from '@/components/common/InlineList';
 import useLocalizedFormatRelativeOptions from '@/locale/useLocalizedFormatRelativeOptions';
@@ -63,7 +63,7 @@ export default function GameListItem({
           <StyledSecondary>
             <Typography variant="caption">
               {t('messages.createdAt', {
-                date: formatRelative(new Date(parseInt(gameKey, 36)), new Date(), formatOptions),
+                date: format(new Date(parseInt(gameKey, 36)), 'PPP', formatOptions),
               })}
             </Typography>
             <Typography variant="caption">
