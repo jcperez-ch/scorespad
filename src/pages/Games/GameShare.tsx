@@ -68,7 +68,10 @@ export default function GameShare() {
             }}
             padding={16}
             margin={10}
-            size={fullScreen ? window.innerHeight / 2 : window.innerHeight / 3.5}
+            size={Math.min(
+              fullScreen ? window.innerHeight / 2 : window.innerHeight / 3.5,
+              window.innerWidth - 84,
+            )}
             bgColor="#ddeeff"
             bgRounded
             divider

@@ -11,5 +11,4 @@ const configuredAsyncComponentLoader = (
   FallbackWaiting = Loading,
 ) => asyncComponentLoader(loadComponent, additionalProps, loaderOptions, FallbackWaiting);
 
-export { loaderDefaultOptions };
 export default configuredAsyncComponentLoader;

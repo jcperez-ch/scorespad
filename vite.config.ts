@@ -16,7 +16,7 @@ export default defineConfig({
       // switch to "true" to enable sw on development
       devOptions: { enabled: true },
       registerType: 'prompt',
-      workbox: { globPatterns: ['**/*.{js,css,html}', '**/*.{svg,png,jpg,gif}'] },
+      workbox: { globPatterns: ['**/*.{js,css,html,svg,png,jpg,gif}'] },
     }),
   ],
   resolve: { alias: { '@': path.resolve(__dirname, './src') } },

@@ -40,7 +40,7 @@ type Props = {
   onClose: () => void;
 };
 
-const themeKeys: ThemeKey[] = ['minimal', 'aurora', 'girlish', 'dark', 'forest'];
+const themeKeys: ThemeKey[] = ['minimal', 'aurora', 'girlish', 'dark', 'forest', 'emo'];
 
 export default function ThemeBackdrop({ open, onClose }: Props) {
   const [theme, setTheme] = useContext(ThemeContext);

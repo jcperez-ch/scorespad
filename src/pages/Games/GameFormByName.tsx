@@ -3,9 +3,9 @@ import { Trans, useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router';
 
 import Extension from '@mui/icons-material/Extension';
-import GridView from '@mui/icons-material/GridView';
-import Layers from '@mui/icons-material/Layers';
-import Style from '@mui/icons-material/Style';
+import ClassicDominoesIcon from '@/components/common/icons/ClassicDominoesIcon';
+import CanastaIcon from '@/components/common/icons/CanastaIcon';
+import ContinentalIcon from '@/components/common/icons/ContinentalIcon';
 import Train from '@mui/icons-material/Train';
 import Button from '@mui/material/Button';
 import DialogActions from '@mui/material/DialogActions';
@@ -55,9 +55,9 @@ const StyledFormControl = styled(FormControl)`
 `;
 
 const gameTypeIcons: Record<GameType, React.ReactNode> = {
-  continental: <Style />,
-  canasta: <Layers />,
-  classic_dominoes: <GridView />,
+  continental: <ContinentalIcon />,
+  canasta: <CanastaIcon />,
+  classic_dominoes: <ClassicDominoesIcon />,
   mexican_train: <Train />,
   other: <Extension />,
 };
