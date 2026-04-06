@@ -26,9 +26,10 @@
   "dependencies": {
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.0",
-    "@mui/icons-material": "^6.4.6",
-    "@mui/material": "^6.4.6",
-    "@toolpad/core": "^0.12.1",
+    "@mui/icons-material": "^7.3.9",
+    "@mui/material": "^7.3.9",
+    "@mui/x-charts": "^8.28.2",
+    "@toolpad/core": "^0.16.0",
     "date-fns": "^4.1.0",
     "gh-pages": "^6.3.0",
     "i18next": "^25.4.0",

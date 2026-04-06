@@ -16,7 +16,7 @@ import {
   RenameTeamAction,
   SetupGameAction,
 } from './Actions';
-import { Game, StoreState, Team } from './State';
+import { Game, GameType, StoreState, Team } from './State';
 
 function reduceGames<Payload extends { key: string }>(
   state: StoreState['games'],
@@ -108,7 +108,7 @@ export function setupGame(state: Game, { teams }: Omit<SetupGameAction, 'key' | 
   };
 }
 
-export function addRound(state: Game, { round }: Omit<EndRoundAction, 'key' | 'type'>): Game {
+export function addRound(state: Game, { round }: Omit<AddRoundAction, 'key' | 'type'>): Game {
   return state.round === round
     ? state
     : {
@@ -128,7 +128,7 @@ export function addRound(state: Game, { round }: Omit<EndRoundAction, 'key' | 't
 
 export function deletePastRound(
   state: Game,
-  { round }: Omit<EndRoundAction, 'key' | 'type'>,
+  { round }: Omit<DeletePastRoundAction, 'key' | 'type'>,
 ): Game {
   return {
     ...state,
@@ -144,6 +144,8 @@ export function deletePastRound(
   };
 }
 
+const LOW_SCORE_WINS: Set<GameType> = new Set(['continental', 'mexican_train']);
+
 export function endRound(state: Game, { round }: Omit<EndRoundAction, 'key' | 'type'>): Game {
   if (state.round === null) {
     return state;
@@ -152,8 +154,11 @@ export function endRound(state: Game, { round }: Omit<EndRoundAction, 'key' | 't
     rounds[round].reduce((sum, score) => sum + score, 0),
   );
   const [, ...scores] = totals;
+  const isBetter = LOW_SCORE_WINS.has(state.gameType)
+    ? (score: number, best: number) => score < best
+    : (score: number, best: number) => score > best;
   const winnerIndex = scores.reduce(
-    (winner, score, index) => (score > totals[winner] ? index + 1 : winner),
+    (winner, score, index) => (isBetter(score, totals[winner]) ? index + 1 : winner),
     0,
   );
 

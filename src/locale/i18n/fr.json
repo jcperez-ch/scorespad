@@ -120,6 +120,11 @@
     "setupTeams": "Écris le nom de tous les participants que tu veux ajouter au jeu, tu peux ajouter jusqu'à 12 participants.",
     "totalPoints": "Score: {{ totalPoints }}"
   },
+  "stats": {
+    "cumulativePoints": "Points cumulés, partie après partie",
+    "championships": "Championnats",
+    "points": "Points"
+  },
   "gameType": {
     "label": "Type de Jeu",
     "continental": "Continental",

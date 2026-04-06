@@ -38,6 +38,10 @@ const routes: Routes = [
         path: 'setup',
       },
       {
+        component: asyncComponentLoader(() => import('@/pages/Games/GameStats')),
+        path: 'stats',
+      },
+      {
         component: asyncComponentLoader(() => import('@/pages/Games/GameShare')),
         path: 'share',
       },

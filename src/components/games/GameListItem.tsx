@@ -8,10 +8,9 @@ import ListItemText from '@mui/material/ListItemText';
 import Typography from '@mui/material/Typography';
 
 import styled from '@emotion/styled';
-import { format } from 'date-fns';
 
+import CreatedDate from '@/components/common/CreatedDate';
 import InlineList from '@/components/common/InlineList';
-import useLocalizedFormatRelativeOptions from '@/locale/useLocalizedFormatRelativeOptions';
 import { GameType, Team } from '@/store/State';
 import gameTypeColors from '@/utils/gameTypeColors';
 
@@ -52,7 +51,6 @@ export default function GameListItem({
   pastRounds,
 }: Props) {
   const [t] = useTranslation();
-  const formatOptions = useLocalizedFormatRelativeOptions();
   const leaderKeys = useMemo(() => findLeaders(teams, pastRounds), [teams, pastRounds]);
 
   return (
@@ -61,11 +59,7 @@ export default function GameListItem({
         primary={name}
         secondary={
           <StyledSecondary>
-            <Typography variant="caption">
-              {t('messages.createdAt', {
-                date: format(new Date(parseInt(gameKey, 36)), 'PPP', formatOptions),
-              })}
-            </Typography>
+            <CreatedDate base36Key={gameKey} />
             <Typography variant="caption">
               {teams.length > 0 ? (
                 <InlineList>

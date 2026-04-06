@@ -7,10 +7,9 @@ import ListItemText from '@mui/material/ListItemText';
 import Typography from '@mui/material/Typography';
 
 import styled from '@emotion/styled';
-import { formatRelative } from 'date-fns';
 
+import CreatedDate from '@/components/common/CreatedDate';
 import { usePastRoundResults } from '@/hooks/usePastRoundResults';
-import useLocalizedFormatRelativeOptions from '@/locale/useLocalizedFormatRelativeOptions';
 
 import HeadlineText from '../common/HeadlineText';
 
@@ -29,7 +28,6 @@ export default function RoundHistoryItem({ round }: Props) {
   const [t] = useTranslation();
   const { gameKey } = useParams();
   const navigate = useNavigate();
-  const formatOptions = useLocalizedFormatRelativeOptions();
   const results = usePastRoundResults(round);
   const [winnerResult] = results;
 
@@ -44,11 +42,9 @@ export default function RoundHistoryItem({ round }: Props) {
         }
         secondary={
           <>
+            <CreatedDate base36Key={round} />
+            <br />
             <Typography variant="caption">
-              {t('messages.createdAt', {
-                date: formatRelative(new Date(parseInt(round, 36)), new Date(), formatOptions),
-              })}
-              <br />
               {t('text.totalPoints', {
                 totalPoints: winnerResult.scores.reduce((sum, score) => sum + score, 0),
               })}

@@ -5,7 +5,7 @@ const Image = styled('img')(({ theme }) => ({
   maxHeight: '60%',
   maxWidth: '100%',
   boxShadow: theme.shadows[7],
-  borderRadius: theme.shape.borderRadius * 4,
+  borderRadius: Number(theme.shape.borderRadius) * 4,
   boxSizing: 'border-box',
   padding: theme.spacing(2),
   backgroundColor: theme.palette.background.default,

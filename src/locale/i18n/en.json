@@ -120,6 +120,11 @@
     "setupTeams": "Type the name of all the participants you want to add to the game below, you can add up until 12 participants.",
     "totalPoints": "Score: {{ totalPoints }}"
   },
+  "stats": {
+    "cumulativePoints": "Cumulative points, round after round",
+    "championships": "Championships",
+    "points": "Points"
+  },
   "gameType": {
     "label": "Game Type",
     "continental": "Continental Card Game",
