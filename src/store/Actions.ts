@@ -14,10 +14,14 @@ export type CreateGameAction = {
   type: 'G+';
   key: string;
   name: string;
-  gameType: GameType;
+  gameType: GameType | undefined;
 };
 
-export const createGame = (key: string, name: string, gameType: GameType): CreateGameAction => ({
+export const createGame = (
+  key: string,
+  name: string,
+  gameType: GameType | undefined,
+): CreateGameAction => ({
   type: 'G+',
   key,
   name,
@@ -206,12 +210,25 @@ export const removeScore = (
   scoreIndex,
 });
 
+export type SetGameTypeAction = {
+  type: 'GT';
+  key: string;
+  gameType: GameType;
+};
+
+export const setGameType = (key: string, gameType: GameType): SetGameTypeAction => ({
+  type: 'GT',
+  key,
+  gameType,
+});
+
 export type GameAction =
   | CreateGameAction
   | ImportGameAction
   | RemoveGameAction
   | RenameGameAction
   | SetupGameAction
+  | SetGameTypeAction
   | EndRoundAction
   | AddRoundAction;
 
@@ -226,4 +243,5 @@ export type Action =
   | RemoveTeamAction
   | DeletePastRoundAction
   | AddScoreAction
-  | AddScoresAction;
+  | AddScoresAction
+  | SetGameTypeAction;

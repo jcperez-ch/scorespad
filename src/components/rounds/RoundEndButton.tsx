@@ -10,6 +10,7 @@ import GamesContext from '@/config/GamesContext';
 import useGame from '@/hooks/useGame';
 import { endRound } from '@/store/Actions';
 import { Team } from '@/store/State';
+import isLowScoreWins from '@/utils/isLowScoreWins';
 
 import DialogConfirm from '../dialog/DialogConfirm';
 
@@ -21,7 +22,7 @@ export default function RoundEndButton() {
   const [confirmEndRound, setConfirmEndRound] = useState(false);
   const [, dispatch] = use(GamesContext);
   const { round, teams, gameType } = game;
-  const lowScoreWins = gameType === 'mexican_train' || gameType === 'continental';
+  const lowScoreWins = isLowScoreWins(gameType);
   const winnerTeam = useMemo(
     () =>
       round == null

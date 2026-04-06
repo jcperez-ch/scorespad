@@ -29,6 +29,7 @@
     "endRound": "End Round",
     "eraseTeams": "Erase Participants",
     "here": "here",
+    "next": "Next",
     "ok": "Ok",
     "renameGame": "Rename Game",
     "renameTeam": "Rename Participant",
@@ -124,6 +125,15 @@
     "cumulativePoints": "Cumulative points, round after round",
     "championships": "Championships",
     "points": "Points"
+  },
+  "migration": {
+    "gameTypeWarning": "This game doesn't have a game type set. Please specify one.",
+    "gameTypeStep": "Game Type",
+    "detailsStep": "Details",
+    "setGameType": "Set Game Type",
+    "negativeToPositive": "All negative score values will be converted to positive.",
+    "multipleOfFive": "All score values entered must be a multiple of 5.",
+    "noChanges": "No changes will be made to your existing scores."
   },
   "gameType": {
     "label": "Game Type",

@@ -70,9 +70,11 @@ const gameTypes: GameType[] = [
   'other',
 ];
 
+const DEV_EMPTY = '__dev_empty__';
+
 export default function GameFormByName() {
   const [newName, setNewName] = useState('');
-  const [gameType, setGameType] = useState<GameType>('other');
+  const [gameType, setGameType] = useState<GameType | typeof DEV_EMPTY>('other');
   const navigate = useNavigate();
   const [t] = useTranslation();
   const [, dispatch] = useContext(GamesContext);
@@ -81,7 +83,7 @@ export default function GameFormByName() {
     errorMessage: 'errors.requiredGameName',
     onSubmit: () => {
       const id = Date.now().toString(36);
-      dispatch(createGame(id, newName, gameType));
+      dispatch(createGame(id, newName, gameType === DEV_EMPTY ? undefined : gameType));
       navigate(`/games/${id}/setup`);
     },
   });
@@ -103,13 +105,19 @@ export default function GameFormByName() {
           <Select
             value={gameType}
             label={t('gameType.label')}
-            onChange={(e: SelectChangeEvent) => setGameType(e.target.value as GameType)}
-            renderValue={(value) => (
-              <StyledIconRow>
-                {gameTypeIcons[value as GameType]}
-                {t(`gameType.${value}`)}
-              </StyledIconRow>
-            )}
+            onChange={(e: SelectChangeEvent) =>
+              setGameType(e.target.value as GameType | typeof DEV_EMPTY)
+            }
+            renderValue={(value) =>
+              value === DEV_EMPTY ? (
+                '[DEV] --Empty'
+              ) : (
+                <StyledIconRow>
+                  {gameTypeIcons[value as GameType]}
+                  {t(`gameType.${value}`)}
+                </StyledIconRow>
+              )
+            }
           >
             {gameTypes.map((type) => (
               <MenuItem
@@ -121,6 +129,9 @@ export default function GameFormByName() {
                 {t(`gameType.${type}`)}
               </MenuItem>
             ))}
+            {import.meta.env.DEV && (
+              <MenuItem value={DEV_EMPTY}>[DEV] --Empty</MenuItem>
+            )}
           </Select>
         </StyledFormControl>
         <DialogHeadline>

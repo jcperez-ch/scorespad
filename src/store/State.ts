@@ -14,7 +14,7 @@ export type GameType = 'continental' | 'canasta' | 'classic_dominoes' | 'mexican
 
 export type Game = {
   name: string;
-  gameType: GameType;
+  gameType?: GameType;
   teams: Team[];
   round: string | null;
   pastRounds: string[];

@@ -29,6 +29,7 @@
     "endRound": "Terminar partida",
     "eraseTeams": "Eliminar participantes",
     "here": "aquí",
+    "next": "Siguiente",
     "ok": "Ok",
     "renameGame": "Renombrar juego",
     "renameTeam": "Renombrar participante",
@@ -124,6 +125,15 @@
     "cumulativePoints": "Puntos acumulados, partida tras partida",
     "championships": "Campeonatos",
     "points": "Puntos"
+  },
+  "migration": {
+    "gameTypeWarning": "Este juego no tiene un tipo de juego establecido. Por favor, especifica uno.",
+    "gameTypeStep": "Tipo de Juego",
+    "detailsStep": "Detalles",
+    "setGameType": "Establecer Tipo de Juego",
+    "negativeToPositive": "Todos los valores negativos serán convertidos a positivos.",
+    "multipleOfFive": "Todos los valores ingresados deben ser múltiplo de 5.",
+    "noChanges": "No se realizarán cambios en tus puntajes existentes."
   },
   "gameType": {
     "label": "Tipo de Juego",

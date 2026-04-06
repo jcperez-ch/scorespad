@@ -14,9 +14,11 @@ import {
   RemoveTeamAction,
   RenameGameAction,
   RenameTeamAction,
+  SetGameTypeAction,
   SetupGameAction,
 } from './Actions';
-import { Game, GameType, StoreState, Team } from './State';
+import { Game, StoreState, Team } from './State';
+import isLowScoreWins from '@/utils/isLowScoreWins';
 
 function reduceGames<Payload extends { key: string }>(
   state: StoreState['games'],
@@ -89,6 +91,34 @@ export function renameGame(state: Game, { name }: Omit<RenameGameAction, 'key' |
   return state.name === name ? state : { ...state, name };
 }
 
+export function setGameType(
+  state: Game,
+  { gameType }: Omit<SetGameTypeAction, 'key' | 'type'>,
+): Game {
+  if (!isLowScoreWins(gameType)) {
+    return { ...state, gameType };
+  }
+  const hasPositive = state.teams.some((team) =>
+    Object.values(team.rounds).some((scores) => scores.some((s) => s > 0)),
+  );
+  if (hasPositive) {
+    return { ...state, gameType };
+  }
+  return {
+    ...state,
+    gameType,
+    teams: state.teams.map((team) => ({
+      ...team,
+      rounds: Object.fromEntries(
+        Object.entries(team.rounds).map(([key, scores]) => [
+          key,
+          scores.map((s) => Math.abs(s)),
+        ]),
+      ),
+    })),
+  };
+}
+
 export function setupGame(state: Game, { teams }: Omit<SetupGameAction, 'key' | 'type'>): Game {
   return {
     ...state,
@@ -144,8 +174,6 @@ export function deletePastRound(
   };
 }
 
-const LOW_SCORE_WINS: Set<GameType> = new Set(['continental', 'mexican_train']);
-
 export function endRound(state: Game, { round }: Omit<EndRoundAction, 'key' | 'type'>): Game {
   if (state.round === null) {
     return state;
@@ -154,7 +182,7 @@ export function endRound(state: Game, { round }: Omit<EndRoundAction, 'key' | 't
     rounds[round].reduce((sum, score) => sum + score, 0),
   );
   const [, ...scores] = totals;
-  const isBetter = LOW_SCORE_WINS.has(state.gameType)
+  const isBetter = isLowScoreWins(state.gameType)
     ? (score: number, best: number) => score < best
     : (score: number, best: number) => score > best;
   const winnerIndex = scores.reduce(
@@ -271,6 +299,12 @@ const reducer = (state: StoreState['games'], { type, ...payload }: Action): Stor
         state,
         payload as Omit<RenameGameAction, 'type'>,
         renameGame,
+      );
+    case 'GT':
+      return reduceGames<Omit<SetGameTypeAction, 'type'>>(
+        state,
+        payload as Omit<SetGameTypeAction, 'type'>,
+        setGameType,
       );
     case 'G!':
       return reduceGames<Omit<SetupGameAction, 'type'>>(

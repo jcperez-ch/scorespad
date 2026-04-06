@@ -1,5 +1,6 @@
 import useGame from '@/hooks/useGame';
 import { Team } from '@/store/State';
+import isLowScoreWins from '@/utils/isLowScoreWins';
 
 import RoundLeaderboardAccordion from './RoundLeaderboardAccordion';
 
@@ -10,11 +11,9 @@ type Props = {
 
 const medals = ['🥇', '🥈', '🥉'];
 
-const lowScoreWins = new Set(['mexican_train', 'continental']);
-
 export default function RoundLeaderboard({ readonly, round }: Props) {
   const { teams, gameType } = useGame();
-  const ascending = lowScoreWins.has(gameType);
+  const ascending = isLowScoreWins(gameType);
 
   return (
     <div>

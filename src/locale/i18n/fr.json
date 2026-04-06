@@ -29,6 +29,7 @@
     "endRound": "Terminer la partie",
     "eraseTeams": "Effacer les Participants",
     "here": "ici",
+    "next": "Suivant",
     "ok": "Oki",
     "renameGame": "Renommer le jeu",
     "renameTeam": "Renommer le participant",
@@ -124,6 +125,15 @@
     "cumulativePoints": "Points cumulés, partie après partie",
     "championships": "Championnats",
     "points": "Points"
+  },
+  "migration": {
+    "gameTypeWarning": "Ce jeu n'a pas de type de jeu défini. Veuillez en spécifier un.",
+    "gameTypeStep": "Type de Jeu",
+    "detailsStep": "Détails",
+    "setGameType": "Définir le Type de Jeu",
+    "negativeToPositive": "Toutes les valeurs négatives seront converties en positives.",
+    "multipleOfFive": "Toutes les valeurs saisies doivent être un multiple de 5.",
+    "noChanges": "Aucune modification ne sera apportée à vos scores existants."
   },
   "gameType": {
     "label": "Type de Jeu",
