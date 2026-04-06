@@ -1,0 +1,1 @@
+import{a as t}from"./chunk-QFMPRPBF-C_FclEzk.js";import{u}from"./useGame-TZTF9LwY.js";function c(){const{pastRounds:r,teams:e}=u();return t.useMemo(()=>r??new Array(e.reduce((s,a)=>(a.championships.forEach(o=>s.add(o)),s),new Set)),[r,e])}export{c as u};
