@@ -1,0 +1,1 @@
+import{a}from"./chunk-QFMPRPBF-GHvaBMHy.js";import{u as m}from"./useGame-CIOl3sNd.js";function l(s){const o=m();return a.useMemo(()=>s==null?[]:o.teams.reduce((r,e)=>e.rounds[s]==null?r:[...r,{team:e.name,scores:e.rounds[s]}],[]).toSorted((r,e)=>e.scores.reduce((t,u)=>t+u,0)-r.scores.reduce((t,u)=>t+u,0)),[o.teams,s])}export{l as u};
