@@ -2,9 +2,9 @@ import { Activity, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import MilitaryTechIcon from '@mui/icons-material/MilitaryTech';
+import { Stack } from '@mui/material';
 import Alert from '@mui/material/Alert';
 import Button from '@mui/material/Button';
-import { Stack } from '@mui/material';
 
 import PageNullState from '@/components/PageNullState';
 import FlexExpand from '@/components/common/FlexExpand';
@@ -29,7 +29,7 @@ export default function GameLobby() {
   }
   return (
     <FlexExpand>
-      {!game.gameType && (
+      {(!game.gameType || !game.participantType) && (
         <Alert
           severity="warning"
           sx={{ m: 2 }}
@@ -39,7 +39,7 @@ export default function GameLobby() {
             </Button>
           }
         >
-          {t('migration.gameTypeWarning')}
+          {t(!game.gameType ? 'migration.gameTypeWarning' : 'migration.participantTypeWarning')}
         </Alert>
       )}
       <GameLeaderboard />

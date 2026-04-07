@@ -3,9 +3,8 @@ import { Trans, useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router';
 
 import Extension from '@mui/icons-material/Extension';
-import ClassicDominoesIcon from '@/components/common/icons/ClassicDominoesIcon';
-import CanastaIcon from '@/components/common/icons/CanastaIcon';
-import ContinentalIcon from '@/components/common/icons/ContinentalIcon';
+import GroupIcon from '@mui/icons-material/Group';
+import PersonIcon from '@mui/icons-material/Person';
 import Train from '@mui/icons-material/Train';
 import Button from '@mui/material/Button';
 import DialogActions from '@mui/material/DialogActions';
@@ -14,21 +13,42 @@ import InputLabel from '@mui/material/InputLabel';
 import Link from '@mui/material/Link';
 import MenuItem from '@mui/material/MenuItem';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
+import ToggleButton from '@mui/material/ToggleButton';
+import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
 
 import styled from '@emotion/styled';
 
 import NameField from '@/components/NameField';
+import CanastaIcon from '@/components/common/icons/CanastaIcon';
+import ClassicDominoesIcon from '@/components/common/icons/ClassicDominoesIcon';
+import ContinentalIcon from '@/components/common/icons/ContinentalIcon';
 import DialogBody from '@/components/dialog/DialogBody';
 import DialogHeadline from '@/components/dialog/DialogHeadline';
 import GamesContext from '@/config/GamesContext';
 import { createGame } from '@/store/Actions';
-import { GameType } from '@/store/State';
+import { GameType, ParticipantType } from '@/store/State';
 import useValidation from '@/utils/validation';
 
 const StyledIconRow = styled.span`
   display: flex;
   align-items: center;
   column-gap: 12px;
+`;
+
+const StyledToggleButtonGroup = styled(ToggleButtonGroup)`
+  & .MuiToggleButton-root {
+    color: var(--text-field-default-border-color);
+    border-color: var(--text-field-default-border-color);
+
+    &.Mui-selected {
+      background-color: var(--button-active-background-color);
+      color: var(--button-active-text-color);
+
+      &:hover {
+        background-color: var(--button-hover-background-color);
+      }
+    }
+  }
 `;
 
 const StyledFormControl = styled(FormControl)`
@@ -75,6 +95,7 @@ const DEV_EMPTY = '__dev_empty__';
 export default function GameFormByName() {
   const [newName, setNewName] = useState('');
   const [gameType, setGameType] = useState<GameType | typeof DEV_EMPTY>('other');
+  const [participantType, setParticipantType] = useState<ParticipantType>('player');
   const navigate = useNavigate();
   const [t] = useTranslation();
   const [, dispatch] = useContext(GamesContext);
@@ -83,7 +104,9 @@ export default function GameFormByName() {
     errorMessage: 'errors.requiredGameName',
     onSubmit: () => {
       const id = Date.now().toString(36);
-      dispatch(createGame(id, newName, gameType === DEV_EMPTY ? undefined : gameType));
+      dispatch(
+        createGame(id, newName, gameType === DEV_EMPTY ? undefined : gameType, participantType),
+      );
       navigate(`/games/${id}/setup`);
     },
   });
@@ -129,11 +152,25 @@ export default function GameFormByName() {
                 {t(`gameType.${type}`)}
               </MenuItem>
             ))}
-            {import.meta.env.DEV && (
-              <MenuItem value={DEV_EMPTY}>[DEV] --Empty</MenuItem>
-            )}
+            {import.meta.env.DEV && <MenuItem value={DEV_EMPTY}>[DEV] --Empty</MenuItem>}
           </Select>
         </StyledFormControl>
+        <DialogHeadline>{t('participantType.label')}</DialogHeadline>
+        <StyledToggleButtonGroup
+          value={participantType}
+          exclusive
+          onChange={(_, value) => value && setParticipantType(value)}
+          fullWidth
+        >
+          <ToggleButton value="player">
+            <PersonIcon sx={{ mr: 1 }} />
+            {t('participantType.player')}
+          </ToggleButton>
+          <ToggleButton value="team">
+            <GroupIcon sx={{ mr: 1 }} />
+            {t('participantType.team')}
+          </ToggleButton>
+        </StyledToggleButtonGroup>
         <DialogHeadline>
           <Trans
             components={{ a: <Link href="./scan" /> }}

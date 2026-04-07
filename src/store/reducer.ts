@@ -1,3 +1,5 @@
+import isLowScoreWins from '@/utils/isLowScoreWins';
+
 import {
   Action,
   AddRoundAction,
@@ -15,10 +17,11 @@ import {
   RenameGameAction,
   RenameTeamAction,
   SetGameTypeAction,
+  SetParticipantTypeAction,
+  SetTeamProfilesAction,
   SetupGameAction,
 } from './Actions';
 import { Game, StoreState, Team } from './State';
-import isLowScoreWins from '@/utils/isLowScoreWins';
 
 function reduceGames<Payload extends { key: string }>(
   state: StoreState['games'],
@@ -56,7 +59,7 @@ function reduceTeam<Payload extends { teamKey: string }>(
 
 export function createGame(
   state: StoreState['games'],
-  { key, name, gameType }: Omit<CreateGameAction, 'type'>,
+  { key, name, gameType, participantType }: Omit<CreateGameAction, 'type'>,
 ): StoreState['games'] {
   const isNameUsed = Object.keys(state).some((gameKey) => state[gameKey].name === name);
   return {
@@ -64,6 +67,7 @@ export function createGame(
     [key]: {
       name: isNameUsed ? `${name} (${key})` : name,
       gameType,
+      participantType,
       round: null,
       teams: [],
       pastRounds: [],
@@ -110,12 +114,38 @@ export function setGameType(
     teams: state.teams.map((team) => ({
       ...team,
       rounds: Object.fromEntries(
-        Object.entries(team.rounds).map(([key, scores]) => [
-          key,
-          scores.map((s) => Math.abs(s)),
-        ]),
+        Object.entries(team.rounds).map(([key, scores]) => [key, scores.map((s) => Math.abs(s))]),
       ),
     })),
+  };
+}
+
+export function setParticipantType(
+  state: Game,
+  { participantType, teamMembers }: Omit<SetParticipantTypeAction, 'key' | 'type'>,
+): Game {
+  return {
+    ...state,
+    participantType,
+    teams:
+      participantType === 'team' && teamMembers
+        ? state.teams.map((team) => ({
+            ...team,
+            ...(teamMembers[team.key] ? { members: teamMembers[team.key] } : {}),
+          }))
+        : state.teams,
+  };
+}
+
+export function setTeamProfiles(
+  state: Game,
+  { teamProfiles }: Omit<SetTeamProfilesAction, 'key' | 'type'>,
+): Game {
+  return {
+    ...state,
+    teams: state.teams.map((team) =>
+      teamProfiles[team.key] != null ? { ...team, profileKey: teamProfiles[team.key] } : team,
+    ),
   };
 }
 
@@ -123,15 +153,17 @@ export function setupGame(state: Game, { teams }: Omit<SetupGameAction, 'key' | 
   return {
     ...state,
     teams: teams
-      .filter((name) => name !== '')
-      .map((name, index) => {
-        const isNameUsed = state.teams.some((team) => team.name === name);
+      .filter((entry) => entry.name !== '')
+      .map((entry, index) => {
+        const isNameUsed = state.teams.some((team) => team.name === entry.name);
         return {
-          name: isNameUsed ? `${name} (${index + 1})` : name,
+          name: isNameUsed ? `${entry.name} (${index + 1})` : entry.name,
           key: `${Date.now().toString(36)}-${Math.random().toString(36).substring(2)}`,
           championships: [],
           round: null,
           rounds: {},
+          ...(entry.profileKey ? { profileKey: entry.profileKey } : {}),
+          ...(entry.members && entry.members.length > 0 ? { members: entry.members } : {}),
         } as Team;
       }),
     round: null,
@@ -202,7 +234,7 @@ export function endRound(state: Game, { round }: Omit<EndRoundAction, 'key' | 't
 
 export function createTeam(
   state: Game,
-  { name, round }: Omit<CreateTeamAction, 'key' | 'type'>,
+  { name, profileKey, round, members }: Omit<CreateTeamAction, 'key' | 'type'>,
 ): Game {
   const { teams } = state;
   const isNameUsed = teams.some((team) => team.name === name);
@@ -216,6 +248,8 @@ export function createTeam(
         championships: [],
         round: null,
         rounds: round == null ? {} : { [round]: [] },
+        ...(profileKey ? { profileKey } : {}),
+        ...(members && members.length > 0 ? { members } : {}),
       } as Team,
     ],
   };
@@ -305,6 +339,18 @@ const reducer = (state: StoreState['games'], { type, ...payload }: Action): Stor
         state,
         payload as Omit<SetGameTypeAction, 'type'>,
         setGameType,
+      );
+    case 'GP':
+      return reduceGames<Omit<SetParticipantTypeAction, 'type'>>(
+        state,
+        payload as Omit<SetParticipantTypeAction, 'type'>,
+        setParticipantType,
+      );
+    case 'TP':
+      return reduceGames<Omit<SetTeamProfilesAction, 'type'>>(
+        state,
+        payload as Omit<SetTeamProfilesAction, 'type'>,
+        setTeamProfiles,
       );
     case 'G!':
       return reduceGames<Omit<SetupGameAction, 'type'>>(

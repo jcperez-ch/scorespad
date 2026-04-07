@@ -70,7 +70,7 @@ export default {
       --fab-default-background-color: rgb(218, 255, 187);
       --fab-default-text-color: #1b5e20;
 
-      --menu-icon-color: #ccff90;
+      --menu-icon-color: #1b5e20;
 
       --text-field-default-border-color: #rgba(72, 126, 76, 0.6);
       --text-field-active-border-color: #1b5e20;

@@ -5,11 +5,17 @@ import { StoreState } from './State';
 export const store = createStore('scorespad-db', 'scorespad-store');
 
 export async function getInitialState(): Promise<StoreState> {
-  const [games = {}, theme, locale]: [
+  const [games = {}, profiles = {}, theme, locale]: [
     StoreState['games'],
+    StoreState['profiles'],
     StoreState['theme'],
     StoreState['locale'],
-  ] = await Promise.all([get('gms', store), get('theme', store), get('locale', store)]);
+  ] = await Promise.all([
+    get('gms', store),
+    get('profiles', store),
+    get('theme', store),
+    get('locale', store),
+  ]);
 
   Object.keys(games).forEach((gameKey) => {
     const game = games[gameKey];
@@ -17,6 +23,11 @@ export async function getInitialState(): Promise<StoreState> {
     game.teams.forEach((team) => {
       if (team.key == null) {
         team.key = `team-${Math.random().toString(36).slice(2)}`;
+      }
+      if (team.members != null) {
+        team.members = (team.members as (string | { name: string })[]).map((m) =>
+          typeof m === 'string' ? { name: m } : m,
+        );
       }
       if (game.pastRounds == null && team.rounds != null) {
         const { rounds } = team;
@@ -33,5 +44,5 @@ export async function getInitialState(): Promise<StoreState> {
     }
   });
 
-  return { games, theme, locale };
+  return { games, profiles, theme, locale };
 }

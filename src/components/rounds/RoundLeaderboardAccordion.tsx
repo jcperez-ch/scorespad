@@ -1,4 +1,4 @@
-import { use } from 'react';
+import { use, useContext, useMemo } from 'react';
 import { useNavigate, useParams } from 'react-router';
 
 import AddCircleIcon from '@mui/icons-material/AddCircle';
@@ -7,13 +7,18 @@ import AccordionDetails from '@mui/material/AccordionDetails';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import Chip from '@mui/material/Chip';
 import ListItem from '@mui/material/ListItem';
+import ListItemAvatar from '@mui/material/ListItemAvatar';
 import ListItemText from '@mui/material/ListItemText';
+import Typography from '@mui/material/Typography';
 
 import styled from '@emotion/styled';
 
+import ProfileAvatar from '@/components/profiles/ProfileAvatar';
+import ProfilePlaceholderIcon from '@/components/profiles/ProfilePlaceholderIcon';
 import GamesContext from '@/config/GamesContext';
+import ProfilesContext from '@/config/ProfilesContext';
 import { removeScore } from '@/store/Actions';
-import { Team } from '@/store/State';
+import { GameType, Team } from '@/store/State';
 
 import HeadlineText from '../common/HeadlineText';
 
@@ -35,6 +40,11 @@ const AccordionScoresList = styled.ul`
 
 const AccordionScoresItem = styled.li`
   list-style: none;
+`;
+
+const StyledAccordionSummaryText = styled.div`
+  flex: 1;
+  margin-left: 12px;
 `;
 
 const AccordionScoresAddButton = styled.button`
@@ -63,8 +73,10 @@ const AccordionScoresAddButton = styled.button`
 `;
 
 type Props = {
+  gameType?: GameType;
   medalIcon?: React.ReactNode;
   name: Team['name'];
+  profileKey?: string;
   roundKey: string;
   readonly?: boolean;
   teamRound: number[];
@@ -72,8 +84,10 @@ type Props = {
 };
 
 export default function RoundLeaderboardAccordion({
+  gameType,
   medalIcon,
   name,
+  profileKey,
   teamKey,
   readonly = false,
   roundKey,
@@ -82,6 +96,19 @@ export default function RoundLeaderboardAccordion({
   const { gameKey } = useParams();
   const navigate = useNavigate();
   const [, dispatch] = use(GamesContext);
+  const [profiles] = useContext(ProfilesContext);
+
+  const matchedProfile = useMemo(
+    () => (profileKey ? profiles[profileKey] : undefined),
+    [profiles, profileKey],
+  );
+
+  const nameContent = (
+    <>
+      {medalIcon != null && <span aria-hidden="true">{medalIcon}</span>}
+      <span>{name}</span>
+    </>
+  );
 
   if (teamRound.length === 0) {
     return (
@@ -93,13 +120,20 @@ export default function RoundLeaderboardAccordion({
           </HeadlineText>
         }
       >
+        <ListItemAvatar>
+          {matchedProfile ? (
+            <ProfileAvatar
+              avatarType={matchedProfile.avatarType}
+              emoji={matchedProfile.emoji}
+              name={matchedProfile.name}
+            />
+          ) : (
+            <ProfilePlaceholderIcon gameType={gameType} name={name} />
+          )}
+        </ListItemAvatar>
         <ListItemText
-          primary={
-            <HeadlineText>
-              {medalIcon != null && <span aria-hidden="true">{medalIcon}</span>}
-              <span>{name}</span>
-            </HeadlineText>
-          }
+          primary={<HeadlineText>{nameContent}</HeadlineText>}
+          secondary={matchedProfile?.footline}
         />
       </ListItem>
     );
@@ -108,10 +142,23 @@ export default function RoundLeaderboardAccordion({
     <Accordion sx={{ width: '100%' }}>
       <AccordionSummary>
         <AccordionSummaryContent>
-          <HeadlineText>
-            {medalIcon != null && <span aria-hidden="true">{medalIcon}</span>}
-            <span>{name}</span>
-          </HeadlineText>
+          {matchedProfile ? (
+            <ProfileAvatar
+              avatarType={matchedProfile.avatarType}
+              emoji={matchedProfile.emoji}
+              name={matchedProfile.name}
+            />
+          ) : (
+            <ProfilePlaceholderIcon gameType={gameType} name={name} />
+          )}
+          <StyledAccordionSummaryText>
+            <HeadlineText>{nameContent}</HeadlineText>
+            {matchedProfile?.footline && (
+              <Typography variant="caption" color="text.secondary">
+                {matchedProfile.footline}
+              </Typography>
+            )}
+          </StyledAccordionSummaryText>
           <HeadlineText color="primary">
             {teamRound.reduce((sum, score) => sum + score, 0)}
           </HeadlineText>

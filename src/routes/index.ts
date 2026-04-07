@@ -18,6 +18,20 @@ const routes: Routes = [
     ],
   },
   {
+    component: asyncComponentLoader(() => import('@/pages/Profiles/Profiles')),
+    path: '/profiles',
+    routes: [
+      {
+        path: 'new',
+        component: asyncComponentLoader(() => import('@/pages/Profiles/ProfileForm')),
+      },
+      {
+        path: ':profileKey',
+        component: asyncComponentLoader(() => import('@/pages/Profiles/ProfileForm')),
+      },
+    ],
+  },
+  {
     component: asyncComponentLoader(() => import('@/pages/Games/GameDetail')),
     path: '/games/:gameKey',
     routes: [

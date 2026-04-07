@@ -5,6 +5,7 @@ import { createRoot } from 'react-dom/client';
 import { NotificationsProvider } from '@toolpad/core/useNotifications';
 
 import LocaleProvider from '@/locale/LocaleProvider';
+import ProfilesStoreProvider from '@/store/ProfilesStoreProvider';
 import { StoreState } from '@/store/State';
 import StoreProvider from '@/store/StoreProvider';
 import ThemeProvider from '@/theme/ThemeProvider';
@@ -22,10 +23,12 @@ export default function render(App: ComponentType, initialState: StoreState) {
         <SnackbarManager>
           <ThemeProvider initial={initialState.theme}>
             <StoreProvider initial={initialState.games}>
-              <NotificationsProvider>
-                <App />
-                <ReloadPrompt />
-              </NotificationsProvider>
+              <ProfilesStoreProvider initial={initialState.profiles}>
+                <NotificationsProvider>
+                  <App />
+                  <ReloadPrompt />
+                </NotificationsProvider>
+              </ProfilesStoreProvider>
             </StoreProvider>
           </ThemeProvider>
         </SnackbarManager>

@@ -31,6 +31,8 @@ export default function RoundLeaderboard({ readonly, round }: Props) {
             teamKey={team.key}
             teamRound={team.rounds[round]}
             name={team.name}
+            profileKey={team.profileKey}
+            gameType={gameType}
             medalIcon={teams.length < 3 ? undefined : medals[index]}
           />
         ))}

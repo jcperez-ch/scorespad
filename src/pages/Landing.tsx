@@ -13,6 +13,7 @@ import Menu from '@mui/material/Menu';
 import PageNullState from '@/components/PageNullState';
 import DialogOutlet from '@/components/dialog/DialogOutlet';
 import GameListItem from '@/components/games/GameListItem';
+import ProfilesMenuItem from '@/components/profiles/ProfilesMenuItem';
 import GamesContext from '@/config/GamesContext';
 import LocaleBackdrop from '@/locale/LocaleBackdrop';
 import LocaleMenuItem from '@/locale/LocaleMenuItem';
@@ -85,6 +86,12 @@ export default function Landing() {
         anchorOrigin={{ vertical: 'top', horizontal: 'left' }}
         transformOrigin={{ vertical: 'bottom', horizontal: 'left' }}
       >
+        <ProfilesMenuItem
+          onClick={() => {
+            handleSettingsClose();
+            navigate('/profiles');
+          }}
+        />
         <LocaleMenuItem
           onClick={() => {
             handleSettingsClose();

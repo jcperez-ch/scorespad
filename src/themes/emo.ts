@@ -51,7 +51,7 @@ export default {
     :root {
       --top-bar-background-color: rgba(13, 13, 13, 0.2);
       --backdrop-background-color: rgba(13, 13, 13, 0.95);
-      --top-bar-box-shadow: 0 0 5px #0d0d0d, 0 0 20px #b0005f, 0 0 30px #E4007C;
+      --top-bar-box-shadow: 0 0 5px #0d0d0d, 0 0 20px #b0005f, 0 0 30px #e4007c;
       --top-bar-text-color: #ffffff;
 
       --backgrond-image: linear-gradient(to bottom right, #0d0d0d, #3d0022);
@@ -70,14 +70,14 @@ export default {
       --menu-icon-color: #ffb0d9;
 
       --text-field-default-border-color: #ffb0d9;
-      --text-field-active-border-color: #B87333;
+      --text-field-active-border-color: #b87333;
 
       --headline-text-color: #ff4da6;
-      --headline-text-shadow: 0 0 5px #b0005f, 0 0 10px #b0005f, 0 0 15px #E4007C;
-      --star-color: #B87333;
+      --headline-text-shadow: 0 0 5px #b0005f, 0 0 10px #b0005f, 0 0 15px #e4007c;
+      --star-color: #b87333;
 
       --game-type-continental: #b0005f;
-      --game-type-canasta: #B87333;
+      --game-type-canasta: #b87333;
       --game-type-classic-dominoes: #8a5225;
       --game-type-mexican-train: #d4955c;
       --game-type-other: #4a3045;

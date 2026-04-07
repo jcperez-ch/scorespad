@@ -1,4 +1,4 @@
-import { Game, GameType, StoreState } from './State';
+import { Game, GameType, ParticipantType, StoreState, TeamMember } from './State';
 
 export type CreateStateAction = {
   type: '-- --';
@@ -15,17 +15,20 @@ export type CreateGameAction = {
   key: string;
   name: string;
   gameType: GameType | undefined;
+  participantType?: ParticipantType;
 };
 
 export const createGame = (
   key: string,
   name: string,
   gameType: GameType | undefined,
+  participantType?: ParticipantType,
 ): CreateGameAction => ({
   type: 'G+',
   key,
   name,
   gameType,
+  participantType,
 });
 
 export type ImportGameAction = {
@@ -62,13 +65,19 @@ export const renameGame = (key: string, name: string): RenameGameAction => ({
   name,
 });
 
+export type SetupTeamEntry = {
+  name: string;
+  profileKey?: string;
+  members?: TeamMember[];
+};
+
 export type SetupGameAction = {
   type: 'G!';
   key: string;
-  teams: string[];
+  teams: SetupTeamEntry[];
 };
 
-export const setupGame = (key: string, teams: string[]): SetupGameAction => ({
+export const setupGame = (key: string, teams: SetupTeamEntry[]): SetupGameAction => ({
   type: 'G!',
   key,
   teams,
@@ -102,14 +111,24 @@ export type CreateTeamAction = {
   type: 'T+';
   key: string;
   name: string;
+  profileKey?: string;
   round?: string;
+  members?: TeamMember[];
 };
 
-export const createTeam = (key: string, name: string, round?: string): CreateTeamAction => ({
+export const createTeam = (
+  key: string,
+  name: string,
+  round?: string,
+  members?: TeamMember[],
+  profileKey?: string,
+): CreateTeamAction => ({
   type: 'T+',
   key,
   name,
+  profileKey,
   round,
+  members,
 });
 
 export type RemoveTeamAction = {
@@ -222,6 +241,39 @@ export const setGameType = (key: string, gameType: GameType): SetGameTypeAction 
   gameType,
 });
 
+export type SetParticipantTypeAction = {
+  type: 'GP';
+  key: string;
+  participantType: ParticipantType;
+  teamMembers?: Record<string, TeamMember[]>;
+};
+
+export const setParticipantType = (
+  key: string,
+  participantType: ParticipantType,
+  teamMembers?: Record<string, TeamMember[]>,
+): SetParticipantTypeAction => ({
+  type: 'GP',
+  key,
+  participantType,
+  teamMembers,
+});
+
+export type SetTeamProfilesAction = {
+  type: 'TP';
+  key: string;
+  teamProfiles: Record<string, string>;
+};
+
+export const setTeamProfiles = (
+  key: string,
+  teamProfiles: Record<string, string>,
+): SetTeamProfilesAction => ({
+  type: 'TP',
+  key,
+  teamProfiles,
+});
+
 export type GameAction =
   | CreateGameAction
   | ImportGameAction
@@ -229,6 +281,8 @@ export type GameAction =
   | RenameGameAction
   | SetupGameAction
   | SetGameTypeAction
+  | SetParticipantTypeAction
+  | SetTeamProfilesAction
   | EndRoundAction
   | AddRoundAction;
 
@@ -244,4 +298,5 @@ export type Action =
   | DeletePastRoundAction
   | AddScoreAction
   | AddScoresAction
-  | SetGameTypeAction;
+  | SetGameTypeAction
+  | SetParticipantTypeAction;

@@ -30,15 +30,26 @@ export default function GameDetail() {
   return (
     <GameGuard>
       {game.teams.length === 0 ? (
-        <PageNullState icon={<VideogameAssetOffIcon />} message={t('text.noTeams')}>
-          <Button
-            variant="contained"
-            color="primary"
-            onClick={() => navigate(`/games/${gameKey}/setup`)}
-          >
-            {t('button.teamSetup')}
-          </Button>
-        </PageNullState>
+        <>
+          <BarToolbar
+            startAddOn={
+              <ButtonIcon onClick={() => navigate('/')} color="primary" aria-label="game">
+                <HomeIcon />
+              </ButtonIcon>
+            }
+            title={game.name}
+            endAddOn={<GameMenu />}
+          />
+          <PageNullState icon={<VideogameAssetOffIcon />} message={t('text.noTeams')}>
+            <Button
+              variant="contained"
+              color="primary"
+              onClick={() => navigate(`/games/${gameKey}/setup`)}
+            >
+              {t('button.teamSetup')}
+            </Button>
+          </PageNullState>
+        </>
       ) : (
         <>
           <BarToolbar

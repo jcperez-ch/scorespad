@@ -4,7 +4,9 @@ import isLowScoreWins from '@/utils/isLowScoreWins';
 
 import useGame from './useGame';
 
-export function usePastRoundResults(roundKey: string): { team: string; scores: number[] }[] {
+export function usePastRoundResults(
+  roundKey: string,
+): { team: string; profileKey?: string; scores: number[] }[] {
   const game = useGame();
   const lowWins = isLowScoreWins(game.gameType);
 
@@ -22,11 +24,12 @@ export function usePastRoundResults(roundKey: string): { team: string; scores: n
                   ...roundScores,
                   {
                     team: team.name,
+                    profileKey: team.profileKey,
                     scores: team.rounds[roundKey],
                   },
                 ];
               },
-              [] as { team: string; scores: number[] }[],
+              [] as { team: string; profileKey?: string; scores: number[] }[],
             )
             .toSorted((a, b) => {
               const aTotal = a.scores.reduce((sum, score) => sum + score, 0);

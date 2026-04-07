@@ -12,7 +12,11 @@
     "removeScore": "Effacer le score",
     "scanGame": "Scanner un nouveau jeu",
     "scores": "Scores",
-    "shareGame": "Partager ce jeu ci"
+    "shareGame": "Partager ce jeu ci",
+    "profiles": "Profils",
+    "createProfile": "Nouveau Profil",
+    "removeProfile": "Supprimer le Profil",
+    "editProfile": "Modifier le Profil"
   },
   "button": {
     "add": "Ajouter",
@@ -45,7 +49,12 @@
     "tryAgain": "Réessayer",
     "undo": "Annuler",
     "update": "Mis à jour",
-    "yes": "Oui"
+    "yes": "Oui",
+    "addMember": "Ajouter un Membre",
+    "createProfile": "Créer un Profil",
+    "deleteProfile": "Supprimer",
+    "editProfile": "Modifier",
+    "saveProfile": "Enregistrer"
   },
   "game_scan_title": "Scanner le code",
   "game_title": "Ton nouveau jeu",
@@ -58,7 +67,12 @@
     "scoreCurrent": "{{ score }} points actuels",
     "scoreHint": "{{ team }} nouveau score: {{ score }}",
     "teamName": "Nom du Participant",
-    "teamNumbered": "Participant {{ number }}"
+    "teamGroupName": "Nom de l'Équipe",
+    "teamNumbered": "Participant {{ number }}",
+    "teamGroupNumbered": "Équipe {{ number }}",
+    "profileName": "Nom",
+    "profileFootline": "Fait amusant ou phrase",
+    "memberNumbered": "Membre {{ number }}"
   },
   "messages": {
     "buildQuickTeams": "Ajoute tes participants",
@@ -86,7 +100,8 @@
     "selectGame": "Sélectionne ton jeu",
     "startQuickGame": "Êtes vous prêts mes amis?",
     "teamCreated": "Participant créé!",
-    "teamRenamed": "Participant renommé!"
+    "teamRenamed": "Participant renommé!",
+    "confirmRemoveProfile": "Veux-tu vraiment supprimer ce profil?"
   },
   "navigation": {
     "currentRound": "En jeu",
@@ -95,7 +110,8 @@
     "manageTeams": "Participants",
     "newRound": "Nouvelle Partie",
     "pastRounds": "Historique",
-    "stats": "Statistiques"
+    "stats": "Statistiques",
+    "profiles": "Profils"
   },
   "errors": {
     "digitsOnly": "Es-tu sûr que tu as écrit des chiffres?",
@@ -119,7 +135,10 @@
     "score": "Score",
     "selectGame": "As-tu laissé ton jeu déjà commencé? appuie sur le triangle pour le reprendre. Ou  si tu veux commencer un nouveau jeu, donc appuie sur \"Créer Jeu\"",
     "setupTeams": "Écris le nom de tous les participants que tu veux ajouter au jeu, tu peux ajouter jusqu'à 12 participants.",
-    "totalPoints": "Score: {{ totalPoints }}"
+    "totalPoints": "Score: {{ totalPoints }}",
+    "noProfiles": "Pas de profils encore, crée un pour commencer!",
+    "profileAvatarType": "Choisis ton style d'avatar",
+    "preview": "Aperçu"
   },
   "stats": {
     "cumulativePoints": "Points cumulés, partie après partie",
@@ -133,7 +152,18 @@
     "setGameType": "Définir le Type de Jeu",
     "negativeToPositive": "Toutes les valeurs négatives seront converties en positives.",
     "multipleOfFive": "Toutes les valeurs saisies doivent être un multiple de 5.",
-    "noChanges": "Aucune modification ne sera apportée à vos scores existants."
+    "noChanges": "Aucune modification ne sera apportée à vos scores existants.",
+    "participantTypeStep": "Participants",
+    "participantTypeWarning": "Ce jeu n'a pas de type de participant défini. Veuillez en spécifier un.",
+    "setParticipantType": "Définir le Type de Participant",
+    "participantTypeInfo": "Les participants existants seront conservés tels quels.",
+    "teamMembersInfo": "Vérifiez les membres de chaque équipe ci-dessous.",
+    "profileLinkInfo": "Associez les participants à des profils enregistrés."
+  },
+  "participantType": {
+    "label": "Type de Participant",
+    "player": "Joueur",
+    "team": "Équipe"
   },
   "gameType": {
     "label": "Type de Jeu",

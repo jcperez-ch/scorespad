@@ -12,7 +12,11 @@
     "removeScore": "Remove Score",
     "scanGame": "Scan a new game",
     "scores": "Scores",
-    "shareGame": "Share this game"
+    "shareGame": "Share this game",
+    "profiles": "Profiles",
+    "createProfile": "New Profile",
+    "removeProfile": "Remove Profile",
+    "editProfile": "Edit Profile"
   },
   "button": {
     "add": "Add",
@@ -45,7 +49,12 @@
     "tryAgain": "Try Again",
     "undo": "Undo",
     "update": "Update",
-    "yes": "Yes"
+    "yes": "Yes",
+    "addMember": "Add Member",
+    "createProfile": "Create Profile",
+    "deleteProfile": "Delete",
+    "editProfile": "Edit",
+    "saveProfile": "Save"
   },
   "game_scan_title": "Scan code",
   "game_title": "Your new game",
@@ -58,7 +67,12 @@
     "scoreCurrent": "{{ score }} current points",
     "scoreHint": "{{ team }} new score: {{ score }}",
     "teamName": "Participant Name",
-    "teamNumbered": "Participant {{ number }}"
+    "teamGroupName": "Team Name",
+    "teamNumbered": "Participant {{ number }}",
+    "teamGroupNumbered": "Team {{ number }}",
+    "profileName": "Name",
+    "profileFootline": "Fun fact or catchphrase",
+    "memberNumbered": "Member {{ number }}"
   },
   "messages": {
     "buildQuickTeams": "Build your participants",
@@ -86,7 +100,8 @@
     "selectGame": "Select your game",
     "startQuickGame": "Are you ready to the rumble?",
     "teamCreated": "Participant created!",
-    "teamRenamed": "Participant renamed!"
+    "teamRenamed": "Participant renamed!",
+    "confirmRemoveProfile": "Are you sure you want to remove this profile?"
   },
   "navigation": {
     "currentRound": "Round",
@@ -95,7 +110,8 @@
     "manageTeams": "Participants",
     "newRound": "New Round",
     "pastRounds": "History",
-    "stats": "Stats"
+    "stats": "Stats",
+    "profiles": "Profiles"
   },
   "errors": {
     "digitsOnly": "Are you sure to have written only numbers?",
@@ -119,7 +135,10 @@
     "score": "Score",
     "selectGame": "Did you leave a game already started?, Click on the name of the game.  Or if you want to start a brand new game then click on the \"Create Game\" button below",
     "setupTeams": "Type the name of all the participants you want to add to the game below, you can add up until 12 participants.",
-    "totalPoints": "Score: {{ totalPoints }}"
+    "totalPoints": "Score: {{ totalPoints }}",
+    "noProfiles": "No profiles yet, create one to get started!",
+    "profileAvatarType": "Choose your avatar style",
+    "preview": "Preview"
   },
   "stats": {
     "cumulativePoints": "Cumulative points, round after round",
@@ -133,7 +152,18 @@
     "setGameType": "Set Game Type",
     "negativeToPositive": "All negative score values will be converted to positive.",
     "multipleOfFive": "All score values entered must be a multiple of 5.",
-    "noChanges": "No changes will be made to your existing scores."
+    "noChanges": "No changes will be made to your existing scores.",
+    "participantTypeStep": "Participants",
+    "participantTypeWarning": "This game doesn't have a participant type set. Please specify one.",
+    "setParticipantType": "Set Participant Type",
+    "participantTypeInfo": "Existing participants will be kept as-is.",
+    "teamMembersInfo": "Review the members for each team below.",
+    "profileLinkInfo": "Link participants to saved profiles."
+  },
+  "participantType": {
+    "label": "Participant Type",
+    "player": "Player",
+    "team": "Team"
   },
   "gameType": {
     "label": "Game Type",

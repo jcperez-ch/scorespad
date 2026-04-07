@@ -58,7 +58,7 @@ export default {
       --fab-default-background-color: #e0e0e0;
       --fab-default-text-color: rgba(0, 0, 0, 0.87);
 
-      --menu-icon-color: #ffffff;
+      --menu-icon-color: #2c83cd;
 
       --text-field-default-border-color: rgba(0, 0, 0, 0.23);
       --text-field-active-border-color: #2c83cd;

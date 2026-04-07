@@ -30,7 +30,14 @@ export default function TeamsList() {
             secondaryAction={<TeamMenu teamKey={team.key} teamName={team.name} />}
             key={team.key}
           >
-            <ListItemText primary={<HeadlineText>{team.name}</HeadlineText>} />
+            <ListItemText
+              primary={<HeadlineText>{team.name}</HeadlineText>}
+              secondary={
+                team.members && team.members.length > 0
+                  ? team.members.map((m) => m.name).join(', ')
+                  : undefined
+              }
+            />
           </ListItem>
         ))}
     </List>
