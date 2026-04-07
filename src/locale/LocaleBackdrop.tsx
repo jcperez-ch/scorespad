@@ -27,11 +27,11 @@ const StyledHeader = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 16px 16px 8px;
+  padding: calc(var(--mui-spacing) * 2) calc(var(--mui-spacing) * 2) var(--mui-spacing);
 `;
 
 const StyledListItemButton = styled(ListItemButton)`
-  padding: 16px 24px;
+  padding: calc(var(--mui-spacing) * 2) calc(var(--mui-spacing) * 3);
 `;
 
 type Props = {

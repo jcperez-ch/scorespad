@@ -143,18 +143,28 @@ export const removeTeam = (key: string, teamKey: string): RemoveTeamAction => ({
   teamKey,
 });
 
-export type RenameTeamAction = {
+export type UpdateTeamAction = {
   type: 'T=';
   key: string;
   teamKey: string;
   name: string;
+  profileKey?: string;
+  members?: TeamMember[];
 };
 
-export const renameTeam = (key: string, teamKey: string, name: string): RenameTeamAction => ({
+export const updateTeam = (
+  key: string,
+  teamKey: string,
+  name: string,
+  profileKey?: string,
+  members?: TeamMember[],
+): UpdateTeamAction => ({
   type: 'T=',
   key,
   teamKey,
   name,
+  profileKey,
+  members,
 });
 
 export type DeletePastRoundAction = {
@@ -289,7 +299,7 @@ export type GameAction =
 export type Action =
   | CreateStateAction
   | GameAction
-  | RenameTeamAction
+  | UpdateTeamAction
   | RemoveScoreAction
   | EndRoundAction
   | AddRoundAction

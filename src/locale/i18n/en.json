@@ -36,6 +36,8 @@
     "next": "Next",
     "ok": "Ok",
     "renameGame": "Rename Game",
+    "edit": "Edit",
+    "editParticipant": "Edit Participant",
     "renameTeam": "Rename Participant",
     "resumeGame": "Resume Game",
     "remove": "Remove",
@@ -100,6 +102,8 @@
     "selectGame": "Select your game",
     "startQuickGame": "Are you ready to the rumble?",
     "teamCreated": "Participant created!",
+    "participantUpdated": "Participant updated!",
+    "hintEditParticipant": "Edit the participant details below.",
     "teamRenamed": "Participant renamed!",
     "confirmRemoveProfile": "Are you sure you want to remove this profile?"
   },

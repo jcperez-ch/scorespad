@@ -6,7 +6,7 @@ import useGame from '@/hooks/useGame';
 import { Team } from '@/store/State';
 
 import HeadlineText from '../common/HeadlineText';
-import TeamMenu from './TeamMenu';
+import ParticipantMenu from './ParticipantMenu';
 
 export default function TeamsList() {
   const game = useGame();
@@ -27,7 +27,7 @@ export default function TeamsList() {
         )
         .map((team) => (
           <ListItem
-            secondaryAction={<TeamMenu teamKey={team.key} teamName={team.name} />}
+            secondaryAction={<ParticipantMenu teamKey={team.key} teamName={team.name} />}
             key={team.key}
           >
             <ListItemText

@@ -36,6 +36,8 @@
     "next": "Suivant",
     "ok": "Oki",
     "renameGame": "Renommer le jeu",
+    "edit": "Modifier",
+    "editParticipant": "Modifier le Participant",
     "renameTeam": "Renommer le participant",
     "resumeGame": "Reprendre le jeu",
     "remove": "Effacer",
@@ -100,6 +102,8 @@
     "selectGame": "Sélectionne ton jeu",
     "startQuickGame": "Êtes vous prêts mes amis?",
     "teamCreated": "Participant créé!",
+    "participantUpdated": "Participant mis à jour!",
+    "hintEditParticipant": "Modifiez les détails du participant ci-dessous.",
     "teamRenamed": "Participant renommé!",
     "confirmRemoveProfile": "Veux-tu vraiment supprimer ce profil?"
   },

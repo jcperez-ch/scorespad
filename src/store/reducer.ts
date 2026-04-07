@@ -15,11 +15,11 @@ import {
   RemoveScoreAction,
   RemoveTeamAction,
   RenameGameAction,
-  RenameTeamAction,
   SetGameTypeAction,
   SetParticipantTypeAction,
   SetTeamProfilesAction,
   SetupGameAction,
+  UpdateTeamAction,
 } from './Actions';
 import { Game, StoreState, Team } from './State';
 
@@ -263,11 +263,11 @@ export function removeTeam(state: Game, { teamKey }: Omit<RemoveTeamAction, 'key
   };
 }
 
-export function renameTeam(
+export function updateTeam(
   team: Team,
-  { name }: Omit<RenameTeamAction, 'teamKey' | 'key' | 'type'>,
+  { name, profileKey, members }: Omit<UpdateTeamAction, 'teamKey' | 'key' | 'type'>,
 ): Team {
-  return team.name === name ? team : { ...team, name };
+  return { ...team, name, profileKey, members };
 }
 
 export function addScores(
@@ -389,11 +389,11 @@ const reducer = (state: StoreState['games'], { type, ...payload }: Action): Stor
         removeTeam,
       );
     case 'T=':
-      return reduceGames<Omit<RenameTeamAction, 'type'>>(
+      return reduceGames<Omit<UpdateTeamAction, 'type'>>(
         state,
-        payload as Omit<RenameTeamAction, 'type'>,
-        reduceTeams<Omit<RenameTeamAction, 'key' | 'type'>>(
-          reduceTeam<Omit<RenameTeamAction, 'key' | 'type'>>(renameTeam),
+        payload as Omit<UpdateTeamAction, 'type'>,
+        reduceTeams<Omit<UpdateTeamAction, 'key' | 'type'>>(
+          reduceTeam<Omit<UpdateTeamAction, 'key' | 'type'>>(updateTeam),
         ),
       );
     case 'S+':

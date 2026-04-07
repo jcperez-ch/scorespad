@@ -2,15 +2,10 @@ import { useContext, useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router';
 
-import Extension from '@mui/icons-material/Extension';
-import GridView from '@mui/icons-material/GridView';
 import GroupIcon from '@mui/icons-material/Group';
-import Layers from '@mui/icons-material/Layers';
 import PersonIcon from '@mui/icons-material/Person';
 import PersonAddIcon from '@mui/icons-material/PersonAdd';
 import RemoveCircleIcon from '@mui/icons-material/RemoveCircle';
-import Style from '@mui/icons-material/Style';
-import Train from '@mui/icons-material/Train';
 import Alert from '@mui/material/Alert';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
@@ -18,11 +13,7 @@ import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogTitle from '@mui/material/DialogTitle';
-import FormControl from '@mui/material/FormControl';
 import IconButton from '@mui/material/IconButton';
-import InputLabel from '@mui/material/InputLabel';
-import MenuItem from '@mui/material/MenuItem';
-import Select, { SelectChangeEvent } from '@mui/material/Select';
 import Stack from '@mui/material/Stack';
 import Step from '@mui/material/Step';
 import StepLabel from '@mui/material/StepLabel';
@@ -34,39 +25,11 @@ import Typography from '@mui/material/Typography';
 import styled from '@emotion/styled';
 
 import ProfileAutocomplete from '@/components/ProfileAutocomplete';
+import GameTypeDropdown from '@/components/games/GameTypeDropdown';
 import GamesContext from '@/config/GamesContext';
 import ProfilesContext from '@/config/ProfilesContext';
 import { setGameType, setParticipantType, setTeamProfiles } from '@/store/Actions';
 import { GameType, ParticipantType, TeamMember } from '@/store/State';
-
-const StyledIconRow = styled.span`
-  display: flex;
-  align-items: center;
-  column-gap: 12px;
-`;
-
-const StyledFormControl = styled(FormControl)`
-  & .MuiOutlinedInput-root {
-    & fieldset {
-      border-color: var(--text-field-default-border-color);
-    }
-    &:hover fieldset {
-      border-color: var(--text-field-active-border-color);
-    }
-    &.Mui-focused fieldset {
-      border-color: var(--text-field-active-border-color);
-    }
-  }
-  & label {
-    color: var(--text-field-default-border-color);
-  }
-  & label.Mui-focused {
-    color: var(--text-field-default-border-color);
-  }
-  & .MuiSelect-icon {
-    color: var(--text-field-default-border-color);
-  }
-`;
 
 const StyledToggleButtonGroup = styled(ToggleButtonGroup)`
   & .MuiToggleButton-root {
@@ -83,22 +46,6 @@ const StyledToggleButtonGroup = styled(ToggleButtonGroup)`
     }
   }
 `;
-
-const gameTypeIcons: Record<GameType, React.ReactNode> = {
-  continental: <Style />,
-  canasta: <Layers />,
-  classic_dominoes: <GridView />,
-  mexican_train: <Train />,
-  other: <Extension />,
-};
-
-const gameTypes: GameType[] = [
-  'continental',
-  'canasta',
-  'classic_dominoes',
-  'mexican_train',
-  'other',
-];
 
 type TeamMemberState = Record<string, TeamMember[]>;
 
@@ -129,7 +76,9 @@ export default function GameMigration({ open, onClose }: Props) {
   const [gameType, setGameTypeState] = useState<GameType | ''>('');
   const [participantType, setParticipantTypeState] = useState<ParticipantType | ''>('');
   const [teamMembers, setTeamMembers] = useState<TeamMemberState>({});
-  const [teamProfileKeys, setTeamProfileKeys] = useState<Record<string, string | undefined>>({});
+  const [teamProfileState, setTeamProfileState] = useState<
+    Record<string, { name: string; profileKey?: string }>
+  >({});
 
   const currentStepType = steps[activeStep];
 
@@ -150,19 +99,25 @@ export default function GameMigration({ open, onClose }: Props) {
     setTeamMembers(members);
   };
 
-  const initTeamProfileKeys = () => {
+  const initTeamProfileState = () => {
     if (!game) return;
     const profileEntries = Object.entries(profiles);
-    const keys: Record<string, string | undefined> = {};
+    const state: Record<string, { name: string; profileKey?: string }> = {};
     for (const team of game.teams) {
       if (team.profileKey) {
-        keys[team.key] = team.profileKey;
+        state[team.key] = {
+          name: profiles[team.profileKey]?.name ?? team.name,
+          profileKey: team.profileKey,
+        };
       } else {
         const match = profileEntries.find(([, p]) => p.name === team.name);
-        keys[team.key] = match ? match[0] : undefined;
+        state[team.key] = {
+          name: team.name,
+          profileKey: match ? match[0] : undefined,
+        };
       }
     }
-    setTeamProfileKeys(keys);
+    setTeamProfileState(state);
   };
 
   const handleNext = () => {
@@ -174,7 +129,7 @@ export default function GameMigration({ open, onClose }: Props) {
       if (currentStepType === 'participantType' && participantType === 'team') {
         initTeamMembers();
       }
-      initTeamProfileKeys();
+      initTeamProfileState();
     }
 
     setActiveStep((prev) => prev + 1);
@@ -201,8 +156,8 @@ export default function GameMigration({ open, onClose }: Props) {
       );
     }
 
-    const profileEntries = Object.entries(teamProfileKeys).reduce<Record<string, string>>(
-      (acc, [teamKey, profileKey]) => {
+    const profileEntries = Object.entries(teamProfileState).reduce<Record<string, string>>(
+      (acc, [teamKey, { profileKey }]) => {
         if (profileKey != null) acc[teamKey] = profileKey;
         return acc;
       },
@@ -217,7 +172,7 @@ export default function GameMigration({ open, onClose }: Props) {
 
   const handleOpen = () => {
     if (steps[0] === 'details') {
-      initTeamProfileKeys();
+      initTeamProfileState();
     }
   };
 
@@ -226,7 +181,7 @@ export default function GameMigration({ open, onClose }: Props) {
     setGameTypeState('');
     setParticipantTypeState('');
     setTeamMembers({});
-    setTeamProfileKeys({});
+    setTeamProfileState({});
     onClose();
   };
 
@@ -305,31 +260,10 @@ export default function GameMigration({ open, onClose }: Props) {
         </Stepper>
 
         {currentStepType === 'gameType' && (
-          <StyledFormControl fullWidth sx={{ mt: 1 }}>
-            <InputLabel>{t('gameType.label')}</InputLabel>
-            <Select
-              value={gameType}
-              label={t('gameType.label')}
-              onChange={(e: SelectChangeEvent) => setGameTypeState(e.target.value as GameType)}
-              renderValue={(value) => (
-                <StyledIconRow>
-                  {gameTypeIcons[value as GameType]}
-                  {t(`gameType.${value}`)}
-                </StyledIconRow>
-              )}
-            >
-              {gameTypes.map((type) => (
-                <MenuItem
-                  key={type}
-                  value={type}
-                  sx={{ display: 'flex', alignItems: 'center', columnGap: 1.5 }}
-                >
-                  {gameTypeIcons[type]}
-                  {t(`gameType.${type}`)}
-                </MenuItem>
-              ))}
-            </Select>
-          </StyledFormControl>
+          <GameTypeDropdown
+            value={gameType}
+            onChange={(value) => setGameTypeState(value as GameType)}
+          />
         )}
 
         {currentStepType === 'participantType' && (
@@ -369,7 +303,7 @@ export default function GameMigration({ open, onClose }: Props) {
             {needsGameType && !showNegativeToPositive && !showMultipleOfFive && (
               <Alert severity="info">{t('migration.noChanges')}</Alert>
             )}
-            {game && game.teams.length > 0 && (
+            {game != null && game.teams.length > 0 && (
               <>
                 <Typography variant="body2">{t('migration.profileLinkInfo')}</Typography>
                 {game.teams.map((team) => (
@@ -379,14 +313,13 @@ export default function GameMigration({ open, onClose }: Props) {
                       id={`migration-profile-${team.key}`}
                       label={team.name}
                       onChange={(name, profileKey) =>
-                        setTeamProfileKeys((prev) => ({ ...prev, [team.key]: profileKey }))
+                        setTeamProfileState((prev) => ({
+                          ...prev,
+                          [team.key]: { name, profileKey },
+                        }))
                       }
-                      value={
-                        teamProfileKeys[team.key]
-                          ? (profiles[teamProfileKeys[team.key]!]?.name ?? team.name)
-                          : team.name
-                      }
-                      profileKey={teamProfileKeys[team.key]}
+                      value={teamProfileState[team.key]?.name ?? team.name}
+                      profileKey={teamProfileState[team.key]?.profileKey}
                     />
                     {participantType === 'team' && (
                       <Stack spacing={1} sx={{ pl: 4, mt: 1 }}>

@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { useNavigate, useParams } from 'react-router';
 
 import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
-import DriveFileRenameOutlineIcon from '@mui/icons-material/DriveFileRenameOutline';
+import EditIcon from '@mui/icons-material/Edit';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import IconButton from '@mui/material/IconButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
@@ -26,7 +26,7 @@ type Props = {
   teamName: string;
 };
 
-export default function TeamMenu({ teamKey, teamName }: Props) {
+export default function ParticipantMenu({ teamKey, teamName }: Props) {
   const [t] = useTranslation();
   const navigate = useNavigate();
   const { gameKey } = useParams();
@@ -50,11 +50,11 @@ export default function TeamMenu({ teamKey, teamName }: Props) {
         <MoreVertIcon />
       </IconButton>
       <Menu id="team-menu" anchorEl={el} open={Boolean(el)} onClose={handleClose}>
-        <MenuItem onClick={() => navigate(`/games/${gameKey}/update/${teamKey}`)}>
+        <MenuItem onClick={() => navigate(`/games/${gameKey}/edit/${teamKey}`)}>
           <StyledMenuIcon>
-            <DriveFileRenameOutlineIcon />
+            <EditIcon />
           </StyledMenuIcon>
-          <ListItemText>{t('button.rename')}</ListItemText>
+          <ListItemText>{t('button.edit')}</ListItemText>
         </MenuItem>
         <MenuItem
           onClick={() => {

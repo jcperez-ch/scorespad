@@ -27,12 +27,12 @@ const AccordionSummaryContent = styled.div`
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  padding: 12px;
+  padding: calc(var(--mui-spacing) * 1.5);
 `;
 
 const AccordionScoresList = styled.ul`
   display: flex;
-  gap: 8px;
+  gap: var(--mui-spacing);
   flex-wrap: wrap;
   padding: 0;
   margin: 0;
@@ -44,16 +44,16 @@ const AccordionScoresItem = styled.li`
 
 const StyledAccordionSummaryText = styled.div`
   flex: 1;
-  margin-left: 12px;
+  margin-left: calc(var(--mui-spacing) * 1.5);
 `;
 
 const AccordionScoresAddButton = styled.button`
-  border-radius: 16px;
+  border-radius: calc(var(--mui-spacing) * 2);
   border: none;
   aspect-ratio: 1;
   background-color: var(--mui-palette-action-selected);
-  padding: 8px;
-  height: 32px;
+  padding: var(--mui-spacing);
+  height: calc(var(--mui-spacing) * 4);
   display: flex;
   place-items: center;
   cursor: pointer;
@@ -128,7 +128,7 @@ export default function RoundLeaderboardAccordion({
               name={matchedProfile.name}
             />
           ) : (
-            <ProfilePlaceholderIcon gameType={gameType} name={name} />
+            <ProfilePlaceholderIcon gameType={gameType} />
           )}
         </ListItemAvatar>
         <ListItemText
@@ -149,7 +149,7 @@ export default function RoundLeaderboardAccordion({
               name={matchedProfile.name}
             />
           ) : (
-            <ProfilePlaceholderIcon gameType={gameType} name={name} />
+            <ProfilePlaceholderIcon gameType={gameType} />
           )}
           <StyledAccordionSummaryText>
             <HeadlineText>{nameContent}</HeadlineText>

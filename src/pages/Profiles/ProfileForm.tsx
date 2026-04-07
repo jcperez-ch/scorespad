@@ -50,8 +50,8 @@ const emojiOptions: { id: EmojiAvatar; label: string }[] = [
 const StyledEmojiRow = styled.div`
   display: flex;
   flex-wrap: wrap;
-  gap: 12px;
-  padding: 8px 0;
+  gap: calc(var(--mui-spacing) * 1.5);
+  padding: var(--mui-spacing) 0;
 `;
 
 const StyledEmojiButton = styled.button<{ selected: boolean }>`

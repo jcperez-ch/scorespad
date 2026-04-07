@@ -5,7 +5,7 @@ import Txt from '@/components/common/Txt';
 const BarTitle = styled.h2`
   align-items: center;
   color: var(--mui-palette-primary-contrastText);
-  column-gap: 8px;
+  column-gap: var(--mui-spacing);
   display: flex;
   flex: 1;
   font: var(--mui-font-body1);
@@ -28,7 +28,7 @@ const StyledToolbar = styled.div`
   align-items: center;
   display: grid;
   grid-template-columns: auto 1fr auto auto;
-  padding: 4px;
+  padding: calc(var(--mui-spacing) * 0.5);
   & h2 {
     color: var(--top-bar-text-color);
     text-align: center;

@@ -6,7 +6,7 @@ import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
 
 import DialogOutlet from '@/components/dialog/DialogOutlet';
-import TeamsList from '@/components/teams/TeamsList';
+import TeamsList from '@/components/participants/TeamsList';
 
 type Props = {
   onBack?: () => void;

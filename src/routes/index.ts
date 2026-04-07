@@ -84,8 +84,8 @@ const routes: Routes = [
         ],
       },
       {
-        component: asyncComponentLoader(() => import('@/pages/Teams/TeamUpdate')),
-        path: 'update/:teamKey',
+        component: asyncComponentLoader(() => import('@/pages/Teams/ParticipantEdit')),
+        path: 'edit/:teamKey',
       },
       {
         component: asyncComponentLoader(() => import('@/pages/Games/GameUpdate')),

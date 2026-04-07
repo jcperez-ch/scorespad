@@ -36,6 +36,8 @@
     "next": "Siguiente",
     "ok": "Ok",
     "renameGame": "Renombrar juego",
+    "edit": "Editar",
+    "editParticipant": "Editar Participante",
     "renameTeam": "Renombrar participante",
     "resumeGame": "Retomar juego",
     "remove": "Eliminar",
@@ -100,6 +102,8 @@
     "selectGame": "Selecciona tu juego",
     "startQuickGame": "Listo para comenzar?",
     "teamCreated": "¡Participante creado!",
+    "participantUpdated": "¡Participante actualizado!",
+    "hintEditParticipant": "Edita los detalles del participante a continuación.",
     "teamRenamed": "¡Participante renombrado!",
     "confirmRemoveProfile": "¿Estás seguro de que quieres eliminar este perfil?"
   },

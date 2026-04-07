@@ -2,37 +2,30 @@ import { useContext, useState } from 'react';
 import { Trans, useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router';
 
-import Extension from '@mui/icons-material/Extension';
 import GroupIcon from '@mui/icons-material/Group';
 import PersonIcon from '@mui/icons-material/Person';
-import Train from '@mui/icons-material/Train';
 import Button from '@mui/material/Button';
 import DialogActions from '@mui/material/DialogActions';
-import FormControl from '@mui/material/FormControl';
-import InputLabel from '@mui/material/InputLabel';
 import Link from '@mui/material/Link';
 import MenuItem from '@mui/material/MenuItem';
-import Select, { SelectChangeEvent } from '@mui/material/Select';
 import ToggleButton from '@mui/material/ToggleButton';
 import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
 
 import styled from '@emotion/styled';
 
 import NameField from '@/components/NameField';
-import CanastaIcon from '@/components/common/icons/CanastaIcon';
-import ClassicDominoesIcon from '@/components/common/icons/ClassicDominoesIcon';
-import ContinentalIcon from '@/components/common/icons/ContinentalIcon';
 import DialogBody from '@/components/dialog/DialogBody';
 import DialogHeadline from '@/components/dialog/DialogHeadline';
+import GameTypeDropdown from '@/components/games/GameTypeDropdown';
 import GamesContext from '@/config/GamesContext';
 import { createGame } from '@/store/Actions';
 import { GameType, ParticipantType } from '@/store/State';
 import useValidation from '@/utils/validation';
 
-const StyledIconRow = styled.span`
+const StyledFormFields = styled.div`
   display: flex;
-  align-items: center;
-  column-gap: 12px;
+  flex-direction: column;
+  row-gap: calc(var(--mui-spacing) * 2);
 `;
 
 const StyledToggleButtonGroup = styled(ToggleButtonGroup)`
@@ -50,45 +43,6 @@ const StyledToggleButtonGroup = styled(ToggleButtonGroup)`
     }
   }
 `;
-
-const StyledFormControl = styled(FormControl)`
-  & .MuiOutlinedInput-root {
-    & fieldset {
-      border-color: var(--text-field-default-border-color);
-    }
-    &:hover fieldset {
-      border-color: var(--text-field-active-border-color);
-    }
-    &.Mui-focused fieldset {
-      border-color: var(--text-field-active-border-color);
-    }
-  }
-  & label {
-    color: var(--text-field-default-border-color);
-  }
-  & label.Mui-focused {
-    color: var(--text-field-default-border-color);
-  }
-  & .MuiSelect-icon {
-    color: var(--text-field-default-border-color);
-  }
-`;
-
-const gameTypeIcons: Record<GameType, React.ReactNode> = {
-  continental: <ContinentalIcon />,
-  canasta: <CanastaIcon />,
-  classic_dominoes: <ClassicDominoesIcon />,
-  mexican_train: <Train />,
-  other: <Extension />,
-};
-
-const gameTypes: GameType[] = [
-  'continental',
-  'canasta',
-  'classic_dominoes',
-  'mexican_train',
-  'other',
-];
 
 const DEV_EMPTY = '__dev_empty__';
 
@@ -115,46 +69,19 @@ export default function GameFormByName() {
   return (
     <>
       <DialogBody title={t('game_title')} headline={t('text.addNewGame')} onClose={handleClose}>
-        <NameField
-          variant="outlined"
-          label={t('placeholder.game_name')}
-          onChange={setNewName}
-          onEnter={onSubmit}
-          error={error}
-          value={newName}
-        />
-        <StyledFormControl fullWidth sx={{ mt: 2 }}>
-          <InputLabel>{t('gameType.label')}</InputLabel>
-          <Select
-            value={gameType}
-            label={t('gameType.label')}
-            onChange={(e: SelectChangeEvent) =>
-              setGameType(e.target.value as GameType | typeof DEV_EMPTY)
-            }
-            renderValue={(value) =>
-              value === DEV_EMPTY ? (
-                '[DEV] --Empty'
-              ) : (
-                <StyledIconRow>
-                  {gameTypeIcons[value as GameType]}
-                  {t(`gameType.${value}`)}
-                </StyledIconRow>
-              )
-            }
-          >
-            {gameTypes.map((type) => (
-              <MenuItem
-                key={type}
-                value={type}
-                sx={{ display: 'flex', alignItems: 'center', columnGap: 1.5 }}
-              >
-                {gameTypeIcons[type]}
-                {t(`gameType.${type}`)}
-              </MenuItem>
-            ))}
+        <StyledFormFields>
+          <NameField
+            variant="outlined"
+            label={t('placeholder.game_name')}
+            onChange={setNewName}
+            onEnter={onSubmit}
+            error={error}
+            value={newName}
+          />
+          <GameTypeDropdown value={gameType} onChange={(value) => setGameType(value as GameType)}>
             {import.meta.env.DEV && <MenuItem value={DEV_EMPTY}>[DEV] --Empty</MenuItem>}
-          </Select>
-        </StyledFormControl>
+          </GameTypeDropdown>
+        </StyledFormFields>
         <DialogHeadline>{t('participantType.label')}</DialogHeadline>
         <StyledToggleButtonGroup
           value={participantType}
