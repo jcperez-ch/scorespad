@@ -1,0 +1,1 @@
+const a={continental:"var(--game-type-continental)",canasta:"var(--game-type-canasta)",classic_dominoes:"var(--game-type-classic-dominoes)",mexican_train:"var(--game-type-mexican-train)",other:"var(--game-type-other)"};export{a as g};

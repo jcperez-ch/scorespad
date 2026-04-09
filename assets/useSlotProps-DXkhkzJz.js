@@ -1,1 +1,0 @@
-import{r as m,m as P,a as i}from"./mergeSlotProps-DSQ8nZ52.js";import{v as S}from"./chunk-QFMPRPBF-C_FclEzk.js";function v(o){const{elementType:s,externalSlotProps:t,ownerState:e,skipResolvingSlotProps:p=!1,...n}=o,r=p?{}:m(t,e),{props:l,internalRef:a}=P({...n,externalSlotProps:r}),f=S(a,r?.ref,o.additionalProps?.ref);return i(s,{...l,ref:f},e)}export{v as u};

@@ -1,0 +1,1 @@
+import{a as r,a0 as t}from"./chunk-QFMPRPBF-CZJ-HrMl.js";import{G as a}from"./GamesContext-Dq2beNQ2.js";function m(){const[o]=r.useContext(a),{gameKey:e}=t();return r.useMemo(()=>{if(e!=null&&o[e]!=null)return o[e];throw new Error("Game not found")},[o,e])}export{m as u};
