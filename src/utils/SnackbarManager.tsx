@@ -6,7 +6,17 @@ import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 import Snackbar from '@mui/material/Snackbar';
 
+import styled from '@emotion/styled';
+
 import SnackbarManagerContext, { SnackbarConfig } from '@/config/SnackbarManagerContext';
+
+const StyledCloseButton = styled(IconButton)`
+  color: rgba(255, 255, 255, 0.8);
+
+  &:hover {
+    color: rgba(255, 255, 255, 1);
+  }
+`;
 
 type Props = {
   children: React.ReactNode;
@@ -40,7 +50,7 @@ export default function SnackbarManager({ children }: Props) {
         <Snackbar
           key={index}
           open={open}
-          autoHideDuration={autoHideDuration}
+          autoHideDuration={autoHideDuration ?? 8000}
           onClose={() => {
             snackbarManager.hideSnackbar(index);
             onHide?.();
@@ -72,7 +82,7 @@ export default function SnackbarManager({ children }: Props) {
                   {t('button.update')}
                 </Button>
               )}
-              <IconButton
+              <StyledCloseButton
                 size="small"
                 aria-label={t('button.close')}
                 onClick={() => {
@@ -81,7 +91,7 @@ export default function SnackbarManager({ children }: Props) {
                 }}
               >
                 <CloseIcon fontSize="small" />
-              </IconButton>
+              </StyledCloseButton>
             </>
           }
         />

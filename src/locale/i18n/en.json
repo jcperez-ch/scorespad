@@ -56,6 +56,7 @@
     "createProfile": "Create Profile",
     "deleteProfile": "Delete",
     "editProfile": "Edit",
+    "save": "Save",
     "saveProfile": "Save"
   },
   "game_scan_title": "Scan code",

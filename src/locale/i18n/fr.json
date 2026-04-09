@@ -56,6 +56,7 @@
     "createProfile": "Créer un Profil",
     "deleteProfile": "Supprimer",
     "editProfile": "Modifier",
+    "save": "Enregistrer",
     "saveProfile": "Enregistrer"
   },
   "game_scan_title": "Scanner le code",

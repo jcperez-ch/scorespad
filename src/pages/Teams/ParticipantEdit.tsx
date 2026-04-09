@@ -51,7 +51,7 @@ export default function ParticipantEdit() {
   const navigate = useNavigate();
   const [t] = useTranslation();
   const [, dispatch] = useContext(GamesContext);
-  const handleClose = () => navigate(`/games/${gameKey}`);
+  const handleClose = () => navigate(`/games/${gameKey}/teams`);
   const initialName = resolveProfileName(profiles, team?.name ?? '', team?.profileKey);
   const [newName, setNewName] = useState(initialName);
   const [newProfileKey, setNewProfileKey] = useState<string | undefined>(team?.profileKey);
@@ -190,7 +190,7 @@ export default function ParticipantEdit() {
           {t('button.cancel')}
         </Button>
         <Button autoFocus variant="outlined" onClick={onSubmit}>
-          {t('button.editParticipant')}
+          {t('button.save')}
         </Button>
       </DialogActions>
     </>
