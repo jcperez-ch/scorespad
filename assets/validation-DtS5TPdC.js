@@ -1,0 +1,1 @@
+import{a as u}from"./chunk-QFMPRPBF-CZJ-HrMl.js";import{u as i}from"./useTranslation-B7ghwRN0.js";function f({name:r,onSubmit:e,errorMessage:o}){const[s]=i(),t=u.useRef(!1);return{error:t.current&&!r?s(o):void 0,onSubmit:()=>{r?e():t.current=!0}}}export{f as u};
