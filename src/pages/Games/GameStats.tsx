@@ -16,6 +16,15 @@ const MIN_POINT_WIDTH = 60;
 
 const StyledChartScroller = styled.div<{ scrollable: boolean }>`
   overflow-x: ${({ scrollable }) => (scrollable ? 'auto' : 'visible')};
+  touch-action: ${({ scrollable }) => (scrollable ? 'pan-x' : 'auto')};
+
+  ${({ scrollable }) =>
+    scrollable &&
+    `
+    & svg {
+      touch-action: pan-x;
+    }
+  `}
 `;
 
 export default function GameStats() {
