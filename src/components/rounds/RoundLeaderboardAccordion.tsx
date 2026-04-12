@@ -42,6 +42,8 @@ const AccordionScoresItem = styled.li`
 `;
 
 const StyledAccordionSummaryText = styled.div`
+  display: flex;
+  flex-direction: column;
   flex: 1;
   margin-left: calc(var(--mui-spacing) * 1.5);
 `;
