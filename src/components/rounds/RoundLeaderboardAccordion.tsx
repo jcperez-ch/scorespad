@@ -76,7 +76,7 @@ const AccordionScoresAddButton = styled.button`
 type Props = {
   gameType?: GameType;
   isTeamMode: boolean;
-  medalIcon?: React.ReactNode;
+  auxIcon?: React.ReactNode;
   members?: TeamMember[];
   name: Team['name'];
   profileKey?: string;
@@ -89,7 +89,7 @@ type Props = {
 export default function RoundLeaderboardAccordion({
   gameType,
   isTeamMode,
-  medalIcon,
+  auxIcon,
   members,
   name,
   profileKey,
@@ -120,7 +120,7 @@ export default function RoundLeaderboardAccordion({
 
   const nameContent = (
     <>
-      {medalIcon != null && <span aria-hidden="true">{medalIcon}</span>}
+      {auxIcon != null && <span aria-hidden="true">{auxIcon}</span>}
       <span>{name}</span>
     </>
   );
