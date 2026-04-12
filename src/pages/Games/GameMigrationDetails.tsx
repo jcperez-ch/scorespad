@@ -7,6 +7,7 @@ import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 import Stack from '@mui/material/Stack';
+import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
 
 import ProfileAutocomplete from '@/components/ProfileAutocomplete';
@@ -65,14 +66,25 @@ export default function GameMigrationDetails({
           <Typography variant="body2">{t('migration.profileLinkInfo')}</Typography>
           {game.teams.map((team) => (
             <Box key={team.key}>
-              <ProfileAutocomplete
-                size="small"
-                id={`migration-profile-${team.key}`}
-                label={team.name}
-                onChange={(name, profileKey) => onTeamProfileChange(team.key, name, profileKey)}
-                value={teamProfileState[team.key]?.name ?? team.name}
-                profileKey={teamProfileState[team.key]?.profileKey}
-              />
+              {participantType === 'team' ? (
+                <TextField
+                  size="small"
+                  fullWidth
+                  id={`migration-profile-${team.key}`}
+                  label={team.name}
+                  value={teamProfileState[team.key]?.name ?? team.name}
+                  onChange={(e) => onTeamProfileChange(team.key, e.target.value)}
+                />
+              ) : (
+                <ProfileAutocomplete
+                  size="small"
+                  id={`migration-profile-${team.key}`}
+                  label={team.name}
+                  onChange={(name, profileKey) => onTeamProfileChange(team.key, name, profileKey)}
+                  value={teamProfileState[team.key]?.name ?? team.name}
+                  profileKey={teamProfileState[team.key]?.profileKey}
+                />
+              )}
               {participantType === 'team' && (
                 <Stack spacing={1} sx={{ pl: 4, mt: 1 }}>
                   {(teamMembers[team.key] || []).map((member, memberIndex) => (
