@@ -12,7 +12,7 @@ type Props = {
 const medals = ['🥇', '🥈', '🥉'];
 
 export default function RoundLeaderboard({ readonly, round }: Props) {
-  const { teams, gameType } = useGame();
+  const { teams, gameType, participantType } = useGame();
   const ascending = isLowScoreWins(gameType);
 
   return (
@@ -32,7 +32,9 @@ export default function RoundLeaderboard({ readonly, round }: Props) {
             teamRound={team.rounds[round]}
             name={team.name}
             profileKey={team.profileKey}
+            members={team.members}
             gameType={gameType}
+            isTeamMode={participantType === 'team'}
             medalIcon={teams.length < 3 ? undefined : medals[index]}
           />
         ))}

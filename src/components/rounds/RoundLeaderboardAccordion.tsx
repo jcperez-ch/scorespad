@@ -13,12 +13,11 @@ import Typography from '@mui/material/Typography';
 
 import styled from '@emotion/styled';
 
-import ProfileAvatar from '@/components/profiles/ProfileAvatar';
-import ProfilePlaceholderIcon from '@/components/profiles/ProfilePlaceholderIcon';
+import ParticipantListItemAvatar from '@/components/participants/ParticipantListItemAvatar';
 import GamesContext from '@/config/GamesContext';
 import ProfilesContext from '@/config/ProfilesContext';
 import { removeScore } from '@/store/Actions';
-import { GameType, Team } from '@/store/State';
+import { GameType, Team, TeamMember } from '@/store/State';
 
 import HeadlineText from '../common/HeadlineText';
 
@@ -74,7 +73,9 @@ const AccordionScoresAddButton = styled.button`
 
 type Props = {
   gameType?: GameType;
+  isTeamMode: boolean;
   medalIcon?: React.ReactNode;
+  members?: TeamMember[];
   name: Team['name'];
   profileKey?: string;
   roundKey: string;
@@ -85,7 +86,9 @@ type Props = {
 
 export default function RoundLeaderboardAccordion({
   gameType,
+  isTeamMode,
   medalIcon,
+  members,
   name,
   profileKey,
   teamKey,
@@ -102,6 +105,16 @@ export default function RoundLeaderboardAccordion({
     () => (profileKey ? profiles[profileKey] : undefined),
     [profiles, profileKey],
   );
+
+  const secondaryText = useMemo(() => {
+    if (isTeamMode && members?.length) {
+      return members
+        .map((m) => (m.profileKey && profiles[m.profileKey]?.name) || m.name)
+        .filter(Boolean)
+        .join(', ');
+    }
+    return matchedProfile?.footline;
+  }, [isTeamMode, members, profiles, matchedProfile]);
 
   const nameContent = (
     <>
@@ -121,19 +134,16 @@ export default function RoundLeaderboardAccordion({
         }
       >
         <ListItemAvatar>
-          {matchedProfile ? (
-            <ProfileAvatar
-              avatarType={matchedProfile.avatarType}
-              emoji={matchedProfile.emoji}
-              name={matchedProfile.name}
-            />
-          ) : (
-            <ProfilePlaceholderIcon gameType={gameType} />
-          )}
+          <ParticipantListItemAvatar
+            gameType={gameType}
+            profileKey={profileKey}
+            members={members}
+            isTeamMode={isTeamMode}
+          />
         </ListItemAvatar>
         <ListItemText
           primary={<HeadlineText>{nameContent}</HeadlineText>}
-          secondary={matchedProfile?.footline}
+          secondary={secondaryText}
         />
       </ListItem>
     );
@@ -142,20 +152,17 @@ export default function RoundLeaderboardAccordion({
     <Accordion sx={{ width: '100%' }}>
       <AccordionSummary>
         <AccordionSummaryContent>
-          {matchedProfile ? (
-            <ProfileAvatar
-              avatarType={matchedProfile.avatarType}
-              emoji={matchedProfile.emoji}
-              name={matchedProfile.name}
-            />
-          ) : (
-            <ProfilePlaceholderIcon gameType={gameType} />
-          )}
+          <ParticipantListItemAvatar
+            gameType={gameType}
+            profileKey={profileKey}
+            members={members}
+            isTeamMode={isTeamMode}
+          />
           <StyledAccordionSummaryText>
             <HeadlineText>{nameContent}</HeadlineText>
-            {matchedProfile?.footline && (
+            {secondaryText && (
               <Typography variant="caption" color="text.secondary">
-                {matchedProfile.footline}
+                {secondaryText}
               </Typography>
             )}
           </StyledAccordionSummaryText>

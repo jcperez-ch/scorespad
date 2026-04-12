@@ -13,7 +13,8 @@ function removeProfile(
   { key }: Omit<RemoveProfileAction, 'type'>,
 ): StoreState['profiles'] {
   if (!state[key]) return state;
-  const { [key]: _, ...rest } = state;
+  const rest = { ...state };
+  delete rest[key];
   return rest;
 }
 
