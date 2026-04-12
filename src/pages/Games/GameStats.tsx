@@ -7,7 +7,16 @@ import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 import { LineChart } from '@mui/x-charts/LineChart';
 
+import styled from '@emotion/styled';
+
 import useGame from '@/hooks/useGame';
+
+const SCROLL_THRESHOLD = 10;
+const MIN_POINT_WIDTH = 60;
+
+const StyledChartScroller = styled.div<{ scrollable: boolean }>`
+  overflow-x: ${({ scrollable }) => (scrollable ? 'auto' : 'visible')};
+`;
 
 export default function GameStats() {
   const [t] = useTranslation();
@@ -42,6 +51,8 @@ export default function GameStats() {
   );
 
   const xLabels = pastRounds.map((_, i) => i + 1);
+  const scrollable = pastRounds.length > SCROLL_THRESHOLD;
+  const chartWidth = scrollable ? pastRounds.length * MIN_POINT_WIDTH : undefined;
 
   if (pastRounds.length === 0) {
     return null;
@@ -54,12 +65,15 @@ export default function GameStats() {
           <Typography variant="subtitle1" align="center">
             {t('stats.cumulativePoints')}
           </Typography>
-          <LineChart
-            height={300}
-            series={pointsSeries}
-            xAxis={[{ data: xLabels, label: t('navigation.currentRound'), scaleType: 'point' }]}
-            yAxis={[{ label: t('stats.points') }]}
-          />
+          <StyledChartScroller scrollable={scrollable}>
+            <LineChart
+              height={300}
+              width={chartWidth}
+              series={pointsSeries}
+              xAxis={[{ data: xLabels, label: t('navigation.currentRound'), scaleType: 'point' }]}
+              yAxis={[{ label: t('stats.points') }]}
+            />
+          </StyledChartScroller>
         </CardContent>
       </Card>
       <Card>
@@ -67,12 +81,15 @@ export default function GameStats() {
           <Typography variant="subtitle1" align="center">
             {t('stats.championships')}
           </Typography>
-          <LineChart
-            height={300}
-            series={championshipSeries}
-            xAxis={[{ data: xLabels, label: t('navigation.currentRound'), scaleType: 'point' }]}
-            yAxis={[{ label: t('stats.championships') }]}
-          />
+          <StyledChartScroller scrollable={scrollable}>
+            <LineChart
+              height={300}
+              width={chartWidth}
+              series={championshipSeries}
+              xAxis={[{ data: xLabels, label: t('navigation.currentRound'), scaleType: 'point' }]}
+              yAxis={[{ label: t('stats.championships') }]}
+            />
+          </StyledChartScroller>
         </CardContent>
       </Card>
     </Stack>
