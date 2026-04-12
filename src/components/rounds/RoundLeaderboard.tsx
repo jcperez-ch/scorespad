@@ -35,7 +35,13 @@ export default function RoundLeaderboard({ readonly, round }: Props) {
             members={team.members}
             gameType={gameType}
             isTeamMode={participantType === 'team'}
-            medalIcon={teams.length < 3 ? undefined : medals[index]}
+            medalIcon={
+              teams.length > 3 && index === teams.length - 1
+                ? '💩'
+                : teams.length < 3
+                  ? undefined
+                  : medals[index]
+            }
           />
         ))}
     </div>
