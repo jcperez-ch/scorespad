@@ -1,1 +1,0 @@
-import{j as o}from"./chunk-QFMPRPBF-CZJ-HrMl.js";import{g as e}from"./gameTypeIcons-Cyaygvoe.js";import{A as t}from"./ProfileAvatar-CqFtIROw.js";function i({gameType:r}){return o.jsx(t,{children:e[r??"other"]})}export{i as P};
