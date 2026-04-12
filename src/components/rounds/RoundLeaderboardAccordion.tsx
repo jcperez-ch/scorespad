@@ -48,6 +48,12 @@ const StyledAccordionSummaryText = styled.div`
   margin-left: calc(var(--mui-spacing) * 1.5);
 `;
 
+const StyledNameContent = styled.span`
+  display: inline-flex;
+  align-items: center;
+  column-gap: calc(var(--mui-spacing) * 0.5);
+`;
+
 const AccordionScoresAddButton = styled.button`
   border-radius: calc(var(--mui-spacing) * 2);
   border: none;
@@ -119,10 +125,10 @@ export default function RoundLeaderboardAccordion({
   }, [isTeamMode, members, profiles, matchedProfile]);
 
   const nameContent = (
-    <>
+    <StyledNameContent>
       {auxIcon != null && <span aria-hidden="true">{auxIcon}</span>}
       <span>{name}</span>
-    </>
+    </StyledNameContent>
   );
 
   if (teamRound.length === 0) {
