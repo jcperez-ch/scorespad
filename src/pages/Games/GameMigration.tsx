@@ -2,52 +2,24 @@ import { useContext, useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router';
 
-import GroupIcon from '@mui/icons-material/Group';
-import PersonIcon from '@mui/icons-material/Person';
-import PersonAddIcon from '@mui/icons-material/PersonAdd';
-import RemoveCircleIcon from '@mui/icons-material/RemoveCircle';
-import Alert from '@mui/material/Alert';
-import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogTitle from '@mui/material/DialogTitle';
-import IconButton from '@mui/material/IconButton';
-import Stack from '@mui/material/Stack';
 import Step from '@mui/material/Step';
 import StepLabel from '@mui/material/StepLabel';
 import Stepper from '@mui/material/Stepper';
-import ToggleButton from '@mui/material/ToggleButton';
-import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
-import Typography from '@mui/material/Typography';
 
-import styled from '@emotion/styled';
-
-import ProfileAutocomplete from '@/components/ProfileAutocomplete';
-import GameTypeDropdown from '@/components/games/GameTypeDropdown';
 import GamesContext from '@/config/GamesContext';
 import ProfilesContext from '@/config/ProfilesContext';
 import { setGameType, setParticipantType, setTeamProfiles } from '@/store/Actions';
-import { GameType, ParticipantType, TeamMember } from '@/store/State';
+import { GameType, ParticipantType } from '@/store/State';
 
-const StyledToggleButtonGroup = styled(ToggleButtonGroup)`
-  & .MuiToggleButton-root {
-    color: var(--text-field-default-border-color);
-    border-color: var(--text-field-default-border-color);
-
-    &.Mui-selected {
-      background-color: var(--button-active-background-color);
-      color: var(--button-active-text-color);
-
-      &:hover {
-        background-color: var(--button-hover-background-color);
-      }
-    }
-  }
-`;
-
-type TeamMemberState = Record<string, TeamMember[]>;
+import { TeamMemberState } from './GameMigrationDetails';
+import GameMigrationDetails from './GameMigrationDetails';
+import GameMigrationGameType from './GameMigrationGameType';
+import GameMigrationParticipantType from './GameMigrationParticipantType';
 
 type Props = {
   open: boolean;
@@ -212,9 +184,6 @@ export default function GameMigration({ open, onClose }: Props) {
   };
 
   const effectiveGameType = needsGameType ? gameType : game?.gameType;
-  const showNegativeToPositive =
-    effectiveGameType === 'continental' || effectiveGameType === 'mexican_train';
-  const showMultipleOfFive = effectiveGameType === 'canasta' || effectiveGameType === 'continental';
 
   const isNextDisabled =
     (currentStepType === 'gameType' && gameType === '') ||
@@ -260,118 +229,35 @@ export default function GameMigration({ open, onClose }: Props) {
         </Stepper>
 
         {currentStepType === 'gameType' && (
-          <GameTypeDropdown
-            value={gameType}
-            onChange={(value) => setGameTypeState(value as GameType)}
-          />
+          <GameMigrationGameType value={gameType} onChange={setGameTypeState} />
         )}
 
         {currentStepType === 'participantType' && (
-          <Stack spacing={2} sx={{ mt: 1 }}>
-            <StyledToggleButtonGroup
-              value={participantType}
-              exclusive
-              onChange={(_, value: ParticipantType | null) => {
-                if (value !== null) setParticipantTypeState(value);
-              }}
-              fullWidth
-            >
-              <ToggleButton value="player">
-                <PersonIcon sx={{ mr: 1 }} />
-                {t('participantType.player')}
-              </ToggleButton>
-              <ToggleButton value="team">
-                <GroupIcon sx={{ mr: 1 }} />
-                {t('participantType.team')}
-              </ToggleButton>
-            </StyledToggleButtonGroup>
-          </Stack>
+          <GameMigrationParticipantType
+            value={participantType}
+            onChange={setParticipantTypeState}
+          />
         )}
 
-        {currentStepType === 'details' && (
-          <Stack spacing={2}>
-            {needsGameType && (showNegativeToPositive || showMultipleOfFive) && (
-              <>
-                {showNegativeToPositive && (
-                  <Alert severity="warning">{t('migration.negativeToPositive')}</Alert>
-                )}
-                {showMultipleOfFive && (
-                  <Alert severity="info">{t('migration.multipleOfFive')}</Alert>
-                )}
-              </>
-            )}
-            {needsGameType && !showNegativeToPositive && !showMultipleOfFive && (
-              <Alert severity="info">{t('migration.noChanges')}</Alert>
-            )}
-            {game != null && game.teams.length > 0 && (
-              <>
-                <Typography variant="body2">{t('migration.profileLinkInfo')}</Typography>
-                {game.teams.map((team) => (
-                  <Box key={team.key}>
-                    <ProfileAutocomplete
-                      size="small"
-                      id={`migration-profile-${team.key}`}
-                      label={team.name}
-                      onChange={(name, profileKey) =>
-                        setTeamProfileState((prev) => ({
-                          ...prev,
-                          [team.key]: { name, profileKey },
-                        }))
-                      }
-                      value={teamProfileState[team.key]?.name ?? team.name}
-                      profileKey={teamProfileState[team.key]?.profileKey}
-                    />
-                    {participantType === 'team' && (
-                      <Stack spacing={1} sx={{ pl: 4, mt: 1 }}>
-                        {(teamMembers[team.key] || []).map((member, memberIndex) => (
-                          <ProfileAutocomplete
-                            key={memberIndex}
-                            size="small"
-                            id={`migration-team-${team.key}-member-${memberIndex}`}
-                            label={t('placeholder.memberNumbered', { number: memberIndex + 1 })}
-                            onChange={(name, profileKey) =>
-                              updateMember(team.key, memberIndex, name, profileKey)
-                            }
-                            value={member.name}
-                            profileKey={member.profileKey}
-                            endAdornment={
-                              member.name !== '' ? (
-                                <IconButton
-                                  color="secondary"
-                                  aria-label={t('button.delete')}
-                                  onClick={() => removeMember(team.key, memberIndex)}
-                                  edge="end"
-                                  size="small"
-                                >
-                                  <RemoveCircleIcon fontSize="small" />
-                                </IconButton>
-                              ) : undefined
-                            }
-                          />
-                        ))}
-                        <div>
-                          <Button
-                            size="small"
-                            color="secondary"
-                            startIcon={<PersonAddIcon />}
-                            onClick={() => addMember(team.key)}
-                          >
-                            {t('button.addMember')}
-                          </Button>
-                        </div>
-                      </Stack>
-                    )}
-                  </Box>
-                ))}
-              </>
-            )}
-            {needsParticipantType && participantType === 'player' && (
-              <Alert severity="info">{t('migration.participantTypeInfo')}</Alert>
-            )}
-            {!needsGameType && !needsParticipantType && (
-              <Alert severity="info">{t('migration.noChanges')}</Alert>
-            )}
-          </Stack>
+        {currentStepType === 'details' && game != null && (
+          <GameMigrationDetails
+            game={game}
+            needsGameType={needsGameType}
+            needsParticipantType={needsParticipantType}
+            effectiveGameType={effectiveGameType}
+            participantType={participantType}
+            teamMembers={teamMembers}
+            teamProfileState={teamProfileState}
+            onTeamProfileChange={(teamKey, name, profileKey) =>
+              setTeamProfileState((prev) => ({
+                ...prev,
+                [teamKey]: { name, profileKey },
+              }))
+            }
+            onMemberUpdate={updateMember}
+            onMemberAdd={addMember}
+            onMemberRemove={removeMember}
+          />
         )}
       </DialogContent>
       <DialogActions>
