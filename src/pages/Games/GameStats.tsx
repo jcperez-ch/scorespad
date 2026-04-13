@@ -7,29 +7,15 @@ import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 import { LineChart } from '@mui/x-charts/LineChart';
 
-import styled from '@emotion/styled';
-
 import useGame from '@/hooks/useGame';
 
-const SCROLL_THRESHOLD = 10;
-const MIN_POINT_WIDTH = 60;
-
-const StyledChartScroller = styled.div<{ scrollable: boolean }>`
-  overflow-x: ${({ scrollable }) => (scrollable ? 'auto' : 'visible')};
-  touch-action: ${({ scrollable }) => (scrollable ? 'pan-x' : 'auto')};
-
-  ${({ scrollable }) =>
-    scrollable &&
-    `
-    & svg {
-      touch-action: pan-x;
-    }
-  `}
-`;
+const MARK_THRESHOLD = 10;
 
 export default function GameStats() {
   const [t] = useTranslation();
   const { teams, pastRounds } = useGame();
+
+  const hideMarks = pastRounds.length > MARK_THRESHOLD;
 
   const pointsSeries = useMemo(
     () =>
@@ -40,9 +26,9 @@ export default function GameStats() {
           cumulative += scores.reduce((sum, s) => sum + s, 0);
           return cumulative;
         });
-        return { label: team.name, data };
+        return { label: team.name, data, showMark: !hideMarks };
       }),
-    [teams, pastRounds],
+    [teams, pastRounds, hideMarks],
   );
 
   const championshipSeries = useMemo(
@@ -54,14 +40,12 @@ export default function GameStats() {
           if (championshipSet.has(round)) cumulative += 1;
           return cumulative;
         });
-        return { label: team.name, data };
+        return { label: team.name, data, showMark: !hideMarks };
       }),
-    [teams, pastRounds],
+    [teams, pastRounds, hideMarks],
   );
 
   const xLabels = pastRounds.map((_, i) => i + 1);
-  const scrollable = pastRounds.length > SCROLL_THRESHOLD;
-  const chartWidth = scrollable ? pastRounds.length * MIN_POINT_WIDTH : undefined;
 
   if (pastRounds.length === 0) {
     return null;
@@ -74,15 +58,12 @@ export default function GameStats() {
           <Typography variant="subtitle1" align="center">
             {t('stats.cumulativePoints')}
           </Typography>
-          <StyledChartScroller scrollable={scrollable}>
-            <LineChart
-              height={300}
-              width={chartWidth}
-              series={pointsSeries}
-              xAxis={[{ data: xLabels, label: t('navigation.currentRound'), scaleType: 'point' }]}
-              yAxis={[{ label: t('stats.points') }]}
-            />
-          </StyledChartScroller>
+          <LineChart
+            height={300}
+            series={pointsSeries}
+            xAxis={[{ data: xLabels, label: t('navigation.currentRound'), scaleType: 'point' }]}
+            yAxis={[{ label: t('stats.points') }]}
+          />
         </CardContent>
       </Card>
       <Card>
@@ -90,15 +71,12 @@ export default function GameStats() {
           <Typography variant="subtitle1" align="center">
             {t('stats.championships')}
           </Typography>
-          <StyledChartScroller scrollable={scrollable}>
-            <LineChart
-              height={300}
-              width={chartWidth}
-              series={championshipSeries}
-              xAxis={[{ data: xLabels, label: t('navigation.currentRound'), scaleType: 'point' }]}
-              yAxis={[{ label: t('stats.championships') }]}
-            />
-          </StyledChartScroller>
+          <LineChart
+            height={300}
+            series={championshipSeries}
+            xAxis={[{ data: xLabels, label: t('navigation.currentRound'), scaleType: 'point' }]}
+            yAxis={[{ label: t('stats.championships') }]}
+          />
         </CardContent>
       </Card>
     </Stack>
