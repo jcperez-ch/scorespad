@@ -4,9 +4,22 @@ async function clearDatabase(page: Page) {
   await page.context().storageState({ indexedDB: true });
 }
 
-async function createGame(page: Page, name: string) {
+async function createGame(
+  page: Page,
+  name: string,
+  gameType = 'Other',
+  participantType = 'Player',
+) {
   await page.getByRole('button', { name: 'Create Game' }).click();
   await page.getByLabel('Game Name').fill(name);
+
+  // Select game type
+  await page.getByLabel('Game Type').click();
+  await page.getByRole('option', { name: new RegExp(gameType) }).click();
+
+  // Select participant type
+  await page.getByRole('button', { name: new RegExp(participantType) }).click();
+
   await page.getByRole('button', { name: 'Create Game' }).last().click();
   await page.waitForURL(/\/games\/[^/]+\/setup$/);
 }
@@ -19,22 +32,17 @@ test.describe('game lifecycle', () => {
     await page.waitForLoadState('networkidle');
   });
 
-  test('creates a new game', async ({ page }) => {
-    await page.getByRole('button', { name: 'Create Game' }).click();
-
-    await page.getByLabel('Game Name').fill('Test Game');
-
-    // Select game type
-    await page.getByLabel('Game Type').click();
-    await page.getByRole('option', { name: /Continental/ }).click();
-
-    // Choose team participant type
-    await page.getByRole('button', { name: /Team/ }).click();
-
-    // Submit
-    await page.getByRole('button', { name: 'Create Game' }).last().click();
+  test('creates a new game with team participant type', async ({ page }) => {
+    await createGame(page, 'Test Game', 'Continental', 'Team');
 
     // Should redirect to setup page
+    await expect(page).toHaveURL(/\/games\/[^/]+\/setup$/);
+    await expect(page.getByRole('button', { name: 'Add Participant' })).toBeVisible();
+  });
+
+  test('creates a new game with player participant type', async ({ page }) => {
+    await createGame(page, 'Player Game', 'Other', 'Player');
+
     await expect(page).toHaveURL(/\/games\/[^/]+\/setup$/);
     await expect(page.getByRole('button', { name: 'Add Participant' })).toBeVisible();
   });

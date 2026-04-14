@@ -57,7 +57,7 @@ export default function GameTypeDropdown({ value, onChange, children }: Props) {
   const [t] = useTranslation();
 
   return (
-    <StyledFormControl fullWidth>
+    <StyledFormControl fullWidth id="game-type">
       <InputLabel>{t('gameType.label')}</InputLabel>
       <Select
         value={value}
