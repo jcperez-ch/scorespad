@@ -1,13 +1,7 @@
 import { Page, expect, test } from '@playwright/test';
 
 async function clearDatabase(page: Page) {
-  await page.evaluate(() => {
-    const req = indexedDB.deleteDatabase('scorespad-db');
-    return new Promise<void>((resolve, reject) => {
-      req.onsuccess = () => resolve();
-      req.onerror = () => reject();
-    });
-  });
+  await page.context().storageState({ indexedDB: true });
 }
 
 async function createGame(page: Page, name: string) {

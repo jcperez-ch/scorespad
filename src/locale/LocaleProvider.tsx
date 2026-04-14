@@ -13,7 +13,7 @@ type Props = {
   children: React.ReactNode;
 };
 
-export default function LocaleProvider({ initial = 'es', children }: Props) {
+export default function LocaleProvider({ initial = 'en', children }: Props) {
   const storage = 'locale';
   const localeState = useState<Locale>(initial);
   const [locale] = localeState;
