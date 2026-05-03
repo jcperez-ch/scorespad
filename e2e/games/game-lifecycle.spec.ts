@@ -7,15 +7,15 @@ async function clearDatabase(page: Page) {
 async function createGame(
   page: Page,
   name: string,
-  gameType = 'Other',
+  gameType = 'Continental Card Game',
   participantType = 'Player',
 ) {
   await page.getByRole('button', { name: 'Create Game' }).click();
   await page.getByLabel('Game Name').fill(name);
 
   // Select game type
-  await page.getByLabel('Game Type').click();
-  await page.getByRole('option', { name: new RegExp(gameType) }).click();
+  await page.locator('#game-type-select').click();
+  await page.getByRole('option', { name: gameType }).click();
 
   // Select participant type
   await page.getByRole('button', { name: new RegExp(participantType) }).click();
@@ -33,7 +33,7 @@ test.describe('game lifecycle', () => {
   });
 
   test('creates a new game with team participant type', async ({ page }) => {
-    await createGame(page, 'Test Game', 'Continental', 'Team');
+    await createGame(page, 'Test Game', 'Continental Card Game', 'Team');
 
     // Should redirect to setup page
     await expect(page).toHaveURL(/\/games\/[^/]+\/setup$/);
@@ -84,7 +84,7 @@ test.describe('game lifecycle', () => {
     await page.getByRole('button', { name: 'Delete' }).click();
 
     // Should redirect to landing with no games
-    await expect(page).toHaveURL('/');
-    await expect(page.getByText('There are no games to display...')).toBeVisible();
+    await expect(page).toHaveURL('/scorespad/');
+    await expect(page.getByText('There are no games to display')).toBeVisible();
   });
 });

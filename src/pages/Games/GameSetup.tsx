@@ -177,7 +177,6 @@ export default function GameSetup() {
                   variant="outlined"
                   slotProps={{
                     input: {
-                      id: `team-name-${index}`,
                       endAdornment:
                         team.name !== '' ? (
                           <InputAdornment position="end">

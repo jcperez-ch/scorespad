@@ -118,11 +118,6 @@ export default function ParticipantEdit() {
           <NameField
             autoFocus={true}
             variant="outlined"
-            slotProps={{
-              input: {
-                id: `team-name`,
-              },
-            }}
             label={t('placeholder.teamGroupName')}
             onChange={setNewName}
             onEnter={addMemberField}

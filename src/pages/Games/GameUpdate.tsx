@@ -49,11 +49,6 @@ export default function GameUpdate() {
         <NameField
           autoFocus={true}
           variant="outlined"
-          slotProps={{
-            input: {
-              id: `game-name`,
-            },
-          }}
           label={t('placeholder.game_name')}
           onChange={setNewName}
           onEnter={onSubmit}
