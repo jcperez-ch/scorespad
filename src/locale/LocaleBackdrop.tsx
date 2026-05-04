@@ -5,6 +5,7 @@ import CloseIcon from '@mui/icons-material/Close';
 import Backdrop from '@mui/material/Backdrop';
 import IconButton from '@mui/material/IconButton';
 import List from '@mui/material/List';
+import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
 import Typography from '@mui/material/Typography';
@@ -67,9 +68,15 @@ export default function LocaleBackdrop({ open, onClose }: Props) {
         </StyledHeader>
         <List>
           {items.map(({ id, label }) => (
-            <StyledListItemButton key={id} selected={id === locale} onClick={handleClick(id)}>
-              <ListItemText primary={label} slotProps={{ primary: { variant: 'h6' } }} />
-            </StyledListItemButton>
+            <ListItem key={id} disablePadding>
+              <StyledListItemButton
+                id={`locale-${id}`}
+                selected={id === locale}
+                onClick={handleClick(id)}
+              >
+                <ListItemText primary={label} slotProps={{ primary: { variant: 'h6' } }} />
+              </StyledListItemButton>
+            </ListItem>
           ))}
         </List>
       </StyledPanel>
