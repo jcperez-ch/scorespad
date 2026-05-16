@@ -1,5 +1,6 @@
 import { expect, test } from '@playwright/test';
-import { createGame, clearDatabase } from '../helpers/game';
+
+import { clearDatabase, createGame } from '../helpers/game';
 
 test.describe('game lifecycle', () => {
   test.beforeEach(async ({ page }) => {
@@ -22,6 +23,30 @@ test.describe('game lifecycle', () => {
 
     await expect(page).toHaveURL(/\/games\/[^/]+\/setup$/);
     await expect(page.getByRole('button', { name: 'Add Participant' })).toBeVisible();
+    await expect(page.getByRole('button', { name: 'Create Game' })).toBeVisible();
+
+    // Fill in 3 participants
+    await page.getByLabel('Participant 1').fill('Uno');
+    await page.keyboard.press('Escape');
+    await page.getByRole('button', { name: 'Add Participant' }).click();
+    await page.getByLabel('Participant 2').fill('Dos');
+    await page.keyboard.press('Escape');
+    await page.getByRole('button', { name: 'Add Participant' }).click();
+    await page.getByLabel('Participant 3').fill('Tres');
+    await page.keyboard.press('Escape');
+
+    // Submit and verify lobby
+    await page.getByRole('button', { name: 'Create Game' }).click();
+    await expect(page).toHaveURL(/\/games\/[^/]+$/);
+    await expect(
+      page.getByText('The round is ready, press the button below to start.'),
+    ).toBeVisible();
+
+    // Navigate to participants and verify all 3 are visible
+    await page.getByRole('button', { name: 'Participants' }).click();
+    await expect(page.getByText('Uno')).toBeVisible();
+    await expect(page.getByText('Dos')).toBeVisible();
+    await expect(page.getByText('Tres')).toBeVisible();
   });
 
   test('renames a game', async ({ page }) => {
